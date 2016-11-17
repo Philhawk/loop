@@ -1,0 +1,39 @@
+
+
+.homepage {
+  background-image: url(../img/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  max-width: 100vw;
+}
+
+.nav-wrapper {
+  border-bottom: none;
+}
+/*super large*/
+@media (min-width: 1201px) {
+
+}
+
+/*Large Screen*/
+@media (min-width: 992px) {
+
+}
+/*mediun Screen*/
+@media (max-width: 991px) {
+
+}
+
+
+/*small screen*/
+
+@media (max-width: 601px) {
+
+}
+
+
+/*iphone5*/
+@media (max-width: 321px) {
+
+}
