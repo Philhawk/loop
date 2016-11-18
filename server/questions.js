@@ -3,7 +3,7 @@
 const express = require('express');
 const db = require('APP/db');
 
-const questionsRouter = express.router();
+const questionsRouter = express.Router();
 
 // get all questions
 questionsRouter.get('/', (req, res, next) => {
@@ -16,7 +16,7 @@ questionsRouter.get('/', (req, res, next) => {
 
 // get a specific question by its ID
 questionsRouter.get('/:questionId', (req, res, next) => {
-  db.model('questions').findById({req.params.questionId})
+  db.model('questions').findById(req.params.questionId)
   .then(question => {
     res.json(question);
   })
@@ -24,20 +24,20 @@ questionsRouter.get('/:questionId', (req, res, next) => {
 });
 
 // get all questions associated with a specific lecture
-questionsRouter.get('/:lectureId', (req, res, next) => {
+questionsRouter.get('/lectures/:lectureId', (req, res, next) => {
   db.model('questions').findAll({
     where: {
       lecture_id: req.params.lectureId
     }
   })
   .then(questions => {
-    res.json('questions')
+    res.json(questions)
   })
   .catch(next);
 });
 
 // create a question
-questionRouter.post('/', (req, res, next) => {
+questionsRouter.post('/', (req, res, next) => {
   db.model('questions').create(req.body)
   .then(question => {
     res.status(201).json(question)
@@ -46,7 +46,7 @@ questionRouter.post('/', (req, res, next) => {
 });
 
 // update a specific question
-questionRouter.put('/:questionId', (req, res, next) => {
+questionsRouter.put('/:questionId', (req, res, next) => {
   db.model('questions').findById(req.params.questionId)
   .then(question => {
     question.update(req.body)
@@ -58,7 +58,7 @@ questionRouter.put('/:questionId', (req, res, next) => {
 })
 
 // deletes a specific question
-questionRouter.delete('/:questionId', (req, res, next) => {
+questionsRouter.delete('/:questionId', (req, res, next) => {
   db.model('questions').findById(req.params.questionId)
   .then(question => {
     question.destroy()
