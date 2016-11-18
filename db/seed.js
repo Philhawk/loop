@@ -1,14 +1,65 @@
-const db = require('APP/db')
+const db = require('APP/db');
 
 const seedUsers = () => db.Promise.map([
-  {name: 'so many', email: 'god@example.com', password: '1234'},
-  {name: 'Barack Obama', email: 'barack@example.gov', password: '1234'},
-], user => db.model('users').create(user))
+  {id: 1, name: 'Barack Obama', email: 'barack@example.gov', password: '1234', role: 'Teacher'},
+  {id: 2, name: 'Peter Exampleton', email: 'peter@example.com', password: '1234', role: 'Student'},
+  {id: 3, name: 'Susie Sampleton', email: 'susie@example.com', password: '1234', role: 'Student'},
+  {id: 4, name: 'Barb Sampling', email: 'barb@example.com', password: '1234', role: 'Student'},
+  {id: 5, name: 'Max Exampleton', email: 'max@max.max', password: '1234', role: 'Teacher'},
+], user => db.model('users').create(user));
+
+const seedLectures = () => db.Promise.map([
+  {id: 1, name: 'English II Othello', mood: 75, timeStarted: Date.now(), teacher_id: 1},
+  {id: 2, name: 'Express.js', mood: 90, timeStarted: Date.now(), teacher_id: 1},
+  {id: 3, name: 'Intro to Redux', mood: 20, timeStarted: Date.now(), teacher_id: 5}
+], lecture => db.model('lectures').create(lecture));
 
 const seedQuestions = () => db.Promise.map([
-  {content: 'Who is the antagonist of Othello?', correctAnswer: 'Iago', questionType: 'multipleChoice'}
+  {id: 1, content: 'Who is the antagonist of Othello?', correctAnswer: 'Iago', questionType: 'multipleChoice', choices: ['Iago', 'Othello', 'Cassio', 'Desdemona'], },
+  {id: 2, content: 'What are two ways Othello experienced racism in Act I?', questionType: 'openEnded', },
+  {id: 3, content: 'What is one of the biggest symbols of the play?', correctAnswer: 'the handkerchief', questionType: 'fillInTheBlank', },
+  {id: 4, content: 'What is the method for creating new data?', correctAnswer: 'POST', questionType: 'multipleChoice', choices: ['GET', 'POST', 'PUT', 'DELETE'], },
+  {id: 5, content: 'Write a function for starting a server in express.', questionType: 'openEnded', },
+  {id: 6, content: 'What is the method for using middleware?', correctAnswer: 'use', questionType: 'fillInTheBlank', },
+  {id: 7, content: 'Why is it bad practice to mutate the state in Redux?', questionType: 'openEnded', },
+  {id: 8, content: 'What is the name of an asynchronus action creator?', correctAnswer: 'thunk', questionType: 'fillInTheBlank', },
+  {id: 9, content: 'What mechanism in Redux holds the state?', correctAnswer: 'store', questionType: 'multipleChoice', choices: ['reducer', 'store', 'thunk', 'action creator'], },
+], question => db.model('questions').create(question));
 
-], question => db.model('question').create(question))
+const seedResponses = () => db.Promise.map([
+  {userResponse: 'Iago', timeStamp: Date.UTC(2016, 11, 5, 8, 30, 30), question_id: 1},
+  {userResponse: 'Cassio', timeStamp: Date.UTC(2016, 11, 5, 8, 35, 30), question_id: 1},
+  {userResponse: 'Iago and Roderigo used racial slurs when describing him', timeStamp: Date.UTC(2016, 11, 6, 8, 40, 30), question_id: 2},
+  {userResponse: 'I dunno :(', timeStamp: Date.UTC(2016, 11, 6, 8, 45, 13), question_id: 2},
+  {userResponse: 'handkerchief', timeStamp: Date.UTC(2016, 11, 7, 9, 50, 10), question_id: 3},
+  {userResponse: 'sword', timeStamp: Date.UTC(2016, 11, 7, 9, 55, 45), question_id: 3},
+  {userResponse: 'POST', timeStamp: Date.UTC(2016, 11, 8, 11, 32, 30), question_id: 4},
+  {userResponse: 'PUT', timeStamp: Date.UTC(2016, 11, 8, 11, 35, 55), question_id: 4},
+  {userResponse: 'app.listen(3000)', timeStamp: Date.UTC(2016, 11, 9, 11, 52, 19), question_id: 5},
+  {userResponse: 'app.startAllTheServersPlease(3000)', timeStamp: Date.UTC(2016, 11, 9, 11, 58, 39), question_id: 5},
+  {userResponse: 'use', timeStamp: Date.UTC(2016, 11, 11, 8, 30, 30), question_id: 6},
+  {userResponse: 'put', timeStamp: Date.UTC(2016, 11, 11, 11, 11, 11), question_id: 6},
+  {userResponse: 'Because immutable data leads to less unexpected behavior.', timeStamp: Date.UTC(2016, 11, 13, 14, 44, 34), question_id: 7},
+  {userResponse: 'Cause Tom said so.', timeStamp: Date.UTC(2016, 11, 13, 14, 52, 31), question_id: 7},
+  {userResponse: 'thunk', timeStamp: Date.UTC(2016, 11, 15, 15, 1, 30), question_id: 8},
+  {userResponse: 'bunk', timeStamp: Date.UTC(2016, 11, 15, 15, 7, 21), question_id: 8},
+  {userResponse: 'store', timeStamp: Date.UTC(2016, 11, 17, 9, 30, 46), question_id: 9},
+  {userResponse: 'reducer', timeStamp: Date.UTC(2016, 11, 17, 9, 39, 46), question_id: 9},
+], response => db.model('responses').create(response));
+
+
+const seedParticipants = () => {
+  let findingStudents = db.model('users').findAll({ where: { role: 'Student' }});
+  let findingLectures = db.model('lectures').findAll();
+  Promise.all([findingStudents, findingLectures])
+  .then(values => {
+    const foundStudents = values[0];
+    const foundLectures = values[1];
+    const lecturesWithStudents = foundLectures.map(lecture => {
+      lecture.setUsers(foundStudents)
+    })
+  })
+}
 
 
 db.didSync
@@ -17,5 +68,11 @@ db.didSync
   .then(users => console.log(`Seeded ${users.length} users OK`))
   .then(seedQuestions)
   .then(questions => console.log(`Seeded ${questions.length} questions OK`))
+  .then(seedLectures)
+  .then(lectures => console.log(`Seeded ${lectures.length} lectures OK`))
+  .then(seedResponses)
+  .then(responses => console.log(`Seeded ${responses.length} responses OK`))
+  .then(seedParticipants)
+  .then(response => console.log('Successfully seeded the responses.'))
   .catch(error => console.error(error))
-  .finally(() => db.close())
+  // .finally(() => db.close())

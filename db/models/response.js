@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize');
 const db = require('APP/db');
 
-const Response = db.define('response', {
+const Response = db.define('responses', {
   userResponse: {
     type: Sequelize.TEXT,
     allowNull: false

@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize');
 const db = require('APP/db');
 
-const Lecture = db.define('lecture', {
+const Lecture = db.define('lectures', {
   name: Sequelize.STRING,
   mood: {
     type: Sequelize.INTEGER,

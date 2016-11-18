@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize');
 const db = require('APP/db');
 
-const Question = db.define('question', {
+const Question = db.define('questions', {
   content: {
     type: Sequelize.TEXT,
     allowNull: false
@@ -21,7 +21,6 @@ const Question = db.define('question', {
 }, {
   validate: {
     choicesRequired: function() {
-      console.log("THIS.CHOICES", this.choices)
       if (this.choices === undefined && this.questionType === 'multipleChoice') {
         throw new Error("If question is not open ended, choices are required!")
       }
