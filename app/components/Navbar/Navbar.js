@@ -14,8 +14,7 @@ export default class Navbar extends Component {
         <nav className="transparent z-depth-0">
           <div className="nav-wrapper">
             <a href="/" className="brand-logo">
-              {/*<img src="../public/images/logo.png"></img>*/}
-              Loops
+              {<img src="/logo.png"></img>}
             </a>
             <ul className="right hide-on-med-and-down">
               <li><a href="">Why use it</a></li>
