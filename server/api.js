@@ -11,6 +11,7 @@ api
 
 // Send along any errors
 api.use((err, req, res, next) => {
+  console.log("HORRIBLE ERROR", err)
   res.status(500).send(err)
 })
 
