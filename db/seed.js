@@ -15,15 +15,15 @@ const seedLectures = () => db.Promise.map([
 ], lecture => db.model('lectures').create(lecture));
 
 const seedQuestions = () => db.Promise.map([
-  {id: 1, content: 'Who is the antagonist of Othello?', correctAnswer: 'Iago', questionType: 'multipleChoice', choices: ['Iago', 'Othello', 'Cassio', 'Desdemona'], },
-  {id: 2, content: 'What are two ways Othello experienced racism in Act I?', questionType: 'openEnded', },
-  {id: 3, content: 'What is one of the biggest symbols of the play?', correctAnswer: 'the handkerchief', questionType: 'fillInTheBlank', },
-  {id: 4, content: 'What is the method for creating new data?', correctAnswer: 'POST', questionType: 'multipleChoice', choices: ['GET', 'POST', 'PUT', 'DELETE'], },
-  {id: 5, content: 'Write a function for starting a server in express.', questionType: 'openEnded', },
-  {id: 6, content: 'What is the method for using middleware?', correctAnswer: 'use', questionType: 'fillInTheBlank', },
-  {id: 7, content: 'Why is it bad practice to mutate the state in Redux?', questionType: 'openEnded', },
-  {id: 8, content: 'What is the name of an asynchronus action creator?', correctAnswer: 'thunk', questionType: 'fillInTheBlank', },
-  {id: 9, content: 'What mechanism in Redux holds the state?', correctAnswer: 'store', questionType: 'multipleChoice', choices: ['reducer', 'store', 'thunk', 'action creator'], },
+  {id: 1, content: 'Who is the antagonist of Othello?', correctAnswer: 'Iago', questionType: 'multipleChoice', choices: ['Iago', 'Othello', 'Cassio', 'Desdemona'], lecture_id: 1},
+  {id: 2, content: 'What are two ways Othello experienced racism in Act I?', questionType: 'openEnded', lecture_id: 1},
+  {id: 3, content: 'What is one of the biggest symbols of the play?', correctAnswer: 'the handkerchief', questionType: 'fillInTheBlank', lecture_id: 1},
+  {id: 4, content: 'What is the method for creating new data?', correctAnswer: 'POST', questionType: 'multipleChoice', choices: ['GET', 'POST', 'PUT', 'DELETE'], lecture_id: 2},
+  {id: 5, content: 'Write a function for starting a server in express.', questionType: 'openEnded', lecture_id: 2},
+  {id: 6, content: 'What is the method for using middleware?', correctAnswer: 'use', questionType: 'fillInTheBlank', lecture_id: 2},
+  {id: 7, content: 'Why is it bad practice to mutate the state in Redux?', questionType: 'openEnded', lecture_id: 3},
+  {id: 8, content: 'What is the name of an asynchronus action creator?', correctAnswer: 'thunk', questionType: 'fillInTheBlank', lecture_id: 3},
+  {id: 9, content: 'What mechanism in Redux holds the state?', correctAnswer: 'store', questionType: 'multipleChoice', choices: ['reducer', 'store', 'thunk', 'action creator'], lecture_id: 3},
 ], question => db.model('questions').create(question));
 
 const seedResponses = () => db.Promise.map([
@@ -66,10 +66,10 @@ db.didSync
   .then(() => db.sync({force: true}))
   .then(seedUsers)
   .then(users => console.log(`Seeded ${users.length} users OK`))
-  .then(seedQuestions)
-  .then(questions => console.log(`Seeded ${questions.length} questions OK`))
   .then(seedLectures)
   .then(lectures => console.log(`Seeded ${lectures.length} lectures OK`))
+  .then(seedQuestions)
+  .then(questions => console.log(`Seeded ${questions.length} questions OK`))
   .then(seedResponses)
   .then(responses => console.log(`Seeded ${responses.length} responses OK`))
   .then(seedParticipants)
