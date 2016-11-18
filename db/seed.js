@@ -47,6 +47,14 @@ const seedResponses = () => db.Promise.map([
   {userResponse: 'reducer', timeStamp: Date.UTC(2016, 11, 13, 15, 16, 46), question_id: 9},
 ], response => db.model('responses').create(response));
 
+seedSessions = () => db.Promise.map([
+  {sessionString: '12d9dc83-01d6-4085-9cb3-aed81af7b29c', active: false, lecture_id: 1},
+  {sessionString: 'bd6f8c3b-1443-4eee-aa37-c912b9a2bd60', active: false, lecture_id: 1},
+  {sessionString: '64ab97b1-e2ce-4462-8145-0078bd7c946b', active: false, lecture_id: 2},
+  {sessionString: '1a537699-3b81-4dbe-bf3d-507c801681a7', active: false, lecture_id: 2},
+  {sessionString: '270ae15c-d8c9-4e86-bcc3-c05335876132', active: false, lecture_id: 3},
+], session => db.model('sessions').create(session))
+
 
 const seedParticipants = () => {
   let findingStudents = db.model('users').findAll({ where: { role: 'Student' }});
@@ -72,6 +80,8 @@ db.didSync
   .then(questions => console.log(`Seeded ${questions.length} questions OK`))
   .then(seedResponses)
   .then(responses => console.log(`Seeded ${responses.length} responses OK`))
+  .then(seedSessions)
+  .then(sessions => console.log(`Seeded ${sessions.length} sessions OK`))
   .then(seedParticipants)
   .then(response => console.log('Successfully seeded the responses.'))
   .catch(error => console.error(error))
