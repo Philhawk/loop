@@ -1,23 +1,71 @@
+//React
+import {Link} from 'react-router';
 import React, { Component } from 'react';
 
-export default class Navbar extends Component {
+// For Navbar
+import {AppBar, Tabs, Tab, Toolbar, ToolbarGroup, ToolbarTitle, NotificationsIcon} from 'material-ui';
+//Cart
+import {FontIcon,Badge,IconButton,ActionHome } from 'material-ui';
+//Dialog modol
+import {FlatButton, RaisedButton, Dialog, TextField} from 'material-ui';
+import {Card, CardHeader, CardActions, CardText} from 'material-ui';
+
+
+
+//Custom images Logos
+const WPLogo = <img src="/logo.png"/> ;
+
+/* ---  Component --- */
+class Navbar extends Component {
   constructor() {
     super();
   }
 
+  // temp function to put in for buttons and events
+  handleTouchTap() {
+  }
+
   render() {
+    // Material UI styles
+    const styles = {
+      toolbar: {
+        'backgroundColor': 'transparent',
+        'padding-left': '8px',
+        'margin-top': '0.2em',
+      }
+    };
+
+// icon components
+    const logoutIcon =
+        <IconButton tooltip="Log Out" >
+              <FontIcon className="material-icons"  hoverColor={'#FCFCFC'} onClick={this.props.logoutUser} onTouchTap={this.handleClose}>exit_to_app</FontIcon>
+        </IconButton>;
+
+
+    const houseIcon =
+        <IconButton tooltip="My Account" >
+            <FontIcon className="material-icons"  hoverColor={'#FCFCFC'} onTouchTap={this.handleOpen}>home</FontIcon>
+        </IconButton>;
+
+
+
+// Navbar component
     return (
-      <nav className="transparent">
-        <div className="nav-wrapper">
-          <a href="#" className="brand-logo">Logo</a>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li><a href="sass.html">What Is It</a></li>
-            <li><a href="badges.html">Why Use It</a></li>
-            <li><a href="collapsible.html">About Us</a></li>
-            <li><a href="collapsible.html">Login / Signup</a></li>
-          </ul>
-        </div>
-      </nav>
-    )
+      <div>
+        <Toolbar style={styles.toolbar}>
+          <ToolbarGroup>
+            <Link to='/' className='logo'>{WPLogo}</Link>
+          </ToolbarGroup>
+
+          <ToolbarGroup>
+            <div>
+
+            </div>
+        </ToolbarGroup>
+      </Toolbar>
+      </div>
+    );
   }
 }
+
+export default Navbar;

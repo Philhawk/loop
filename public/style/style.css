@@ -9,7 +9,7 @@
 }
 
 .nav-wrapper {
-  border-bottom: none;
+  border-bottom: 20px;
 }
 /*super large*/
 @media (min-width: 1201px) {
