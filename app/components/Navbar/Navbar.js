@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoginModal from '../LoginModal/LoginModal'
+import LoginModal from '../LoginModal';
 
 
 export default class Navbar extends Component {
@@ -20,9 +20,8 @@ export default class Navbar extends Component {
               <li><a href="">Why use it</a></li>
               <li><a href="">How it works</a></li>
               <li><a href="">About Us</a></li>
-              <li><a className="waves-effect waves-light btn" href="#modal1">Login</a></li>
+              <LoginModal/>
             </ul>
-            <LoginModal/>
           </div>
         </nav>
       </div>
