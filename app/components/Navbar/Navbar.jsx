@@ -59,7 +59,6 @@ class Navbar extends Component {
 
           <ToolbarGroup>
             <div>
-
             </div>
         </ToolbarGroup>
       </Toolbar>
