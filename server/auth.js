@@ -100,7 +100,6 @@ passport.use(new (require('passport-local').Strategy) ({
   passwordField: 'password'
 },
 (email, password, done) => {
-  console.log("YO WADDUP")
   debug('will authenticate user(email: "%s")', email)
   User.findOne({where: {email}})
     .then(user => {
