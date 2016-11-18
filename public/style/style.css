@@ -17,16 +17,122 @@
   padding-top: 1em;
 }
 
+.brand-text {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: white;
+  font-size: 1em;
+}
 .homepage {
-  background-image: url(../img/background.jpg);
+  background-image: url(../img/background.png);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
   max-width: 100vw;
 }
 
-a.brand-logo {
+.button-left {
+  text-align: right;
+  float: right;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
   color: white;
+  font-size: 1em;
+  display: inline-block;
+  margin: 0.2em;
+  padding: 0.24em 4em;
+  border: 1px solid white;
+  overflow: hidden;
+  text-decoration: none;
+  border-radius: 8px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 15px;
+  text-align: center;
+}
+
+.padding-rule {
+  padding-top: 1.2em;
+}
+
+.coverflow__text__39hqd {
+  font-family: 'Work Sans', sans-serif !important;
+  font-weight: 50 !important;
+  color: white !important;
+}
+
+.fancy-stats {
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: #31BEF8;
+  font-size: 2em;
+  text-align: center;
+}
+
+.coverflow__container__1P-xE {
+  background: none !important;
+}
+
+.stats-explainer {
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: white;
+  font-size: 0.6em;
+  text-align: center;
+}
+
+.button-right {
+  text-align: left;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: white;
+  font-size: 1em;
+  display: inline-block;
+  margin-left: 4em;
+  margin: 0.2em;
+  padding: 0.24em 4em;
+  border: 1px solid white;
+  overflow: hidden;
+  text-decoration: none;
+  border-radius: 8px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 15px;
+  text-align: center;
+}
+
+.button:hover {
+  box-shadow: 1px 6px 15px rgba(0,0,0,0.2);
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+.button-left:hover {
+  box-shadow: 1px 6px 15px rgba(0,0,0,0.2);
+}
+
+.header-grid-buttons {
+  margin-top: 4em;
+}
+a.brand-logo {
+  padding-left: 2em;
+  color: white;
+}
+
+.border-white {
+  border-color: white;
 }
 
 nav ul a {

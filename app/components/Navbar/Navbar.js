@@ -17,10 +17,10 @@ export default class Navbar extends Component {
               {<img src="/logo.png"></img>}
             </a>
             <ul className="right hide-on-med-and-down">
-              <li><a href="">Why use it</a></li>
-              <li><a href="">How it works</a></li>
-              <li><a href="">About Us</a></li>
-              <li><a className="waves-effect waves-light btn" href="#modal1">Login</a></li>
+              <li className='brand-text'><a href="">Why use it</a></li>
+              <li className='brand-text'><a href="">How it works</a></li>
+              <li className='brand-text'><a href="">About Us</a></li>
+              <li className='brand-text'><a className="waves-effect waves-light btn" href="#modal1">Login</a></li>
             </ul>
             <LoginModal/>
           </div>
