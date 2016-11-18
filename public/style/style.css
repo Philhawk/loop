@@ -25,6 +25,15 @@
   max-width: 100vw;
 }
 
+a.brand-logo {
+  color: white;
+}
+
+nav ul a {
+  color: white;
+}
+
+
 .title {
   font-family: 'Raleway', sans-serif;
   color: white;
