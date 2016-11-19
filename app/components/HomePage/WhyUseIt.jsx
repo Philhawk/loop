@@ -2,21 +2,21 @@
 import React, { Component } from 'react';
 
 /* ---  Component --- */
-class WhatIsIt extends Component {
+class WhyUseIt extends Component {
   constructor() {
     super();
   }
 
   render() {
 
-// WhatIsIt component
+// WhyUseIt component
     return (
       <div className="whatisit">
         <div className="row">
           <div className="col s1 m1 l1 backGround">
           </div>
           <div className="what-is-it-text col s11 m11 l11">
-            What Is It?
+            Why Use It?
           </div>
         </div>
         <div className="row no-pad ">
@@ -76,4 +76,4 @@ class WhatIsIt extends Component {
   }
 }
 
-export default WhatIsIt;
+export default WhyUseIt;
