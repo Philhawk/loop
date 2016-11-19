@@ -48,8 +48,8 @@ class CarouselVideo extends Component {
 
           >
           <img src='img/vr.jpg' alt='Album one' data-action="https://facebook.github.io/react/"/>
-          <img src='img/vr.jpg' alt='Album two' data-action="http://passer.cc"/>
-          <img src='img/vr.jpg' alt='Album three' data-action="https://doce.cc/"/>
+          <img src='img/Adele.jpg' alt='Album two' data-action="http://passer.cc"/>
+          <img src='img/bob.jpg' alt='Album three' data-action="https://doce.cc/"/>
         </Coverflow>
       </StyleRoot>
     )
