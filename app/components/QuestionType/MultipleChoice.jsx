@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Input } from 'react-materialize';
 
-export default class MultipileChoice extends Component {
+export default class MultipleChoice extends Component {
   constructor() {
     super();
   }
