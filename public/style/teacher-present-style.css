@@ -1,0 +1,36 @@
+/*Teacher Presentation View Styles*/
+.teacherPresentationViewMain {
+  background-color: #EEF4F9;
+}
+
+.teacherPresentationViewPanel {
+  background-color: #4E546C;
+  padding: 0 !important;
+}
+
+.teacherPresentationControlBar {
+  bacakground-color: #FFFFFF;
+}
+
+.TeacherPresentMainCards {
+  background-color: white;
+  margin-left: 1em !important;
+  margin-right: 1em !important;
+}
+
+.TeacherPresentCardPanel{
+  padding: .5em 1em 0 1em;
+  
+}
+
+.TeacherPresentCurrentUser{
+  text-align: center;
+  background-color: #606885;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.TeacherPresentCurrentUser h4 {
+  padding: .5em 0 .5em 0;
+  margin: 0 !important;
+}

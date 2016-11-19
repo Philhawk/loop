@@ -1,14 +1,105 @@
 import React, { Component } from 'react';
+import { Button, Row, Input } from 'react-materialize';
+import FillInBlank from '../QuestionType/FillInBlank';
+import MultipleChoice from '../QuestionType/MultipleChoice';
+import OpenEnded from '../QuestionType/OpenEnded';
+
+
 
 export default class TeacherCreateLoop extends Component {
   constructor() {
     super();
+    this.state = {};
+    this.onFillInBlank = this.onFillInBlank.bind(this);
+    this.onMultipleChoice = this.onMultipleChoice.bind(this);
+    this.onOpenEnded = this.onOpenEnded.bind(this);
+  }
+
+  onFillInBlank(e) {
+    e.preventDefault()
+    this.setState({whois: "fillInBlank"})
+  }
+
+  onMultipleChoice(e) {
+    e.preventDefault()
+    this.setState({whois: "multipleChoice"})
+  }
+
+  onOpenEnded(e) {
+    e.preventDefault()
+    this.setState({whois: "openEnded"})
+  }
+
+  showQuestion() {
+    if (this.state.whois === "fillInBlank") {
+      return <FillInBlank />
+    } else if (this.state.whois === "multipleChoice") {
+      return <MultipleChoice />
+    } else if (this.state.whois === "openEnded")
+      return <OpenEnded />
   }
 
   render() {
     return (
-      <div>
-        <h1>TEACHER MAKES STUFF HERE!</h1>
+     <div className="row">
+
+        <div className="col s12 m12 l6" id="questionCreation">
+          <div className="row"></div>
+          <Button waves='light' id="startPresBtn">Start Presentation</Button>
+          <div className="row"></div>
+          <div className="card large blue-grey darken-1">
+            <div className="card-content white-text">
+              {this.showQuestion()}
+            </div>
+          </div>
+        </div>
+
+        <div className="col s12 m12 l4" id="questionOption">
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <span className="card-title">Fill in the blank</span>
+              <p>Your teachers name is ___________.</p>
+            </div>
+            <div className="card-action">
+              <a href="" onClick={this.onFillInBlank}>Create Question</a>
+            </div>
+          </div>
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <span className="card-title">Multiple Choice</span>
+              <h6>Who is the 44th President of the United States?</h6>
+              <p>A. Barack Obama</p>
+              <p>B. Abraham Lincoln</p>
+              <p>C. George Bush</p>
+            </div>
+            <div className="card-action">
+              <a href="" onClick={this.onMultipleChoice}>Create Question</a>
+            </div>
+          </div>
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <span className="card-title">Open Ended</span>
+              <p>160 characters or less please.</p>
+            </div>
+            <div className="card-action">
+              <a href="" onClick={this.onOpenEnded}>Create Question</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="col s12 m2 l2" id="Sidebar">
+          <div className="card #37474f blue-grey darken-3">
+            <div className="card-content white-text">
+              <span className="card-title">User Name</span>
+            </div>
+          </div>
+          <div className="card #37474f blue-grey darken-3">
+            <div className="card-content white-text">
+              <Button floating large className='green' waves='light' icon='add' id="addBtn" />
+            </div>
+          </div>
+        </div>
+
       </div>
     );
   }

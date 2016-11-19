@@ -16,7 +16,57 @@
   background-color: #006494;
 }
 
+.footer {
+  background-color: #0C2239;
+  height: 6em;
+}
+
+.termsandconditions {
+    padding-top: 2em !important;
+    text-align: left;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 50;
+    color: white;
+    font-size: 1em;
+    display: inline-block;
+    font-size: 15px;
+}
+
+.companyname {
+  padding-left: 0.2em;
+}
+.bottom-brand-logo {
+  padding-top: 2em;
+  text-align: left;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: white;
+  font-size: 1em;
+  display: inline-block;
+  font-size: 15px;
+}
+.whyuseit {
+  background-color: #0C2239;
+  padding-bottom: 2em;
+}
+
+
 .what-is-it-text {
+  padding-top: 2em !important;
+  /*text-align: left;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 200;
+  color: #31BEF8;
+  font-size: 1.2em;*/
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 200;
+  color:  #31BEF8;
+  font-size: 1.12em;
+  text-align: left;
+}
+
+
+.about-us-text {
   padding-top: 2em !important;
   /*text-align: left;
   font-family: 'Work Sans', sans-serif;
@@ -54,7 +104,7 @@
   background-image: url(../img/background.png);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 206vh;
+  height: 220vh;
   max-width: 100vw;
 }
 
@@ -162,6 +212,29 @@
   text-align: center;
 }
 
+.button-learn {
+  text-align: left;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: white;
+  font-size: 1em;
+  display: inline-block;
+  margin-left: 4em;
+  margin: 0.2em;
+  padding: 0.24em 4em;
+  border: 1px solid white;
+  overflow: hidden;
+  text-decoration: none;
+  border-radius: 28px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 15px;
+  text-align: center;
+}
+
 .button:hover {
 
   box-shadow: 1px 6px 15px rgba(0,0,0,0.2);
@@ -209,11 +282,11 @@ nav ul a {
   background-color: #006494;
 }
 
-.whatsummary {
+.whatsummary{
   font-family: 'Work Sans', sans-serif;
   font-weight: 50;
   color: white;
-  font-size: 0.8em;
+  font-size: 0.92em;
   text-align: left;
   padding-top: 1em;
   opacity: 0.86;
@@ -222,7 +295,63 @@ nav ul a {
 .no-pad {
   margin-bottom: 0px;
 }
+
+.why-use-it-heading-text {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: white;
+  font-size: 2em;
+  text-align: left;
+  padding-top: 1em;
+}
+
+.about-us-heading-text {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: white;
+  padding-top: 2em !important;
+  font-size: 1.8em;
+  text-align: center;;
+}
+
+.box-row {
+  padding-left: 3em;
+}
+
+.aboutus {
+  background-color: #385C7B;
+}
+
+.about-us-box {
+  border-radius: 100px;
+  height: 100px;
+  text-align: center;
+  padding-left: 3em;
+  width: 100px;
+  background-image: url(../img/vr.jpg);
+}
+
 /*super large*/
+
+@media (min-width: 1600px) {
+  .homepage {
+    height: 230vh;
+  }
+  .row {
+    padding-bottom: 1em;
+  }
+
+  .backGround {
+    background-color: #006494;
+  }
+
+  .whatisit {
+    background-color: #006494;
+    height: 56vh;
+    /*background-color: #006494;*/
+  }
+}
+
 
 @media (min-width: 1091px) {
   .row {
@@ -235,11 +364,10 @@ nav ul a {
 
   .whatisit {
     background-color: #006494;
-    height: 58vh;
+    height: 44vh;
     /*background-color: #006494;*/
   }
 }
-
 /*Large Screen*/
 @media (max-width: 1090px) {
   .backGround {
@@ -266,6 +394,7 @@ nav ul a {
 }
 
 @media (max-width: 832px) {
+
   .backGround {
     background-color: #006494;
   }
@@ -285,11 +414,15 @@ nav ul a {
     background-color: #006494;
     height: 56vh;
   }
+  .why-use-it-text {
+    padding-left: 2.4em !important;
+  }
 }
 
 /*small screen*/
 
 @media (max-width: 415px) {
+
   a.brand-logo {
     padding-left: 0;
   }
@@ -300,6 +433,14 @@ nav ul a {
 
   .button-right {
     padding: 0.24em 2em 0.2em;
+  }
+
+  .why-use-it-text {
+    padding-left: 3em !important;
+  }
+
+  .whyuseit {
+    padding-bottom: 3em;
   }
 
   .whatisit {
@@ -331,6 +472,10 @@ nav ul a {
     padding: 0.24em 2em 0.2em;
   }
 
+  .whyuseit {
+    padding-bottom: 2em;
+  }
+
   .whatisit {
     background-color: #006494;
     /*background-color: #006494;*/
@@ -358,6 +503,10 @@ nav ul a {
 
   .button-right {
     padding: 0.24em 2em 0.2em;
+  }
+
+  .whyuseit {
+    padding-bottom: 2em;
   }
 
   .whatisit {
