@@ -1,6 +1,6 @@
 const db = require('APP/db');
 
-const seedUsers = () => db.Promise.map([
+const seedUsers = () => db.Promise.each([
   {name: 'Barack Obama', email: 'barack@example.gov', password: '1234', role: 'Teacher'},
   {name: 'Peter Exampleton', email: 'peter@example.com', password: '1234', role: 'Student'},
   {name: 'Susie Sampleton', email: 'susie@example.com', password: '1234', role: 'Student'},
@@ -8,25 +8,39 @@ const seedUsers = () => db.Promise.map([
   {name: 'Max Exampleton', email: 'max@max.max', password: '1234', role: 'Teacher'},
 ], user => db.model('users').create(user));
 
-const seedLectures = () => db.Promise.map([
-  {id: 1, name: 'English II Othello', mood: 75, timeStarted: Date.UTC(2016, 11, 5, 8, 25), teacher_id: 1},
-  {id: 2, name: 'Express.js', mood: 90, timeStarted: Date.UTC(2016, 11, 8, 11, 30), teacher_id: 1},
-  {id: 3, name: 'Intro to Redux', mood: 20, timeStarted: Date.UTC(2016, 11, 13, 14, 40), teacher_id: 5}
+// const users = [
+//   {name: 'Barack Obama', email: 'barack@example.gov', password: '1234', role: 'Teacher'},
+//   {name: 'Peter Exampleton', email: 'peter@example.com', password: '1234', role: 'Student'},
+//   {name: 'Susie Sampleton', email: 'susie@example.com', password: '1234', role: 'Student'},
+//   {name: 'Barb Sampling', email: 'barb@example.com', password: '1234', role: 'Student'},
+//   {name: 'Max Exampleton', email: 'max@max.max', password: '1234', role: 'Teacher'},
+// ]
+//
+//
+// var promises = [];
+// for(var i = 0; i < users.length; i++) {
+//   promises.push(db.model('users').create(users[i]))
+// }
+
+const seedLectures = () => db.Promise.each([
+  {name: 'English II Othello', mood: 75, timeStarted: Date.UTC(2016, 11, 5, 8, 25), teacher_id: 1},
+  {name: 'Express.js', mood: 90, timeStarted: Date.UTC(2016, 11, 8, 11, 30), teacher_id: 1},
+  {name: 'Intro to Redux', mood: 20, timeStarted: Date.UTC(2016, 11, 13, 14, 40), teacher_id: 5}
 ], lecture => db.model('lectures').create(lecture));
 
-const seedQuestions = () => db.Promise.map([
-  {id: 1, content: 'Who is the antagonist of Othello?', correctAnswer: 'Iago', questionType: 'multipleChoice', choices: ['Iago', 'Othello', 'Cassio', 'Desdemona'], lecture_id: 1},
-  {id: 2, content: 'What are two ways Othello experienced racism in Act I?', questionType: 'openEnded', lecture_id: 1},
-  {id: 3, content: 'What is one of the biggest symbols of the play?', correctAnswer: 'the handkerchief', questionType: 'fillInTheBlank', lecture_id: 1},
-  {id: 4, content: 'What is the method for creating new data?', correctAnswer: 'POST', questionType: 'multipleChoice', choices: ['GET', 'POST', 'PUT', 'DELETE'], lecture_id: 2},
-  {id: 5, content: 'Write a function for starting a server in express.', questionType: 'openEnded', lecture_id: 2},
-  {id: 6, content: 'What is the method for using middleware?', correctAnswer: 'use', questionType: 'fillInTheBlank', lecture_id: 2},
-  {id: 7, content: 'Why is it bad practice to mutate the state in Redux?', questionType: 'openEnded', lecture_id: 3},
-  {id: 8, content: 'What is the name of an asynchronus action creator?', correctAnswer: 'thunk', questionType: 'fillInTheBlank', lecture_id: 3},
-  {id: 9, content: 'What mechanism in Redux holds the state?', correctAnswer: 'store', questionType: 'multipleChoice', choices: ['reducer', 'store', 'thunk', 'action creator'], lecture_id: 3},
+const seedQuestions = () => db.Promise.each([
+  {content: 'Who is the antagonist of Othello?', correctAnswer: 'Iago', questionType: 'multipleChoice', choices: ['Iago', 'Othello', 'Cassio', 'Desdemona'], lecture_id: 1},
+  {content: 'What are two ways Othello experienced racism in Act I?', questionType: 'openEnded', lecture_id: 1},
+  {content: 'What is one of the biggest symbols of the play?', correctAnswer: 'the handkerchief', questionType: 'fillInTheBlank', lecture_id: 1},
+  {content: 'What is the method for creating new data?', correctAnswer: 'POST', questionType: 'multipleChoice', choices: ['GET', 'POST', 'PUT', 'DELETE'], lecture_id: 2},
+  {content: 'Write a function for starting a server in express.', questionType: 'openEnded', lecture_id: 2},
+  {content: 'What is the method for using middleware?', correctAnswer: 'use', questionType: 'fillInTheBlank', lecture_id: 2},
+  {content: 'Why is it bad practice to mutate the state in Redux?', questionType: 'openEnded', lecture_id: 3},
+  {content: 'What is the name of an asynchronus action creator?', correctAnswer: 'thunk', questionType: 'fillInTheBlank', lecture_id: 3},
+  {content: 'What mechanism in Redux holds the state?', correctAnswer: 'store', questionType: 'multipleChoice', choices: ['reducer', 'store', 'thunk', 'action creator'], lecture_id: 3},
 ], question => db.model('questions').create(question));
 
-const seedResponses = () => db.Promise.map([
+const seedResponses = () => db.Promise.each([
   {userResponse: 'Iago', timeStamp: Date.UTC(2016, 11, 5, 8, 30, 30), question_id: 1},
   {userResponse: 'Cassio', timeStamp: Date.UTC(2016, 11, 5, 8, 31, 30), question_id: 1},
   {userResponse: 'Iago and Roderigo used racial slurs when describing him', timeStamp: Date.UTC(2016, 11, 5, 8, 40, 30), question_id: 2},
@@ -47,7 +61,7 @@ const seedResponses = () => db.Promise.map([
   {userResponse: 'reducer', timeStamp: Date.UTC(2016, 11, 13, 15, 16, 46), question_id: 9},
 ], response => db.model('responses').create(response));
 
-seedSessions = () => db.Promise.map([
+seedSessions = () => db.Promise.each([
   {sessionString: '12d9dc83-01d6-4085-9cb3-aed81af7b29c', active: false, lecture_id: 1},
   {sessionString: 'bd6f8c3b-1443-4eee-aa37-c912b9a2bd60', active: false, lecture_id: 1},
   {sessionString: '64ab97b1-e2ce-4462-8145-0078bd7c946b', active: false, lecture_id: 2},
