@@ -18,27 +18,27 @@ class CarouselVideo extends Component {
           media={{
             '@media (max-width: 1400px)': {
               width: '40vw',
-              height: '260px'
+              height: 'auto'
             },
             '@media (max-width: 1200px)': {
               width: '50vw',
-              height: '260px'
+              height: 'auto'
             },
             '@media (max-width: 1800px)': {
               width: '50vw',
-              height: '300px'
+              height: 'auto'
             },
             '@media (max-width: 850px)': {
               width: '60vw',
-              height: '300px'
+              height: 'auto'
             },
             '@media (max-width: 775px)': {
               width: '70vw',
-              height: '200px'
+              height: 'auto'
             },
             '@media (max-width: 700px)': {
               width: '80vw',
-              height: '200px'
+              height: 'auto'
             }
           }}
 
