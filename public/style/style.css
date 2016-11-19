@@ -18,11 +18,18 @@
 
 .what-is-it-text {
   padding-top: 2em !important;
-  text-align: left;
+  /*text-align: left;
   font-family: 'Work Sans', sans-serif;
   font-weight: 200;
   color: #31BEF8;
-  font-size: 1.2em;
+  font-size: 1.2em;*/
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 200;
+  color:  #31BEF8;
+  font-size: 1.12em;
+  text-align: left;
+  padding-top: 1em;
+
 }
 
 .left-icon {
@@ -47,7 +54,7 @@
   background-image: url(../img/background.png);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 206vh;
   max-width: 100vw;
 }
 
@@ -202,10 +209,22 @@ nav ul a {
   background-color: #006494;
 }
 
+.whatsummary {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: white;
+  font-size: 0.8em;
+  text-align: left;
+  padding-top: 1em;
+  opacity: 0.86;
+}
 
+.no-pad {
+  margin-bottom: 0px;
+}
 /*super large*/
 
-@media (min-width: 1101px) {
+@media (min-width: 1091px) {
   .row {
     padding-bottom: 1em;
   }
@@ -222,14 +241,13 @@ nav ul a {
 }
 
 /*Large Screen*/
-@media (max-width: 1101px) {
+@media (max-width: 1090px) {
   .backGround {
     background-color: #006494;
   }
 
   .whatisit {
     background-color: #006494;
-    max-height: 42vh;
     /*background-color: #006494;*/
   }
 }
@@ -348,4 +366,33 @@ nav ul a {
     height: 56vh;
     max-width: 100vw;
   }
+}
+
+
+/*Icons*/
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  color: white;
+  font-size: 64px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }
