@@ -25,9 +25,9 @@ class LoopComponent extends Component {
   render() {
     return (
       <div>
-        <TeacherCreateLoop/>
+        <TeacherPresentLoop/>
         {/*this.studentOrTeacher()
-        uncomment after teacherview is created*/
+        uncomment after teacherview & teacherPresentView is created*/
         }
       </div>
     );
