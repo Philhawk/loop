@@ -153,6 +153,7 @@
 }
 
 .button:hover {
+  
   box-shadow: 1px 6px 15px rgba(0,0,0,0.2);
 }
 
