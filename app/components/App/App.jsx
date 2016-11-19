@@ -4,6 +4,7 @@ import AboveFold from '../HomePage/AboveFold';
 import WhatIsIt from '../HomePage/WhatIsIt';
 import WhyUseIt from '../HomePage/WhyUseIt';
 import AboutUs from '../HomePage/AboutUs';
+import Footer from '../HomePage/Footer';
 
 
 export default class App extends Component {
@@ -19,6 +20,7 @@ export default class App extends Component {
         <WhatIsIt />
         <WhyUseIt />
         <AboutUs />
+        <Footer />
       </div>
     );
   }

@@ -1,9 +1,42 @@
 import React, { Component } from 'react';
 import { Button, Row, Input } from 'react-materialize';
+import FillInBlank from '../QuestionType/FillInBlank';
+import MultipleChoice from '../QuestionType/MultipleChoice';
+import OpenEnded from '../QuestionType/OpenEnded';
+
+
 
 export default class TeacherCreateLoop extends Component {
   constructor() {
     super();
+    this.state = {};
+    this.onFillInBlank = this.onFillInBlank.bind(this);
+    this.onMultipleChoice = this.onMultipleChoice.bind(this);
+    this.onOpenEnded = this.onOpenEnded.bind(this);
+  }
+
+  onFillInBlank(e) {
+    e.preventDefault()
+    this.setState({whois: "fillInBlank"})
+  }
+
+  onMultipleChoice(e) {
+    e.preventDefault()
+    this.setState({whois: "multipleChoice"})
+  }
+
+  onOpenEnded(e) {
+    e.preventDefault()
+    this.setState({whois: "openEnded"})
+  }
+
+  showQuestion() {
+    if (this.state.whois === "fillInBlank") {
+      return <FillInBlank />
+    } else if (this.state.whois === "multipleChoice") {
+      return <MultipleChoice />
+    } else if (this.state.whois === "openEnded")
+      return <OpenEnded />
   }
 
   render() {
@@ -16,7 +49,7 @@ export default class TeacherCreateLoop extends Component {
           <div className="row"></div>
           <div className="card large blue-grey darken-1">
             <div className="card-content white-text">
-              {/*form data goes here*/}
+              {this.showQuestion()}
             </div>
           </div>
         </div>
@@ -28,7 +61,7 @@ export default class TeacherCreateLoop extends Component {
               <p>Your teachers name is ___________.</p>
             </div>
             <div className="card-action">
-              <a href="#">Create</a>
+              <a href="" onClick={this.onFillInBlank}>Create Question</a>
             </div>
           </div>
           <div className="card blue-grey darken-1">
@@ -40,7 +73,7 @@ export default class TeacherCreateLoop extends Component {
               <p>C. George Bush</p>
             </div>
             <div className="card-action">
-              <a href="#">Create</a>
+              <a href="" onClick={this.onMultipleChoice}>Create Question</a>
             </div>
           </div>
           <div className="card blue-grey darken-1">
@@ -49,7 +82,7 @@ export default class TeacherCreateLoop extends Component {
               <p>160 characters or less please.</p>
             </div>
             <div className="card-action">
-              <a href="#">Create</a>
+              <a href="" onClick={this.onOpenEnded}>Create Question</a>
             </div>
           </div>
         </div>

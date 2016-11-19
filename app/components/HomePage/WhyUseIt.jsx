@@ -14,6 +14,7 @@ class WhyUseIt extends Component {
       <div className="whyuseit">
         <div className="row">
           <div className="col s1 m1 l1">
+            
           </div>
           <div className="col s11 m11 l11 what-is-it-text">
             Why Use It?

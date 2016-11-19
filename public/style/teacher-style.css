@@ -41,3 +41,18 @@
 #addBtn {
   margin-left: 30%;
 }
+
+
+/* label focus color */
+
+ .input-field input:focus + label {
+   color: #FFD8A6 !important;
+ }
+
+/* label underline focus color */
+
+.row .input-field input:focus {
+   border-bottom: 1px solid #FFD8A6 !important;
+   box-shadow: 0 1px 0 0 #FFD8A6 !important
+ }
+
