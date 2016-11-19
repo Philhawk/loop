@@ -30,7 +30,7 @@ class WhatIsIt extends Component {
                     <i className="material-icons">account_circle</i>
                   </div>
                   <div className="whatsummary col s12 m12 l8">
-                    When asked, teachers always comment on the lack of real-time feedback from Students. That’s where Loop comes in.
+                    When asked, teachers always comment on the lack of real-time feedback. Meet Loop.
                   </div>
                 </div>
               </div>
@@ -40,7 +40,7 @@ class WhatIsIt extends Component {
                     <i className="material-icons">assignment</i>
                   </div>
                   <div className="whatsummary col s12 m12 l8">
-                    When asked, teachers always comment on the lack of real-time feedback from Students. That’s where Loop comes in.
+                    When asked, teachers always comment on the lack of real-time feedback. Meet Loop.
                   </div>
                 </div>
               </div>
@@ -52,7 +52,7 @@ class WhatIsIt extends Component {
                     <i className="material-icons">speaker_notes</i>
                   </div>
                     <div className="whatsummary col s12 m12 l8">
-                    When asked, teachers always comment on the lack of real-time feedback from Students. That’s where Loop comes in.
+                    When asked, teachers always comment on the lack of real-time feedback. Meet Loop.
                   </div>
                 </div>
               </div>
@@ -62,7 +62,7 @@ class WhatIsIt extends Component {
                     <i className="material-icons">pie_chart</i>
                   </div>
                   <div className="whatsummary col s12 m12 l8">
-                    When asked, teachers always comment on the lack of real-time feedback from Students. That’s where Loop comes in.
+                    When asked, teachers always comment on the lack of real-time feedback. Meet Loop.
                   </div>
                 </div>
               </div>

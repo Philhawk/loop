@@ -16,6 +16,35 @@
   background-color: #006494;
 }
 
+.footer {
+  background-color: #0C2239;
+  height: 6em;
+}
+
+.termsandconditions {
+    padding-top: 2em !important;
+    text-align: left;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 50;
+    color: white;
+    font-size: 1em;
+    display: inline-block;
+    font-size: 15px;
+}
+
+.companyname {
+  padding-left: 0.2em;
+}
+.bottom-brand-logo {
+  padding-top: 2em;
+  text-align: left;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: white;
+  font-size: 1em;
+  display: inline-block;
+  font-size: 15px;
+}
 .whyuseit {
   background-color: #0C2239;
   padding-bottom: 2em;
@@ -34,8 +63,6 @@
   color:  #31BEF8;
   font-size: 1.12em;
   text-align: left;
-  padding-top: 1em;
-
 }
 
 
@@ -290,8 +317,13 @@ nav ul a {
 .box-row {
   padding-left: 3em;
 }
-.about-us-box {
 
+.aboutus {
+  background-color: #385C7B;
+}
+
+.about-us-box {
+  border-radius: 100px;
   height: 100px;
   text-align: center;
   padding-left: 3em;
@@ -362,6 +394,7 @@ nav ul a {
 }
 
 @media (max-width: 832px) {
+
   .backGround {
     background-color: #006494;
   }
@@ -381,11 +414,15 @@ nav ul a {
     background-color: #006494;
     height: 56vh;
   }
+  .why-use-it-text {
+    padding-left: 2.4em !important;
+  }
 }
 
 /*small screen*/
 
 @media (max-width: 415px) {
+
   a.brand-logo {
     padding-left: 0;
   }
