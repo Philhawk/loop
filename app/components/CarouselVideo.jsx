@@ -16,6 +16,10 @@ class CarouselVideo extends Component {
           displayQuantityOfSide={1}
           enableHeading={true}
           media={{
+            '@media (max-width: 1980px)': {
+              width: '40vw',
+              height: 'auto'
+            },
             '@media (max-width: 1400px)': {
               width: '40vw',
               height: 'auto'
