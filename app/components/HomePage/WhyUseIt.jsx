@@ -11,64 +11,33 @@ class WhyUseIt extends Component {
 
 // WhyUseIt component
     return (
-      <div className="whatisit">
+      <div className="whyuseit">
         <div className="row">
-          <div className="col s1 m1 l1 backGround">
+          <div className="col s1 m1 l1">
           </div>
-          <div className="what-is-it-text col s11 m11 l11">
+          <div className="col s11 m11 l11 what-is-it-text">
             Why Use It?
           </div>
         </div>
-        <div className="row no-pad ">
-          <div className="col s0 m0 l2 backGround">
+        <div className="row">
+          <div className="col s1 m1 l1">
           </div>
-          <div className="col s12 m12 l8 backGround">
-            <div className="row">
-              <div className="col s6 m6 l6">
-                <div className='row'>
-                  <div className="col s12 m12 l4">
-                    <i className="material-icons">account_circle</i>
-                  </div>
-                  <div className="whatsummary col s12 m12 l8">
-                    When asked, teachers always comment on the lack of real-time feedback from Students. That’s where Loop comes in.
-                  </div>
-                </div>
-              </div>
-              <div className="col s6 m6 l6">
-                <div className='row'>
-                  <div className="col s12 m12 l4">
-                    <i className="material-icons">assignment</i>
-                  </div>
-                  <div className="whatsummary col s12 m12 l8">
-                    When asked, teachers always comment on the lack of real-time feedback from Students. That’s where Loop comes in.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col s6 m6 l6">
-                <div className='row'>
-                  <div className="col s12 m12 l4">
-                    <i className="material-icons">speaker_notes</i>
-                  </div>
-                    <div className="whatsummary col s12 m12 l8">
-                    When asked, teachers always comment on the lack of real-time feedback from Students. That’s where Loop comes in.
-                  </div>
-                </div>
-              </div>
-              <div className="col s6 m6 l6">
-                <div className='row'>
-                  <div className="col s12 m12 l4">
-                    <i className="material-icons">pie_chart</i>
-                  </div>
-                  <div className="whatsummary col s12 m12 l8">
-                    When asked, teachers always comment on the lack of real-time feedback from Students. That’s where Loop comes in.
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="why-use-it-heading-text col s11 m11 l5">
+            Completely re-imagines the student to teacher interaction model in the classroom
           </div>
-          <div className="col s0 m0 l2">
+        </div>
+        <div className="row">
+          <div className="col s1 m1 l1">
+          </div>
+          <div className="whatsummary col s11 m11 l5">
+            When asked, teachers always comment on the lack of real-time feedback they can get from students. That' where Loop comes in.
+          </div>
+        </div>
+        <div className="row">
+          <div className="col s1 m1 l1">
+          </div>
+          <div className="col s11 m11 l5">
+            <a className="button-learn" href="#">Learn More</a>
           </div>
         </div>
       </div>

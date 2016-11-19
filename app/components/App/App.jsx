@@ -3,6 +3,7 @@ import Navbar from '../Navbar/Navbar';
 import AboveFold from '../HomePage/AboveFold';
 import WhatIsIt from '../HomePage/WhatIsIt';
 import WhyUseIt from '../HomePage/WhyUseIt';
+import AboutUs from '../HomePage/AboutUs';
 
 
 export default class App extends Component {
@@ -17,6 +18,7 @@ export default class App extends Component {
         <AboveFold />
         <WhatIsIt />
         <WhyUseIt />
+        <AboutUs />
       </div>
     );
   }
