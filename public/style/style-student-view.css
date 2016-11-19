@@ -10,6 +10,26 @@
   background-color: #E8F1F2;
 }
 
-#incoming-question h1 {
+#incoming-question h2 {
   color: #13293D;
+  padding: 5px;
+  display: inline-block;;
+  margin: 1px auto;
+
+}
+
+.question-incoming {
+  vertical-align: text-top;;
+  text-align: center;
+}
+
+#incoming-question i {
+  color: #13293D;
+  vertical-align: text-top;
+  display: inline-block;
+  margin: 1px auto;
+}
+
+.material-icons.md-72 {
+  font-size: 72px;
 }

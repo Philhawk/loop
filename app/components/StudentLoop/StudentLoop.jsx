@@ -9,7 +9,7 @@ export default class StudentLoop extends Component {
   render() {
     return (
       <div id="student-view">
-        <div className="row" id="incoming-question">
+        <div className="row">
           <div className="col s12">
             <div className="card medium z-depth-2">
               <IncomingQuestion />
