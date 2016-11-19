@@ -70,7 +70,7 @@ class AboveFold extends Component {
           </div>
         </div>
 
-        <div className="row padding-rule">
+        <div className="row padding-rule potato">
           <CarouselVideo />
           <div className="sub-heading-text col s12 m12 l12">
             <div className="student-stories-header padding-rule">

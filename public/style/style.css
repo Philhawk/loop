@@ -8,9 +8,12 @@
   padding-top: 1em;
 }
 
+.navbar-fixed nav {
+  position: relative !important;
+}
+
 .whatisit {
   background-color: #006494;
-  height: 678px;
 }
 
 .what-is-it-text {
@@ -153,7 +156,7 @@
 }
 
 .button:hover {
-  
+
   box-shadow: 1px 6px 15px rgba(0,0,0,0.2);
 }
 
@@ -194,29 +197,151 @@ nav ul a {
 .nav-wrapper {
   border-bottom: 20px;
 }
-/*super large*/
-@media (min-width: 1201px) {
 
+.backGround {
+  background-color: #006494;
+}
+
+
+/*super large*/
+
+@media (min-width: 1101px) {
+  .backGround {
+    background-color: #006494;
+  }
+
+  .whatisit {
+    background-color: #006494;
+    height: 58vh;
+    /*background-color: #006494;*/
+  }
 }
 
 /*Large Screen*/
-@media (min-width: 992px) {
+@media (max-width: 1101px) {
+  .backGround {
+    background-color: #006494;
+  }
 
+  .whatisit {
+    background-color: #006494;
+    max-height: 42vh;
+    /*background-color: #006494;*/
+  }
 }
+
+/*Large Screen*/
+@media (max-width: 993px) {
+  .backGround {
+    background-color: #006494;
+  }
+
+  .whatisit {
+    background-color: #006494;
+    max-height: 50vh;
+    /*background-color: #006494;*/
+  }
+}
+
+@media (max-width: 832px) {
+  .backGround {
+    background-color: #006494;
+  }
+
+  .whatisit {
+    background-color: #006494;
+    max-height: 54vh;
+    /*background-color: #006494;*/
+  }
+}
+
+
+
 /*mediun Screen*/
-@media (max-width: 991px) {
-
+@media (max-width: 769px) {
+  .whatisit {
+    background-color: #006494;
+    height: 56vh;
+  }
 }
-
 
 /*small screen*/
 
-@media (max-width: 601px) {
+@media (max-width: 415px) {
+  a.brand-logo {
+    padding-left: 0;
+  }
 
+  .button-left {
+    padding: 0.24em 2em 0.2em;
+  }
+
+  .button-right {
+    padding: 0.24em 2em 0.2em;
+  }
+
+  .whatisit {
+    background-color: #006494;
+    /*background-color: #006494;*/
+    height: 56vh;
+    width: auto;
+  }
 }
 
 
+
+
+/*iphone5*/
+@media (max-width: 376px) {
+  .row{
+    margin-bottom: 1px;
+  }
+
+  a.brand-logo {
+    padding-left: 0;
+  }
+
+  .button-left {
+    padding: 0.24em 2em 0.2em;
+  }
+
+  .button-right {
+    padding: 0.24em 2em 0.2em;
+  }
+
+  .whatisit {
+    background-color: #006494;
+    /*background-color: #006494;*/
+    height: 56vh;
+    width: auto;
+  }
+}
 /*iphone5*/
 @media (max-width: 321px) {
 
+  .row {
+      margin-bottom: 20px;
+  }
+
+  .row.padding-rule.potato {
+    display: none
+  }
+  a.brand-logo {
+    padding-left: 0;
+  }
+
+  .button-left {
+    padding: 0.24em 2em 0.2em;
+  }
+
+  .button-right {
+    padding: 0.24em 2em 0.2em;
+  }
+
+  .whatisit {
+    background-color: #006494;
+    /*background-color: #006494;*/
+    height: 56vh;
+    max-width: 100vw;
+  }
 }
