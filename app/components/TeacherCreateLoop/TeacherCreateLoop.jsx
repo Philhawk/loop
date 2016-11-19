@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-materialize';
+import { Button, Row, Input } from 'react-materialize';
 
 export default class TeacherCreateLoop extends Component {
   constructor() {
@@ -11,20 +11,12 @@ export default class TeacherCreateLoop extends Component {
      <div className="row">
 
         <div className="col s12 m12 l6" id="questionCreation">
-          <Button center waves='light' id="startPresBtn">Start Presentation</Button>
-
+          <div className="row"></div>
+          <Button waves='light' id="startPresBtn">Start Presentation</Button>
+          <div className="row"></div>
           <div className="card large blue-grey darken-1">
             <div className="card-content white-text">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="first_name" type="text" class="validate"/>
-                  <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field col s12">
-                  <input id="last_name" type="text" class="validate"/>
-                  <label for="last_name">Last Name</label>
-                </div>
-              </div>
+              {/*form data goes here*/}
             </div>
           </div>
         </div>
@@ -36,7 +28,7 @@ export default class TeacherCreateLoop extends Component {
               <p>Your teachers name is ___________.</p>
             </div>
             <div className="card-action">
-              <a className="createLink" href="#">Create</a>
+              <a href="#">Create</a>
             </div>
           </div>
           <div className="card blue-grey darken-1">
@@ -48,7 +40,7 @@ export default class TeacherCreateLoop extends Component {
               <p>C. George Bush</p>
             </div>
             <div className="card-action">
-              <a className="createLink" href="#">Create</a>
+              <a href="#">Create</a>
             </div>
           </div>
           <div className="card blue-grey darken-1">
@@ -57,7 +49,7 @@ export default class TeacherCreateLoop extends Component {
               <p>160 characters or less please.</p>
             </div>
             <div className="card-action">
-              <a className="createLink" href="#">Create</a>
+              <a href="#">Create</a>
             </div>
           </div>
         </div>
@@ -70,7 +62,7 @@ export default class TeacherCreateLoop extends Component {
           </div>
           <div className="card #37474f blue-grey darken-3">
             <div className="card-content white-text">
-              <Button floating large className='green' waves='light' icon='add' />
+              <Button floating large className='green' waves='light' icon='add' id="addBtn" />
             </div>
           </div>
         </div>
