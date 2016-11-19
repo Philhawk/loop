@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
-import CentreText from '../HomePage/CentreText';
+import AboveFold from '../HomePage/AboveFold';
+import WhatIsIt from '../HomePage/WhatIsIt';
 
 
 export default class App extends Component {
@@ -11,8 +12,9 @@ export default class App extends Component {
   render() {
     return (
       <div className="homepage">
-        <Navbar />
-        <CentreText />
+        <Navbar/>
+        <AboveFold />
+        <WhatIsIt />
       </div>
     );
   }
