@@ -7,7 +7,9 @@ export default class FillInBlank extends Component {
 
   render() {
     return (
+      <div>
 
-    )
+      </div>
+    );
   }
 }
