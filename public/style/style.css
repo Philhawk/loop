@@ -206,6 +206,10 @@ nav ul a {
 /*super large*/
 
 @media (min-width: 1101px) {
+  .row {
+    padding-bottom: 1em;
+  }
+
   .backGround {
     background-color: #006494;
   }
