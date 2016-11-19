@@ -162,6 +162,9 @@
     display:inline-block;
 }
 
+.button-right:hover {
+  box-shadow: 1px 6px 15px rgba(0,0,0,0.2);
+}
 .button-left:hover {
   box-shadow: 1px 6px 15px rgba(0,0,0,0.2);
 }
