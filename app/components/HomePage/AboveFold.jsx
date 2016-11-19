@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import CarouselVideo from '../CarouselVideo'
 
 /* ---  Component --- */
-class CentreText extends Component {
+class AboveFold extends Component {
   constructor() {
     super();
   }
@@ -15,7 +15,7 @@ class CentreText extends Component {
 
     };
 
-// CentreText component
+// AboveFold component
     return (
       <div className="container">
         <div className="row">
@@ -70,12 +70,20 @@ class CentreText extends Component {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row padding-rule">
           <CarouselVideo />
+          <div className="sub-heading-text col s12 m12 l12">
+            <div className="student-stories-header padding-rule">
+              Student stories
+            </div>
+            <div className="student-stories-explainer padding-rule-less">
+              A realtime teaching tool that allows students and teachers to responsievly interact in the classroom
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default CentreText;
+export default AboveFold;

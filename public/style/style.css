@@ -8,6 +8,23 @@
   padding-top: 1em;
 }
 
+.whatisit {
+  background-color: #006494;
+  height: 678px;
+}
+
+.what-is-it-text {
+  padding-top: 2em !important;
+  text-align: left;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 200;
+  color: #31BEF8;
+  font-size: 1.2em;
+}
+
+.left-icon {
+  padding-left: 2em;
+}
 .sub-heading-text {
   font-family: 'Work Sans', sans-serif;
   font-weight: 50;
@@ -31,6 +48,11 @@
   max-width: 100vw;
 }
 
+.whyusetext {
+  display: block;
+  text-align:
+  float: left;
+}
 .button-left {
   text-align: right;
   float: right;
@@ -56,6 +78,9 @@
 
 .padding-rule {
   padding-top: 1.2em;
+}
+.padding-rule-less {
+  padding-top: 2px;
 }
 
 .coverflow__text__39hqd {
@@ -83,6 +108,24 @@
   font-weight: 50;
   color: white;
   font-size: 0.6em;
+  text-align: center;
+}
+
+.student-stories-header {
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 800;
+  color: #F4A657;
+  font-size: 0.72em;
+  text-align: center;
+}
+
+.student-stories-explainer {
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: white;
+  font-size: 0.72em;
   text-align: center;
 }
 
