@@ -10,26 +10,164 @@
   background-color: #E8F1F2;
 }
 
-#incoming-question h2 {
+#incoming-question p {
   color: #13293D;
   padding: 5px;
   display: inline-block;;
-  margin: 1px auto;
-
 }
 
 .question-incoming {
   vertical-align: text-top;;
-  text-align: center;
 }
 
 #incoming-question i {
   color: #13293D;
   vertical-align: text-top;
   display: inline-block;
-  margin: 1px auto;
+  margin: 20px auto;
 }
 
 .material-icons.md-72 {
   font-size: 72px;
+  font-size: 10vw;
+  float: left
+}
+
+#student-multiple-choice {
+  text-align: left;
+  margin: auto 5% auto 5%;
+}
+
+#student-multiple-choice p {
+  display: inline-block;
+  font-size: 15px;
+}
+
+#student-multiple-choice .s2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#student-open-ended a {
+  float: right;
+}
+
+#student-multiple-choice .answers {
+  margin-top: 0px;
+}
+
+/*super large*/
+
+@media (min-width: 1091px) {
+  #student-multiple-choice {
+    background-color: blue;
+    margin-top: 0px;
+
+  }
+  #incoming-question .question-row {
+    font-size: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  #student-multiple-choice .answers {
+    font-size: 15px
+  }
+}
+
+/*Large Screen*/
+@media (max-width: 1090px) {
+  #student-multiple-choice {
+    background-color: red;
+  }
+  .question-incoming {
+    font-size: 18px;
+  }
+  #student-multiple-choice .answers {
+    font-size: 14px
+  }
+}
+
+/*Large Screen*/
+@media (max-width: 993px) {
+  #student-multiple-choice {
+    background-color: yellow;
+  }
+  .question-incoming {
+    font-size: 17px;
+  }
+  #student-multiple-choice .answers {
+    font-size: 13px
+  }
+}
+
+@media (max-width: 832px) {
+  #student-multiple-choice {
+    background-color: green;
+  }
+  .question-incoming {
+    font-size: 16px;
+  }
+  #student-multiple-choice .answers {
+    font-size: 12px
+  }
+}
+
+
+
+/*mediun Screen*/
+@media (max-width: 769px) {
+  #student-multiple-choice {
+    background-color: cyan;
+  }
+  .question-incoming {
+    font-size: 13px;
+  }
+  #student-multiple-choice .answers {
+    font-size: 10px
+  }
+}
+
+/*small screen*/
+
+@media (max-width: 415px) {
+  #student-multiple-choice {
+    background-color: purple;
+  }
+  .question-incoming {
+    font-size: 11px;
+  }
+  #student-multiple-choice .answers {
+    font-size: 8px
+  }
+}
+
+
+
+
+/*iphone5*/
+@media (max-width: 376px) {
+  #student-multiple-choice {
+    background-color: orange;
+  }
+  .question-incoming {
+    font-size: 12px;
+  }
+  #student-multiple-choice .answers {
+    font-size: 8px;
+  }
+}
+
+
+/*iphone5*/
+@media (max-width: 321px) {
+  #student-multiple-choice {
+    background-color: white;
+  }
+  .question-incoming {
+    font-size: 8px;
+  }
+  #student-multiple-choice .answers {
+    font-size: 8px;
+  }
 }

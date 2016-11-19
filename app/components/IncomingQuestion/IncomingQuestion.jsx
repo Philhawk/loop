@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import MultipleChoiceStudent from '../MultipleChoiceStudent/MultipleChoiceStudent';
+import OpenEndedStudent from '../OpenEndedStudent/OpenEndedStudent';
 
-export default class StudentLoop extends Component {
+class IncomingQuestionComponent extends Component {
   constructor() {
     super();
   }
 
   answerType(){
-    if(this.props.currentQuestion.type === 'multipleChoice') {
+    console.log(this.props)
+    if(this.props.currentQuestion.questionType === 'multipleChoice') {
       return <MultipleChoiceStudent />
-    } else if(this.props.currentQuestion.type === "fillInTheBlank") {
+    } else if(this.props.currentQuestion.questionType === "fillInTheBlank") {
       return <FillInTheBlankStudent />
-    } else if(this.props.currentQuestion.type === "openEnded") {
+    } else if(this.props.currentQuestion.questionType === "openEnded") {
       return <OpenEndedStudent />
     } else {
       return null;
@@ -20,18 +24,23 @@ export default class StudentLoop extends Component {
   render() {
     return (
       <div id="incoming-question">
-        <div className="row">
+        <div className="row question-row">
           <div className="col s12 m12 l12 question-incoming">
-            <i className="material-icons md-72 question-icon">help_outline</i>
-            <h2 className="question-incoming">THIS IS A QUESTION</h2>
+            <div className="col s2">
+              <i className="material-icons md-72 question-icon">help_outline</i>
+            </div>
+            <div className="col s10">
+              <p className="question-incoming">{this.props.currentQuestion.content}</p>
+            </div>
           </div>
         </div>
-        <div className="row">
           {this.answerType()}
-        </div>
       </div>
     );
   }
-
-
 }
+
+const mapStateToProps = ({currentQuestion}) => ({currentQuestion})
+const IncomingQuestion = connect(mapStateToProps)(IncomingQuestionComponent)
+
+export default IncomingQuestion;
