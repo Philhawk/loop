@@ -1,0 +1,15 @@
+#student-view {
+  padding: 3vh 3vw 3vh 3vw;
+}
+
+.card {
+  background-color: #FFFFFF;
+}
+
+#student-view {
+  background-color: #E8F1F2;
+}
+
+#incoming-question h1 {
+  color: #13293D;
+}
