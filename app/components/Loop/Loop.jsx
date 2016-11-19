@@ -12,9 +12,10 @@ class LoopComponent extends Component {
 
   studentOrTeacher() {
     if(!this.props.auth) return <Unauthorized />
-    if(this.props.auth.role === "Teacher" && !this.props.session.active) {
+      // add this once sessions are on the store // && !this.props.session.active
+    if(this.props.auth.role === "Teacher") {
       return <TeacherCreateLoop />
-    } else if(this.props.teacher.role === "Teacher" && this.props.session.active) {
+    } else if(this.props.auth.role === "Teacher" && this.props.session.active) {
       return <TeacherPresentLoop />
     } else if(this.props.auth.role === "Student") {
       return <StudentLoop />

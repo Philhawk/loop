@@ -125,7 +125,6 @@ auth.get('/whoami', (req, res) => res.send(req.user))
 
 auth.post('/:strategy/login', (req, res, next) => {
 passport.authenticate(req.params.strategy, (err, user, info) => {
-  console.log("ERROR", err, user, info)
   if (err) { return next(err); }
   if (!user) { return res.sendStatus(401); }
   req.login(user, err => {

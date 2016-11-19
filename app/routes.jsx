@@ -6,17 +6,10 @@ import App from './components/App/App';
 import Loop from './components/Loop/Loop';
 import store from './store';
 
-function enter() {
-  console.log('enter check')
-  store.dispatch({
-    type: "AUTHORIZED",
-    user: {}
-  })
-}
 
 const routes =()=> (
   <Router history={browserHistory}>
-    <Route path='/' onEnter={enter}>
+    <Route path='/'>
       <IndexRoute component={App}/>
       <Route path = '/loop' component={Loop} />
     </Route>
