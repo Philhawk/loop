@@ -1,0 +1,43 @@
+/*Teacher Veiw Styles*/
+
+#questionCreation {
+  background-color: #EEF4F9;
+  height: 100vh;
+}
+
+#questionOption {
+  background-color: #EEF4F9;
+  height: 100vh;
+}
+
+#Sidebar {
+  background-color: #4E546C;
+  height: 100vh;
+}
+
+#startPresBtn {
+  margin-left: 30%;
+}
+
+.createLink {
+  text-align: center;
+}
+
+#openEndedForm {
+  padding-top: 10%;
+}
+
+#openEndedFormBtn {
+  margin-left: 30%;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 10%;
+}
+
+#formh5 {
+  text-align: center;
+}
+
+#addBtn {
+  margin-left: 30%;
+}
