@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Input}  from 'react-materialize';
-import { login } from 'APP/app/reducers/auth'
+import { signup } from 'APP/app/reducers/auth'
 import { Link, browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 
@@ -15,7 +15,11 @@ class SignUpComponent extends Component {
   onSignup(e) {
     e.preventDefault()
     console.log("will make signup route")
-    //this.props.Signup(e.target.email.value, e.target.password.value)
+    this.props.signup({
+      email: e.target.email.value,
+      password: e.target.password.value,
+      name: e.target.name.value,
+      role: e.target.role.value})
     browserHistory.push('/loop')
   }
 
@@ -32,7 +36,7 @@ class SignUpComponent extends Component {
   }
 }
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = { signup }
 const Signup = connect(null, mapDispatchToProps)(SignUpComponent)
 
 export default Signup;
