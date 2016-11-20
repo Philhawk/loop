@@ -22,6 +22,7 @@ onQuestionCreate(e) {
     questionType: 'multipleChoice',
     choices: [e.target.answer_A.value, e.target.answer_B.value, e.target.answer_C.value, e.target.answer_D.value]
   })
+
 }
 
 onRadioSelect(e) {
