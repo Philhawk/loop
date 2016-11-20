@@ -48,7 +48,7 @@ export default class TeacherCreateLoop extends Component {
               <div className="col s12 m12 l6" id="questionCreation">
                 <Button waves='light' id="startPresBtn">Start Presentation</Button>
                 <div className="card white-grey darken-1 cardCreation">
-                  <div className="card-content white-text">
+                  <div className="card-content black-text">
                     {this.showQuestion()}
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export default class TeacherCreateLoop extends Component {
                 </div>
                 <div className="card #37474f white-grey darken-3">
                   <div className="card-content black-text">
-                    <Button floating large className='green' waves='light' icon='add' id="addBtn" />
+                    <p>Created cards</p>
                   </div>
                 </div>
               </div>

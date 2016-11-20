@@ -10,9 +10,8 @@ export default class OpenEnded extends Component {
     return (
       <div className="row">
         <h5 id="formh5">Enter your question in the form below</h5>
-        <form className="col s12" id="openEndedForm">
+        <form className="col s12">
           <div className="input-field col s12">
-            <i className="material-icons prefix">mode_edit</i>
             <textarea id="icon_prefix2" className="materialize-textarea"></textarea>
             <label htmlFor="icon_prefix2">Question</label>
           </div>
