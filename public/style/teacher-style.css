@@ -1,18 +1,26 @@
 /*Teacher Veiw Styles*/
 
+.heading-text {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1em;
+  color: black;
+  font-weight: bolder;
+}
+
 #questionCreation {
-  background-color: #EEF4F9;
+
+}
+
+.cardCreation {
   height: 100vh;
 }
 
 #questionOption {
-  background-color: #EEF4F9;
-  height: 100vh;
+
 }
 
 #Sidebar {
   background-color: #4E546C;
-  height: 100vh;
 }
 
 #startPresBtn {
@@ -42,17 +50,21 @@
   margin-left: 30%;
 }
 
-
+.backgroundCard {
+  background-color: #A5A8C5;
+  padding: 2em;
+  margin-bottom: 0 !important;
+}
 /* label focus color */
 
- .input-field input:focus + label {
+/* .input-field input:focus + label {
    color: #FFD8A6 !important;
- }
+ }*/
 
 /* label underline focus color */
 
-.row .input-field input:focus {
+/*.row .input-field input:focus {
    border-bottom: 1px solid #FFD8A6 !important;
    box-shadow: 0 1px 0 0 #FFD8A6 !important
  }
-
+*/

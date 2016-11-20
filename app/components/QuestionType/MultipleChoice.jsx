@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input } from 'react-materialize';
+import { Input, Button } from 'react-materialize';
 
 export default class MultipleChoice extends Component {
   constructor() {
@@ -37,7 +37,8 @@ export default class MultipleChoice extends Component {
             <Input name='correct' type='radio' value='C' label='C' className='with-gap' />
             <Input name='correct' type='radio' value='D' label='D' className='with-gap' />
           </div>
-        </form>
+          <Button waves='light' id="openEndedFormBtn">Save question</Button>
+          </form>
       </div>
     )
   }
