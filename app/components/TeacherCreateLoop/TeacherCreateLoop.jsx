@@ -42,7 +42,7 @@ export default class TeacherCreateLoop extends Component {
   render() {
     return (
 
-        <div className="row backgroundCard heading-text">
+        <div className="row backgroundCard teacher-text">
           <div className="col s12 m12 l12 card">
 
               <div className="col s12 m12 l6" id="questionCreation">
