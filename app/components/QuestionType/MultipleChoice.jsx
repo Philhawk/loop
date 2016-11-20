@@ -15,12 +15,7 @@ class MultipleChoiceComponent extends Component {
   }
 
 onQuestionCreate(e) {
-/*  console.log('Question:', e.target.question.value)
-  console.log('Possible values:', e.target.answer_A.value, e.target.answer_B.value, e.target.answer_C.value, e.target.answer_D.value)
-  console.log('Correct answer:', this.state.selectedAnswer)
-*/
   e.preventDefault()
-  console.log(this.props)
   this.props.createQuestion({
     content: e.target.question.value,
     correctAnswer: this.state.selectedAnswer,
@@ -34,7 +29,6 @@ onRadioSelect(e) {
     selectedAnswer: e.target.value
   })
 }
-
 
   render() {
     return (

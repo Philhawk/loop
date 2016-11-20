@@ -38,7 +38,7 @@ questionsRouter.get('/lectures/:lectureId', (req, res, next) => {
 
 // create a question
 questionsRouter.post('/', (req, res, next) => {
-  console.log('THIS IS THE BODy', req.body)
+  console.log('THIS IS THE BODY', req.body)
   db.model('questions').create(req.body)
   .then(question => {
     res.status(201).json(question)
