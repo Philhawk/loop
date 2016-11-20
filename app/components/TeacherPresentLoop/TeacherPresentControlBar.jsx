@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class TeacherPresentControlBar extends Component {
   constructor() {
@@ -25,8 +26,22 @@ export default class TeacherPresentControlBar extends Component {
         </Paper> 
       </div>
     )
-  };
+  }; 
   
+  startButtonStyle = {
+      margin: 10,
+      width: '80%',
+      float: 'right',
+  };
+
+  
+  generatePresentorStartButton = () => {
+    return (
+      <div className="col s12 m7 l7">
+        <RaisedButton label="Start" primary={true} style={this.startButtonStyle} />
+      </div>
+    )
+  }
   
   render() {
     return (
@@ -42,7 +57,12 @@ export default class TeacherPresentControlBar extends Component {
                       </div>
                     </div>
                     <div className="col s12 m4 l6">
-                      ControlBar
+                      <div className="row">
+                        <div className="col s12 m5 l5">
+                          <h4>Social Icons</h4>
+                        </div>
+                          {this.generatePresentorStartButton()}
+                      </div>
                     </div>
                 </div>
           </div>

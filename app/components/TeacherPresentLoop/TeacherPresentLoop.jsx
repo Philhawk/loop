@@ -11,7 +11,8 @@ export default class TeacherPresentLoop extends Component {
 
   render() {
     return (
-        <div className="row teacherPresentationViewMain">
+      <div className="teacherPresentationContainer">
+        <div className="row card teacherPresentationViewMain">
           <div className="col s12 m8 l9 teacherPresentationViewContent">
              <TeacherPresentControlBar />
              <TeacherPresentMainCards />
@@ -21,6 +22,7 @@ export default class TeacherPresentLoop extends Component {
              <TeacherPresentCardPanel />
           </div>
         </div>
+      </div>
     );
   }
 }
