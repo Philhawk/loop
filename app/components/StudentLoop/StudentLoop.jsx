@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import IncomingQuestion from '../IncomingQuestion/IncomingQuestion';
 import StudentAsk from '../StudentAsk/StudentAsk';
+import StudentMood from '../StudentMood/StudentMood';
 
 export default class StudentLoop extends Component {
   constructor() {
@@ -22,8 +23,8 @@ export default class StudentLoop extends Component {
             <div className="col s8">
               <StudentAsk />
             </div>
-            <div className="col s4 yellow" id="current-feeling">
-              YO
+            <div className="col s4" id="current-feeling">
+              <StudentMood />
             </div>
           </div>
         </div>
