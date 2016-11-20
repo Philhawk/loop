@@ -37,8 +37,8 @@ export default class MultipleChoice extends Component {
             <Input name='correct' type='radio' value='B' label='B' className='with-gap' />
             <Input name='correct' type='radio' value='C' label='C' className='with-gap' />
             <Input name='correct' type='radio' value='D' label='D' className='with-gap' />
+            <Button waves='light'>Save question</Button>
           </div>
-          <Button waves='light' id="openEndedFormBtn">Save question</Button>
 
         </form>
       </div>

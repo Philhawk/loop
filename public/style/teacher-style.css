@@ -24,7 +24,8 @@
 }
 
 #startPresBtn {
-  margin-left: 30%;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .createLink {
@@ -36,17 +37,11 @@
 }
 
 #openEndedFormBtn {
-  padding-left: 10%;
-  padding-right: 10%;
   margin-top: 10%;
 }
 
 #formh5 {
   text-align: center;
-}
-
-#addBtn {
-  margin-left: 30%;
 }
 
 .backgroundCard {
