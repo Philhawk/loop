@@ -3,19 +3,17 @@
   background-color: #EEF4F9;
 }
 
+.teacherPresentationViewContent .row{
+    padding-bottom: 0px !important;
+}
+
 .teacherPresentationViewPanel {
   background-color: #4E546C;
   padding: 0 !important;
 }
 
-.teacherPresentationControlBar {
-  bacakground-color: #FFFFFF;
-}
-
 .TeacherPresentMainCards {
   background-color: white;
-  margin-left: 1em !important;
-  margin-right: 1em !important;
 }
 
 .TeacherPresentCardPanel{
@@ -33,4 +31,30 @@
 .TeacherPresentCurrentUser h4 {
   padding: .5em 0 .5em 0;
   margin: 0 !important;
+}
+
+/*
+ *
+ *Control Bar Styles
+ */
+.teacherPresentationControlBar {
+  background-color: white;
+  margin-top: 1em;
+}
+
+.teacherPresentationControlBar h4 {
+    font-size: 1em;
+}
+
+.teacherPresentationControlBar .row {
+   margin: 0 !important; 
+}
+
+.presentorLink {
+    background-color: #4E546C !important;
+    color: white !important;
+}
+
+.teacherPresentationTabbedSection{
+   background-color: white;
 }
