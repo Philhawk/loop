@@ -25,7 +25,7 @@ class LoopComponent extends Component {
   render() {
     return (
       <div>
-        <StudentLoop />
+        <TeacherCreateLoop />
       </div>
     );
   }

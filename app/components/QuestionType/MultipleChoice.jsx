@@ -10,6 +10,7 @@ export default class MultipleChoice extends Component {
     return (
       <div className="row">
         <form>
+
           <div className="input-field col s12">
             <input id="question" name="question" type="text"/>
             <label htmlFor="question">Question</label>
@@ -38,7 +39,8 @@ export default class MultipleChoice extends Component {
             <Input name='correct' type='radio' value='D' label='D' className='with-gap' />
           </div>
           <Button waves='light' id="openEndedFormBtn">Save question</Button>
-          </form>
+
+        </form>
       </div>
     )
   }
