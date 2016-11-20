@@ -7,6 +7,25 @@
   padding-top: 1em;
 }
 
+#set-mood .thumb-buttons {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  line-height: 0 !important;
+}
+
+#set-mood .card {
+  padding-top: 6em;
+  padding-left: 1.8em;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#set-mood .thumbs {
+  font-size: 56px;
+}
+
 #student-view {
   padding: 3vh 3vw 3vh 3vw;
 }
@@ -85,6 +104,13 @@
   font-size: 18px;
 }
 
+#mood-explanation-text {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: black;
+  font-size: 18px;
+}
+
 #ask-question .btn {
   font-family: 'Work Sans', sans-serif;
   font-weight: bolder;
@@ -92,17 +118,31 @@
 
 }
 
-#ask-question .card {
-  background-color: #FFFFFF;
-}
-
 #ask-question-field {
   font-family: 'Work Sans', sans-serif;
   font-weight: bolder;
 }
 
+
 /*super large*/
 
+@media (min-width: 1300px) {
+  #set-mood .card {
+    padding-top: 6em;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+@media (max-width: 1300px) {
+  #set-mood .card {
+    padding-top: 6em;
+    padding-right: 2.8em;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
 @media (min-width: 1091px) {
   #incoming-question .question-row {
     font-size: 28px;
@@ -130,6 +170,13 @@
 /*Large Screen*/
 @media (max-width: 993px) {
   #student-multiple-choice {
+  }
+
+  #set-mood .card {
+    padding-top: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
   .question-incoming {
     font-size: 24px;
