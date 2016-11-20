@@ -9,13 +9,13 @@ const setCurrentQuestion = question => { type: SET_CURRENT_QUESTION, question }
 
 // Initial State
 const initialState = {
-  content: 'Which rhetorical strategy does the author adopt in lines 44-63 ("The character ... influences us")?',
+  content: 'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
   correctAnswer: '',
   questionType: 'multipleChoice',
-  choices: ['She goes on the offensive, berating opponents of Carlyle for their absence of wisdom, judgement and foresight',
-'She acknowledges but discrdits other arguments, accusing Carlyle\'s critics of misunderstanding the originality of Carlyle\'s ideas',
-'She claims that most people do not recognize Carlyle\'s genius, suggesting that only discerning few are capable of doing so.',
-'She gives examples of Carlyle\'s far-reaching influence, noting that even criticism of Carlyle implies praise.'],
+  choices: ['The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
+'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
+'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
+'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to'],
   lecture_id: 0
 }
 

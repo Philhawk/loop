@@ -11,14 +11,14 @@ class OpenEndedStudentComponent extends Component {
 
   render() {
     return (
-      <div className="row" id="student-open-ended">
+      <div className="container" id="student-open-ended">
         <div className="row">
             <form className="col s12">
-              <div className="row">
+              <div className="row card-panel z-depth-2">
                 <div className="input-field col s12">
                   <i className="material-icons prefix">mode_edit</i>
                   <textarea id="icon_prefix2" className="materialize-textarea"></textarea>
-                  <label for="icon_prefix2">First Name</label>
+                  <label for="icon_prefix2">Type your answer here...</label>
                 </div>
                 <a className="waves-effect waves-light btn">Submit</a>
               </div>

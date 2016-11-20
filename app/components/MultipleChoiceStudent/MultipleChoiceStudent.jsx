@@ -15,12 +15,14 @@ class MultipleChoiceStudentComponent extends Component {
         {
           this.props.currentQuestion.choices.map((choice, index) => {
             return (
-              <div className="col l3 s6" key={index}>
+              <div className="col l3 m6 s12" key={index}>
                 <div className="row">
-                  <form className="answer-container">
+                  <div className="card answer z-depth-2">
+                    <form className="answer-container">
                       <p className="answers">{choice}</p>
-                </form>
-              </div>
+                    </form>
+                  </div>
+                </div>
               </div>
             )
           })

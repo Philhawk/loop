@@ -1,3 +1,12 @@
+.heading-text {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: black;
+  font-size: 6em;
+  text-align: center;
+  padding-top: 1em;
+}
+
 #student-view {
   padding: 3vh 3vw 3vh 3vw;
 }
@@ -7,21 +16,30 @@
 }
 
 #student-view {
-  background-color: #E8F1F2;
-}
-
-#incoming-question p {
-  color: #13293D;
-  padding: 5px;
-  display: inline-block;;
+  background-color: #A5A8C5;
 }
 
 .question-incoming {
-  vertical-align: text-top;;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bolder;
+  color: black;
+  font-size: 1em;
+  text-align: center;
+  padding-top: 1em;
+  text-align: left;
+}
+
+.answer {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+  color: black;
+  font-size: 1em;
+  text-align: center;
+  padding: 1em 1em 1em 1em;
 }
 
 #incoming-question i {
-  color: #13293D;
+  color: black;
   vertical-align: text-top;
   display: inline-block;
   margin: 20px auto;
@@ -29,8 +47,12 @@
 
 .material-icons.md-72 {
   font-size: 72px;
-  font-size: 10vw;
-  float: left
+  float: right;
+}
+
+.answer:hover {
+  background-color: #E8F1F2;
+  box-shadow: 1px 6px 15px rgba(0,0,0,0.2);
 }
 
 #student-multiple-choice {
@@ -56,60 +78,75 @@
   margin-top: 0px;
 }
 
+#confusedText {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  color: black;
+  font-size: 18px;
+}
+
+#ask-question .btn {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bolder;
+
+
+}
+
+#ask-question .card {
+  background-color: #FFFFFF;
+}
+
+#ask-question-field {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bolder;
+}
+
 /*super large*/
 
 @media (min-width: 1091px) {
-  #student-multiple-choice {
-    background-color: blue;
-    margin-top: 0px;
-
-  }
   #incoming-question .question-row {
-    font-size: 20px;
+    font-size: 28px;
     margin-bottom: 0px;
     padding-bottom: 0px;
   }
 
   #student-multiple-choice .answers {
-    font-size: 15px
+    font-size: 20px
   }
 }
 
 /*Large Screen*/
 @media (max-width: 1090px) {
   #student-multiple-choice {
-    background-color: red;
   }
   .question-incoming {
-    font-size: 18px;
+    font-size: 24px;
   }
   #student-multiple-choice .answers {
-    font-size: 14px
+    font-size: 22px
   }
 }
 
 /*Large Screen*/
 @media (max-width: 993px) {
   #student-multiple-choice {
-    background-color: yellow;
   }
   .question-incoming {
-    font-size: 17px;
+    font-size: 24px;
   }
   #student-multiple-choice .answers {
-    font-size: 13px
+    font-size: 22px
   }
 }
 
 @media (max-width: 832px) {
   #student-multiple-choice {
-    background-color: green;
   }
   .question-incoming {
-    font-size: 16px;
+    font-size: 22px;
   }
   #student-multiple-choice .answers {
-    font-size: 12px
+    font-size: 20px
   }
 }
 
@@ -118,13 +155,37 @@
 /*mediun Screen*/
 @media (max-width: 769px) {
   #student-multiple-choice {
-    background-color: cyan;
   }
   .question-incoming {
-    font-size: 13px;
+    font-size: 20px;
   }
   #student-multiple-choice .answers {
-    font-size: 10px
+    font-size: 18px
+  }
+  #student-open-ended {
+    padding-bottom: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+@media (max-width: 600px) {
+  .material-icons.md-72 {
+    font-size: 40px;
+    float: none;
+  }
+}
+
+@media (max-width: 550px) {
+  #student-multiple-choice {
+  }
+  .question-incoming {
+    font-size: 20px;
+  }
+  #student-open-ended {
+    padding-bottom: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }
 
@@ -132,13 +193,17 @@
 
 @media (max-width: 415px) {
   #student-multiple-choice {
-    background-color: purple;
   }
   .question-incoming {
-    font-size: 11px;
+    font-size: 18px;
   }
   #student-multiple-choice .answers {
-    font-size: 8px
+    font-size: 16px
+  }
+  #student-open-ended {
+    padding-bottom: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }
 
@@ -148,13 +213,17 @@
 /*iphone5*/
 @media (max-width: 376px) {
   #student-multiple-choice {
-    background-color: orange;
   }
   .question-incoming {
-    font-size: 12px;
+    font-size: 18px;
   }
   #student-multiple-choice .answers {
-    font-size: 8px;
+    font-size: 16px;
+  }
+  #student-open-ended {
+    padding-bottom: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }
 
@@ -162,12 +231,16 @@
 /*iphone5*/
 @media (max-width: 321px) {
   #student-multiple-choice {
-    background-color: white;
   }
   .question-incoming {
-    font-size: 8px;
+    font-size: 18px;
   }
   #student-multiple-choice .answers {
-    font-size: 8px;
+    font-size: 16px;
+  }
+  #student-open-ended {
+    padding-bottom: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }
