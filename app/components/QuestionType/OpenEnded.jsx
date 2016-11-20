@@ -15,7 +15,7 @@ export default class OpenEnded extends Component {
             <textarea id="icon_prefix2" className="materialize-textarea"></textarea>
             <label htmlFor="icon_prefix2">Question</label>
           </div>
-          <Button waves='light' id="openEndedFormBtn">Save question</Button>
+          <Button waves='light'>Save question</Button>
         </form>
       </div>
     )
