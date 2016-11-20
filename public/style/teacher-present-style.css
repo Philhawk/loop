@@ -1,6 +1,14 @@
 /*Teacher Presentation View Styles*/
+
+.teacherPresentationContainer{
+    background-color: #A5A8C5;
+    padding: 2em;
+}
+
 .teacherPresentationViewMain {
   background-color: #EEF4F9;
+  padding: 0px !important;
+  
 }
 
 .teacherPresentationViewContent .row{
@@ -15,6 +23,17 @@
 .TeacherPresentMainCards {
   background-color: white;
 }
+
+.teacherPresentationCurrentCard {
+    height: 100
+    margin: 1em;
+}
+
+.teacherPresentationNextCard {
+    height: 100%;
+    padding: 1em;
+}
+
 
 .TeacherPresentCardPanel{
   padding: .5em 1em 0 1em;
