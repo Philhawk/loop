@@ -14,7 +14,6 @@ const Lecture = db.define('lectures', {
   },
   timeStarted: {
     type: Sequelize.DATE,
-    defaultValue: Sequelize.NOW
   }
 })
 

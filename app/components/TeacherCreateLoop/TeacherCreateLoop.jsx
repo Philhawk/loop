@@ -3,16 +3,27 @@ import { Button, Row, Input } from 'react-materialize';
 import FillInBlank from '../QuestionType/FillInBlank';
 import MultipleChoice from '../QuestionType/MultipleChoice';
 import OpenEnded from '../QuestionType/OpenEnded';
+import { createLecture, updateLecture } from '../../reducers/lecture';
+import { connect } from 'react-redux';
 
 
-
-export default class TeacherCreateLoop extends Component {
+class TeacherCreateLoopComponent extends Component {
   constructor() {
     super();
     this.state = {};
     this.onFillInBlank = this.onFillInBlank.bind(this);
     this.onMultipleChoice = this.onMultipleChoice.bind(this);
     this.onOpenEnded = this.onOpenEnded.bind(this);
+  }
+
+  componentDidMount() {
+    console.log(this.props)
+    this.props.createLecture({
+      name: '',
+      mood: 0,
+      timeStarted: null,
+      teacher_id: this.props.auth.id
+    })
   }
 
   onFillInBlank(e) {
@@ -48,7 +59,7 @@ export default class TeacherCreateLoop extends Component {
               <div className="col s12 m12 l6" id="questionCreation">
                 <Button waves='light' id="startPresBtn">Start Presentation</Button>
                 <div className="card white-grey darken-1 cardCreation">
-                  <div className="card-content white-text">
+                  <div className="card-content black-text">
                     {this.showQuestion()}
                   </div>
                 </div>
@@ -68,7 +79,7 @@ export default class TeacherCreateLoop extends Component {
                 <div className="card white-grey darken-1">
                   <div className="card-content black-text">
                     <span className="card-title">Multiple Choice</span>
-                    <h6>Who is the 44th President of the United States?</h6>
+                    <h6>Who is the 44th President of the United States</h6>
                     <p>A. Barack Obama</p>
                     <p>B. Abraham Lincoln</p>
                     <p>C. George Bush</p>
@@ -95,11 +106,15 @@ export default class TeacherCreateLoop extends Component {
                     <span className="card-title">User Name</span>
                   </div>
                 </div>
-                <div className="card #37474f white-grey darken-3">
-                  <div className="card-content black-text">
-                    <Button floating large className='green' waves='light' icon='add' id="addBtn" />
-                  </div>
-                </div>
+                {
+                  this.props.questionsList.map(question => (
+                    <div className="card #37474f white-grey darken-3">
+                      <div className="card-content black-text">
+                        <p>{question.content}</p>
+                      </div>
+                    </div>
+                  ))
+                }
               </div>
 
             </div>
@@ -107,3 +122,9 @@ export default class TeacherCreateLoop extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ auth, lecture, questionsList }) => ({ auth, lecture, questionsList })
+const mapDispatchToProps = { createLecture ,updateLecture }
+const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
+
+export default TeacherCreateLoop;

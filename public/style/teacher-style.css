@@ -21,10 +21,12 @@
 
 #Sidebar {
   background-color: #4E546C;
+  overflow-y: scroll;
 }
 
 #startPresBtn {
-  margin-left: 30%;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .createLink {
@@ -36,18 +38,11 @@
 }
 
 #openEndedFormBtn {
-  margin-left: 30%;
-  padding-left: 10%;
-  padding-right: 10%;
   margin-top: 10%;
 }
 
 #formh5 {
   text-align: center;
-}
-
-#addBtn {
-  margin-left: 30%;
 }
 
 .backgroundCard {
