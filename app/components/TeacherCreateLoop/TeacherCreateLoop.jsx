@@ -3,10 +3,11 @@ import { Button, Row, Input } from 'react-materialize';
 import FillInBlank from '../QuestionType/FillInBlank';
 import MultipleChoice from '../QuestionType/MultipleChoice';
 import OpenEnded from '../QuestionType/OpenEnded';
+import { createLecture, updateLecture } from '../../reducers/lecture';
+import { connect } from 'react-redux';
 
 
-
-export default class TeacherCreateLoop extends Component {
+class TeacherCreateLoopComponent extends Component {
   constructor() {
     super();
     this.state = {};
@@ -14,6 +15,23 @@ export default class TeacherCreateLoop extends Component {
     this.onMultipleChoice = this.onMultipleChoice.bind(this);
     this.onOpenEnded = this.onOpenEnded.bind(this);
   }
+
+  componentDidMount() {
+    console.log(this.props)
+    this.props.createLecture({
+      name: '',
+      mood: 0,
+      timeStarted: null,
+      teacher_id: this.props.auth.id
+    })
+  }
+
+  componentDidUpdate() {
+    if(!this.props.lecture.teacher_id && this.props.auth) {
+      updateLecture({ teacher_id: this.props.auth.id })
+    }
+  }
+
 
   onFillInBlank(e) {
     e.preventDefault()
@@ -107,3 +125,10 @@ export default class TeacherCreateLoop extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ auth, lecture }) => ({ auth, lecture })
+const mapDispatchToProps = { createLecture ,updateLecture }
+const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
+
+export default TeacherCreateLoop;
+

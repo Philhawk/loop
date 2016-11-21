@@ -1,6 +1,13 @@
 import axios from 'axios'
 
-const reducer = (state=null, action) => {
+const initialState = {
+  id: 0,
+  name: '',
+  email: '',
+  role: ''
+}
+
+const reducer = (state=initialState, action) => {
   switch(action.type) {
   case CREATE_USER:
     return action.user

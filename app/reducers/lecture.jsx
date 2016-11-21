@@ -1,23 +1,36 @@
+import axios from 'axios';
+
+
+// actions
 const SET_LECTURE = 'SET_LECTURE';
 
-const setLecture = lecture => ({
+export const setLecture = lecture => ({
   type: SET_LECTURE,
   lecture
 })
 
-const createLecture = ({ name, mood, timeStarted }) => dispatch => {
-  axios.post('', { })
-  .then(lecture => dispatch(setLecture(lecture.data)))
+export const createLecture = ({ name, mood, timeStarted, teacher_id }) => dispatch => {
+  console.log("YO")
+  axios.post('/api/lectures', { name, mood, timeStarted, teacher_id })
+  .then(lecture => {
+    dispatch(setLecture(lecture.data))
+  })
 }
 
-const initialState = [{
+export const updateLecture = ({ name, mood, timeStarted, teacher_id }) => dispatch => {
+  axios.put('/api/lectures', { name, mood, timeStarted, teacher_id })
+  .then(lecture => {
+    console.log(lecture)
+    dispatch(setLecture(lecture.data))
+  })
+}
 
-}]
+const initialState = { id: 0, name: "", mood: 0, timeStarted: null}
 
-const reducer = (state = initialState, action) => {
-  switch(action.type) {
+const reducer = (state = initialState, { lecture, type }) => {
+  switch(type) {
     case SET_LECTURE:
-      return state.const(action.lecture)
+      return lecture;
   }
   return state;
 }

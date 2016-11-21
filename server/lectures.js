@@ -3,7 +3,7 @@
 const express = require('express');
 const db = require('APP/db');
 
-const questionsRouter = express.Router();
+const lecturesRouter = express.Router();
 
 // get all lectures
 lecturesRouter.get('/', (req, res, next) => {
