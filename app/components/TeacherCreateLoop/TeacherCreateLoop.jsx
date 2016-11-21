@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Row, Input } from 'react-materialize';
+import { Link } from 'react-router';
 import FillInBlank from '../QuestionType/FillInBlank';
 import MultipleChoice from '../QuestionType/MultipleChoice';
 import OpenEnded from '../QuestionType/OpenEnded';
@@ -62,7 +63,9 @@ class TeacherCreateLoopComponent extends Component {
           <div className="col s12 m12 l12 card">
 
               <div className="col s12 m12 l6" id="questionCreation">
+              <Link to={`/loop/${this.props.session.sessionString}`}>
                 <Button waves='light' id="startPresBtn">Start Presentation</Button>
+              </Link>
                 <div className="card white-grey darken-1 cardCreation">
                   <div className="card-content black-text">
                     {this.showQuestion()}
@@ -128,7 +131,7 @@ class TeacherCreateLoopComponent extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, lecture, questionsList }) => ({ auth, lecture, questionsList })
+const mapStateToProps = ({ auth, lecture, session, questionsList }) => ({ auth, lecture, session, questionsList })
 const mapDispatchToProps = { createSession, createLecture ,updateLecture }
 const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
 
