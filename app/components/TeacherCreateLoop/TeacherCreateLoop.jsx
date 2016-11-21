@@ -26,13 +26,6 @@ class TeacherCreateLoopComponent extends Component {
     })
   }
 
-  componentDidUpdate() {
-    if(!this.props.lecture.teacher_id && this.props.auth) {
-      updateLecture({ teacher_id: this.props.auth.id })
-    }
-  }
-
-
   onFillInBlank(e) {
     e.preventDefault()
     this.setState({whois: "fillInBlank"})
@@ -131,4 +124,3 @@ const mapDispatchToProps = { createLecture ,updateLecture }
 const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
 
 export default TeacherCreateLoop;
-

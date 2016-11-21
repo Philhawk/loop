@@ -27,7 +27,6 @@ class MultipleChoiceStudentComponent extends Component {
             )
           })
         }
-
       </div>
     )
   }

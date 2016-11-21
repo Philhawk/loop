@@ -16,8 +16,10 @@ const reducer = (state=initialState, action) => {
   }
   return state
 }
+
 const CREATE_USER = 'CREATE_USER'
 const AUTHENTICATED = 'AUTHENTICATED'
+
 export const authenticated = user => ({
   type: AUTHENTICATED, user
 })
@@ -31,12 +33,13 @@ export const signup = ({ email, password, name, role }) => dispatch => {
   .then(user => dispatch(createUser(user.data)))
 }
 
-export const login = (email, password) =>
-  dispatch =>
+export const login = (email, password) => {
+  return (dispatch) =>
     axios.post('/api/auth/local/login',
       {email, password})
       .then(() => dispatch(whoami()))
       .catch(() => dispatch(whoami()))
+}
 
 export const logout = () =>
   dispatch =>
