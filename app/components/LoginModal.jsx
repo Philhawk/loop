@@ -14,12 +14,6 @@ class LoginSignUpComponent extends Component {
     this.onSignUpSelect = this.onSignUpSelect.bind(this);
   }
 
-  // onLogin(e) {
-  //   e.preventDefault()
-  //   this.props.login(e.target.email.value, e.target.password.value)
-  //   browserHistory.push('/loop')
-  // }
-
   onLoginSelect(e) {
     e.preventDefault()
     this.setState({whois: "login"})
