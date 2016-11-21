@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import TeacherPresentTabbedLeft from './TeacherPresentTabbedLeft';
+import TeacherPresentTabbedRight from './TeacherPresentTabbedRight';
 
 export default class TeacherPresentTabbedSection extends Component {
   constructor() {
@@ -7,10 +9,13 @@ export default class TeacherPresentTabbedSection extends Component {
 
   render() {
     return (
-        <div className="row">
-            <div className="col s12 m12 l12 teacherPresentationTabbedSection">
-             Tabbed Section
-          </div>
+        <div className="row card">
+            <div className="col s12 m8 l8 teacherPresentationTabbedSection">
+              <TeacherPresentTabbedLeft />
+            </div>
+            <div className="col s12 m4 l4 teacherPresentationTabbedSection">
+             <TeacherPresentTabbedRight />
+            </div>
         </div>
     );
   }

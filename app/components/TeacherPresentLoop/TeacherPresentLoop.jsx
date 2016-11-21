@@ -18,7 +18,7 @@ export default class TeacherPresentLoop extends Component {
              <TeacherPresentMainCards />
              <TeacherPresentTabbedSection />
           </div>
-          <div className="col s12 m4 l3 teacherPresentationViewPanel">
+          <div className="col s12 m4 l3 z-depth-1 teacherPresentationViewPanel">
              <TeacherPresentCardPanel />
           </div>
         </div>
