@@ -11,12 +11,12 @@ class TeacherPresentCardPanelComponent extends Component {
     const content = [];
     for(let i =0; i < num; i++){
         content.push(
-        <div className="card blue-grey darken-1">
-            <div className="card-content white-text">
-                <span className="card-title">Fill in the blank</span>
-                <p>Your teachers name is ___________.</p>
-            </div>
-        </div> 
+            <div key={i} className="card blue-grey darken-1">
+                <div className="card-content white-text">
+                    <span className="card-title">Fill in the blank</span>
+                    <p>Your teachers name is ___________.</p>
+                </div>
+            </div> 
         )
     }
     return content;

@@ -30,7 +30,7 @@ export default class TeacherPresentControlBar extends Component {
   
   startButtonStyle = {
       margin: 10,
-      width: '80%',
+      width: '100%',
       float: 'right',
   };
 
@@ -46,7 +46,7 @@ export default class TeacherPresentControlBar extends Component {
   render() {
     return (
         <div className="row">
-            <div className="col s12 m12 l12 teacherPresentationControlBar">
+            <div className="card col s12 m12 l12 teacherPresentationControlBar">
                 <div className="row">
                     <div className="col s12 m8 l6">
                       <div className="row">
