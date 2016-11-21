@@ -11,13 +11,13 @@ class MultipleChoiceStudentComponent extends Component {
 
   render() {
     return (
-      <div className="row" id="student-multiple-choice">
+      <div className="row" id="student-multiple-choice valign-wrapper">
         {
           this.props.currentQuestion.choices.map((choice, index) => {
             return (
               <div className="col l3 m6 s12" key={index}>
                 <div className="row">
-                  <div className="card answer z-depth-2">
+                  <div className="card answer hoverable z-depth-1">
                     <form className="answer-container">
                       <p className="answers">{choice}</p>
                     </form>
@@ -27,6 +27,7 @@ class MultipleChoiceStudentComponent extends Component {
             )
           })
         }
+        <a className="submit-button-student" href="#">Submit Answer</a>
       </div>
     )
   }

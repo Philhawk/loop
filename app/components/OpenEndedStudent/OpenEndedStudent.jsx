@@ -20,7 +20,7 @@ class OpenEndedStudentComponent extends Component {
                   <textarea id="icon_prefix2" className="materialize-textarea"></textarea>
                   <label for="icon_prefix2">Type your answer here...</label>
                 </div>
-                <a className="waves-effect waves-light btn">Submit</a>
+                <a className="submit-button-student" href="#">Submit Answer</a>
               </div>
             </form>
           </div>
