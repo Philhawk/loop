@@ -18,7 +18,7 @@ class OpenEndedComponent extends Component {
     this.props.createQuestion({
       content: e.target.question.value,
       correctAnswer: "",
-      questionType: 'openEnded',
+      questionType: 'openEnded', // remember to input the correct question type
       choices: []
     })
   }

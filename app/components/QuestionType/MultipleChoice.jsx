@@ -19,7 +19,7 @@ onQuestionCreate(e) {
   this.props.createQuestion({
     content: e.target.question.value,
     correctAnswer: this.state.selectedAnswer,
-    questionType: 'multipleChoice',
+    questionType: 'multipleChoice', // remember to input the correct question type
     choices: [e.target.answer_A.value, e.target.answer_B.value, e.target.answer_C.value, e.target.answer_D.value]
   })
 
