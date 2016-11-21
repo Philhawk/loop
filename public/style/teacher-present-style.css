@@ -59,6 +59,7 @@
 .teacherPresentationControlBar {
   background-color: white;
   margin-top: 1em;
+  margin-bottom: 0 !important;
 }
 
 .teacherPresentationControlBar h4 {
@@ -72,8 +73,14 @@
 .presentorLink {
     background-color: #4E546C !important;
     color: white !important;
+    margin-top: 0.35em !important;
 }
 
 .teacherPresentationTabbedSection{
    background-color: white;
+}
+
+.teacherPresentTabs {
+    background-color: white !important;
+    color: black !important;
 }
