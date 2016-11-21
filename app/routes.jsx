@@ -4,6 +4,7 @@ import { Route, IndexRoute, browserHistory, Router } from 'react-router';
 //components
 import App from './components/App/App';
 import Loop from './components/Loop/Loop';
+import TeacherCreateLoop from './components/TeacherCreateLoop/TeacherCreateLoop';
 import store from './store';
 
 
@@ -11,7 +12,8 @@ const routes =()=> (
   <Router history={browserHistory}>
     <Route path='/'>
       <IndexRoute component={App}/>
-      <Route path = '/loop' component={Loop} />
+      <Route path = '/create-loop' component={TeacherCreateLoop} />
+      <Route path = '/loop/:sessionString' component={Loop} />
     </Route>
   </Router>
 );

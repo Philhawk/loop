@@ -4,7 +4,9 @@ import FillInBlank from '../QuestionType/FillInBlank';
 import MultipleChoice from '../QuestionType/MultipleChoice';
 import OpenEnded from '../QuestionType/OpenEnded';
 import { createLecture, updateLecture } from '../../reducers/lecture';
+import { createSession } from '../../reducers/session';
 import { connect } from 'react-redux';
+import uuid from 'uuid';
 
 
 class TeacherCreateLoopComponent extends Component {
@@ -23,7 +25,10 @@ class TeacherCreateLoopComponent extends Component {
       mood: 0,
       timeStarted: null,
       teacher_id: this.props.auth.id
-    })
+    }).then(
+      () => this.props.createSession({sessionString: uuid(), lecture_id: this.props.lecture.id})
+    )
+
   }
 
   onFillInBlank(e) {
@@ -124,7 +129,7 @@ class TeacherCreateLoopComponent extends Component {
 }
 
 const mapStateToProps = ({ auth, lecture, questionsList }) => ({ auth, lecture, questionsList })
-const mapDispatchToProps = { createLecture ,updateLecture }
+const mapDispatchToProps = { createSession, createLecture ,updateLecture }
 const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
 
 export default TeacherCreateLoop;

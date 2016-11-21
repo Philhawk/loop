@@ -9,6 +9,7 @@ api
   .use('/users', require('./users'))
   .use('/questions', require('./questions'))
   .use('/lectures', require('./lectures'))
+  .use('/sessions', require('./sessions'))
 
 
 // Send along any errors
