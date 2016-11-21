@@ -28,7 +28,6 @@ class MultipleChoiceStudentComponent extends Component {
           })
         }
         <a className="submit-button-student" href="#">Submit Answer</a>
-
       </div>
     )
   }
