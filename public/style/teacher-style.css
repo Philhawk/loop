@@ -21,6 +21,7 @@
 
 #Sidebar {
   background-color: #4E546C;
+  overflow-y: scroll;
 }
 
 #startPresBtn {

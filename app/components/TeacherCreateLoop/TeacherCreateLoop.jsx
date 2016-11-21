@@ -79,7 +79,7 @@ class TeacherCreateLoopComponent extends Component {
                 <div className="card white-grey darken-1">
                   <div className="card-content black-text">
                     <span className="card-title">Multiple Choice</span>
-                    <h6>Who is the 44th President of the United States?</h6>
+                    <h6>Who is the 44th President of the United States</h6>
                     <p>A. Barack Obama</p>
                     <p>B. Abraham Lincoln</p>
                     <p>C. George Bush</p>
@@ -106,11 +106,15 @@ class TeacherCreateLoopComponent extends Component {
                     <span className="card-title">User Name</span>
                   </div>
                 </div>
-                <div className="card #37474f white-grey darken-3">
-                  <div className="card-content black-text">
-                    <p>Created cards</p>
-                  </div>
-                </div>
+                {
+                  this.props.questionsList.map(question => (
+                    <div className="card #37474f white-grey darken-3">
+                      <div className="card-content black-text">
+                        <p>{question.content}</p>
+                      </div>
+                    </div>
+                  ))
+                }
               </div>
 
             </div>
@@ -119,7 +123,7 @@ class TeacherCreateLoopComponent extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, lecture }) => ({ auth, lecture })
+const mapStateToProps = ({ auth, lecture, questionsList }) => ({ auth, lecture, questionsList })
 const mapDispatchToProps = { createLecture ,updateLecture }
 const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
 
