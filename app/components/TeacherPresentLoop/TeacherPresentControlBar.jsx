@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+import { connect } from 'react-redux';
 
-export default class TeacherPresentControlBar extends Component {
+class TeacherPresentControlBarComponent extends Component {
   constructor() {
     super();
   }
-
 
   paperStyle = {
     height: '3em',
@@ -22,7 +22,7 @@ export default class TeacherPresentControlBar extends Component {
     return (
       <div className="col s12 m8 l9">
         <Paper className="presentorLink" style={this.paperStyle} zDepth={2}>
-            {linkURL}
+            {this.props.session.bitly}
         </Paper>
       </div>
     )
@@ -33,7 +33,6 @@ export default class TeacherPresentControlBar extends Component {
       width: '100%',
       float: 'right',
   };
-
 
   generatePresentorStartButton = () => {
     return (
@@ -70,3 +69,8 @@ export default class TeacherPresentControlBar extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ session }) => ({ session })
+const TeacherPresentControlBar = connect(mapStateToProps)(TeacherPresentControlBarComponent)
+
+export default TeacherPresentControlBar
