@@ -6,22 +6,6 @@ class TeacherPresentCardPanelComponent extends Component {
     super();
   }
 
-  //Number should be changed to the prop which contains the cards!
-  generateCards = (num) => {
-    const content = [];
-    for(let i =0; i < num; i++){
-        content.push(
-            <div key={i} className="card blue-grey darken-1">
-                <div className="card-content white-text">
-                    <span className="card-title">Fill in the blank</span>
-                    <p>Your teachers name is ___________.</p>
-                </div>
-            </div> 
-        )
-    }
-    return content;
-  }
-
   render() {
     console.log(this.props);
     return (
@@ -30,14 +14,22 @@ class TeacherPresentCardPanelComponent extends Component {
                 <h4>{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</h4>
             </div>
             <div className="row TeacherPresentCardPanel">
-                { this.generateCards(5) }
-            </div>   
+                {
+                  this.props.questionsList.map(question => (
+                    <div className="card #37474f white-grey darken-3">
+                      <div className="card-content black-text">
+                        <p>{question.content}</p>
+                      </div>
+                    </div>
+                  ))
+                }
+            </div>
         </div>
     );
   }
 }
 
-const mapStateToProps = ({auth}) => ({auth})
+const mapStateToProps = ({auth, questionsList }) => ({auth, questionsList})
 const TeacherPresentCardPanel = connect(mapStateToProps)(TeacherPresentCardPanelComponent)
 
 export default TeacherPresentCardPanel;

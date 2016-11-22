@@ -23,6 +23,13 @@ onQuestionCreate(e) {
     choices: [e.target.answer_A.value, e.target.answer_B.value, e.target.answer_C.value, e.target.answer_D.value],
     lecture_id: this.props.lecture.id
   })
+  // resets all form fields on submit
+  e.target.question.value = "";
+  e.target.answer_A.value = "";
+  e.target.answer_B.value = "";
+  e.target.answer_C.value = "";
+  e.target.answer_D.value = "";
+  // need to figure out how to deselect radio buttons.
 }
 
 onRadioSelect(e) {
@@ -62,7 +69,7 @@ onRadioSelect(e) {
             <Input name='correct' type='radio' value='1' label='B' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='2' label='C' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='3' label='D' className='with-gap' onClick={this.onRadioSelect}/>
-            <Button waves='light' >Save question</Button>
+            <Button waves='light'>Save question</Button>
           </div>
 
         </form>
