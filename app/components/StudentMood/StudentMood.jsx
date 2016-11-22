@@ -9,11 +9,11 @@ class StudentMoodComponent extends Component {
   }
 
   onSubmitUnderstand(e) {
-    this.props.socket.emit('studentMoodClick', {mood: 3})
+    this.props.socket.emit('studentMoodClick', {mood: 3, sessionString: this.props.session.sessionString })
   }
 
   onSubmitDontUnderstand(e) {
-    this.props.socket.emit('studentMoodClick', {mood: -3})
+    this.props.socket.emit('studentMoodClick', {mood: -3, sessionString: this.props.session.sessionString })
   }
 
 
@@ -43,7 +43,7 @@ class StudentMoodComponent extends Component {
 }
 
 const mapDispatchToProps = {};
-const mapStateToProps = ({socket}) => ({socket})
+const mapStateToProps = ({socket, session }) => ({socket, session })
 
 const StudentMood = connect(mapStateToProps, null)(StudentMoodComponent)
 

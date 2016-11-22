@@ -8,6 +8,7 @@ import TeacherCreateLoop from './components/TeacherCreateLoop/TeacherCreateLoop'
 import StudentLoop from './components/StudentLoop/StudentLoop';
 import store from './store';
 import {createSocket} from './reducers/socket';
+import {setCurrentSession} from './reducers/session'
 
 
 const onLoopEnter = () => {
@@ -27,6 +28,7 @@ const onStudentEnter = (data) => {
     loopUuId: data.params.loopUuId,
     role: "Student"
   })
+  store.dispatch(setCurrentSession({ sessionString: data.params.loopUuId }))
 }
 
 

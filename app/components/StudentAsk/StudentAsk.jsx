@@ -10,7 +10,7 @@ class StudentAskComponent extends Component {
   onQuestionSubmit(e) {
     e.preventDefault()
     // shows the questions
-    this.props.socket.emit('studentAsk', {question: e.target.studentAsk.value})
+    this.props.socket.emit('studentAsk', {question: e.target.studentAsk.value, sessionString: this.props.session.sessionString})
     // clears the form after submit
     e.target.studentAsk.value = '';
   }
@@ -39,7 +39,7 @@ class StudentAskComponent extends Component {
   }
 }
 
-const mapStateToProps = ({ socket }) => ({ socket })
+const mapStateToProps = ({ socket, session }) => ({ socket, session })
 
 const StudentAsk = connect(mapStateToProps, null)(StudentAskComponent)
 
