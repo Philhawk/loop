@@ -22,7 +22,13 @@ onQuestionCreate(e) {
     questionType: 'fillInTheBlank', // remember to input the correct question type
     choices: [e.target.answer_A.value, e.target.answer_B.value, e.target.answer_C.value, e.target.answer_D.value]
   })
-
+  // resets all form fields on submit
+  e.target.question.value = "";
+  e.target.answer_A.value = "";
+  e.target.answer_B.value = "";
+  e.target.answer_C.value = "";
+  e.target.answer_D.value = "";
+  // need to figure out how to deselect radio buttons.
 }
 
 onRadioSelect(e) {

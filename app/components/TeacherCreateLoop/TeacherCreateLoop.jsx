@@ -34,6 +34,7 @@ class TeacherCreateLoopComponent extends Component {
   onFillInBlank(e) {
     e.preventDefault()
     this.setState({whois: "fillInBlank"})
+    e.target.fill
   }
 
   onMultipleChoice(e) {
@@ -45,7 +46,7 @@ class TeacherCreateLoopComponent extends Component {
     e.preventDefault()
     this.setState({whois: "openEnded"})
   }
-  
+
 
   showQuestion() {
     if (this.state.whois === "fillInBlank") {
@@ -132,6 +133,7 @@ class TeacherCreateLoopComponent extends Component {
 }
 
 const mapStateToProps = ({ auth, lecture, session, questionsList }) => ({ auth, lecture, session, questionsList })
+
 const mapDispatchToProps = { createSession, createLecture ,updateLecture }
 const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
 
