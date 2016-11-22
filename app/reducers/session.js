@@ -4,7 +4,7 @@ import axios from 'axios';
 const SET_CURRENT_SESSION = "SET_CURRENT_SESSION";
 
 // Sync Action Creators
-const setCurrentSession = session => ({ type: SET_CURRENT_SESSION, session })
+export const setCurrentSession = session => ({ type: SET_CURRENT_SESSION, session })
 
 // Async Action Creators
 
