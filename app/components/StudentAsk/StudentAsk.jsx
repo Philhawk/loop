@@ -39,7 +39,7 @@ class StudentAskComponent extends Component {
   }
 }
 
-const mapStateToProps = ({ currentQuestion, socket }) => ({ currentQuestion, socket })
+const mapStateToProps = ({ socket }) => ({ socket })
 
 const StudentAsk = connect(mapStateToProps, null)(StudentAskComponent)
 
