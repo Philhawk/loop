@@ -45,6 +45,7 @@ class TeacherCreateLoopComponent extends Component {
     e.preventDefault()
     this.setState({whois: "openEnded"})
   }
+  
 
   showQuestion() {
     if (this.state.whois === "fillInBlank") {
