@@ -67,9 +67,9 @@ if (module === require.main) {
       console.log(`A ${role} just joined loop ${loopUuId}`)
     })
 
-    socket.on('test', ({ payload }) => {
-      console.log(payload)
-      io.emit('testclient', { payload })
+    socket.on('studentAsk', ({ question }) => {
+      console.log(question)
+      io.emit('newStudentQuestion', { question })
     })
 
   })

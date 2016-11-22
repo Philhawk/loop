@@ -9,10 +9,6 @@ class TeacherPresentLoopComponent extends Component {
   constructor(props) {
     super(props);
     console.log("THIS PROPS", this.props)
-
-    this.props.socket.on('testclient', ({ payload }) => {
-      console.log(payload)
-    })
   }
 
   render() {

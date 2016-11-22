@@ -4,12 +4,15 @@ import { connect } from 'react-redux';
 class StudentAskComponent extends Component {
   constructor() {
     super()
-    this.testFunc = this.testFunc.bind(this)
+    this.onQuestionSubmit = this.onQuestionSubmit.bind(this)
   }
 
-  testFunc(e) {
-    console.log(this.props);
-    this.props.socket.emit('test', {payload: e.target.value})
+  onQuestionSubmit(e) {
+    e.preventDefault()
+    // shows the questions
+    this.props.socket.emit('studentAsk', {question: e.target.studentAsk.value})
+    // clears the form after submit
+    e.target.studentAsk.value = '';
   }
 
   render() {
@@ -19,10 +22,10 @@ class StudentAskComponent extends Component {
           Feeling confused in class Ask a question below and your teacher will see it in real time!
         </p>
         <div className="row card small z-depth-2">
-          <form className="col s12" >
+          <form className="col s12" onSubmit={this.onQuestionSubmit}>
             <div className="row">
               <div className="input-field col s12">
-                <textarea name="studentAsk" id="ask-question-field" className="materialize-textarea" onChange={this.testFunc}></textarea>
+                <textarea name="studentAsk" id="ask-question-field" className="materialize-textarea"></textarea>
                 <label className="labelText" htmlFor="textarea1">Ask a question here...</label>
                   <button className="btn waves-effect waves-light" type="submit" name="action">Submit
                     <i className="material-icons right">send</i>
