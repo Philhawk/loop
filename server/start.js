@@ -4,7 +4,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const {resolve} = require('path')
 const passport = require('passport')
-const io = require('socket.io')(server);
 
 // Bones has a symlink from node_modules/APP to the root of the app.
 // That means that we can require paths relative to the app root by
@@ -20,7 +19,7 @@ if (!pkg.isProduction && !pkg.isTesting) {
   app.use(require('volleyball'))
 }
 
-module.exports = {app
+module.exports = app
   // We'll store the whole session in a cookie
   .use(require('cookie-session') ({
     name: 'session',
@@ -42,8 +41,8 @@ module.exports = {app
   .use('/api', require('./api'))
 
   // Send index.html for anything else.
-  .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html'))), io
-}
+  .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
+
 // We want to export the io, so we attach it to the module.exports app instance
 
 if (module === require.main) {
@@ -57,4 +56,17 @@ if (module === require.main) {
       console.log(`Listening on ${JSON.stringify(server.address())}`)
     }
   )
+  const io = require('socket.io')(server);
+
+  io.on('connection', (socket) => {
+    console.log('Client connected.')
+
+
+    socket.on('loopCreated', ({ loopUuId, role }) => {
+      socket.join(loopUuId)
+      console.log(`A ${role} just joined loop ${loopUuId}`)
+    })
+
+
+  })
 }

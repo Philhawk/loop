@@ -29,7 +29,6 @@ class TeacherCreateLoopComponent extends Component {
     }).then(
       () => this.props.createSession({sessionString: uuid(), lecture_id: this.props.lecture.id})
     )
-
   }
 
   onFillInBlank(e) {
