@@ -33,7 +33,7 @@ module.exports = app
   // Authentication middleware
   .use(passport.initialize())
   .use(passport.session())
-  
+
   // Serve static files from ../public
   .use(express.static(resolve(__dirname, '..', 'public')))
 
@@ -43,15 +43,34 @@ module.exports = app
   // Send index.html for anything else.
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
 
+// We want to export the io, so we attach it to the module.exports app instance
+
 if (module === require.main) {
   // Start listening only if we're the main module.
-  // 
+  //
   // https://nodejs.org/api/modules.html#modules_accessing_the_main_module
   const server = app.listen(
     process.env.PORT || 1337,
     () => {
-      console.log(`--- Started HTTP Server for ${pkg.name} ---`)      
+      console.log(`--- Started HTTP Server for ${pkg.name} ---`)
       console.log(`Listening on ${JSON.stringify(server.address())}`)
     }
   )
+  const io = require('socket.io')(server);
+
+  io.on('connection', (socket) => {
+    console.log('Client connected.')
+
+
+    socket.on('loopCreated', ({ loopUuId, role }) => {
+      socket.join(loopUuId)
+      console.log(`A ${role} just joined loop ${loopUuId}`)
+    })
+
+    socket.on('test', ({ payload }) => {
+      console.log(payload)
+      io.emit('testclient', { payload })
+    })
+
+  })
 }
