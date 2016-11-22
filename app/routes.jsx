@@ -11,8 +11,6 @@ import {createSocket} from './reducers/socket';
 
 
 const onLoopEnter = () => {
-  console.log(store.getState().session.sessionString)
-  console.log(store.getState().auth.role)
   const socket = io.connect();
   store.dispatch(createSocket(socket));
   socket.emit('loopCreated', {
@@ -24,6 +22,7 @@ const onLoopEnter = () => {
 const onStudentEnter = (data) => {
   console.log(data)
   const socket = io.connect();
+  store.dispatch(createSocket(socket));
   socket.emit('loopCreated', {
     loopUuId: data.params.loopUuId,
     role: "Student"

@@ -6,8 +6,8 @@ export default class TeacherPresentControlBar extends Component {
   constructor() {
     super();
   }
-  
-  
+
+
   paperStyle = {
     height: '3em',
     width: '100%',
@@ -17,24 +17,24 @@ export default class TeacherPresentControlBar extends Component {
     marginBottom: '.25em',
     display: 'inline-block',
   }
-  
+
   generatePresentorLink = (linkURL) => {
     return (
       <div className="col s12 m8 l9">
         <Paper className="presentorLink" style={this.paperStyle} zDepth={2}>
             {linkURL}
-        </Paper> 
+        </Paper>
       </div>
     )
-  }; 
-  
+  };
+
   startButtonStyle = {
       margin: 10,
       width: '100%',
       float: 'right',
   };
 
-  
+
   generatePresentorStartButton = () => {
     return (
       <div className="col s12 m7 l7">
@@ -42,7 +42,7 @@ export default class TeacherPresentControlBar extends Component {
       </div>
     )
   }
-  
+
   render() {
     return (
         <div className="row">
