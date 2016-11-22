@@ -79,6 +79,5 @@
     "supertest-as-promised": "^4.0.1",
     "volleyball": "^1.4.1"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
