@@ -9,16 +9,20 @@ const setCurrentSession = session => ({ type: SET_CURRENT_SESSION, session })
 // Async Action Creators
 
 
-export const createSession = ({ sessionString, active, lecture_id }) => dispatch => {
-  axios.post('/api/sessions', { sessionString, active, lecture_id })
-  .then(session => dispatch(setCurrentSession(session.data)))
+export const createSession = ({ sessionString, active, lecture_id, bitly }) => dispatch => {
+  axios.post('/api/sessions', { sessionString, active, lecture_id, bitly })
+  .then(session => {
+    console.log(session.data);
+    dispatch(setCurrentSession(session.data))
+  })
 }
 
 // Initial State
 const initialState = {
   sessionString: '',
   active: false,
-  lecture_id: null
+  lecture_id: null,
+  bitly: ''
 }
 
 const reducer = (state=initialState, action) => {

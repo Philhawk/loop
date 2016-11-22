@@ -2,6 +2,10 @@
 
 const express = require('express');
 const db = require('APP/db');
+const Bitly = require('bitly')
+
+let bitly = new Bitly('87b278673e682bea6b3c2694b6d51b493ec2c0a1');
+
 
 const sessionsRouter = express.Router();
 
@@ -16,6 +20,7 @@ sessionsRouter.get('/', (req, res, next) => {
 
 // get a specific session by its ID
 sessionsRouter.get('/:sessionId', (req, res, next) => {
+
   db.model('sessions').findById(req.params.sessionId)
   .then(session => {
     res.json(session);
@@ -28,7 +33,13 @@ sessionsRouter.post('/', (req, res, next) => {
   console.log('THIS IS THE BODY', req.body)
   db.model('sessions').create(req.body)
   .then(session => {
-    res.status(201).json(session)
+
+    bitly.shorten('http://loop-teach.herokuapp.com/' + session.sessionString)
+    .then(response => {
+      session.dataValues.bitly = response.data.url
+      res.status(201).send(session)
+    })
+
   })
   .catch(next);
 });
