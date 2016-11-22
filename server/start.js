@@ -72,9 +72,9 @@ if (module === require.main) {
       io.in(sessionString).emit('newStudentQuestion', { question })
     })
 
-    socket.on('studentMoodClick', ({ mood }) => {
+    socket.on('studentMoodClick', ({ mood, sessionString }) => {
       console.log(mood)
-      io.emit('studentMoodIndex', { mood })
+      io.in(sessionString).emit('studentMoodIndex', { mood })
     })
 
   })
