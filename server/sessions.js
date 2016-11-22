@@ -36,9 +36,7 @@ sessionsRouter.post('/', (req, res, next) => {
 
     bitly.shorten('http://loop-teach.herokuapp.com/' + session.sessionString)
     .then(response => {
-      console.log("RESPONSE URL", response.data.url)
       session.dataValues.bitly = response.data.url
-      console.log("SESSION", session)
       res.status(201).send(session)
     })
 
