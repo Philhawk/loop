@@ -51,6 +51,7 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
             }
           </div>
         </SwipeableViews>
+
       </div>
     );
   }
