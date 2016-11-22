@@ -119,7 +119,7 @@ class TeacherCreateLoopComponent extends Component {
                   this.props.questionsList.map(question => (
                     <div className="card #37474f white-grey darken-3">
                       <div className="card-content black-text">
-                        <p>{question.content}</p>
+                        <p key={question.id}>{question.content}</p>
                       </div>
                     </div>
                   ))

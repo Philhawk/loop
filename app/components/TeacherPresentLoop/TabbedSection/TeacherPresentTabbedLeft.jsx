@@ -46,7 +46,7 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
           <div>
             {
               this.props.studentQuestions.map(question => (
-                <p>{question.questionContent}</p>
+                <p key={question.id}>{question.questionContent}</p>
                 )
               )
             }
