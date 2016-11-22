@@ -6,9 +6,9 @@
   "scripts": {
     "test": "bin/setup && mocha --compilers js:babel-register app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
     "test-watch": "bin/setup && mocha --compilers js:babel-register --watch app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
-    "build": "bin/setup && webpack",
+    "build": "webpack",
     "build-watch": "bin/setup && webpack -w",
-    "start": "npm run build && bin/setup && nodemon server/start.js",
+    "start": "webpack && npm run seed && nodemon server/start.js",
     "seed": "node db/seed.js"
   },
   "repository": {
@@ -70,13 +70,13 @@
     "babel-core": "^6.18.0",
     "babel-loader": "^6.2.7",
     "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0"
-  },
-  "devDependencies": {
+    "babel-preset-react": "^6.16.0",
     "chai": "^3.5.0",
     "mocha": "^3.1.2",
     "supertest": "^2.0.1",
     "supertest-as-promised": "^4.0.1",
     "volleyball": "^1.4.1"
+  },
+  "devDependencies": {
   }
 }
