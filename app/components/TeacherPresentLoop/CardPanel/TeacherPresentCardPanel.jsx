@@ -15,8 +15,8 @@ class TeacherPresentCardPanelComponent extends Component {
             </div>
             <div className="row TeacherPresentCardPanel">
                 {
-                  this.props.questionsList.map(question => (
-                    <div className="card #37474f white-grey darken-3">
+                  this.props.questionsList.map((question, i) => (
+                    <div className="card #37474f white-grey darken-3" key={i}>
                       <div className="card-content black-text">
                         <p>{question.content}</p>
                       </div>
