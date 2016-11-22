@@ -72,5 +72,10 @@ if (module === require.main) {
       io.emit('newStudentQuestion', { question })
     })
 
+    socket.on('studentMoodClick', ({ mood }) => {
+      console.log(mood)
+      io.emit('studentMoodIndex', { mood })
+    })
+
   })
 }
