@@ -42,7 +42,8 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
         <Tabs onChange={this.handleChange} value={this.state.slideIndex} >
           <Tab className="teacherPresentTabs" label="Questions" value={0} />
         </Tabs>
-        <SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange} > <div>
+        <SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange} >
+          <div>
             {
               this.props.studentQuestions.map(question => (
                 <p>{question.questionContent}</p>
