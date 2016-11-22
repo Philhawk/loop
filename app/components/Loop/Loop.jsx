@@ -20,9 +20,9 @@ class LoopComponent extends Component {
 
   render() {
     return (
-      
+
       <div>
-        { this.studentOrTeacher() }
+        {this.studentOrTeacher()}
       </div>
     );
   }
