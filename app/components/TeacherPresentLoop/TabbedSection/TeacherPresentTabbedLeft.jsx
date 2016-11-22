@@ -45,8 +45,8 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
         <SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange} >
           <div>
             {
-              this.props.studentQuestions.map(question => (
-                <p key={question.id}>{question.questionContent}</p>
+              this.props.studentQuestions.map((question, i) => (
+                <p key={i} >{question.questionContent}</p>
                 )
               )
             }
