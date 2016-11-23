@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { callRemoveQuestion } from '../../../reducers/questionsList';
 
 class TeacherPresentCardPanelComponent extends Component {
   constructor() {
@@ -15,7 +16,7 @@ class TeacherPresentCardPanelComponent extends Component {
             </div>
             <div className="row TeacherPresentCardPanel">
                 {
-                  this.props.questionsList.map((question, i) => (
+                  this.props.questionsList.slice(0).map((question, i) => (
                     <div className="card #37474f white-grey darken-3" key={i}>
                       <div className="card-content black-text">
                         <p>{question.content}</p>
@@ -30,6 +31,7 @@ class TeacherPresentCardPanelComponent extends Component {
 }
 
 const mapStateToProps = ({auth, questionsList }) => ({auth, questionsList})
-const TeacherPresentCardPanel = connect(mapStateToProps)(TeacherPresentCardPanelComponent)
+const mapDispatchToProps = { callRemoveQuestion };
+const TeacherPresentCardPanel = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentCardPanelComponent)
 
 export default TeacherPresentCardPanel;

@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { callRemoveQuestion } from '../../reducers/questionsList';
+import { Button } from 'react-materialize';
 
-export default class TeacherPresentMainCards extends Component {
+class TeacherPresentMainCardsComponent extends Component {
   constructor() {
     super();
+    this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
+  }
+
+
+  onCurrentCardRemove(){
+    this.props.socket.emit('teacherAsk', {question: this.props.questionsList[1], sessionString: this.props.session.sessionString})
+    this.props.callRemoveQuestion();
   }
 
   render() {
@@ -14,27 +24,26 @@ export default class TeacherPresentMainCards extends Component {
                 <span className="card-title">Current Card</span>
                 <div className="card blue-grey darken-1">
                    <div className="card-content white-text">
-                       <span className="card-title">Current Card</span>
-                       <p>Your teachers name is ___________.</p>
-                       <p>Your teachers name is ___________.</p>
-                       <p>Your teachers name is ___________.</p>
+                       <span className="card-title"> {this.props.questionsList[0].content} </span>
+                       {
+                        this.props.questionsList[0].choices.map((choice, i) => (
+                           <p> {choice} </p>
+                          )
+                        )
+                       }
                    </div>
                </div>
+
+             <Button waves='light' className="#0091ea light-blue accent-4" onClick={this.onCurrentCardRemove}>Next Card</Button>
               </div>
+
             </div>
           </div>
           <div className="col s12 m4 l4 teacherPresentationNextCard">
             <div className="card white">
               <div className="card-content black-text">
-                <span className="card-title">Next Card</span>
-                <div className="card blue-grey darken-1">
-                    <div className="card-content white-text">
-                        <span className="card-title">Next Card</span>
-                        <p>Your teachers name is ___________.</p>
-                        <p>Your teachers name is ___________.</p>
-                        <p>Your teachers name is ___________.</p>
-                    </div>
-                </div>
+                <span className="card-title">Current Mood
+                </span>
               </div>
             </div>
           </div>
@@ -42,3 +51,11 @@ export default class TeacherPresentMainCards extends Component {
     );
   }
 }
+
+
+const mapStateToProps = ({ questionsList, socket, session }) => ({ questionsList, socket, session })
+const mapDispatchToProps = { callRemoveQuestion };
+const TeacherPresentMainCards = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentMainCardsComponent)
+
+export default TeacherPresentMainCards;
+
