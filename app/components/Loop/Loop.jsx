@@ -22,7 +22,7 @@ class LoopComponent extends Component {
     return (
 
       <div>
-        <TeacherPresentLoop />
+        {this.studentOrTeacher()}
       </div>
     );
   }
