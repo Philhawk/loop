@@ -4,12 +4,14 @@ const STUDENT_SELECT_A = "STUDENT_SELECT_A";
 const STUDENT_SELECT_B = "STUDENT_SELECT_B";
 const STUDENT_SELECT_C = "STUDENT_SELECT_C";
 const STUDENT_SELECT_D = "STUDENT_SELECT_D";
+const RESET = "RESET";
 
 // Sync Action Creators
 export const studentSelectA = () => ({ type: STUDENT_SELECT_A })
 export const studentSelectB = () => ({ type: STUDENT_SELECT_B })
 export const studentSelectC = () => ({ type: STUDENT_SELECT_C })
 export const studentSelectD = () => ({ type: STUDENT_SELECT_D })
+export const reset = () => ({type: RESET })
 
 // Async Action Creators
 export const callStudentSelectA = () => dispatch => {
@@ -28,6 +30,10 @@ export const callStudentSelectD = () => dispatch => {
   dispatch(studentSelectD())
 }
 
+export const callReset = () => dispatch => {
+  dispatch(reset())
+}
+
 // Initial State
 const initialState = [0, 0, 0, 0];
 
@@ -41,6 +47,8 @@ const reducer = (state=initialState, action) => {
       return [state[0], state[1], state[2] + 1, state[3]]
     case STUDENT_SELECT_D:
       return [state[0], state[1], state[2], state[3] + 1]
+    case RESET:
+      return initialState
     default:
       return state;
   }

@@ -9,6 +9,7 @@ class TeacherPresentControlBarComponent extends Component {
   }
 
   paperStyle = {
+
     height: '3em',
     width: '100%',
     textAlign: 'center',
@@ -32,12 +33,13 @@ class TeacherPresentControlBarComponent extends Component {
       margin: 10,
       width: '100%',
       float: 'right',
+      backgroundColor: 'red'
   };
 
   generatePresentorStartButton = () => {
     return (
       <div className="col s12 m7 l7">
-        <RaisedButton label="Start" primary={true} style={this.startButtonStyle} />
+        <RaisedButton label="Stop" backgroundColor='red' labelColor='white' style={this.startButtonStyle} />
       </div>
     )
   }

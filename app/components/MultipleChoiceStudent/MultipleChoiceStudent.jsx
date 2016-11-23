@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button } from 'react-materialize';
 
 class MultipleChoiceStudentComponent extends Component {
-  constructor() {
-    super()
-    this.state = { selected: -1}
+  constructor(props) {
+    super(props)
+    this.state = { selected: -1, submitted: false}
     this.onSubmitAnswer = this.onSubmitAnswer.bind(this);
+    this.props.socket.on('newTeacherQuestion', () => {
+      this.setState({submitted: false})
+    })
   }
 
   onSubmitAnswer() {
     this.props.socket.emit('submitAnswer', {answer: this.state.selected, sessionString: this.props.session.sessionString})
+    this.setState({submitted: true})
   }
+
+  showButton() {
+    if (this.state.submitted) {
+      return <Button className={ "disabled"}>Submitted</Button>
+    } else {
+     return <Button onClick={this.onSubmitAnswer}>Submit Answer</Button>
+    }
+  }
+
 
   render() {
     console.log("selected", this.state.selected)
@@ -32,7 +46,9 @@ class MultipleChoiceStudentComponent extends Component {
             )
           })
         }
-        <a className="submit-button-student" onClick={this.onSubmitAnswer}>Submit Answer</a>
+        {
+          this.showButton()
+        }
       </div>
     )
   }

@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { callRemoveQuestion } from '../../reducers/questionsList';
+import { callReset } from '../../reducers/data';
 import { Button } from 'react-materialize';
+import { callStudentAddMood } from '../../reducers/studentMood';
 
 class TeacherPresentMainCardsComponent extends Component {
-  constructor() {
-    super();
-    this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
-  }
+  constructor(props) {
+      super(props);
+      this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
+      this.props.socket.on('studentMoodIndex', ({mood}) => {
+        this.props.callStudentAddMood({mood: mood})
+    })
+  };
 
 
   onCurrentCardRemove(){
     this.props.socket.emit('teacherAsk', {question: this.props.questionsList[1], sessionString: this.props.session.sessionString})
     this.props.callRemoveQuestion();
+    this.props.callReset();
   }
+
 
   render() {
     return (
@@ -43,6 +50,11 @@ class TeacherPresentMainCardsComponent extends Component {
             <div className="card white">
               <div className="card-content black-text">
                 <span className="card-title">Current Mood
+                  <div>
+                    {
+                      this.props.studentMood
+                    }
+                  </div>
                 </span>
               </div>
             </div>
@@ -53,8 +65,8 @@ class TeacherPresentMainCardsComponent extends Component {
 }
 
 
-const mapStateToProps = ({ questionsList, socket, session }) => ({ questionsList, socket, session })
-const mapDispatchToProps = { callRemoveQuestion };
+const mapStateToProps = ({ questionsList, socket, studentMood, session }) => ({ questionsList, socket, studentMood, session })
+const mapDispatchToProps = { callStudentAddMood, callRemoveQuestion, callReset };
 const TeacherPresentMainCards = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentMainCardsComponent)
 
 export default TeacherPresentMainCards;

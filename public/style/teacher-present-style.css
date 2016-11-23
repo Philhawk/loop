@@ -8,11 +8,11 @@
 .teacherPresentationViewMain {
   background-color: #EEF4F9;
   padding: 0px !important;
-  
+
 }
 
 .teacherPresentationViewContent .row{
-    padding-bottom: 0px !important;
+  padding-bottom: 0px !important;
 }
 
 .teacherPresentationViewPanel {
@@ -37,10 +37,12 @@
 
 .TeacherPresentCardPanel{
   padding: .5em 1em 0 1em;
-  
+
 }
 
 .TeacherPresentCurrentUser{
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bolder;
   text-align: center;
   background-color: #606885;
   padding: 0 !important;
@@ -48,6 +50,8 @@
 }
 
 .TeacherPresentCurrentUser h4 {
+  color: white;
+  font-weight: bolder;
   padding: .5em 0 .5em 0;
   margin: 0 !important;
 }
@@ -57,23 +61,30 @@
  *Control Bar Styles
  */
 .teacherPresentationControlBar {
+  font-family: 'Work Sans', sans-serif;
   background-color: white;
   margin-top: 1em;
   margin-bottom: 0 !important;
 }
 
 .teacherPresentationControlBar h4 {
-    font-size: 1em;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 50;
+  font-weight: bolder;
+  color: black;
+  text-align: center;
+  font-size: 1em;
 }
 
 .teacherPresentationControlBar .row {
-   margin: 0 !important; 
+   margin: 0 !important;
 }
 
 .presentorLink {
-    background-color: #4E546C !important;
-    color: white !important;
-    margin-top: 0.35em !important;
+  font-family: 'Work Sans', sans-serif;
+  background-color: #4E546C !important;
+  color: white !important;
+  margin-top: 0.35em !important;
 }
 
 .teacherPresentationTabbedSection{
@@ -82,5 +93,11 @@
 
 .teacherPresentTabs {
     background-color: white !important;
+    font-family: 'Work Sans', sans-serif;
     color: black !important;
+}
+
+.card-title {
+    font-weight: bolder;
+   font-family: 'Work Sans', sans-serif;
 }

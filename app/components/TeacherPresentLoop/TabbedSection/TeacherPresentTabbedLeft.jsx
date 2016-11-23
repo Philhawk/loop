@@ -39,10 +39,9 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
   render() {
     return (
       <div className="card">
-        <Tabs onChange={this.handleChange} value={this.state.slideIndex} >
-          <Tab className="teacherPresentTabs" label="Questions" value={0} />
-        </Tabs>
-        <SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange} >
+          <span className="card-title">
+          Questions
+          </span>
           <div>
             {
               this.props.studentQuestions.map((question, i) => (
@@ -51,7 +50,6 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
               )
             }
           </div>
-        </SwipeableViews>
 
       </div>
     );
@@ -64,3 +62,10 @@ const mapDispatchToProps = { callStudentAddQuestion }
 const TeacherPresentTabbedLeft = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentTabbedLeftComponent)
 
 export default TeacherPresentTabbedLeft;
+
+// To Bring Back SwipeableViews
+        // <Tabs onChange={this.handleChange} value={this.state.slideIndex} >
+        //   <Tab className="teacherPresentTabs" label="Questions" value={0} />
+        // </Tabs>
+        // <SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange} >
+        // </SwipeableViews>
