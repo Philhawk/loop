@@ -20,7 +20,7 @@ class TeacherCreateLoopComponent extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
+    console.log('create-loop-constructor',this.props);
     this.props.createLecture({
       name: '',
       mood: 0,
