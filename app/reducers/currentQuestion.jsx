@@ -12,10 +12,7 @@ const initialState = {
   content: 'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
   correctAnswer: '',
   questionType: 'multipleChoice',
-  choices: ['The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
-'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
-'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
-'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to'],
+  choices: [],
   lecture_id: 0
 }
 
