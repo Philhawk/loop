@@ -55,7 +55,6 @@ class TeacherPresentTabbedRightComponent extends React.Component {
             slide n°1
           </div>
           <div id="chart-graph" style={styles.slide}>
-
             {
               this.props.studentMood
             }

@@ -13,10 +13,10 @@ export const callCurrentQuestion = (question) => dispatch => {
 
 // Initial State
 const initialState = {
-  content: '',
+  content: 'What the first letter?',
   correctAnswer: '',
-  questionType: '',
-  choices: [],
+  questionType: 'multipleChoice',
+  choices: ["A", "B", "C", "D"],
   lecture_id: 0
 }
 

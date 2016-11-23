@@ -101,6 +101,16 @@
   box-shadow: 1px 6px 15px rgba(0,0,0,0.2);
 }
 
+.answer:checked {
+  background-color: red;
+  box-shadow: 1px 6px 15px rgba(0,0,0,0.2);
+}
+
+.answer.selected {
+  background-color: #26A69A;
+  color: white;
+}
+
 #student-multiple-choice {
   text-align: left;
   margin: auto 5% auto 5%;
