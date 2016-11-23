@@ -20,7 +20,9 @@ class TeacherCreateLoopComponent extends Component {
   }
 
   componentDidMount() {
-    $('.lean-overlay').remove()
+  $('.lean-overlay').remove()
+    document.body.style = "";
+
     this.props.createLecture({
       name: '',
       mood: 0,
