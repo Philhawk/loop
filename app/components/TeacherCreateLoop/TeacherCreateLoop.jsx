@@ -21,7 +21,6 @@ class TeacherCreateLoopComponent extends Component {
 
   componentDidMount() {
     $('.lean-overlay').remove()
-    console.log(this.props)
     this.props.createLecture({
       name: '',
       mood: 0,
