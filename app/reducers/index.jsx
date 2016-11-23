@@ -5,8 +5,9 @@ import questionsList from './questionsList';
 import session from './session';
 import lecture from './lecture';
 import socket from './socket';
-import studentQuestions from './studentQuestions'
-import studentMood from './studentMood'
+import studentQuestions from './studentQuestions';
+import studentMood from './studentMood';
+import data from './data';
 
 const rootReducer = combineReducers({
   auth,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   session,
   socket,
   studentQuestions,
-  studentMood
+  studentMood,
+  data
 })
 
 export default rootReducer

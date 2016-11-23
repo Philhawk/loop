@@ -6,11 +6,26 @@ const STUDENT_SELECT_C = "STUDENT_SELECT_C";
 const STUDENT_SELECT_D = "STUDENT_SELECT_D";
 
 // Sync Action Creators
-export const studentAddAnswer = ({answer}) => ({ type: STUDENT_ADD_ANSWER, answer })
+export const studentSelectA = () => ({ type: STUDENT_SELECT_A })
+export const studentSelectB = () => ({ type: STUDENT_SELECT_B })
+export const studentSelectC = () => ({ type: STUDENT_SELECT_C })
+export const studentSelectD = () => ({ type: STUDENT_SELECT_D })
 
 // Async Action Creators
-export const callStudentAddAnswer = answer => dispatch => {
-  dispatch(studentAddAnswer(answer))
+export const callStudentSelectA = () => dispatch => {
+  dispatch(studentSelectA())
+}
+
+export const callStudentSelectB = () => dispatch => {
+  dispatch(studentSelectB())
+}
+
+export const callStudentSelectC = () => dispatch => {
+  dispatch(studentSelectC())
+}
+
+export const callStudentSelectD = () => dispatch => {
+  dispatch(studentSelectD())
 }
 
 // Initial State
@@ -19,13 +34,13 @@ const initialState = [0, 0, 0, 0];
 const reducer = (state=initialState, action) => {
   switch(action.type) {
     case STUDENT_SELECT_A:
-      return state[0] + 1
+      return [state[0] + 1, state[1], state[2], state[3]]
     case STUDENT_SELECT_B:
-      return state[1] + 0
+      return [state[0], state[1] + 1, state[2], state[3]]
     case STUDENT_SELECT_C:
-      return state + action.mood
+      return [state[0], state[1], state[2] + 1, state[3]]
     case STUDENT_SELECT_D:
-      return state + action.mood
+      return [state[0], state[1], state[2], state[3] + 1]
     default:
       return state;
   }

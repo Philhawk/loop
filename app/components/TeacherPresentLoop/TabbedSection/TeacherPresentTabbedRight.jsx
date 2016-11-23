@@ -4,6 +4,7 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import { callStudentAddMood } from '../../../reducers/studentMood';
 import { connect } from 'react-redux';
+import { callStudentSelectA, callStudentSelectB, callStudentSelectC, callStudentSelectD } from '../../../reducers/data';
 
 
 const styles = {
@@ -29,6 +30,13 @@ class TeacherPresentTabbedRightComponent extends React.Component {
     this.props.socket.on('studentMoodIndex', ({mood}) => {
       this.props.callStudentAddMood({mood: mood})
     })
+    this.props.socket.on('studentAnswer', ({answer}) => {
+      console.log("YO YO YO", answer, typeof answer)
+      if(answer === 0) this.props.callStudentSelectA()
+      else if(answer === 1) this.props.callStudentSelectB()
+      else if(answer === 2) this.props.callStudentSelectC()
+      else if(answer === 3) this.props.callStudentSelectD()
+    })
   }
 
   handleChange = (value) => {
@@ -52,7 +60,10 @@ class TeacherPresentTabbedRightComponent extends React.Component {
           onChangeIndex={this.handleChange}
         >
           <div>
-            slide n°1
+            <p>A: {this.props.data[0]}</p>
+            <p>B: {this.props.data[1]}</p>
+            <p>C: {this.props.data[2]}</p>
+            <p>D: {this.props.data[3]}</p>
           </div>
           <div id="chart-graph" style={styles.slide}>
             {
@@ -65,8 +76,8 @@ class TeacherPresentTabbedRightComponent extends React.Component {
   }
 }
 
-const mapStateToProps = ({socket, studentMood}) => ({socket, studentMood})
-const mapDispatchToProps = { callStudentAddMood }
+const mapStateToProps = ({socket, studentMood, data }) => ({socket, studentMood, data})
+const mapDispatchToProps = { callStudentAddMood, callStudentSelectA, callStudentSelectB, callStudentSelectC, callStudentSelectD }
 const TeacherPresentTabbedRight = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentTabbedRightComponent)
 
 export default TeacherPresentTabbedRight;
