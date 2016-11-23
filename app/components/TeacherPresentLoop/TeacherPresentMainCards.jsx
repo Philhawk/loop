@@ -9,7 +9,9 @@ class TeacherPresentMainCardsComponent extends Component {
     this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
   }
 
+
   onCurrentCardRemove(){
+    this.props.socket.emit('teacherAsk', {question: this.props.questionsList[1], sessionString: this.props.session.sessionString})
     this.props.callRemoveQuestion();
   }
 
@@ -51,7 +53,7 @@ class TeacherPresentMainCardsComponent extends Component {
 }
 
 
-const mapStateToProps = ({ questionsList }) => ({ questionsList })
+const mapStateToProps = ({ questionsList, socket, session }) => ({ questionsList, socket, session })
 const mapDispatchToProps = { callRemoveQuestion };
 const TeacherPresentMainCards = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentMainCardsComponent)
 

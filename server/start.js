@@ -77,6 +77,12 @@ if (module === require.main) {
       io.in(sessionString).emit('studentMoodIndex', { mood })
     })
 
+    socket.on('teacherAsk', ({ question, sessionString }) => {
+      console.log('THIS IS THE  UEEEEESTION', question)
+      console.log('THIS IS THE SESSION STRING', sessionString)
+      io.in(sessionString).emit('newTeacherQuestion', { question })
+    })
+
 
   })
 }

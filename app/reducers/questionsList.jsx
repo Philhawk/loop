@@ -25,7 +25,7 @@ export const createQuestion = ({content, correctAnswer, questionType, choices, l
 
 
 const initialState = [{
-    content: "Incoming Question ",
+    content: "",
     correctAnswer: null,
     questionType: "",
     choices: []
