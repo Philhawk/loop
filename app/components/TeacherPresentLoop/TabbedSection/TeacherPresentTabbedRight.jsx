@@ -2,6 +2,9 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 // From https://github.com/oliviertassinari/react-swipeable-views
 import SwipeableViews from 'react-swipeable-views';
+import { callStudentAddMood } from '../../../reducers/studentMood';
+import { connect } from 'react-redux';
+
 
 const styles = {
   headline: {
@@ -15,13 +18,17 @@ const styles = {
   },
 };
 
-export default class TeacherPresentTabbedRight extends React.Component {
+class TeacherPresentTabbedRightComponent extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       slideIndex: 0,
     };
+
+    this.props.socket.on('studentMoodIndex', ({mood}) => {
+      this.props.callStudentAddMood({mood: mood})
+    })
   }
 
   handleChange = (value) => {
@@ -47,11 +54,20 @@ export default class TeacherPresentTabbedRight extends React.Component {
           <div>
             slide n°1
           </div>
-          <div style={styles.slide}>
-            slide n°2
+          <div id="chart-graph" style={styles.slide}>
+
+            {
+              this.props.studentMood
+            }
           </div>
         </SwipeableViews>
       </div>
     );
   }
 }
+
+const mapStateToProps = ({socket, studentMood}) => ({socket, studentMood})
+const mapDispatchToProps = { callStudentAddMood }
+const TeacherPresentTabbedRight = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentTabbedRightComponent)
+
+export default TeacherPresentTabbedRight;

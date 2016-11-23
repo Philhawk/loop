@@ -21,6 +21,8 @@ class OpenEndedComponent extends Component {
       questionType: 'openEnded', // remember to input the correct question type
       choices: []
     })
+    // resets all form fields on submit
+    e.target.question.value = "";
   }
 
   render() {

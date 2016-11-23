@@ -3,19 +3,20 @@
 const SET_CURRENT_QUESTION = "SET_CURRENT_QUESTION";
 
 // Sync Action Creators
-const setCurrentQuestion = question => { type: SET_CURRENT_QUESTION, question }
+const setCurrentQuestion = question => ({ type: SET_CURRENT_QUESTION, question })
 
 // Async Action Creators
 
+export const callCurrentQuestion = (question) => dispatch => {
+  dispatch(setCurrentQuestion(question))
+}
+
 // Initial State
 const initialState = {
-  content: 'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
+  content: '',
   correctAnswer: '',
-  questionType: 'multipleChoice',
-  choices: ['The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
-'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
-'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to',
-'The decision excerpted most directly reflected a growing belief after the Second World War that the power of the federal government should be used to'],
+  questionType: '',
+  choices: [],
   lecture_id: 0
 }
 

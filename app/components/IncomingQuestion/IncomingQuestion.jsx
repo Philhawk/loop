@@ -13,7 +13,7 @@ class IncomingQuestionComponent extends Component {
     if(this.props.currentQuestion.questionType === 'multipleChoice') {
       return <MultipleChoiceStudent />
     } else if(this.props.currentQuestion.questionType === "fillInTheBlank") {
-      return <FillInTheBlankStudent />
+      return <MultipleChoiceStudent />
     } else if(this.props.currentQuestion.questionType === "openEnded") {
       return <OpenEndedStudent />
     } else {

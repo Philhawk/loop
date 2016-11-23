@@ -20,7 +20,7 @@ class TeacherCreateLoopComponent extends Component {
   }
 
   componentDidMount() {
-    console.log('create-loop-constructor',this.props);
+    $('.lean-overlay').remove()
     this.props.createLecture({
       name: '',
       mood: 0,
@@ -34,6 +34,7 @@ class TeacherCreateLoopComponent extends Component {
   onFillInBlank(e) {
     e.preventDefault()
     this.setState({whois: "fillInBlank"})
+    e.target.fill
   }
 
   onMultipleChoice(e) {
@@ -45,7 +46,7 @@ class TeacherCreateLoopComponent extends Component {
     e.preventDefault()
     this.setState({whois: "openEnded"})
   }
-  
+
 
   showQuestion() {
     if (this.state.whois === "fillInBlank") {
@@ -115,8 +116,8 @@ class TeacherCreateLoopComponent extends Component {
                   </div>
                 </div>
                 {
-                  this.props.questionsList.map(question => (
-                    <div className="card #37474f white-grey darken-3">
+                  this.props.questionsList.map((question, i) => (
+                    <div className="card #37474f white-grey darken-3" key={i}>
                       <div className="card-content black-text">
                         <p>{question.content}</p>
                       </div>
@@ -132,6 +133,7 @@ class TeacherCreateLoopComponent extends Component {
 }
 
 const mapStateToProps = ({ auth, lecture, session, questionsList }) => ({ auth, lecture, session, questionsList })
+
 const mapDispatchToProps = { createSession, createLecture ,updateLecture }
 const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
 

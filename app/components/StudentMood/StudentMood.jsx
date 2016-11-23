@@ -4,7 +4,18 @@ import { connect } from 'react-redux';
 class StudentMoodComponent extends Component {
   constructor() {
     super()
+    this.onSubmitUnderstand = this.onSubmitUnderstand.bind(this)
+    this.onSubmitDontUnderstand = this.onSubmitDontUnderstand.bind(this)
   }
+
+  onSubmitUnderstand(e) {
+    this.props.socket.emit('studentMoodClick', {mood: 3, sessionString: this.props.session.sessionString })
+  }
+
+  onSubmitDontUnderstand(e) {
+    this.props.socket.emit('studentMoodClick', {mood: -3, sessionString: this.props.session.sessionString })
+  }
+
 
   render() {
     return (
@@ -15,7 +26,7 @@ class StudentMoodComponent extends Component {
         <div className="row card small z-depth-2">
 
           <div className="col s12 m12 l4 center-block change-width-mid">
-            <button className="btn-floating btn-large waves-effect teal lighten-2 waves-light thumb-buttons"><i className="material-icons thumbs">thumb_up</i></button>
+            <button onClick={this.onSubmitUnderstand} className="btn-floating btn-large waves-effect teal lighten-2 waves-light thumb-buttons"><i className="material-icons thumbs">thumb_up</i></button>
           </div>
 
           <div className="col s12 m12 l4 center-block change-width-mid">
@@ -23,7 +34,7 @@ class StudentMoodComponent extends Component {
           </div>
 
           <div className="col s12 m12 l4 center-block change-width-mid">
-            <button className="btn-floating btn-large waves-effect teal lighten-2 waves-light thumb-buttons"><i className="material-icons thumbs">thumb_down</i></button>
+            <button  onClick={this.onSubmitDontUnderstand} className="btn-floating btn-large waves-effect teal lighten-2 waves-light thumb-buttons"><i className="material-icons thumbs">thumb_down</i></button>
           </div>
         </div>
       </div>
@@ -31,9 +42,9 @@ class StudentMoodComponent extends Component {
   }
 }
 
-const mapStateToProps = () => ({})
 const mapDispatchToProps = {};
+const mapStateToProps = ({socket, session }) => ({socket, session })
 
-const StudentMood = connect()(StudentMoodComponent)
+const StudentMood = connect(mapStateToProps, null)(StudentMoodComponent)
 
 export default StudentMood;

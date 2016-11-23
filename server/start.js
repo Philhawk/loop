@@ -67,10 +67,22 @@ if (module === require.main) {
       console.log(`A ${role} just joined loop ${loopUuId}`)
     })
 
-    socket.on('studentAsk', ({ question }) => {
+    socket.on('studentAsk', ({ question, sessionString }) => {
       console.log(question)
-      io.emit('newStudentQuestion', { question })
+      io.in(sessionString).emit('newStudentQuestion', { question })
     })
+
+    socket.on('studentMoodClick', ({ mood, sessionString }) => {
+      console.log(mood)
+      io.in(sessionString).emit('studentMoodIndex', { mood })
+    })
+
+    socket.on('teacherAsk', ({ question, sessionString }) => {
+      console.log('THIS IS THE  UEEEEESTION', question)
+      console.log('THIS IS THE SESSION STRING', sessionString)
+      io.in(sessionString).emit('newTeacherQuestion', { question })
+    })
+
 
   })
 }
