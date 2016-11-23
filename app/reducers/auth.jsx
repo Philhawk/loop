@@ -34,11 +34,9 @@ export const signup = ({ email, password, name, role }) => dispatch => {
 }
 
 export const login = (email, password) => {
-  return (dispatch) =>
-    axios.post('/api/auth/local/login',
-      {email, password})
+  return (dispatch) => axios.post('/api/auth/local/login', {email, password})
       .then(() => dispatch(whoami()))
-      .catch(() => dispatch(whoami()))
+      .catch(err => {throw new Error(err)})
 }
 
 export const logout = () =>

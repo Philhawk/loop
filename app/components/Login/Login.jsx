@@ -14,6 +14,7 @@ class LoginComponent extends Component {
     e.preventDefault()
     this.props.login(e.target.email.value, e.target.password.value)
     .then(() => browserHistory.push('/create-loop'))
+    .catch((err) => console.log("LOGIN FAILED",err))
   }
 
   render() {
