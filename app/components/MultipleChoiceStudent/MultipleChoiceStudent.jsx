@@ -13,7 +13,7 @@ class MultipleChoiceStudentComponent extends Component {
   }
 
   onSubmitAnswer() {
-    this.props.socket.emit('submitAnswer', {answer: this.state.selected, sessionString: this.props.session.sessionString})
+    this.props.socket.emit('submitMultipleChoice', {answer: this.state.selected, sessionString: this.props.session.sessionString})
     this.setState({submitted: true})
   }
 
