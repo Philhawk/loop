@@ -25,13 +25,17 @@ class SignUpComponent extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSignup}>
-        <Input name="email" type="email" label="Email" s={12} />
-        <Input name="password" type="password" label="Password" s={12} />
-        <Input name="name" type="" label="Name" s={12} />
-        <Input name="role" type="" label="Role" s={12} />
-        <Button waves='light' className="#c2185b pink darken-2">Submit</Button>
-      </form>
+      <div className="card-content">
+        <form className="form-signin" onSubmit={this.onSignup}>
+          <h3 className="form-signin-heading">Sign Up</h3>
+          <hr className="colorgraph"></hr>
+          <Input className="form-control" name="name" type="" placeholder="Name" s={12} />
+          <Input className="form-control" name="email" type="email" placeholder="Email" s={12} />
+          <Input className="form-control" name="password" type="password" placeholder="Password" s={12} />
+          <Input className="form-control" name="role" type="" placeholder="Role" s={12} id="role-field" />
+          <Button waves='light' className="#c2185b pink darken-2">Submit</Button>
+        </form>
+      </div>
     )
   }
 }

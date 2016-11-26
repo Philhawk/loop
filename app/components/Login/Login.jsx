@@ -19,11 +19,18 @@ class LoginComponent extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onLogin}>
-        <Input name="email" type="email" label="Email" s={12} />
-        <Input name="password" type="password" label="Password" s={12} />
-        <Button waves='light' className="#c2185b pink darken-2">Submit</Button>
-      </form>
+
+
+            <div className="card-content">
+              <form className="form-signin" onSubmit={this.onLogin}>
+                <h3 className="form-signin-heading">Sign In</h3>
+                <hr className="colorgraph"></hr>
+                <input className="form-control" name="email" placeholder="Username" />
+                <input className="form-control" name="password" type="password" placeholder="Password" />
+                <Button waves='light' className="#c2185b pink darken-2">Login</Button>
+              </form>
+            </div>
+
     )
   }
 }
@@ -32,3 +39,15 @@ const mapDispatchToProps = { login }
 const Login = connect(null, mapDispatchToProps)(LoginComponent)
 
 export default Login;
+
+      // <div className="row">
+      //   <div className="container">
+      //     <div className="card">
+      //       <form onSubmit={this.onLogin}>
+      //         <Input name="email" type="email" label="Email" s={12} />
+      //         <Input name="password" type="password" label="Password" s={12} />
+      //         <Button waves='light' className="#c2185b pink darken-2">Submit</Button>
+      //       </form>
+      //     </div>
+      //   </div>
+      // </div>

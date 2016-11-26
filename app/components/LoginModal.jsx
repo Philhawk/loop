@@ -34,19 +34,20 @@ class LoginSignUpComponent extends Component {
 
   render() {
     return (
-
       <Modal
-        header={(this.state.whois === "login") ? "Please Login" : "Please Signup"}
-        fixedFooter
         trigger={
           <Button waves='light'>Login</Button>
         }>
 
-        <Row>
-          <Button waves='light' className="#0091ea light-blue accent-4" onClick={this.onLoginSelect}>Login</Button>
-          <Button waves='light' className="#0091ea light-blue accent-4"onClick={this.onSignUpSelect}>SignUp</Button>
-          {this.showForm()}
-        </Row>
+          <Row className="loginRow">
+            <Button waves='light' className="#0091ea light-blue accent-4" onClick={this.onLoginSelect}>Login</Button>
+            <Button waves='light' className="#0091ea light-blue accent-4"onClick={this.onSignUpSelect}>SignUp</Button>
+          </Row>
+
+          <div className="card-panel">
+            {this.showForm()}
+          </div>
+
       </Modal>
     )
   }
@@ -54,3 +55,4 @@ class LoginSignUpComponent extends Component {
 
 
 export default LoginSignUpComponent;
+
