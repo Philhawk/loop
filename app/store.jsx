@@ -1,4 +1,4 @@
-import {persistStore, autoRehydrate} from 'redux-persist'
+// import {persistStore, autoRehydrate} from 'redux-persist'
 
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers'
