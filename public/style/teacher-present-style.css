@@ -101,3 +101,13 @@
     font-weight: bolder;
    font-family: 'Work Sans', sans-serif;
 }
+
+.student-question {
+  border: 1px solid black;
+  text-align: left;
+}
+
+.student-question-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
