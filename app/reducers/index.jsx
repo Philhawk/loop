@@ -8,6 +8,7 @@ import socket from './socket';
 import studentQuestions from './studentQuestions';
 import studentMood from './studentMood';
 import data from './data';
+import openEndedAnswers from './openEndedAnswers';
 
 const rootReducer = combineReducers({
   auth,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   socket,
   studentQuestions,
   studentMood,
-  data
+  data,
+  openEndedAnswers
 })
 
 export default rootReducer

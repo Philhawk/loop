@@ -4,6 +4,9 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import { connect } from 'react-redux';
 import { callStudentSelectA, callStudentSelectB, callStudentSelectC, callStudentSelectD } from '../../../reducers/data';
+import { callAddAnswer } from '../../../reducers/openEndedAnswers'
+import MultipleChoiceData from './MultipleChoiceData';
+import OpenEndedData from './OpenEndedData';
 
 
 const styles = {
@@ -26,13 +29,28 @@ class TeacherPresentTabbedRightComponent extends React.Component {
       slideIndex: 0,
     };
 
-    this.props.socket.on('studentAnswer', ({answer}) => {
+    this.props.socket.on('studentMultipleChoiceAnswer', ({answer}) => {
       console.log("YO YO YO", answer, typeof answer)
       if(answer === 0) this.props.callStudentSelectA()
       else if(answer === 1) this.props.callStudentSelectB()
       else if(answer === 2) this.props.callStudentSelectC()
       else if(answer === 3) this.props.callStudentSelectD()
     })
+
+    this.props.socket.on('studentOpenEndedAnswer', ({ answer }) => {
+      this.props.callAddAnswer(answer);
+    })
+
+  }
+
+
+  displayData() {
+    if(this.props.questionsList[0].questionType === 'multipleChoice') {
+      return <MultipleChoiceData data={this.props.data}/>
+    } else if(this.props.questionsList[0].questionType === 'openEnded') {
+      console.log("OPENENDEDANSWERS", this.props.openEndedAnswers)
+      return <OpenEndedData openEndedAnswers={this.props.openEndedAnswers}/>
+    }
   }
 
   handleChange = (value) => {
@@ -47,19 +65,14 @@ class TeacherPresentTabbedRightComponent extends React.Component {
           <span className="card-title">
             Data
           </span>
-          <div>
-            <p>A: {this.props.data[0]}</p>
-            <p>B: {this.props.data[1]}</p>
-            <p>C: {this.props.data[2]}</p>
-            <p>D: {this.props.data[3]}</p>
-          </div>
+          {this.displayData()}
       </div>
     );
   }
 }
 
-const mapStateToProps = ({socket, data }) => ({socket, data})
-const mapDispatchToProps = { callStudentSelectA, callStudentSelectB, callStudentSelectC, callStudentSelectD }
+const mapStateToProps = ({socket, data, questionsList, openEndedAnswers }) => ({socket, data, questionsList, openEndedAnswers })
+const mapDispatchToProps = { callStudentSelectA, callStudentSelectB, callStudentSelectC, callStudentSelectD, callAddAnswer }
 const TeacherPresentTabbedRight = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentTabbedRightComponent)
 
 export default TeacherPresentTabbedRight;

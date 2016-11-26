@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { callRemoveQuestion } from '../../reducers/questionsList';
 import { callReset } from '../../reducers/data';
+import { callOpenEndedReset} from '../../reducers/openEndedAnswers'
 import { Button } from 'react-materialize';
 import { callStudentAddMood } from '../../reducers/studentMood';
 
@@ -19,6 +20,7 @@ class TeacherPresentMainCardsComponent extends Component {
     this.props.socket.emit('teacherAsk', {question: this.props.questionsList[1], sessionString: this.props.session.sessionString})
     this.props.callRemoveQuestion();
     this.props.callReset();
+    this.props.callOpenEndedReset();
   }
 
 
@@ -66,8 +68,7 @@ class TeacherPresentMainCardsComponent extends Component {
 
 
 const mapStateToProps = ({ questionsList, socket, studentMood, session }) => ({ questionsList, socket, studentMood, session })
-const mapDispatchToProps = { callStudentAddMood, callRemoveQuestion, callReset };
+const mapDispatchToProps = { callStudentAddMood, callRemoveQuestion, callReset, callOpenEndedReset };
 const TeacherPresentMainCards = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentMainCardsComponent)
 
 export default TeacherPresentMainCards;
-

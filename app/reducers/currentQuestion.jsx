@@ -13,10 +13,10 @@ export const callCurrentQuestion = (question) => dispatch => {
 
 // Initial State
 const initialState = {
-  content: 'MULT',
+  content: '',
   correctAnswer: '',
-  questionType: 'multipleChoice',
-  choices: ["A", "B", "C", "D"],
+  questionType: 'openEnded',
+  choices: [],
   lecture_id: 0
 }
 

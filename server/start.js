@@ -56,6 +56,7 @@ if (module === require.main) {
       console.log(`Listening on ${JSON.stringify(server.address())}`)
     }
   )
+
   const io = require('socket.io')(server);
 
   io.on('connection', (socket) => {
@@ -78,15 +79,16 @@ if (module === require.main) {
     })
 
     socket.on('teacherAsk', ({ question, sessionString }) => {
-      console.log('THIS IS THE  UEEEEESTION', question)
-      console.log('THIS IS THE SESSION STRING', sessionString)
       io.in(sessionString).emit('newTeacherQuestion', { question })
     })
 
-    socket.on('submitAnswer', ({ answer, sessionString }) => {
-      console.log('This is the answer:', answer)
-      console.log('This is the sessionString:', sessionString)
-      io.in(sessionString).emit('studentAnswer', { answer })
+    socket.on('submitMultipleChoice', ({ answer, sessionString }) => {
+      io.in(sessionString).emit('studentMultipleChoiceAnswer', { answer })
+    })
+
+    socket.on('submitOpenEnded', ({ answer, sessionString }) => {
+      console.log("OPENENDEDANSWER", answer)
+      io.in(sessionString).emit('studentOpenEndedAnswer', { answer })
     })
   })
 }
