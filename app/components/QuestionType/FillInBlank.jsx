@@ -20,7 +20,8 @@ onQuestionCreate(e) {
     content: e.target.question.value,
     correctAnswer: this.state.selectedAnswer,
     questionType: 'fillInTheBlank', // remember to input the correct question type
-    choices: [e.target.answer_A.value, e.target.answer_B.value, e.target.answer_C.value, e.target.answer_D.value]
+    choices: [e.target.answer_A.value, e.target.answer_B.value, e.target.answer_C.value, e.target.answer_D.value],
+    lecture_id: this.props.lecture.id
   })
   // resets all form fields on submit
   e.target.question.value = "";
@@ -80,7 +81,7 @@ onRadioSelect(e) {
 
 
 const mapDispatchToProps = {createQuestion}
-const FillInBlank = connect(null, mapDispatchToProps)(FillInBlankComponent)
+const mapStateToProps = ({ lecture }) => ({ lecture })
+const FillInBlank = connect(mapStateToProps, mapDispatchToProps)(FillInBlankComponent)
 
 export default FillInBlank;
-

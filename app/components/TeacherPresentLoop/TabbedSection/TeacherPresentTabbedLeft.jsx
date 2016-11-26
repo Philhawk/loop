@@ -1,9 +1,10 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
+import {Button} from 'react-materialize';
 // From https://github.com/oliviertassinari/react-swipeable-views
 import SwipeableViews from 'react-swipeable-views';
 import { connect } from 'react-redux';
-import { callStudentAddQuestion } from '../../../reducers/studentQuestions';
+import { callStudentAddQuestion, studentRemoveQuestion } from '../../../reducers/studentQuestions';
 import store from '../../../store';
 
 const styles = {
@@ -45,7 +46,19 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
           <div>
             {
               this.props.studentQuestions.map((question, i) => (
-                <p key={i} >{question.questionContent}</p>
+                <div className="row student-question">
+                  <p key={i} className="col s10">{question.questionContent}</p>
+                  <span className="col s2 student-question-button">
+                    <Button
+                      floating
+                      small
+                      className="red"
+                      waves="light"
+                      icon="done"
+                      onClick={() => this.props.studentRemoveQuestion(i)}
+                     />
+                  </span>
+                </div>
                 )
               )
             }
@@ -58,7 +71,7 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
 
 
 const mapStateToProps = ({ socket, studentQuestions }) => ({ socket, studentQuestions })
-const mapDispatchToProps = { callStudentAddQuestion }
+const mapDispatchToProps = { callStudentAddQuestion, studentRemoveQuestion }
 const TeacherPresentTabbedLeft = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentTabbedLeftComponent)
 
 export default TeacherPresentTabbedLeft;

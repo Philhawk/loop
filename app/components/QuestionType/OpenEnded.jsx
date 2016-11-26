@@ -19,7 +19,8 @@ class OpenEndedComponent extends Component {
       content: e.target.question.value,
       correctAnswer: "",
       questionType: 'openEnded', // remember to input the correct question type
-      choices: []
+      choices: [],
+      lecture_id: this.props.lecture.id
     })
     // resets all form fields on submit
     e.target.question.value = "";
@@ -42,8 +43,8 @@ class OpenEndedComponent extends Component {
   }
 }
 
+const mapStateToProps = ({ lecture }) => ({ lecture })
 const mapDispatchToProps = {createQuestion}
-const OpenEnded = connect(null, mapDispatchToProps)(OpenEndedComponent)
+const OpenEnded = connect(mapStateToProps, mapDispatchToProps)(OpenEndedComponent)
 
 export default OpenEnded;
-
