@@ -80,7 +80,7 @@ class TeacherCreateLoopComponent extends Component {
                 <div className="card white-grey darken-1">
                   <div className="card-content black-text">
                     <span className="card-title">Fill in the blank</span>
-                    <p>Your teachers name is ___________.</p>
+                    <p>The teacher's name is ___________.</p>
                   </div>
                   <div className="card-action">
                     <a href="" onClick={this.onFillInBlank}>Create Question</a>
