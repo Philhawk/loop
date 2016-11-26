@@ -39,9 +39,10 @@ onRadioSelect(e) {
 
   render() {
     return (
-      <div className="row">
-        <form onSubmit={this.onQuestionCreate}>
+      <div className="card-content">
 
+        <form className="form-questions" onSubmit={this.onQuestionCreate}>
+          <h3 className="form-signin-heading">Fill in the blank.</h3>
           <div className="input-field col s12">
             <input id="question" name="question" type="text"/>
             <label htmlFor="question">Question</label>
@@ -62,7 +63,7 @@ onRadioSelect(e) {
             <input name="answer_D" type="text"/>
             <label htmlFor="answer_D">D</label>
           </div>
-          <div>
+          <div className="radioSelects">
             <p>Correct Answer</p>
             <Input name='correct' type='radio' value='0' label='A' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='1' label='B' className='with-gap' onClick={this.onRadioSelect}/>
@@ -70,8 +71,8 @@ onRadioSelect(e) {
             <Input name='correct' type='radio' value='3' label='D' className='with-gap' onClick={this.onRadioSelect}/>
             <Button waves='light' >Save question</Button>
           </div>
-
         </form>
+
       </div>
     )
   }

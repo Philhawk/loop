@@ -69,21 +69,19 @@ class TeacherCreateLoopComponent extends Component {
               <Link to={`/loop/${this.props.session.sessionString}`}>
                 <Button waves='light' id="startPresBtn">Start Presentation</Button>
               </Link>
-                <div className="card white-grey darken-1 cardCreation">
-                  <div className="card-content black-text">
-                    {this.showQuestion()}
-                  </div>
+                <div className="card-panel">
+                  {this.showQuestion()}
                 </div>
               </div>
 
-              <div className="col s12 m12 l4" id="questionOption">
+              <div className="col s12 m12 l3" id="questionOption">
                 <div className="card white-grey darken-1">
                   <div className="card-content black-text">
                     <span className="card-title">Fill in the blank</span>
                     <p>The teacher's name is ___________.</p>
                   </div>
                   <div className="card-action">
-                    <a href="" onClick={this.onFillInBlank}>Create Question</a>
+                    <Button className="createBtn" onClick={this.onFillInBlank}>Create Question</Button>
                   </div>
                 </div>
 
@@ -96,7 +94,7 @@ class TeacherCreateLoopComponent extends Component {
                     <p>C. George Bush</p>
                   </div>
                   <div className="card-action">
-                    <a href="" onClick={this.onMultipleChoice}>Create Question</a>
+                    <Button className="createBtn" onClick={this.onMultipleChoice}>Create Question</Button>
                   </div>
                 </div>
 
@@ -106,12 +104,12 @@ class TeacherCreateLoopComponent extends Component {
                     <p>160 characters or less please.</p>
                   </div>
                   <div className="card-action">
-                    <a href="" onClick={this.onOpenEnded}>Create Question</a>
+                    <Button className="createBtn" onClick={this.onOpenEnded}>Create Question</Button>
                   </div>
                 </div>
               </div>
 
-              <div className="col s12 m12 l2" id="Sidebar">
+              <div className="col s12 m12 l3">
                 <div className="card #37474f white-grey darken-3">
                   <div className="card-content black-text">
                     <span className="card-title">{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</span>

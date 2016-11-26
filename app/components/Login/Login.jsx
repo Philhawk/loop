@@ -19,8 +19,6 @@ class LoginComponent extends Component {
 
   render() {
     return (
-
-
             <div className="card-content">
               <form className="form-signin" onSubmit={this.onLogin}>
                 <h3 className="form-signin-heading">Sign In</h3>
@@ -30,7 +28,6 @@ class LoginComponent extends Component {
                 <Button waves='light' className="#c2185b pink darken-2">Login</Button>
               </form>
             </div>
-
     )
   }
 }

@@ -7,16 +7,16 @@
   font-weight: bolder;
 }
 
-#questionCreation {
+.form-questions {
+  padding: 30px 38px 66px;
+  margin: 0 auto;
+  background-color: #E8f1f2;
+  border: 3px solid rgba(0,0,0,0.1);
+  color: black;
+  }
 
-}
-
-.cardCreation {
-  height: 100vh;
-}
-
-#questionOption {
-
+.radioSelects {
+  margin-top: 1%;
 }
 
 #Sidebar {
@@ -29,8 +29,9 @@
   margin-bottom: 1em;
 }
 
-.createLink {
+.createBtn {
   text-align: center;
+  color: white;
 }
 
 #openEndedForm {
@@ -46,10 +47,13 @@
 }
 
 .backgroundCard {
-  background-color: #A5A8C5;
+  background-color: #006494;
   padding: 2em;
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
+  height: 100vh;
 }
+
+
 /* label focus color */
 
 /* .input-field input:focus + label {
