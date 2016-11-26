@@ -9,12 +9,10 @@ class SignUpComponent extends Component {
   constructor() {
     super();
     this.onSignup = this.onSignup.bind(this);
-
   }
 
   onSignup(e) {
     e.preventDefault()
-    console.log("will make signup route")
     this.props.signup({
       email: e.target.email.value,
       password: e.target.password.value,

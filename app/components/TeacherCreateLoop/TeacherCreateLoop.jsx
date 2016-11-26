@@ -114,7 +114,7 @@ class TeacherCreateLoopComponent extends Component {
               <div className="col s12 m12 l2" id="Sidebar">
                 <div className="card #37474f white-grey darken-3">
                   <div className="card-content black-text">
-                    <span className="card-title">User Name</span>
+                    <span className="card-title">{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</span>
                   </div>
                 </div>
                 {
