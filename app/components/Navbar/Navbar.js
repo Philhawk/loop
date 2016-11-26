@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import LoginModal from '../LoginModal';
+import { Navbar, NavItem, Icon } from 'react-materialize';
 
 
-export default class Navbar extends Component {
+export default class OurNavbar extends Component {
   constructor() {
     super();
   }
@@ -10,23 +11,12 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <div className="navbar-fixed">
-        <nav className="transparent z-depth-0">
-          <div className="nav-wrapper">
-            <a href="/" className="brand-logo">
-              {<img src="/logo.png"></img>}
-            </a>
-            <ul className="right hide-on-med-and-down">
-
-              <li className='brand-text'><a href="">Why use it</a></li>
-              <li className='brand-text'><a href="">How it works</a></li>
-              <li className='brand-text'><a href="">About Us</a></li>
-
-              <LoginModal/>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <Navbar brand={<img src="/logo.png"></img>} right className="transparent z-depth-0">
+        <NavItem className="brand-text" href="">Why use it</NavItem>
+        <NavItem className="brand-text" href="">How it works</NavItem>
+        <NavItem className="brand-text" href="">About Us</NavItem>
+        <LoginModal/>
+      </Navbar>
     );
   }
 }
