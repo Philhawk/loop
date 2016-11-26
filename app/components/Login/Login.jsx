@@ -22,7 +22,6 @@ class LoginComponent extends Component {
       <form onSubmit={this.onLogin}>
         <Input name="email" type="email" label="Email" s={12} />
         <Input name="password" type="password" label="Password" s={12} />
-        <Input name="code" type="text" label="Code" s={12} />
         <Button waves='light' className="#c2185b pink darken-2">Submit</Button>
       </form>
     )
