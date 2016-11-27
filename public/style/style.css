@@ -100,8 +100,9 @@
   background-image: url(../img/background.png);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 220vh;
+  height: 100vh;
   max-width: 100vw;
+  margin-bottom: 0;
 }
 
 .whyusetext {
@@ -329,9 +330,6 @@ nav ul a {
 /*super large*/
 
 @media (min-width: 1600px) {
-  .homepage {
-    height: 230vh;
-  }
   .row {
     padding-bottom: 1em;
   }
