@@ -27,12 +27,23 @@ sessionsRouter.get('/:sessionId', (req, res, next) => {
   .catch(next);
 });
 
+sessionsRouter.get('/string/:sessionString', (req, res, next) => {
+  db.model('sessions').findOne({
+    where: {
+      sessionString: req.params.sessionString
+    }
+  })
+  .then(session => {
+    res.json(session);
+  })
+  .catch(next);
+});
+
 // create a session
 sessionsRouter.post('/', (req, res, next) => {
   console.log('THIS IS THE BODY', req.body)
   db.model('sessions').create(req.body)
   .then(session => {
-
     bitly.shorten('http://loop-teach.herokuapp.com/studentLoop/' + session.sessionString)
     .then(response => {
       session.dataValues.bitly = response.data.url
@@ -55,7 +66,7 @@ sessionsRouter.put('/:sessionId', (req, res, next) => {
   .catch(next);
 })
 
-// finds session by sessionString and increments currentQuestion by 1
+// increments currentQuestion of a session by 1
 sessionsRouter.put('/:sessionString/next', (req, res, next) => {
   db.model('sessions').findOne({
     where: {
@@ -64,7 +75,7 @@ sessionsRouter.put('/:sessionString/next', (req, res, next) => {
   })
   .then(session => {
     session.update({
-      currentQuestion: session.currentQuestion++
+      currentQuestion: session.currentQuestion + 1
     })
     .then(updatedSession => {
       res.status(201).send(updatedSession)

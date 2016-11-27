@@ -12,8 +12,8 @@ class StudentLoopComponent extends Component {
       this.props.callSetCurrentQuestion({ content: question.content, choices: question.choices, questionType: question.questionType
       })
     })
-
   }
+
 
   render() {
     return (
@@ -40,7 +40,7 @@ class StudentLoopComponent extends Component {
   }
 }
 
-const mapStateToProps = ({ socket  }) => ({ socket })
+const mapStateToProps = ({ socket, questionsList, session }) => ({ socket, questionsList, session })
 const mapDispatchToProps = { callSetCurrentQuestion }
 const StudentLoop = connect(mapStateToProps, mapDispatchToProps)(StudentLoopComponent)
 

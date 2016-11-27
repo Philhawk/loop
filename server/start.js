@@ -74,7 +74,6 @@ if (module === require.main) {
     })
 
     socket.on('studentMoodClick', ({ mood, sessionString }) => {
-      console.log(mood)
       io.in(sessionString).emit('studentMoodIndex', { mood })
     })
 
@@ -87,7 +86,6 @@ if (module === require.main) {
     })
 
     socket.on('submitOpenEnded', ({ answer, sessionString }) => {
-      console.log("OPENENDEDANSWER", answer)
       io.in(sessionString).emit('studentOpenEndedAnswer', { answer })
     })
   })

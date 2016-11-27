@@ -18,9 +18,10 @@ class TeacherPresentMainCardsComponent extends Component {
 
 
   onCurrentCardRemove(){
-    this.props.socket.emit('teacherAsk', {question: this.props.questionsList[1], sessionString: this.props.session.sessionString})
-    axios.put(`/api/questions/${this.props.session.sessionString}/next`)
-    .then(() => {
+    axios.put(`/api/sessions/${this.props.session.sessionString}/next`)
+    .then((session) => {
+      console.log("SESSIONDATA", session.data)
+      this.props.socket.emit('teacherAsk', {question: this.props.questionsList[1], sessionString: this.props.session.sessionString})
       this.props.callRemoveQuestion();
       this.props.callReset();
       this.props.callOpenEndedReset();

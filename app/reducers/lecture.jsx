@@ -10,7 +10,6 @@ export const setLecture = lecture => ({
 })
 
 export const createLecture = ({ name, mood, timeStarted, teacher_id }) => dispatch => {
-  console.log("YO")
   return axios.post('/api/lectures', { name, mood, timeStarted, teacher_id })
   .then(lecture => {
     dispatch(setLecture(lecture.data))

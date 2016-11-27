@@ -14,7 +14,7 @@ export const removeQuestion = () => ({
   type: REMOVE_QUESTION
 })
 
-export const setQuestions = () => ({
+export const setQuestions = (questions) => ({
   type: SET_QUESTIONS, questions
 })
 
@@ -27,16 +27,12 @@ export const createQuestion = ({content, correctAnswer, questionType, choices, l
   .then(question => dispatch(addQuestion(question.data)))
 }
 
-export const fetchQuestions = sessionString => dispatch => {
-  axios.get(`/api/questions/session/${sessionString}`)
+export const fetchQuestionsBySessionString = ({sessionString}) => dispatch => {
+  return axios.get(`/api/questions/session/${sessionString}`)
   .then(questions => {
-    console.log(questions);
+    dispatch(setQuestions(questions.data))
   })
 }
-
-export const setQ
-
-
 
 const initialState = [{
     content: "",
@@ -52,6 +48,8 @@ const reducer = (state = initialState, action) => {
     return state.concat(action.question)
     case REMOVE_QUESTION:
     return state.slice(1)
+    case SET_QUESTIONS:
+    return action.questions
   }
   return state;
 }
