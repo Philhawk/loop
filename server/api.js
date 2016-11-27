@@ -10,6 +10,7 @@ api
   .use('/questions', require('./questions'))
   .use('/lectures', require('./lectures'))
   .use('/sessions', require('./sessions'))
+  .use('/studentQuestions', require('./studentQuestions'))
 
 
 // Send along any errors
