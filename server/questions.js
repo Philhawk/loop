@@ -36,6 +36,27 @@ questionsRouter.get('/lectures/:lectureId', (req, res, next) => {
   .catch(next);
 });
 
+// get questions by sessionString
+questionsRouter.get('/session/:sessionString', (req, res, next) => {
+  db.model('sessions').findOne({
+    include: [{ model: db.model('lectures') }],
+    where: {
+      sessionString: req.params.sessionString
+    }
+  })
+  .then(session => {
+    db.model('questions').findAll({
+      where: {
+        lecture_id: session.lecture.id
+      }
+    })
+    .then(questions => {
+      res.json(questions)
+    })
+  })
+  .catch(next);
+});
+
 // create a question
 questionsRouter.post('/', (req, res, next) => {
   console.log('THIS IS THE BODY', req.body)

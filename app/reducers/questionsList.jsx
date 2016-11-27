@@ -4,6 +4,7 @@ import axios from 'axios';
 // actions
 const ADD_QUESTION = "ADD_QUESTION";
 const REMOVE_QUESTION = "REMOVE_QUESTION";
+const SET_QUESTIONS = "SET_QUESTIONS";
 
 export const addQuestion = question => ({
   type: ADD_QUESTION, question
@@ -11,6 +12,10 @@ export const addQuestion = question => ({
 
 export const removeQuestion = () => ({
   type: REMOVE_QUESTION
+})
+
+export const setQuestions = (questions) => ({
+  type: SET_QUESTIONS, questions
 })
 
 export const callRemoveQuestion = () => dispatch => {
@@ -22,7 +27,12 @@ export const createQuestion = ({content, correctAnswer, questionType, choices, l
   .then(question => dispatch(addQuestion(question.data)))
 }
 
-
+export const fetchQuestionsBySessionString = ({sessionString}) => dispatch => {
+  return axios.get(`/api/questions/session/${sessionString}`)
+  .then(questions => {
+    dispatch(setQuestions(questions.data))
+  })
+}
 
 const initialState = [{
     content: "",
@@ -38,6 +48,8 @@ const reducer = (state = initialState, action) => {
     return state.concat(action.question)
     case REMOVE_QUESTION:
     return state.slice(1)
+    case SET_QUESTIONS:
+    return action.questions
   }
   return state;
 }

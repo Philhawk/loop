@@ -7,17 +7,14 @@ const setCurrentQuestion = question => ({ type: SET_CURRENT_QUESTION, question }
 
 // Async Action Creators
 
-export const callCurrentQuestion = (question) => dispatch => {
+export const callSetCurrentQuestion = (question) => dispatch => {
   dispatch(setCurrentQuestion(question))
 }
 
 // Initial State
 const initialState = {
-  content: '',
-  correctAnswer: '',
-  questionType: 'openEnded',
+  content: 'Questions Will Appear Here',
   choices: [],
-  lecture_id: 0
 }
 
 const reducer = (state=initialState, action) => {

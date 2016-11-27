@@ -8,7 +8,9 @@ import TeacherCreateLoop from './components/TeacherCreateLoop/TeacherCreateLoop'
 import StudentLoop from './components/StudentLoop/StudentLoop';
 import store from './store';
 import {createSocket} from './reducers/socket';
-import {setCurrentSession} from './reducers/session'
+import {fetchCurrentSession} from './reducers/session';
+import {fetchQuestionsBySessionString} from './reducers/questionsList';
+import { callSetCurrentQuestion } from './reducers/currentQuestion'
 
 
 const onLoopEnter = () => {
@@ -21,14 +23,18 @@ const onLoopEnter = () => {
 }
 
 const onStudentEnter = (data) => {
-  console.log(data)
   const socket = io.connect();
+  const getQuestions = store.dispatch(fetchQuestionsBySessionString({ sessionString: data.params.loopUuId}))
+  const getSession = store.dispatch(fetchCurrentSession({ sessionString: data.params.loopUuId }))
   store.dispatch(createSocket(socket));
   socket.emit('loopCreated', {
     loopUuId: data.params.loopUuId,
     role: "Student"
   })
-  store.dispatch(setCurrentSession({ sessionString: data.params.loopUuId }))
+  Promise.all([getSession, getQuestions])
+  .then(() => {
+    store.dispatch(callSetCurrentQuestion(store.getState().questionsList[store.getState().session.currentQuestion - 1]))
+  })
 }
 
 

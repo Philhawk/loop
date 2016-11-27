@@ -15,6 +15,15 @@ export const createSession = ({ sessionString, active, lecture_id, bitly }) => d
     console.log(session.data);
     dispatch(setCurrentSession(session.data))
   })
+  .catch(err => console.error(err));
+}
+
+export const fetchCurrentSession = ({ sessionString }) => dispatch => {
+  return axios.get(`/api/sessions/string/${sessionString}`)
+  .then(session => {
+    dispatch(setCurrentSession(session.data))
+  })
+  .catch(err => console.error(err));
 }
 
 // Initial State
@@ -22,7 +31,8 @@ const initialState = {
   sessionString: '',
   active: false,
   lecture_id: null,
-  bitly: ''
+  bitly: '',
+  currentQuestion: -1
 }
 
 const reducer = (state=initialState, action) => {
