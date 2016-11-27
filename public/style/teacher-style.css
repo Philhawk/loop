@@ -46,6 +46,8 @@
   text-align: center;
 }
 
+
+
 .backgroundCard {
   background-color: #006494;
   padding: 2em;
@@ -54,16 +56,62 @@
 }
 
 
-/* label focus color */
 
-/* .input-field input:focus + label {
-   color: #FFD8A6 !important;
- }*/
 
-/* label underline focus color */
+/*mediun Screen*/
+@media (min-width: 770px) {
+  .social-buttons {
+      padding-top: 1em;
+      padding-left: 3em;
+  }
 
-/*.row .input-field input:focus {
-   border-bottom: 1px solid #FFD8A6 !important;
-   box-shadow: 0 1px 0 0 #FFD8A6 !important
- }
-*/
+}
+/*mediun Screen*/
+@media (max-width: 769px) {
+
+}
+
+@media (max-width: 660px) {
+  .social-buttons {
+      padding-left: 3em;
+      padding-top: 1em;
+      padding-bottom: 2em;
+  }
+
+}
+
+@media (max-width: 550px) {
+
+}
+
+@media (max-width: 480px) {
+  .social-buttons {
+      padding-left: 2em;
+      padding-top: 1em;
+      padding-bottom: 2em;
+  }
+
+}
+
+/*small screen*/
+
+@media (max-width: 450px) {
+  .social-buttons {
+      padding-left: 1em;
+  }
+
+}
+
+
+
+
+/*iphone5*/
+@media (max-width: 376px) {
+
+}
+
+
+/*iphone5*/
+@media (max-width: 321px) {
+
+}

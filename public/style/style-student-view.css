@@ -8,27 +8,8 @@
 }
 
 .submit-button-student {
-  margin-left: 40%;
-  text-align: right;
   font-family: 'Work Sans', sans-serif;
-  font-weight: 100;
-  color: #26A69A;
-  padding-left: 50%;
-  font-size: 2em;
   font-weight: bolder;
-  display: inline-block;
-  padding: 1.24em 6em;
-  border: 2px solid #26A69A;
-  overflow: hidden;
-  text-decoration: none;
-  border-radius: 8px;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  font-size: 15px;
-  text-align: left;
 }
 
 #set-mood .thumb-buttons {
@@ -59,7 +40,10 @@
 }
 
 #student-view {
-  background-color: #A5A8C5;
+  background-color: #006494;
+  padding: 2em;
+  margin-bottom: 0;
+  height: 100vh;
 }
 
 .question-incoming {
