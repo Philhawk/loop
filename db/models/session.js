@@ -11,6 +11,10 @@ const Session = db.define('sessions', {
   active: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
+  },
+  currentQuestion: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
   }
 })
 

@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import IncomingQuestion from '../IncomingQuestion/IncomingQuestion';
 import StudentAsk from '../StudentAsk/StudentAsk';
 import StudentMood from '../StudentMood/StudentMood';
-import { callCurrentQuestion } from '../../reducers/currentQuestion';
+import { callSetCurrentQuestion } from '../../reducers/currentQuestion';
 import { connect } from 'react-redux';
 
 class StudentLoopComponent extends Component {
   constructor(props) {
     super(props);
       this.props.socket.on('newTeacherQuestion', ({question}) => {
-      this.props.callCurrentQuestion({ content: question.content, choices: question.choices, questionType: question.questionType
+      this.props.callSetCurrentQuestion({ content: question.content, choices: question.choices, questionType: question.questionType
       })
     })
 
@@ -41,7 +41,7 @@ class StudentLoopComponent extends Component {
 }
 
 const mapStateToProps = ({ socket  }) => ({ socket })
-const mapDispatchToProps = { callCurrentQuestion }
+const mapDispatchToProps = { callSetCurrentQuestion }
 const StudentLoop = connect(mapStateToProps, mapDispatchToProps)(StudentLoopComponent)
 
 export default StudentLoop;

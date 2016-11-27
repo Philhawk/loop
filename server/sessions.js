@@ -20,7 +20,6 @@ sessionsRouter.get('/', (req, res, next) => {
 
 // get a specific session by its ID
 sessionsRouter.get('/:sessionId', (req, res, next) => {
-
   db.model('sessions').findById(req.params.sessionId)
   .then(session => {
     res.json(session);
@@ -49,6 +48,24 @@ sessionsRouter.put('/:sessionId', (req, res, next) => {
   db.model('sessions').findById(req.params.sessionId)
   .then(session => {
     session.update(req.body)
+    .then(updatedSession => {
+      res.status(201).send(updatedSession)
+    })
+  })
+  .catch(next);
+})
+
+// finds session by sessionString and increments currentQuestion by 1
+sessionsRouter.put('/:sessionString/next', (req, res, next) => {
+  db.model('sessions').findOne({
+    where: {
+      sessionString: req.params.sessionString
+    }
+  })
+  .then(session => {
+    session.update({
+      currentQuestion: session.currentQuestion++
+    })
     .then(updatedSession => {
       res.status(201).send(updatedSession)
     })

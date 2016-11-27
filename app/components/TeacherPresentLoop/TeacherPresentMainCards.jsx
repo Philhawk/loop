@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import { callRemoveQuestion } from '../../reducers/questionsList';
 import { callReset } from '../../reducers/data';
 import { callOpenEndedReset} from '../../reducers/openEndedAnswers'
@@ -18,9 +19,12 @@ class TeacherPresentMainCardsComponent extends Component {
 
   onCurrentCardRemove(){
     this.props.socket.emit('teacherAsk', {question: this.props.questionsList[1], sessionString: this.props.session.sessionString})
-    this.props.callRemoveQuestion();
-    this.props.callReset();
-    this.props.callOpenEndedReset();
+    axios.put(`/api/questions/${this.props.session.sessionString}/next`)
+    .then(() => {
+      this.props.callRemoveQuestion();
+      this.props.callReset();
+      this.props.callOpenEndedReset();
+    })
   }
 
 
