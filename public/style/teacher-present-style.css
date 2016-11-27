@@ -1,8 +1,10 @@
 /*Teacher Presentation View Styles*/
 
 .teacherPresentationContainer{
-    background-color: #A5A8C5;
-    padding: 2em;
+  background-color: #006494;
+  padding: 2em;
+  margin-bottom: 0;
+  height: 100vh;
 }
 
 .teacherPresentationViewMain {
