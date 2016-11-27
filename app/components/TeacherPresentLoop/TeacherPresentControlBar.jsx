@@ -57,6 +57,7 @@ class TeacherPresentControlBarComponent extends Component {
   render() {
     const shareUrl = this.props.session.bitly;
     const title = 'Checkout my live loop!'
+    
     return (
         <div className="row">
             <div className="card col s12 m12 l12 teacherPresentationControlBar">
