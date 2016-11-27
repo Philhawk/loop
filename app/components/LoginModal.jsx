@@ -36,7 +36,7 @@ class LoginSignUpComponent extends Component {
     return (
       <Modal
         trigger={
-          <a>Login | Signup</a>
+          <Button waves='light'>Login</Button>
         }>
 
           <Row className="loginRow">
