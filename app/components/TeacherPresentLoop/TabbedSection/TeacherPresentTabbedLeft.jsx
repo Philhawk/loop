@@ -1,8 +1,6 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import {Button} from 'react-materialize';
-// From https://github.com/oliviertassinari/react-swipeable-views
-import SwipeableViews from 'react-swipeable-views';
 import { connect } from 'react-redux';
 import { callStudentAddQuestion, studentRemoveQuestion } from '../../../reducers/studentQuestions';
 import store from '../../../store';
@@ -75,10 +73,3 @@ const mapDispatchToProps = { callStudentAddQuestion, studentRemoveQuestion }
 const TeacherPresentTabbedLeft = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentTabbedLeftComponent)
 
 export default TeacherPresentTabbedLeft;
-
-// To Bring Back SwipeableViews
-        // <Tabs onChange={this.handleChange} value={this.state.slideIndex} >
-        //   <Tab className="teacherPresentTabs" label="Questions" value={0} />
-        // </Tabs>
-        // <SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange} >
-        // </SwipeableViews>

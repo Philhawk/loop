@@ -1,7 +1,5 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
-// From https://github.com/oliviertassinari/react-swipeable-views
-import SwipeableViews from 'react-swipeable-views';
 import { connect } from 'react-redux';
 import { callStudentSelectA, callStudentSelectB, callStudentSelectC, callStudentSelectD } from '../../../reducers/data';
 import { callAddAnswer } from '../../../reducers/openEndedAnswers'
