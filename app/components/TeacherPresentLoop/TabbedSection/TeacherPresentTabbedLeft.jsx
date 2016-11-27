@@ -4,7 +4,7 @@ import {Button} from 'react-materialize';
 // From https://github.com/oliviertassinari/react-swipeable-views
 import SwipeableViews from 'react-swipeable-views';
 import { connect } from 'react-redux';
-import { callStudentAddQuestion, studentRemoveQuestion } from '../../../reducers/studentQuestions';
+import { createStudentQuestion, answerQuestion, studentRemoveQuestion } from '../../../reducers/studentQuestions';
 import store from '../../../store';
 
 const styles = {
@@ -27,7 +27,8 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
       slideIndex: 0,
     };
     this.props.socket.on('newStudentQuestion', ({ question }) => {
-      this.props.callStudentAddQuestion({questionContent: question, answered: false})
+      console.log(question)
+      this.props.createStudentQuestion({questionContent: question, answered: false, session_id: this.props.session.id })
     })
   }
 
@@ -46,16 +47,19 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
           <div>
             {
               this.props.studentQuestions.map((question, i) => (
-                <div className="row student-question">
-                  <p key={i} className="col s10">{question.questionContent}</p>
+                <div className="row student-question" key={i}>
+                  <p className="col s10">{question.content}</p>
                   <span className="col s2 student-question-button">
                     <Button
                       floating
-                      small
+
                       className="red"
                       waves="light"
                       icon="done"
-                      onClick={() => this.props.studentRemoveQuestion(i)}
+                      onClick={() => {
+                        this.props.studentRemoveQuestion(i)
+                        this.props.answerQuestion(question)
+                      }}
                      />
                   </span>
                 </div>
@@ -70,8 +74,8 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
 }
 
 
-const mapStateToProps = ({ socket, studentQuestions }) => ({ socket, studentQuestions })
-const mapDispatchToProps = { callStudentAddQuestion, studentRemoveQuestion }
+const mapStateToProps = ({ socket, studentQuestions, session }) => ({ socket, studentQuestions, session })
+const mapDispatchToProps = { createStudentQuestion, answerQuestion, studentRemoveQuestion }
 const TeacherPresentTabbedLeft = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentTabbedLeftComponent)
 
 export default TeacherPresentTabbedLeft;

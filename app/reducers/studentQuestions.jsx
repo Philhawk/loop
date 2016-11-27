@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // Constants
 const STUDENT_ADD_QUESTION = "STUDENT_ADD_QUESTION";
 const STUDENT_REMOVE_QUESTION = "STUDENT_REMOVE_QUESTION"
@@ -8,8 +10,19 @@ export const studentRemoveQuestion = index => ({ type: STUDENT_REMOVE_QUESTION, 
 
 
 // Async Action Creators
-export const callStudentAddQuestion = question => dispatch => {
-  dispatch(studentAddQuestion(question))
+export const createStudentQuestion = ({ questionContent, session_id }) => dispatch => {
+  axios.post('/api/studentQuestions', { content: questionContent, session_id })
+  .then(studentQuestion => {
+    console.log("STUDENT QUESTION", studentQuestion.data)
+    dispatch(studentAddQuestion(studentQuestion.data))
+  })
+}
+
+// make an async thunk that will update the question status from unanswered to answered
+export const answerQuestion = ({ id }) => dispatch => {
+  axios.put(`/api/studentQuestions/${id}`, { status: "answered" })
+  .then(question => {
+  })
 }
 
 // Initial State
