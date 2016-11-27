@@ -74,8 +74,25 @@ class TeacherPresentControlBarComponent extends Component {
                         <div className="col s12 m4 l3">
                           <h4>Share On Social</h4>
                         </div>
-
-                        
+                        <div className="col s4 m4 l3">
+                          <GooglePlusShareButton
+                            url={shareUrl}
+                            className="social-buttons">
+                            <GooglePlusIcon
+                              size={32}
+                              round />
+                          </GooglePlusShareButton>
+                        </div>
+                        <div className="col s4 m4 l3">
+                          <FacebookShareButton
+                            url={shareUrl}
+                            title={title}
+                            className="social-buttons">
+                            <FacebookIcon
+                              size={32}
+                              round />
+                          </FacebookShareButton>
+                        </div>
                         <div className="col s4 m4 l3">
                           <TwitterShareButton
                             url={shareUrl}
