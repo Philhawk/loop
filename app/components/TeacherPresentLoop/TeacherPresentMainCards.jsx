@@ -6,6 +6,8 @@ import { callReset } from '../../reducers/data';
 import { callOpenEndedReset} from '../../reducers/openEndedAnswers'
 import { Button } from 'react-materialize';
 import { callStudentAddMood } from '../../reducers/studentMood';
+var SmoothieComponent = require('react-smoothie');
+
 
 class TeacherPresentMainCardsComponent extends Component {
   constructor(props) {
@@ -28,6 +30,23 @@ class TeacherPresentMainCardsComponent extends Component {
     })
   }
 
+  componentDidMount() {
+    console.log('what is the context', this.context)
+    var ts1 = this.refs.chart.addTimeSeries({},{ strokeStyle: 'rgba(0, 255, 0, 1)', fillStyle: 'rgba(0, 255, 0, 0.2)', lineWidth: 4 });
+
+    this.dataGenerator = setInterval(function() {
+      var time = new Date().getTime();
+      var random = Math.random()
+      console.log('props', this.props.studentMood)
+      console.log('what is the random num: ', random)
+      ts1.append(time, random);
+    }, 2000)
+  }
+
+
+ componentWillUnmount() {
+   clearInterval(this.dataGenerator);
+ }
 
   render() {
     return (
@@ -58,9 +77,10 @@ class TeacherPresentMainCardsComponent extends Component {
               <div className="card-content black-text">
                 <span className="card-title">Current Mood
                   <div>
-                    {
-                      this.props.studentMood
-                    }
+                     <SmoothieComponent ref="chart" width="200" height="200"/>
+                     {
+                        this.props.studentMood
+                     }
                   </div>
                 </span>
               </div>
@@ -69,6 +89,8 @@ class TeacherPresentMainCardsComponent extends Component {
         </div>
     );
   }
+
+
 }
 
 
