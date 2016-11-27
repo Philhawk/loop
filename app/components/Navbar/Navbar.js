@@ -16,6 +16,7 @@ export default class OurNavbar extends Component {
         <NavItem className="brand-text" href="">How it works</NavItem>
         <NavItem className="brand-text" href="">About Us</NavItem>
         <NavItem className="brand-text" href="">Login | Signup</NavItem>
+        <LoginModal />
       </Navbar>
     );
   }
