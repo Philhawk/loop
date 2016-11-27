@@ -31,16 +31,15 @@ class TeacherPresentMainCardsComponent extends Component {
   }
 
   componentDidMount() {
-    console.log('what is the context', this.context)
-    var ts1 = this.refs.chart.addTimeSeries({},{ strokeStyle: 'rgba(0, 255, 0, 1)', fillStyle: 'rgba(0, 255, 0, 0.2)', lineWidth: 4 });
+    console.log('what is the props', this.props)
+    var ts1 = this.refs.chart.addTimeSeries({},{ strokeStyle: 'rgba(0, 255, 0, 1)', fillStyle: 'rgba(0, 255, 0, 0.2)', lineWidth: 8 });
 
-    this.dataGenerator = setInterval(function() {
+    this.dataGenerator = setInterval(() => {
       var time = new Date().getTime();
       var random = Math.random()
-      console.log('props', this.props.studentMood)
-      console.log('what is the random num: ', random)
-      ts1.append(time, random);
-    }, 2000)
+      console.log('what is the studentMood: ', this.props.studentMood)
+      ts1.append(time, this.props.studentMood);
+    }, 500)
   }
 
 
