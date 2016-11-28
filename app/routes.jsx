@@ -12,6 +12,8 @@ import store from './store';
 import {createSocket} from './reducers/socket';
 import {fetchCurrentSession} from './reducers/session';
 import {fetchQuestionsBySessionString} from './reducers/questionsList';
+import {getAllStudentQuestionsByLoop} from './reducers/studentQuestions';
+import {fetchQuestionsAnsweredLength} from './reducers/answeredQuestions';
 import { callSetCurrentQuestion } from './reducers/currentQuestion'
 
 
@@ -25,7 +27,8 @@ const onLoopEnter = () => {
 }
 
 const onLoopFinish = () => {
-  store.dispatch(fetchQuestionsBySessionString({ sessionString: store.getState().session.sessionString}))
+  store.dispatch(fetchQuestionsAnsweredLength({ session_id: store.getState().session.id}))
+  store.dispatch(getAllStudentQuestionsByLoop({ session_id: store.getState().session.id}))
 }
 
 const onStudentEnter = (data) => {

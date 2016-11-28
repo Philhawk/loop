@@ -12,6 +12,7 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
+import {Card, CardActions, CardMedia, CardHeader, CardText} from 'material-ui/Card';
 
 class LoopAnalysis extends Component {
   constructor() {
@@ -42,11 +43,39 @@ class LoopAnalysis extends Component {
             <h3 className="post-loop-analysis-heading">Well done!</h3>
             <Tabs>
               <Tab label="Statistics" >
-                <div>
-                  <p>
-                    Duration: {formattedTimeDuration}
-                  </p>
-                </div>
+              <Card>
+                <CardText style={{color: 'white', backgroundColor: 'teal', margin: '1em 0 1em 0', paddingBottom: '1em'}}>
+                  Duration:
+                  <h1>{formattedTimeDuration}</h1>
+                </CardText>
+                <CardMedia></CardMedia>
+              </Card>
+
+              <Card style={{border: '100em'}}>
+                <CardText style={{color: 'white', backgroundColor: 'maroon', margin: '1em 0 1em 0', paddingBottom: '1em'}}>
+                  Total Questions Asked:
+                  <h1>{this.props.studentQuestions.length}</h1>
+                </CardText>
+                <CardMedia></CardMedia>
+              </Card>
+
+              <Card style={{border: '100em'}}>
+                <CardText style={{color: 'white', backgroundColor: 'navy', margin: '1em 0 1em 0', paddingBottom: '1em'}}>
+                  Answered Ratio:
+                  <h1>{Math.round(this.props.answeredQuestions/this.props.studentQuestions.length * 100)}%</h1>
+                </CardText>
+                <CardMedia></CardMedia>
+              </Card>
+
+              <Card style={{border: '100em'}}>
+                <CardText style={{color: 'white', backgroundColor: 'blue', margin: '1em 0 1em 0', paddingBottom: '1em'}}>
+                  Final Student Mood:
+                  <h1>{this.props.studentMood}</h1>
+                  {console.log('THIS IS THE PTOPPPPSDFPSDPFSPFSPDFPSDF', this.props)}
+                </CardText>
+                <CardMedia></CardMedia>
+              </Card>
+
               </Tab>
               <Tab label="Questions" >
                 <div>
@@ -80,7 +109,7 @@ class LoopAnalysis extends Component {
   }
 }
 
-const mapStateToProps = ({ session, studentQuestions }) => ({ session, studentQuestions })
+const mapStateToProps = ({ session, studentQuestions, studentMood, answeredQuestions}) => ({ session, studentQuestions, studentMood, answeredQuestions })
 const Loop = connect(mapStateToProps)(LoopAnalysis)
 
 export default Loop;
