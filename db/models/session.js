@@ -15,6 +15,9 @@ const Session = db.define('sessions', {
   currentQuestion: {
     type: Sequelize.INTEGER,
     defaultValue: 0
+  },
+  timeStarted: {
+    type: Sequelize.DATE,
   }
 })
 

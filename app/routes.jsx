@@ -5,6 +5,7 @@ import io from 'socket.io-client'
 import App from './components/App/App';
 import Login from './components/Login/Login';
 import Loop from './components/Loop/Loop';
+import LoopAnalysis from './components/Loop/LoopAnalysis';
 import TeacherCreateLoop from './components/TeacherCreateLoop/TeacherCreateLoop';
 import StudentLoop from './components/StudentLoop/StudentLoop';
 import store from './store';
@@ -21,6 +22,10 @@ const onLoopEnter = () => {
     loopUuId: store.getState().session.sessionString,
     role: store.getState().auth && store.getState().auth.role
   })
+}
+
+const onLoopFinish = () => {
+  store.dispatch(fetchQuestionsBySessionString({ sessionString: store.getState().session.sessionString}))
 }
 
 const onStudentEnter = (data) => {
@@ -47,6 +52,7 @@ const routes =()=> (
       <Route path = 'create-loop' component={TeacherCreateLoop} />
       <Route path ='loop/*' component={Loop} onEnter={onLoopEnter}/>
       <Route path='studentLoop/:loopUuId' component={StudentLoop} onEnter={onStudentEnter} />
+      <Route path='post-loop-analysis' component={LoopAnalysis} onEnter={onLoopFinish} />
     </Route>
   </Router>
 );

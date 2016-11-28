@@ -4,10 +4,11 @@ import { Link } from 'react-router';
 import FillInBlank from '../QuestionType/FillInBlank';
 import MultipleChoice from '../QuestionType/MultipleChoice';
 import OpenEnded from '../QuestionType/OpenEnded';
-import { createLecture, updateLecture } from '../../reducers/lecture';
-import { createSession } from '../../reducers/session';
+import { createLecture } from '../../reducers/lecture';
+import { createSession, updateSessionTime } from '../../reducers/session';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
+import axios from 'axios';
 
 
 class TeacherCreateLoopComponent extends Component {
@@ -31,6 +32,10 @@ class TeacherCreateLoopComponent extends Component {
     }).then(
       () => this.props.createSession({sessionString: uuid(), lecture_id: this.props.lecture.id})
     )
+  }
+
+  componentWillUnmount() {
+    this.props.updateSessionTime({ session_id: this.props.session.id })
   }
 
   onFillInBlank(e) {
@@ -134,7 +139,7 @@ class TeacherCreateLoopComponent extends Component {
 
 const mapStateToProps = ({ auth, lecture, session, questionsList }) => ({ auth, lecture, session, questionsList })
 
-const mapDispatchToProps = { createSession, createLecture ,updateLecture }
+const mapDispatchToProps = { createSession, createLecture , updateSessionTime }
 const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
 
 export default TeacherCreateLoop;

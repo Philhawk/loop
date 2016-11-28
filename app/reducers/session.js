@@ -26,6 +26,15 @@ export const fetchCurrentSession = ({ sessionString }) => dispatch => {
   .catch(err => console.error(err));
 }
 
+export const updateSessionTime = ({session_id}) => dispatch => {
+  console.log("SESSION ID", session_id)
+  axios.put(`/api/sessions/${session_id}`, { timeStarted: Date.now() })
+  .then(session => {
+    console.log("SESSION!", session.data)
+    dispatch(setCurrentSession(session.data))
+  })
+}
+
 // Initial State
 const initialState = {
   sessionString: '',
