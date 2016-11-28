@@ -7,6 +7,7 @@ import lecture from './lecture';
 import socket from './socket';
 import studentQuestions from './studentQuestions';
 import studentMood from './studentMood';
+import answeredQuestions from './answeredQuestions';
 import data from './data';
 import openEndedAnswers from './openEndedAnswers';
 
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   studentQuestions,
   studentMood,
   data,
-  openEndedAnswers
+  openEndedAnswers,
+  answeredQuestions
 })
 
 export default rootReducer

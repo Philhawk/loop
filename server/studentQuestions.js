@@ -23,6 +23,7 @@ studentQuestionRouter.get('/:studentQuestionId', (req, res, next) => {
   .catch(next);
 });
 
+
 // get all student questions associated with a specific session
 studentQuestionRouter.get('/session/:sessionId', (req, res, next) => {
   db.model('studentQuestions').findAll({
@@ -31,6 +32,21 @@ studentQuestionRouter.get('/session/:sessionId', (req, res, next) => {
     }
   })
   .then(studentQuestions => {
+    res.json(studentQuestions)
+  })
+  .catch(next);
+});
+
+// get all student questions that have been answered
+studentQuestionRouter.get('/session/:session_id/answered', (req, res, next) => {
+  db.model('studentQuestions').findAll({
+    where: {
+      session_id: req.params.session_id,
+      status: 'answered'
+    }
+  })
+  .then(studentQuestions => {
+    console.log('THIS IS THE STUDENT QUEEEEEEESTIONS', studentQuestions)
     res.json(studentQuestions)
   })
   .catch(next);

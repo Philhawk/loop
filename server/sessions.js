@@ -61,8 +61,6 @@ sessionsRouter.put('/:sessionId', (req, res, next) => {
         updatedSession.dataValues.bitly = response.data.url
         res.status(201).send(updatedSession)
       })
-
-      console.log("SESSION IN ROUTE", updatedSession)
     })
   })
   .catch(next);
