@@ -56,6 +56,7 @@ sessionsRouter.post('/', (req, res, next) => {
 
 // update a specific session
 sessionsRouter.put('/:sessionId', (req, res, next) => {
+  console.log(req.params.sessionId)
   db.model('sessions').findById(req.params.sessionId)
   .then(session => {
     session.update(req.body)
