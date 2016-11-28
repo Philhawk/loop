@@ -12,6 +12,9 @@ var SmoothieComponent = require('react-smoothie');
 class TeacherPresentMainCardsComponent extends Component {
   constructor(props) {
       super(props);
+      this.state = {
+        button: 'nextCard'
+      }
       this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
       this.onSendAnswer = this.onSendAnswer.bind(this);
       this.props.socket.on('studentMoodIndex', ({mood}) => {
@@ -31,6 +34,10 @@ class TeacherPresentMainCardsComponent extends Component {
     }, 500)
   }
 
+  componentWillUnmount() {
+    clearInterval(this.dataGenerator);
+  }
+
   onCurrentCardRemove(){
     axios.put(`/api/sessions/${this.props.session.sessionString}/next`)
     .then((session) => {
@@ -39,6 +46,7 @@ class TeacherPresentMainCardsComponent extends Component {
       this.props.callRemoveQuestion();
       this.props.callReset();
       this.props.callOpenEndedReset();
+      this.setState({ button: 'revealAnswer' })
     })
   }
 
@@ -46,13 +54,24 @@ class TeacherPresentMainCardsComponent extends Component {
     e.preventDefault()
     this.props.socket.emit('teacherSendAnswer', ({
       correctAnswer: this.props.questionsList[0].correctAnswer,
-      sessionString: this.props.session.sessionString
+      sessionString: this.props.session.sessionString,
+      questionType: this.props.questionsList[0].questionType
     }))
+    this.setState({ button: 'nextCard' })
   }
 
- componentWillUnmount() {
-   clearInterval(this.dataGenerator);
- }
+  showButton() {
+    if(this.state.button === 'nextCard') {
+      return (
+        <Button waves='light' className="#0091ea light-blue accent-4" onClick={this.onCurrentCardRemove}>Next Card</Button>
+      )
+    } else if(this.state.button === 'revealAnswer') {
+      return (
+        <Button waves='light' className="#0d47a1 blue darken-4" onClick={this.onSendAnswer}>Reveal Answer</Button>
+      )
+    }
+  }
+
 
   render() {
     return (
@@ -72,11 +91,8 @@ class TeacherPresentMainCardsComponent extends Component {
                        }
                    </div>
                </div>
-
-               <Button waves='light' className="#0d47a1 blue darken-4" onClick={this.onSendAnswer}>Reveal Answer</Button>
-             <Button waves='light' className="#0091ea light-blue accent-4" onClick={this.onCurrentCardRemove}>Next Card</Button>
+               {this.showButton()}
               </div>
-
             </div>
           </div>
           <div className="col s12 m4 l4 teacherPresentationNextCard">
