@@ -83,9 +83,14 @@ class TeacherPresentMainCardsComponent extends Component {
                 <div className="card blue-grey darken-1">
                    <div className="card-content white-text">
                        <span className="card-title"> {this.props.questionsList[0].content} </span>
+                        { console.log(this.props.questionsList[0]) }
                        {
                         this.props.questionsList[0].choices.map((choice, i) => (
-                           <p> {choice} </p>
+                          <div className={Number(this.props.questionsList[0].correctAnswer) === i ? 'card green' : 'card maroon'}>
+                             <div className="card-content white-text">
+                                {choice}
+                              </div>
+                          </div>
                           )
                         )
                        }
