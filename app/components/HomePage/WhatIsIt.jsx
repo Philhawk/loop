@@ -12,6 +12,7 @@ class WhatIsIt extends Component {
 // WhatIsIt component
     return (
       <div className="whatisit">
+        <a name="what-is-it"></a>
         <div className="row">
           <div className="col s1 m1 l1 backGround">
           </div>
