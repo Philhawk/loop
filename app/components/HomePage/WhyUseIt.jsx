@@ -12,9 +12,10 @@ class WhyUseIt extends Component {
 // WhyUseIt component
     return (
       <div className="whyuseit">
+        <a name="why-use-it"></a>
         <div className="row">
           <div className="col s1 m1 l1">
-            
+
           </div>
           <div className="col s11 m11 l11 what-is-it-text">
             Why Use It?

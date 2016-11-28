@@ -12,6 +12,7 @@ class WhyUseIt extends Component {
 // WhyUseIt component
     return (
       <div className="aboutus">
+        <a name="about-us"></a>
         <div className="row">
           <div className="col s12 m12 l12 about-us-heading-text">
             About Us

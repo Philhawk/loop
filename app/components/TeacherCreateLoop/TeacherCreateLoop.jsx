@@ -71,16 +71,16 @@ class TeacherCreateLoopComponent extends Component {
           <div className="col s12 m12 l12 card">
 
               <div className="col s12 m12 l6" id="questionCreation">
-              <Link to={`/loop/${this.props.session.sessionString}`}>
-                <Button waves='light' id="startPresBtn">Start Presentation</Button>
-              </Link>
-                <div className="card-panel">
+                <Link to={`/loop/${this.props.session.sessionString}`}>
+                  <Button waves='light' id="startPresBtn">Start Presentation</Button>
+                </Link>
+                <div className="card-panel z-depth-3">
                   {this.showQuestion()}
                 </div>
               </div>
 
               <div className="col s12 m12 l3" id="questionOption">
-                <div className="card white-grey darken-1">
+                <div className="card white-grey z-depth-3">
                   <div className="card-content black-text">
                     <span className="card-title">Fill in the blank</span>
                     <p>The teacher's name is ___________.</p>
@@ -90,7 +90,7 @@ class TeacherCreateLoopComponent extends Component {
                   </div>
                 </div>
 
-                <div className="card white-grey darken-1">
+                <div className="card white-grey z-depth-3">
                   <div className="card-content black-text">
                     <span className="card-title">Multiple Choice</span>
                     <h6>Who is the 44th President of the United States</h6>
@@ -103,7 +103,7 @@ class TeacherCreateLoopComponent extends Component {
                   </div>
                 </div>
 
-                <div className="card white-grey darken-1">
+                <div className="card white-grey z-depth-3">
                   <div className="card-content black-text">
                     <span className="card-title">Open Ended</span>
                     <p>160 characters or less please.</p>
@@ -115,19 +115,24 @@ class TeacherCreateLoopComponent extends Component {
               </div>
 
               <div className="col s12 m12 l3">
-                <div className="card #37474f white-grey darken-3">
+                <div className="card #37474f white-grey z-depth-3">
                   <div className="card-content black-text">
                     <span className="card-title">{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</span>
                   </div>
                 </div>
                 {
-                  this.props.questionsList.map((question, i) => (
-                    <div className="card #37474f white-grey darken-3" key={i}>
-                      <div className="card-content black-text">
-                        <p>{question.content}</p>
+                  this.props.questionsList.map((question, i) => {
+                    if(question.content === '') return null
+                    else {
+                      return (
+                      <div className="card #37474f white-grey darken-3" key={i}>
+                        <div className="card-content black-text">
+                          <p>{question.content}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))
+                    )
+                    }
+                  })
                 }
               </div>
 
