@@ -5,10 +5,14 @@ import { Button } from 'react-materialize';
 class MultipleChoiceStudentComponent extends Component {
   constructor(props) {
     super(props)
-    this.state = { selected: -1, submitted: false}
+    this.state = { selected: -1, submitted: false, correctAnswer: -1}
     this.onSubmitAnswer = this.onSubmitAnswer.bind(this);
     this.props.socket.on('newTeacherQuestion', () => {
       this.setState({submitted: false})
+      this.setState({ selected: -1, correctAnswer: -1 })
+    })
+    this.props.socket.on('studentReceieveAnswer' , ({ correctAnswer }) => {
+      this.setState({ correctAnswer })
     })
   }
 
@@ -27,6 +31,7 @@ class MultipleChoiceStudentComponent extends Component {
 
 
   render() {
+    console.log("correct", this.state.correctAnswer)
     console.log("selected", this.state.selected)
     return (
       <div className="row" id="student-multiple-choice valign-wrapper">
@@ -35,9 +40,17 @@ class MultipleChoiceStudentComponent extends Component {
             return (
               <div className="col l3 m6 s12 student-answers" key={index}>
                 <div className="row">
-                  <div className={`card answer hoverable z-depth-1 ${ this.state.selected === index ? "selected" : ""}`}
+                  <div className={
+                      `card
+                      answer
+                      hoverable
+                      z-depth-1
+                      ${ this.state.selected === index ? "selected" : ""}
+                      ${ Number(this.state.correctAnswer) === index ? "correct": ""}
+                      `}
                        onClick={() => this.setState({ selected: index })}>
                     <form>
+                      { Number(this.state.correctAnswer) === index ? <p>Correct Answer!</p> : null }
                       <p>{choice}</p>
                     </form>
                   </div>

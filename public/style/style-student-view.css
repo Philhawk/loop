@@ -95,6 +95,11 @@
   color: white;
 }
 
+.answer.correct {
+  background-color: #13293D;
+  color: white;
+}
+
 #student-multiple-choice {
   text-align: left;
   margin: auto 5% auto 5%;
