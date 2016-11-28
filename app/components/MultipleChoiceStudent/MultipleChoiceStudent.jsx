@@ -31,8 +31,6 @@ class MultipleChoiceStudentComponent extends Component {
 
 
   render() {
-    console.log("correct", this.state.correctAnswer)
-    console.log("selected", this.state.selected)
     return (
       <div className="row" id="student-multiple-choice valign-wrapper">
         {
