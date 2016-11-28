@@ -38,7 +38,7 @@ class TeacherPresentMainCardsComponent extends Component {
       var time = new Date().getTime();
       var random = Math.random()
       console.log('what is the studentMood: ', this.props.studentMood)
-      ts1.append(time, this.props.studentMood);
+      ts1.append(time,(this.props.studentMood / 100));
     }, 500)
   }
 
