@@ -7,12 +7,17 @@ class MultipleChoiceStudentComponent extends Component {
     super(props)
     this.state = { selected: -1, submitted: false, correctAnswer: -1}
     this.onSubmitAnswer = this.onSubmitAnswer.bind(this);
-    this.props.socket.on('newTeacherQuestion', () => {
-      this.setState({submitted: false})
-      this.setState({ selected: -1, correctAnswer: -1 })
+
+    this.props.socket.on('newTeacherQuestion', ({ question }) => {
+      if (question.questionType === 'multipleChoice') {
+        this.setState({submitted: false})
+        this.setState({ selected: -1, correctAnswer: -1 })
+      }
     })
-    this.props.socket.on('studentReceieveAnswer' , ({ correctAnswer }) => {
-      this.setState({ correctAnswer })
+    this.props.socket.on('studentReceieveAnswer' , ({ correctAnswer, questionType }) => {
+      if(questionType === 'multipleChoice') {
+        this.setState({ correctAnswer })
+      }
     })
   }
 
@@ -31,8 +36,6 @@ class MultipleChoiceStudentComponent extends Component {
 
 
   render() {
-    console.log("correct", this.state.correctAnswer)
-    console.log("selected", this.state.selected)
     return (
       <div className="row" id="student-multiple-choice valign-wrapper">
         {
