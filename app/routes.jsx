@@ -3,7 +3,7 @@ import { Route, IndexRoute, browserHistory, Router } from 'react-router';
 import io from 'socket.io-client'
 //components
 import App from './components/App/App';
-import Login from './components/Login/Login';
+import LoginSignupChoice from './components/LoginSignupChoice';
 import Loop from './components/Loop/Loop';
 import LoopAnalysis from './components/Loop/LoopAnalysis';
 import TeacherCreateLoop from './components/TeacherCreateLoop/TeacherCreateLoop';
@@ -48,7 +48,7 @@ const routes =()=> (
   <Router history={browserHistory}>
     <Route path='/'>
       <IndexRoute component={App}/>
-      <Route path = 'welcome' component={Login} />
+      <Route path = 'welcome' component={LoginSignupChoice} />
       <Route path = 'create-loop' component={TeacherCreateLoop} />
       <Route path ='loop/*' component={Loop} onEnter={onLoopEnter}/>
       <Route path='studentLoop/:loopUuId' component={StudentLoop} onEnter={onStudentEnter} />

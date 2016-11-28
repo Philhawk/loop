@@ -1,25 +1,14 @@
-/* handles anything in the body of the modal */
-.modal .modal-content {
-  font-family: 'Work Sans', sans-serif;
+body {
+  background-color: #006494;
 }
 
-/* handles anything in the footer of the modal */
-.modal .modal-footer {
-  font-family: 'Work Sans', sans-serif;
-}
-
-/* the login and signup buttons are in this row */
-.loginRow {
-
-}
-
-/* the edge of the card */
-.card-panel {
-  margin: 1.5rem 20% 1rem 20%;
-  padding: 3%;
-}
+/*.wrapper {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}*/
 
 .form-signin {
+  max-width: 420px;
   padding: 30px 38px 66px;
   margin: 0 auto;
   background-color: #eee;
@@ -47,13 +36,9 @@ input[type="text"] {
 }
 
 input[type="password"] {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}
-
-#role-field {
-  margin-bottom: 30px;
 }
 
 .colorgraph {
