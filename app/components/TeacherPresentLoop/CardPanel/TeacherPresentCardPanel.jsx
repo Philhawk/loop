@@ -16,13 +16,18 @@ class TeacherPresentCardPanelComponent extends Component {
             </div>
             <div className="row TeacherPresentCardPanel">
                 {
-                  this.props.questionsList.slice(0).map((question, i) => (
-                    <div className="card #37474f white-grey darken-3" key={i}>
-                      <div className="card-content black-text">
-                        <p>{question.content}</p>
-                      </div>
-                    </div>
-                  ))
+                  this.props.questionsList.slice(0).map((question, i) => {
+                    if(question.content === '') return null
+                    else {
+                      return (
+                        <div className="card #37474f white-grey darken-3" key={i}>
+                          <div className="card-content black-text">
+                            <p>{question.content}</p>
+                          </div>
+                        </div>
+                      )
+                    }
+                  })
                 }
             </div>
         </div>
