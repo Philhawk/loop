@@ -87,8 +87,41 @@ class TeacherPresentMainCardsComponent extends Component {
     }
   }
 
+  showMoodIndicator() {
+    if(this.props.studentMood > 50) {
+      return (
+        <div style={{color: 'green', display: 'inherit'}}>
+          Excellent
+        </div>
+        )
+      } else if (this.props.studentMood < 50 && this.props.studentMood > 0) {
+        return(
+          <div style={{color: 'green', display: 'inherit'}}>
+            Good
+          </div>
+        )
+      } else if (this.props.studentMood < 0 && this.props.studentMood > -50) {
+      return(
+        <div style={{color: 'red', display: 'inherit' }}>
+          Needs Work
+        </div>
+      )
+    } else if (this.props.studentMood > -300 && this.props.studentMood < -50) {
+      return(
+        <div style={{color: 'red', display: 'inherit' }}>
+          Unhappy
+        </div>
+      )
+    } else if (this.props.studentMood < -300) {
+      return(
+        <iframe src="//giphy.com/embed/3o7yDiinjCb8eegczS" width="260px" height="260px" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      )
+    }
+  }
+
 
   render() {
+
     return (
         <div className="row card TeacherPresentMainCards">
           <div className="col s12 m8 l8 teacherPresentationCurrentCard">
@@ -124,14 +157,11 @@ class TeacherPresentMainCardsComponent extends Component {
           <div className="col s12 m4 l4 teacherPresentationNextCard">
             <div className="card white">
               <div className="card-content black-text">
-                <span className="card-title">Current Mood
+                <span className="card-title">Current Mood: { this.showMoodIndicator() } </span>
                   <div>
                      <SmoothieComponent ref="chart" width="200" height="200"/>
-                     {
-                        this.props.studentMood
-                     }
+
                   </div>
-                </span>
               </div>
             </div>
           </div>
