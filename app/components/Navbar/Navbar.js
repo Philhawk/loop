@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LoginModal from '../LoginModal';
 import { Navbar, NavItem, Icon } from 'react-materialize';
-
+import { Link } from 'react-router';
 
 export default class OurNavbar extends Component {
   constructor() {
@@ -15,7 +15,7 @@ export default class OurNavbar extends Component {
         <NavItem className="brand-text" href="">Why use it</NavItem>
         <NavItem className="brand-text" href="">How it works</NavItem>
         <NavItem className="brand-text" href="">About Us</NavItem>
-        <LoginModal/>
+        <li className="brand-text"> <Link to="/welcome"> Login | Signup  </Link> </li>
       </Navbar>
     );
   }
