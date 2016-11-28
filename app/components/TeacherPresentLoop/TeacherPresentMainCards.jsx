@@ -35,15 +35,15 @@ class TeacherPresentMainCardsComponent extends Component {
     }, 500)
   }
 
+  componentDidUpdate() {
+  }
+
 
   componentWillUnmount() {
     clearInterval(this.dataGenerator);
   }
 
   onCurrentCardRemove(){
-    if (this.props.questionsList.length === 0) {
-      this.setState({ button: 'endLecture' })
-    }
     axios.put(`/api/sessions/${this.props.session.sessionString}/next`)
     .then((session) => {
       console.log("SESSIONDATA", session.data)
@@ -51,7 +51,11 @@ class TeacherPresentMainCardsComponent extends Component {
       this.props.callRemoveQuestion();
       this.props.callReset();
       this.props.callOpenEndedReset();
-      this.setState({ button: 'revealAnswer' })
+      if (this.props.questionsList.length === 0) {
+        this.setState({ button: 'endLecture' })
+      } else {
+        this.setState({ button: 'revealAnswer' })
+      }
     })
   }
 
@@ -75,7 +79,9 @@ class TeacherPresentMainCardsComponent extends Component {
         <Button waves='light' className="#0d47a1 blue darken-4" onClick={this.onSendAnswer}>Reveal Answer</Button>
       )
     } else if(this.state.button === 'endLecture') {
-      <Button waves='light' className="##d32f2f red darken-2"><Link to='/post-loop-analysis'>End Lecture</Link></Button>
+      return (
+        <Link to='/post-loop-analysis'><Button waves='light' className="##d32f2f red darken-2">End Lecture</Button></Link>
+      )
     }
   }
 
@@ -89,11 +95,15 @@ class TeacherPresentMainCardsComponent extends Component {
                 <span className="card-title">Current Card</span>
                 <div className="card blue-grey darken-1">
                    <div className="card-content white-text">
-                       <span className="card-title"> {this.props.questionsList[0].content} </span>
+                       <span className="card-title"> {this.props.questionsList[0] ? this.props.questionsList[0].content : "No More Questions!"} </span>
                        {
-                        this.props.questionsList[0].choices.map((choice, i) => (
-                           <p> {choice} </p>
-                          )
+                        this.props.questionsList[0] && this.props.questionsList[0].choices.map((choice, i) => {
+                          if(this.props.questionsList.length === 0) return <p>Lecture Ended</p>
+                          else {
+                            return (
+                              <p> {choice} </p>
+                           )}
+                          }
                         )
                        }
                    </div>

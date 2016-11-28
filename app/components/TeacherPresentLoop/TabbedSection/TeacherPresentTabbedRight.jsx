@@ -43,6 +43,7 @@ class TeacherPresentTabbedRightComponent extends React.Component {
 
 
   displayData() {
+    if(!this.props.questionsList[0]) return <p>No More Questions!</p>
     if(this.props.questionsList[0].questionType === 'multipleChoice') {
       return <MultipleChoiceData data={this.props.data}/>
     } else if(this.props.questionsList[0].questionType === 'openEnded') {
