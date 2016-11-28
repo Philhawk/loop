@@ -7,12 +7,21 @@ class MultipleChoiceStudentComponent extends Component {
     super(props)
     this.state = { selected: -1, submitted: false, correctAnswer: -1}
     this.onSubmitAnswer = this.onSubmitAnswer.bind(this);
-    this.props.socket.on('newTeacherQuestion', () => {
-      this.setState({submitted: false})
-      this.setState({ selected: -1, correctAnswer: -1 })
+
+    this.props.socket.on('newTeacherQuestion', ({ question }) => {
+      console.log("MC QUESTION", question)
+      if (question.questionType === 'multipleChoice') {
+        console.log("YO YO YO")
+        this.setState({submitted: false})
+        this.setState({ selected: -1, correctAnswer: -1 })
+      }
     })
-    this.props.socket.on('studentReceieveAnswer' , ({ correctAnswer }) => {
-      this.setState({ correctAnswer })
+    this.props.socket.on('studentReceieveAnswer' , ({ correctAnswer, questionType }) => {
+      console.log("MC QUESTION TYPE", questionType)
+      if(questionType === 'multipleChoice') {
+        console.log("YO YO YO")
+        this.setState({ correctAnswer })
+      }
     })
   }
 

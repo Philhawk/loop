@@ -10,13 +10,17 @@ class OpenEndedStudentComponent extends Component {
     this.onSubmitAnswer = this.onSubmitAnswer.bind(this);
     this.getInput = this.getInput.bind(this);
 
-    this.props.socket.on('studentReceieveAnswer', ({ correctAnswer }) => {
-      this.setState({ correctAnswer })
+    this.props.socket.on('studentReceieveAnswer', ({ correctAnswer, questionType }) => {
+      if(questionType === 'openEnded') {
+        this.setState({ correctAnswer })
+      }
     })
 
-    this.props.socket.on('newTeacherQuestion', () => {
-      this.setState({ correctAnswer: '', submitted: false, answer: '' })
-      document.getElementById('open-ended-student-answer').value = '';
+    this.props.socket.on('newTeacherQuestion', ({ question }) => {
+      if(question.questionType === 'openEnded') {
+        this.setState({ correctAnswer: '', submitted: false, answer: '' })
+        document.getElementById('open-ended-student-answer').value = '';
+      }
     })
   }
 
