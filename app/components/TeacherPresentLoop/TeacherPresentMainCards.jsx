@@ -13,22 +13,11 @@ class TeacherPresentMainCardsComponent extends Component {
   constructor(props) {
       super(props);
       this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
+      this.onSendAnswer = this.onSendAnswer.bind(this);
       this.props.socket.on('studentMoodIndex', ({mood}) => {
         this.props.callStudentAddMood({mood: mood})
     })
   };
-
-
-  onCurrentCardRemove(){
-    axios.put(`/api/sessions/${this.props.session.sessionString}/next`)
-    .then((session) => {
-      console.log("SESSIONDATA", session.data)
-      this.props.socket.emit('teacherAsk', {question: this.props.questionsList[1], sessionString: this.props.session.sessionString})
-      this.props.callRemoveQuestion();
-      this.props.callReset();
-      this.props.callOpenEndedReset();
-    })
-  }
 
   componentDidMount() {
     console.log('what is the props', this.props)
@@ -42,6 +31,24 @@ class TeacherPresentMainCardsComponent extends Component {
     }, 500)
   }
 
+  onCurrentCardRemove(){
+    axios.put(`/api/sessions/${this.props.session.sessionString}/next`)
+    .then((session) => {
+      console.log("SESSIONDATA", session.data)
+      this.props.socket.emit('teacherAsk', {question: this.props.questionsList[1], sessionString: this.props.session.sessionString})
+      this.props.callRemoveQuestion();
+      this.props.callReset();
+      this.props.callOpenEndedReset();
+    })
+  }
+
+  onSendAnswer(e) {
+    e.preventDefault()
+    this.props.socket.emit('teacherSendAnswer', ({
+      correctAnswer: this.props.questionsList[0].correctAnswer,
+      sessionString: this.props.session.sessionString
+    }))
+  }
 
  componentWillUnmount() {
    clearInterval(this.dataGenerator);
@@ -66,6 +73,7 @@ class TeacherPresentMainCardsComponent extends Component {
                    </div>
                </div>
 
+               <Button waves='light' className="#0d47a1 blue darken-4" onClick={this.onSendAnswer}>Reveal Answer</Button>
              <Button waves='light' className="#0091ea light-blue accent-4" onClick={this.onCurrentCardRemove}>Next Card</Button>
               </div>
 
