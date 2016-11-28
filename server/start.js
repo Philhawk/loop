@@ -89,9 +89,9 @@ if (module === require.main) {
       io.in(sessionString).emit('studentOpenEndedAnswer', { answer })
     })
 
-    socket.on('teacherSendAnswer', ({ correctAnswer, sessionString }) => {
+    socket.on('teacherSendAnswer', ({ correctAnswer, sessionString, questionType }) => {
       console.log("CORRECTANSWER", correctAnswer)
-      io.in(sessionString).emit('studentReceieveAnswer' , { correctAnswer })
+      io.in(sessionString).emit('studentReceieveAnswer' , { correctAnswer, questionType })
     })
   })
 }
