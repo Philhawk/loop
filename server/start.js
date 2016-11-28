@@ -93,5 +93,9 @@ if (module === require.main) {
       console.log("CORRECTANSWER", correctAnswer)
       io.in(sessionString).emit('studentReceieveAnswer' , { correctAnswer, questionType })
     })
+
+    socket.on('teacherEndsLecture', ({ sessionString }) => {
+      io.in(sessionString).emit('endStudentLecture')
+    })
   })
 }
