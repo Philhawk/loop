@@ -18,6 +18,7 @@ class TeacherPresentMainCardsComponent extends Component {
       }
       this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
       this.onSendAnswer = this.onSendAnswer.bind(this);
+      this.onEndLecture = this.onEndLecture.bind(this);
       this.props.socket.on('studentMoodIndex', ({mood}) => {
         this.props.callStudentAddMood({mood: mood})
     })
@@ -35,10 +36,6 @@ class TeacherPresentMainCardsComponent extends Component {
     }, 500)
   }
 
-  componentDidUpdate() {
-  }
-
-
   componentWillUnmount() {
     clearInterval(this.dataGenerator);
   }
@@ -46,7 +43,6 @@ class TeacherPresentMainCardsComponent extends Component {
   onCurrentCardRemove(){
     axios.put(`/api/sessions/${this.props.session.sessionString}/next`)
     .then((session) => {
-      console.log("SESSIONDATA", session.data)
       this.props.socket.emit('teacherAsk', {question: this.props.questionsList[1], sessionString: this.props.session.sessionString})
       this.props.callRemoveQuestion();
       this.props.callReset();
@@ -69,6 +65,12 @@ class TeacherPresentMainCardsComponent extends Component {
     this.setState({ button: 'nextCard' })
   }
 
+  onEndLecture() {
+    this.props.socket.emit('teacherEndsLecture', ({
+      sessionString: this.props.session.sessionString
+    }))
+  }
+
   showButton() {
     if(this.state.button === 'nextCard') {
       return (
@@ -80,7 +82,7 @@ class TeacherPresentMainCardsComponent extends Component {
       )
     } else if(this.state.button === 'endLecture') {
       return (
-        <Link to='/post-loop-analysis'><Button waves='light' className="##d32f2f red darken-2">End Lecture</Button></Link>
+        <Link to='/post-loop-analysis'><Button waves='light' className="##d32f2f red darken-2" onClick={this.onEndLecture}>End Lecture</Button></Link>
       )
     }
   }

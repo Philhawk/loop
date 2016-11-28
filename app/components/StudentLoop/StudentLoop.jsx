@@ -4,13 +4,18 @@ import StudentAsk from '../StudentAsk/StudentAsk';
 import StudentMood from '../StudentMood/StudentMood';
 import { callSetCurrentQuestion } from '../../reducers/currentQuestion';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 class StudentLoopComponent extends Component {
   constructor(props) {
     super(props);
-      this.props.socket.on('newTeacherQuestion', ({question}) => {
+    this.props.socket.on('newTeacherQuestion', ({question}) => {
+      console.log(question)
       this.props.callSetCurrentQuestion({ content: question.content, choices: question.choices, questionType: question.questionType
       })
+    })
+    this.props.socket.on('endStudentLecture', () => {
+      browserHistory.push('/post-loop-student-analysis')
     })
   }
 
