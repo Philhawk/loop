@@ -44,13 +44,8 @@ sessionsRouter.post('/', (req, res, next) => {
   console.log('THIS IS THE BODY', req.body)
   db.model('sessions').create(req.body)
   .then(session => {
-    bitly.shorten('http://loop-teach.herokuapp.com/studentLoop/' + session.sessionString)
-    .then(response => {
-      session.dataValues.bitly = response.data.url
-      res.status(201).send(session)
+    res.status(201).send(session)
     })
-
-  })
   .catch(next);
 });
 
@@ -61,7 +56,13 @@ sessionsRouter.put('/:sessionId', (req, res, next) => {
   .then(session => {
     session.update(req.body)
     .then(updatedSession => {
-      res.status(201).send(updatedSession)
+      bitly.shorten('http://loop-teach.herokuapp.com/studentLoop/' + session.sessionString)
+      .then(response => {
+        updatedSession.dataValues.bitly = response.data.url
+        res.status(201).send(updatedSession)
+      })
+
+      console.log("SESSION IN ROUTE", updatedSession)
     })
   })
   .catch(next);
