@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { Link } from 'react-router';
 import { callRemoveQuestion } from '../../reducers/questionsList';
 import { callReset } from '../../reducers/data';
 import { callOpenEndedReset} from '../../reducers/openEndedAnswers'
@@ -34,11 +35,15 @@ class TeacherPresentMainCardsComponent extends Component {
     }, 500)
   }
 
+
   componentWillUnmount() {
     clearInterval(this.dataGenerator);
   }
 
   onCurrentCardRemove(){
+    if (this.props.questionsList.length === 0) {
+      this.setState({ button: 'endLecture' })
+    }
     axios.put(`/api/sessions/${this.props.session.sessionString}/next`)
     .then((session) => {
       console.log("SESSIONDATA", session.data)
@@ -69,6 +74,8 @@ class TeacherPresentMainCardsComponent extends Component {
       return (
         <Button waves='light' className="#0d47a1 blue darken-4" onClick={this.onSendAnswer}>Reveal Answer</Button>
       )
+    } else if(this.state.button === 'endLecture') {
+      <Button waves='light' className="##d32f2f red darken-2"><Link to='/post-loop-analysis'>End Lecture</Link></Button>
     }
   }
 
