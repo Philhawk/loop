@@ -36,13 +36,13 @@ class LoginSignUpComponent extends Component {
     return (
 
         <div>
-          <Row className="loginRow">
-            <Button waves='light' className="#0091ea light-blue accent-4" onClick={this.onLoginSelect}>Login</Button>
-            <Button waves='light' className="#0091ea light-blue accent-4"onClick={this.onSignUpSelect}>SignUp</Button>
-          </Row>
-
+          <div className="row">
+            <Button waves='light' className="#0091ea light-blue accent-4 col l6 m6 s6 login-switchers" onClick={this.onLoginSelect}>Login</Button>
+            <Button waves='light' className="#ff8a65 deep-orange lighten-2 col l6 m6 s6 login-switchers" onClick={this.onSignUpSelect}>SignUp</Button>
+          </div>
+          <div className="card-panel z-depth-4">
             {this.showForm()}
-
+          </div>
         </div>
 
     )

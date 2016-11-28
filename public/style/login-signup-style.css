@@ -2,17 +2,31 @@ body {
   background-color: #006494;
 }
 
-/*.wrapper {
-  margin-top: 10%;
-  margin-bottom: 10%;
-}*/
+#return-home-signup {
+  float: right;
+}
+
+#return-home-signin {
+  float: right;
+}
+
+.login-switchers {
+  margin-bottom: 1em;
+}
+
+.card-panel {
+  max-width: 600px;
+  padding: 2em;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+}
 
 .form-signin {
-  max-width: 420px;
+  max-width: 500px;
   padding: 30px 38px 66px;
   margin: 0 auto;
-  background-color: #eee;
-  border: 3px dotted rgba(0,0,0,0.1);
+  background-color: #e8f1f2;
+  border: 3px solid rgba(0,0,0,0.1);
   color: black;
   }
 
@@ -31,18 +45,18 @@ body {
 
 input[type="text"] {
   margin-bottom: 0px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 input[type="password"] {
   margin-bottom: 20px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+}
+
+input[name="role"] {
+  margin-bottom: 25px;
 }
 
 .colorgraph {
-  height: 7px;
+  height: 10px;
   border-top: 0;
   background: #c4e17f;
   border-radius: 5px;
@@ -51,3 +65,4 @@ input[type="password"] {
   background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
+

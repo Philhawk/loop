@@ -26,6 +26,7 @@ class LoginComponent extends Component {
           <input className="form-control" name="email" placeholder="Username" />
           <input className="form-control" name="password" type="password" placeholder="Password" />
           <Button waves='light' className="#c2185b pink darken-2">Login</Button>
+          <Link to="/" id="return-home-signin">Return Home</Link>
         </form>
       </div>
     )
