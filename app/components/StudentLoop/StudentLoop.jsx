@@ -19,7 +19,7 @@ class StudentLoopComponent extends Component {
     return (
       <div id="student-view">
         <div className="row">
-          <div className="col s12">
+          <div className="col s12 no-padding">
             <div className="card z-depth-2">
               <IncomingQuestion />
             </div>
