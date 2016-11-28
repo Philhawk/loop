@@ -1,3 +1,7 @@
+.no-padding{
+  padding: 0;
+}
+
 .teacher-text {
   font-family: 'Work Sans', sans-serif;
   font-weight: 50;
