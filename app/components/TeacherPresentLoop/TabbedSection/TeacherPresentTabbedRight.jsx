@@ -46,8 +46,9 @@ class TeacherPresentTabbedRightComponent extends React.Component {
     if(this.props.questionsList[0].questionType === 'multipleChoice') {
       return <MultipleChoiceData data={this.props.data}/>
     } else if(this.props.questionsList[0].questionType === 'openEnded') {
-      console.log("OPENENDEDANSWERS", this.props.openEndedAnswers)
       return <OpenEndedData openEndedAnswers={this.props.openEndedAnswers}/>
+    } else if(this.props.questionsList[0].questionType === 'fillInTheBlank') {
+      return <MultipleChoiceData data={this.props.data}/>
     }
   }
 

@@ -3,16 +3,29 @@ import { connect } from 'react-redux';
 import { Button } from 'react-materialize';
 
 class OpenEndedStudentComponent extends Component {
-  constructor() {
-    super()
-    this.state = { submitted: false, answer: '' }
+  constructor(props) {
+    super(props)
+    this.state = { submitted: false, answer: '', correctAnswer: '' }
+
     this.onSubmitAnswer = this.onSubmitAnswer.bind(this);
     this.getInput = this.getInput.bind(this);
+
+    this.props.socket.on('studentReceieveAnswer', ({ correctAnswer, questionType }) => {
+      if(questionType === 'openEnded') {
+        this.setState({ correctAnswer })
+      }
+    })
+
+    this.props.socket.on('newTeacherQuestion', ({ question }) => {
+      if(question.questionType === 'openEnded') {
+        this.setState({ correctAnswer: '', submitted: false, answer: '' })
+        document.getElementById('open-ended-student-answer').value = '';
+      }
+    })
   }
 
   getInput(e) {
     this.setState({ answer: e.target.value })
-    console.log(this.state.answer)
   }
 
   onSubmitAnswer(e) {
@@ -29,17 +42,35 @@ class OpenEndedStudentComponent extends Component {
     }
   }
 
+  showCorrectAnswer() {
+    if(this.state.correctAnswer) {
+      return (
+        <div className="row">
+          <div className="col s12">
+            <div className="row card-panel z-depth-2">
+              <div className="input-field col s12">
+                <p>{this.state.correctAnswer}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
 
   render() {
     return (
       <div className="container" id="student-open-ended">
+        {this.showCorrectAnswer()}
         <div className="row">
             <form className="col s12">
               <div className="row card-panel z-depth-2">
                 <div className="input-field col s12">
                   <i className="material-icons prefix">mode_edit</i>
-                  <textarea id="icon_prefix2" className="materialize-textarea" onChange={this.getInput}></textarea>
-                  <label htmlFor="icon_prefix2" >Type your answer here...</label>
+                  <textarea id="open-ended-student-answer" className="materialize-textarea" onChange={this.getInput}></textarea>
+                  <label htmlFor="open-ended-student-answer" >Type your answer here...</label>
                 </div>
               </div>
             </form>

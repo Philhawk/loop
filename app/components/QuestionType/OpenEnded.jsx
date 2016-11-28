@@ -17,13 +17,14 @@ class OpenEndedComponent extends Component {
     e.preventDefault()
     this.props.createQuestion({
       content: e.target.question.value,
-      correctAnswer: "",
+      correctAnswer: e.target.answer.value,
       questionType: 'openEnded', // remember to input the correct question type
       choices: [],
       lecture_id: this.props.lecture.id
     })
     // resets all form fields on submit
     e.target.question.value = "";
+    e.target.answer.value = "";
   }
 
   render() {
@@ -35,6 +36,10 @@ class OpenEndedComponent extends Component {
           <div className="input-field col s12">
             <textarea id="icon_prefix2" className="materialize-textarea" name="question"></textarea>
             <label htmlFor="icon_prefix2">Question</label>
+          </div>
+          <div className="input-field col s12">
+            <textarea id="icon_prefix2" className="materialize-textarea" name="answer"></textarea>
+            <label htmlFor="icon_prefix2">Answer</label>
           </div>
           <Button waves='light'>Save question</Button>
         </form>
