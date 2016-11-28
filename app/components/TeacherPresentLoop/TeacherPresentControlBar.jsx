@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { ShareButtons, ShareCounts, generateShareIcon } from 'react-share';
 
 const { TwitterShareButton, GooglePlusShareButton, FacebookShareButton} = ShareButtons;
@@ -49,7 +50,8 @@ class TeacherPresentControlBarComponent extends Component {
   generatePresentorStartButton = () => {
     return (
       <div className="col s12 m7 l7">
-        <RaisedButton label="Stop" backgroundColor='red' labelColor='white' style={this.startButtonStyle} />
+        <RaisedButton label="Stop" backgroundColor='red' labelColor='white'/>
+        <Link to="/post-loop-analysis"> STOP </Link>
       </div>
     )
   }
@@ -57,7 +59,7 @@ class TeacherPresentControlBarComponent extends Component {
   render() {
     const shareUrl = this.props.session.bitly;
     const title = 'Checkout my live loop!'
-    
+
     return (
         <div className="row">
             <div className="card col s12 m12 l12 teacherPresentationControlBar">
