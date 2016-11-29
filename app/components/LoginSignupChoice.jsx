@@ -24,6 +24,11 @@ class LoginSignUpComponent extends Component {
     this.setState({whois: "signup"})
   }
 
+  componentDidMount() {
+    $('#sidenav-overlay').remove()
+      document.body.style = "";
+  }
+
   showForm() {
     if (this.state.whois === "login") {
       return <Login />
@@ -51,4 +56,3 @@ class LoginSignUpComponent extends Component {
 
 
 export default LoginSignUpComponent;
-
