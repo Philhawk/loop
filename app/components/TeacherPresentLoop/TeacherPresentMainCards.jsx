@@ -38,14 +38,14 @@ class TeacherPresentMainCardsComponent extends Component {
 
   componentDidMount() {
     console.log('what is the props', this.props)
-    var ts1 = this.refs.chart.addTimeSeries({},{ strokeStyle: 'rgba(0, 255, 0, 1)', fillStyle: 'rgba(0, 255, 0, 0.2)', lineWidth: 8 });
+    var ts1 = this.refs.chart.addTimeSeries({},{ strokeStyle: 'rgba(0, 255, 0, 1)', fillStyle: 'rgba(0, 255, 0, 0.2)', lineWidth: 20 });
 
     this.dataGenerator = setInterval(() => {
       var time = new Date().getTime();
       var random = Math.random()
       console.log('what is the studentMood: ', this.props.studentMood)
-      ts1.append(time,(this.props.studentMood / 100));
-    }, 500)
+      ts1.append(time,(this.props.studentMood));
+    }, 100)
   }
 
   componentWillUnmount() {
@@ -176,9 +176,8 @@ class TeacherPresentMainCardsComponent extends Component {
               <div className="card-content black-text">
                 <div className="card-title">Total Students: { this.state.totalStudents }</div>
                 <span className="card-title">Current Mood: { this.showMoodIndicator() } </span>
-                  <div className='mood-box'>
-                     <SmoothieComponent ref="chart"/>
-
+                  <div >
+                     <SmoothieComponent ref="chart" width="300px" height="300px"/>
                   </div>
               </div>
             </div>

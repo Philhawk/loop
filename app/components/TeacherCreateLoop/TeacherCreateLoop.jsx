@@ -76,13 +76,13 @@ class TeacherCreateLoopComponent extends Component {
     return (
 
         <div className="row backgroundCard teacher-text">
-          <div className="col s12 m12 l12 card">
+          <div className={`col s12 m12 l12 card ${ this.state.whois === 'QuestionInstructions' ? 'create-loop' : ''}`}>
 
               <div className="col s12 m12 l6" id="questionCreation">
                 <Link to={`/loop/${this.props.session.sessionString}`}>
                   <Button waves='light' id="startPresBtn">Start Presentation</Button>
                 </Link>
-                <div className="card-panel z-depth-3">
+                <div className={`card-panel z-depth-3 card-bottom-pad ${this.state.whois === 'QuestionInstructions' ? 'intro-card' : ''}`}>
 
                   {this.showQuestion()}
                 </div>
