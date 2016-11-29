@@ -89,8 +89,9 @@
   margin-top: 0.35em !important;
 }
 
-.teacherPresentationTabbedSection{
+.teacherPresentationTabbedSection .card-title{
    background-color: white;
+   font-weight: 900 !important;
 }
 
 .teacherPresentTabs {
@@ -104,7 +105,7 @@
 }
 
 .card-title {
-  font-weight: bolder;
+  font-weight: 900 !important;
   font-family: 'Work Sans', sans-serif;
 }
 

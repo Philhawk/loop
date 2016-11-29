@@ -47,9 +47,9 @@ class CarouselVideo extends Component {
           }}
 
           >
-          <img src='img/vr.jpg' alt='Album one' data-action="https://facebook.github.io/react/"/>
-          <img src='img/Adele.jpg' alt='Album two' data-action="http://passer.cc"/>
-          <img src='img/bob.jpg' alt='Album three' data-action="https://doce.cc/"/>
+          <img src='img/Carousel/pointing.jpg' data-action="http://www.fullstackacademy.com/student-gallery"/>
+          <img src='img/Carousel/students-typing.jpg' data-action="http://www.fullstackacademy.com/student-gallery"/>
+          <img src='img/Carousel/fullstack-academy.jpg' data-action="http://www.fullstackacademy.com/student-gallery"/>
         </Coverflow>
       </StyleRoot>
     )

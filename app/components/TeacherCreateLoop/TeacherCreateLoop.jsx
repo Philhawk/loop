@@ -5,9 +5,8 @@ import QuestionInstructions from '../QuestionType/QuestionInstructions';
 import FillInBlank from '../QuestionType/FillInBlank';
 import MultipleChoice from '../QuestionType/MultipleChoice';
 import OpenEnded from '../QuestionType/OpenEnded';
-import { createLecture } from '../../reducers/lecture';
+import { createLecture, updateLecture } from '../../reducers/lecture';
 import { createSession, activateSession } from '../../reducers/session';
-import { updateLecture } from '../../reducers/lecture';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
 import axios from 'axios';
@@ -41,6 +40,11 @@ class TeacherCreateLoopComponent extends Component {
     this.props.activateSession({ session_id: this.props.session.id })
   }
 
+  onNameLoop(e) {
+    e.preventDefault();
+    this.props.updateLecture({ name: e.target.loopName.value, lecture_id: this.props.lecture.id })
+  }
+
   onFillInBlank(e) {
     e.preventDefault()
     this.setState({whois: "fillInBlank"})
@@ -55,11 +59,6 @@ class TeacherCreateLoopComponent extends Component {
   onOpenEnded(e) {
     e.preventDefault()
     this.setState({whois: "openEnded"})
-  }
-
-  onNameLoop(e) {
-    e.preventDefault()
-    this.props.updateLecture({ name: e.target.loopName.value, lecture_id: this.props.lecture.id })
   }
 
 
@@ -83,30 +82,27 @@ class TeacherCreateLoopComponent extends Component {
     return (
 
         <div className="row backgroundCard teacher-text">
-          <div className="col s12 m12 l12 card">
+          <div className={`col s12 m12 l12 card ${ this.state.whois === 'QuestionInstructions' ? 'create-loop' : ''}`}>
+
               <div className="col s12 m12 l6" id="questionCreation">
-                <div className="row">
-                  <div className="col s12">
+                <Link to={`/loop/${this.props.session.sessionString}`}>
+                  <Button waves='light' id="startPresBtn">Start Presentation</Button>
+                </Link>
+                <div className="col s12 card-panel z-depth-3">
 
-                    <Link to={`/loop/${this.props.session.sessionString}`}>
-                      <Button waves='light' id="startPresBtn">Start Presentation</Button>
-                    </Link>
+                <form onSubmit={this.onNameLoop}>
+                  <div className="input-field inline card-content">
+                    <span className="card-title">Name Your Loop Below</span>
+                    <input id="loopName" name="loopName" type="text" />
                   </div>
-                  <div className="col s12 card-panel z-depth-3">
-
-                  <form onSubmit={this.onNameLoop}>
-                    <div className="input-field inline card-content">
-                      <span className="card-title">Name Your Loop Below</span>
-                      <input id="loopName" name="loopName" type="text" />
-                    </div>
-                    <div className="card-action">
-                      <Button className="createBtn">Name Loop</Button>
-                    </div>
-                  </form>
+                  <div className="card-action">
+                    <Button className="createBtn">Name Loop</Button>
+                  </div>
+                </form>
 
                 </div>
-              </div>
-                <div className="card-panel z-depth-3">
+                <div className={`card-panel z-depth-3 card-bottom-pad ${this.state.whois === 'QuestionInstructions' ? 'intro-card' : ''}`}>
+
                   {this.showQuestion()}
                 </div>
               </div>
