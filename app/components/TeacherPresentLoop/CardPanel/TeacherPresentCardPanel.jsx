@@ -28,7 +28,7 @@ class TeacherPresentCardPanelComponent extends Component {
             <div>
                 {
                   this.props.questionsList.slice(0).map((question, i) => {
-                    if(question.content === '') return null
+                    if(question.default === true) return null
                     else {
                       return (
                         <div className="card #37474f white-grey darken-3" key={i}>
