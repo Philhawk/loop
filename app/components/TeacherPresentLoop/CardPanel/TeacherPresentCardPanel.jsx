@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { callRemoveQuestion } from '../../../reducers/questionsList';
+import { Link } from 'react-router';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class TeacherPresentCardPanelComponent extends Component {
   constructor() {
     super();
+  }
+
+  generatePresentorStopButton = () => {
+    return (
+        <Link to="/post-loop-analysis">
+          <RaisedButton label="Stop Presentation" backgroundColor='red' labelColor='white'/>
+        </Link>
+    )
   }
 
   render() {
@@ -13,8 +23,9 @@ class TeacherPresentCardPanelComponent extends Component {
         <div className="row">
             <div className="row TeacherPresentCurrentUser">
                 <h4>{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</h4>
+                {this.generatePresentorStopButton()}
             </div>
-            <div className="row TeacherPresentCardPanel">
+            <div>
                 {
                   this.props.questionsList.slice(0).map((question, i) => {
                     if(question.content === '') return null
