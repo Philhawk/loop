@@ -247,7 +247,6 @@
 }
 
 .button:hover {
-
   box-shadow: 1px 6px 15px rgba(0,0,0,0.2);
 }
 
@@ -280,7 +279,6 @@ nav ul a {
   color: white;
 }
 
-
 .title {
   font-family: 'Raleway', sans-serif;
   color: white;
@@ -298,8 +296,6 @@ nav ul a {
   font-weight: 50;
   color: white;
   font-size: 0.92em;
-  text-align: left;
-  padding-top: 1em;
 }
 
 .no-pad {
@@ -330,15 +326,6 @@ nav ul a {
 
 .aboutus {
   background-color: #385C7B;
-}
-
-.about-us-box {
-  border-radius: 100px;
-  height: 100px;
-  text-align: center;
-  padding-left: 3em;
-  width: 100px;
-  background-image: url(../img/vr.jpg);
 }
 
 /*super large*/
