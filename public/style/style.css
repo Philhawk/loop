@@ -122,8 +122,8 @@
   background-image: url(../img/background.png);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
-  max-width: 100vw;
+ /* height: 100vh;
+  max-width: 100vw;*/
   margin-bottom: 0;
 }
 
@@ -353,13 +353,11 @@ nav ul a {
 
   .whatisit {
     background-color: #006494;
-    height: 56vh;
-    /*background-color: #006494;*/
   }
 }
 
 
-@media (min-width: 1091px) {
+@media (min-width: 1092px) {
   .row {
     padding-bottom: 1em;
   }
@@ -370,8 +368,6 @@ nav ul a {
 
   .whatisit {
     background-color: #006494;
-    height: 44vh;
-    /*background-color: #006494;*/
   }
 }
 /*Large Screen*/
@@ -382,7 +378,6 @@ nav ul a {
 
   .whatisit {
     background-color: #006494;
-    /*background-color: #006494;*/
   }
 }
 
@@ -394,8 +389,6 @@ nav ul a {
 
   .whatisit {
     background-color: #006494;
-    max-height: 50vh;
-    /*background-color: #006494;*/
   }
 }
 
@@ -407,8 +400,6 @@ nav ul a {
 
   .whatisit {
     background-color: #006494;
-    max-height: 54vh;
-    /*background-color: #006494;*/
   }
 }
 
@@ -418,8 +409,7 @@ nav ul a {
 @media (max-width: 769px) {
   .whatisit {
     background-color: #006494;
-    height: 56vh;
-  }
+ }
   .why-use-it-text {
     padding-left: 2.4em !important;
   }
@@ -451,8 +441,6 @@ nav ul a {
 
   .whatisit {
     background-color: #006494;
-    /*background-color: #006494;*/
-    height: 56vh;
     width: auto;
   }
 }
@@ -484,8 +472,6 @@ nav ul a {
 
   .whatisit {
     background-color: #006494;
-    /*background-color: #006494;*/
-    height: 56vh;
     width: auto;
   }
 }
@@ -518,8 +504,8 @@ nav ul a {
   .whatisit {
     background-color: #006494;
     /*background-color: #006494;*/
-    height: 56vh;
-    max-width: 100vw;
+/*    height: 56vh;
+*/    max-width: 100vw;
   }
 }
 

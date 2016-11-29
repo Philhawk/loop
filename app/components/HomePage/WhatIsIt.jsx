@@ -11,19 +11,18 @@ class WhatIsIt extends Component {
 
 // WhatIsIt component
     return (
-      <div className="whatisit">
+      <div>
         <a name="what-is-it"></a>
-        <div className="row">
-          <div className="col s1 m1 l1 backGround">
+        <div className="row no-pad whatisit">
+          <div className="row">
+            <div className="col s1 m1 l1 "></div>
+            <div className="what-is-it-text col s11 m11 l11">
+              What Is It?
+            </div>
           </div>
-          <div className="what-is-it-text col s11 m11 l11">
-            What Is It?
-          </div>
-        </div>
-        <div className="row no-pad ">
-          <div className="col s0 m0 l2 backGround">
-          </div>
-          <div className="col s12 m12 l8 backGround">
+          <div className="col s0 m0 l2 "></div>
+
+          <div className="col s12 m12 l8">
             <div className="row">
               <div className="col s6 m6 l6">
                 <div className='row'>
@@ -69,8 +68,8 @@ class WhatIsIt extends Component {
               </div>
             </div>
           </div>
-          <div className="col s0 m0 l2">
-          </div>
+
+          <div className="col s0 m0 l2 "></div>
         </div>
       </div>
     );
