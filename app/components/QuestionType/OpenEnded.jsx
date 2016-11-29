@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'react-materialize';
 import { createQuestion } from 'APP/app/reducers/questionsList';
 import { connect } from 'react-redux';
+import Snackbar from 'material-ui/Snackbar';
 
 class OpenEndedComponent extends Component {
   constructor() {
@@ -27,6 +28,19 @@ class OpenEndedComponent extends Component {
     e.target.answer.value = "";
   }
 
+  handleTouchTap = () => {
+    this.setState({
+      open: true
+    });
+  };
+
+  handleRequestClose = () => {
+    this.setState({
+      open: false,
+    });
+  };
+
+
   render() {
     return (
       <div className="card-content">
@@ -41,7 +55,13 @@ class OpenEndedComponent extends Component {
             <textarea id="icon_prefix2" className="materialize-textarea" name="answer"></textarea>
             <label htmlFor="icon_prefix2">Answer</label>
           </div>
-          <Button waves='light'>Save question</Button>
+          <Button waves='light' onTouchTap={this.handleTouchTap}>Save question</Button>
+          <Snackbar
+            open={this.state.open}
+            message="Card Created"
+            autoHideDuration={4000}
+            onRequestClose={this.handleRequestClose}
+          />
         </form>
       </div>
     )
