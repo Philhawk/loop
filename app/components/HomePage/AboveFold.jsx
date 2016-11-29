@@ -17,7 +17,7 @@ class AboveFold extends Component {
 
 // AboveFold component
     return (
-      <div className="container">
+      <div className="container" style={{paddingBottom: '2em'}}>
         <div className="row">
           <div className="heading-text col s12 m12 l12">
             Loop
