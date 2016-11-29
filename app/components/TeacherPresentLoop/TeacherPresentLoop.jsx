@@ -18,9 +18,6 @@ class TeacherPresentLoopComponent extends Component {
 
   componentWillUnmount(e) {
     this.props.endSession({ session_id: this.props.session.id })
-    window.onbeforeunload = function(e) {
-      return "WINDOW CLOSED!!!! :("
-    }
   }
 
 

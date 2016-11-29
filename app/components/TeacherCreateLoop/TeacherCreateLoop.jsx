@@ -113,7 +113,7 @@ class TeacherCreateLoopComponent extends Component {
                     <span className="card-title">Fill in the blank</span>
                   </div>
                   <div className="card-action">
-                    <Button className="createBtn" onClick={this.onFillInBlank}>Create Question</Button>
+                    <Button className="createBtn" onClick={this.onFillInBlank}>Create</Button>
                   </div>
                 </div>
 
@@ -122,7 +122,7 @@ class TeacherCreateLoopComponent extends Component {
                     <span className="card-title">Multiple Choice</span>
                   </div>
                   <div className="card-action">
-                    <Button className="createBtn" onClick={this.onMultipleChoice}>Create Question</Button>
+                    <Button className="createBtn" onClick={this.onMultipleChoice}>Create</Button>
                   </div>
                 </div>
 
@@ -131,7 +131,7 @@ class TeacherCreateLoopComponent extends Component {
                     <span className="card-title">Open Ended</span>
                   </div>
                   <div className="card-action">
-                    <Button className="createBtn" onClick={this.onOpenEnded}>Create Question</Button>
+                    <Button className="createBtn" onClick={this.onOpenEnded}>Create</Button>
                   </div>
                 </div>
               </div>
