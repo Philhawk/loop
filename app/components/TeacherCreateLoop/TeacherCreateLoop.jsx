@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Row, Input } from 'react-materialize';
 import { Link } from 'react-router';
+import QuestionInstructions from '../QuestionType/QuestionInstructions';
 import FillInBlank from '../QuestionType/FillInBlank';
 import MultipleChoice from '../QuestionType/MultipleChoice';
 import OpenEnded from '../QuestionType/OpenEnded';
@@ -14,7 +15,7 @@ import axios from 'axios';
 class TeacherCreateLoopComponent extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {whois: "QuestionInstructions"};
     this.onFillInBlank = this.onFillInBlank.bind(this);
     this.onMultipleChoice = this.onMultipleChoice.bind(this);
     this.onOpenEnded = this.onOpenEnded.bind(this);
@@ -58,11 +59,18 @@ class TeacherCreateLoopComponent extends Component {
   showQuestion() {
     if (this.state.whois === "fillInBlank") {
       return <FillInBlank />
-    } else if (this.state.whois === "multipleChoice") {
+    }
+    else if (this.state.whois === "multipleChoice") {
       return <MultipleChoice />
-    } else if (this.state.whois === "openEnded")
+    }
+    else if (this.state.whois === "openEnded") {
       return <OpenEnded />
+    }
+    else if (this.state.whois === "QuestionInstructions") {
+      return <QuestionInstructions />
+    }
   }
+
 
   render() {
     return (
@@ -75,6 +83,7 @@ class TeacherCreateLoopComponent extends Component {
                   <Button waves='light' id="startPresBtn">Start Presentation</Button>
                 </Link>
                 <div className="card-panel z-depth-3">
+
                   {this.showQuestion()}
                 </div>
               </div>
@@ -83,7 +92,6 @@ class TeacherCreateLoopComponent extends Component {
                 <div className="card white-grey z-depth-3">
                   <div className="card-content black-text">
                     <span className="card-title">Fill in the blank</span>
-                    <p>The teacher's name is ___________.</p>
                   </div>
                   <div className="card-action">
                     <Button className="createBtn" onClick={this.onFillInBlank}>Create Question</Button>
@@ -93,10 +101,6 @@ class TeacherCreateLoopComponent extends Component {
                 <div className="card white-grey z-depth-3">
                   <div className="card-content black-text">
                     <span className="card-title">Multiple Choice</span>
-                    <h6>Who is the 44th President of the United States</h6>
-                    <p>A. Barack Obama</p>
-                    <p>B. Abraham Lincoln</p>
-                    <p>C. George Bush</p>
                   </div>
                   <div className="card-action">
                     <Button className="createBtn" onClick={this.onMultipleChoice}>Create Question</Button>
@@ -106,7 +110,6 @@ class TeacherCreateLoopComponent extends Component {
                 <div className="card white-grey z-depth-3">
                   <div className="card-content black-text">
                     <span className="card-title">Open Ended</span>
-                    <p>160 characters or less please.</p>
                   </div>
                   <div className="card-action">
                     <Button className="createBtn" onClick={this.onOpenEnded}>Create Question</Button>
