@@ -316,8 +316,12 @@ nav ul a {
   font-weight: 50;
   color: white;
   padding-top: 2em !important;
-  font-size: 1.8em;
+  font-size: 2em;
   text-align: center;;
+}
+
+.about-us-names {
+  text-align: center;
 }
 
 .box-row {
