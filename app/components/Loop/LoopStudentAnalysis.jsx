@@ -21,7 +21,7 @@ class LoopStudentAnalysisComponent extends Component {
           <form className="post-loop-analysis">
             <h3 className="post-loop-analysis-heading">Well done!</h3>
             <Tabs>
-              <Tab label="Statistics" >
+              <Tab label="Your Statistics" >
               <Card>
                 <CardText style={{color: 'white', backgroundColor: 'teal', margin: '1em 0 1em 0', paddingBottom: '1em'}}>
                   Duration:
@@ -30,7 +30,7 @@ class LoopStudentAnalysisComponent extends Component {
                 <CardMedia></CardMedia>
               </Card>
               </Tab>
-              <Tab label="Placeholder" >
+              <Tab label="Your Questions" >
               </Tab>
             </Tabs>
           </form>
