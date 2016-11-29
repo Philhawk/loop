@@ -458,6 +458,10 @@ nav ul a {
     margin-bottom: 1px;
   }
 
+  .fancy-stats {
+    font-size: 2.2em;
+  }
+
   a.brand-logo {
     padding-left: 0;
   }
@@ -505,6 +509,9 @@ nav ul a {
     padding-bottom: 2em;
   }
 
+  .fancy-stats {
+    font-size: 2em;
+  }
   .whatisit {
     background-color: #006494;
     /*background-color: #006494;*/

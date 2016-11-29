@@ -3,22 +3,29 @@ import { connect } from 'react-redux';
 import { callRemoveQuestion } from '../../../reducers/questionsList';
 import { Link } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Button } from 'react-materialize';
 
 class TeacherPresentCardPanelComponent extends Component {
   constructor() {
     super();
+    this.onEndLecture = this.onEndLecture.bind(this);
   }
+
+
 
   generatePresentorStopButton = () => {
     return (
-        <Link to="/post-loop-analysis">
-          <RaisedButton label="Stop Presentation" backgroundColor='red' labelColor='white'/>
-        </Link>
+        <Link to='/post-loop-analysis'><Button waves='light' className="##d32f2f red darken-2" onClick={this.onEndLecture}>Stop Presentation</Button></Link>
     )
   }
 
+  onEndLecture() {
+    this.props.socket.emit('teacherEndsLecture', ({
+      sessionString: this.props.session.sessionString
+    }))
+  }
+
   render() {
-    console.log(this.props);
     return (
         <div className="row">
             <div className="row TeacherPresentCurrentUser">
