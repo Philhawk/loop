@@ -16,8 +16,8 @@ export const createLecture = ({ name, mood, timeStarted, teacher_id }) => dispat
   })
 }
 
-export const updateLecture = ({ name, mood, timeStarted, teacher_id }) => dispatch => {
-  axios.put('/api/lectures', { name, mood, timeStarted, teacher_id })
+export const updateLecture = ({ name, mood, timeStarted, teacher_id, lecture_id }) => dispatch => {
+  axios.put(`/api/lectures/${lecture_id}`, { name, mood, timeStarted, teacher_id })
   .then(lecture => {
     console.log(lecture)
     dispatch(setLecture(lecture.data))

@@ -6,9 +6,8 @@ const SET_CURRENT_SESSION = "SET_CURRENT_SESSION";
 // Sync Action Creators
 export const setCurrentSession = session => ({ type: SET_CURRENT_SESSION, session })
 
+
 // Async Action Creators
-
-
 export const createSession = ({ sessionString, active, lecture_id, bitly }) => dispatch => {
   axios.post('/api/sessions', { sessionString, active, lecture_id, bitly })
   .then(session => {
@@ -26,14 +25,20 @@ export const fetchCurrentSession = ({ sessionString }) => dispatch => {
   .catch(err => console.error(err));
 }
 
-export const updateSessionTime = ({session_id}) => dispatch => {
-  console.log("SESSION ID", session_id)
-  axios.put(`/api/sessions/${session_id}`, { timeStarted: Date.now() })
+export const activateSession = ({session_id}) => dispatch => {
+  axios.put(`/api/sessions/${session_id}/activate`, { timeStarted: Date.now(), active: true })
   .then(session => {
-    console.log("SESSION!", session.data)
     dispatch(setCurrentSession(session.data))
   })
+  .catch(err => console.error(err));
 }
+
+export const endSession = ({ session_id }) => dispatch => {
+  axios.put(`/api/sessions/${session_id}/end`, { active: false })
+  .then(session => {
+    dispatch(setCurrentSession(session.data))
+  })
+  .catch(err => console.error(err));}
 
 // Initial State
 const initialState = {

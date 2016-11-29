@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import { callRemoveQuestion } from '../../reducers/questionsList';
 import { callReset } from '../../reducers/data';
 import { callOpenEndedReset} from '../../reducers/openEndedAnswers'
+import { endSession } from '../../reducers/session'
 import { Button } from 'react-materialize';
 import { callStudentAddMood } from '../../reducers/studentMood';
 var SmoothieComponent = require('react-smoothie');
@@ -78,6 +79,7 @@ class TeacherPresentMainCardsComponent extends Component {
   }
 
   onEndLecture() {
+    this.props.endSession({ session_id: this.props.session.id })
     this.props.socket.emit('teacherEndsLecture', ({
       sessionString: this.props.session.sessionString
     }))
@@ -190,7 +192,7 @@ class TeacherPresentMainCardsComponent extends Component {
 
 
 const mapStateToProps = ({ questionsList, socket, studentMood, session }) => ({ questionsList, socket, studentMood, session })
-const mapDispatchToProps = { callStudentAddMood, callRemoveQuestion, callReset, callOpenEndedReset };
+const mapDispatchToProps = { callStudentAddMood, callRemoveQuestion, callReset, callOpenEndedReset, endSession };
 const TeacherPresentMainCards = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentMainCardsComponent)
 
 export default TeacherPresentMainCards;
