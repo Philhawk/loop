@@ -42,7 +42,7 @@ class TeacherCreateLoopComponent extends Component {
 
   onNameLoop(e) {
     e.preventDefault();
-    this.props.updateLecture({ name: e.target.loopName.value, lecture_id: this.props.lecture.id })
+    this.props.updateLecture({ name: e.target.loopName.value, description: e.target.loopDescription.value, lecture_id: this.props.lecture.id })
   }
 
   onFillInBlank(e) {
@@ -93,10 +93,12 @@ class TeacherCreateLoopComponent extends Component {
                 <form onSubmit={this.onNameLoop}>
                   <div className="input-field inline card-content">
                     <span className="card-title">Name Your Loop Below</span>
-                    <input id="loopName" name="loopName" type="text" />
+                    <input id="loop-name" name="loopName" type="text" />
+                    <span className="card-title">Describe Your Loop Below</span>
+                    <textarea id="loop-description" name="loopDescription" className="materialize-textarea"></textarea>
                   </div>
                   <div className="card-action">
-                    <Button className="createBtn">Name Loop</Button>
+                    <Button className="createBtn">Create Loop</Button>
                   </div>
                 </form>
 

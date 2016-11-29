@@ -9,15 +9,15 @@ export const setLecture = lecture => ({
   lecture
 })
 
-export const createLecture = ({ name, mood, timeStarted, teacher_id }) => dispatch => {
-  return axios.post('/api/lectures', { name, mood, timeStarted, teacher_id })
+export const createLecture = ({ name, mood, description, teacher_id }) => dispatch => {
+  return axios.post('/api/lectures', { name, mood, description, teacher_id })
   .then(lecture => {
     dispatch(setLecture(lecture.data))
   })
 }
 
-export const updateLecture = ({ name, mood, timeStarted, teacher_id, lecture_id }) => dispatch => {
-  axios.put(`/api/lectures/${lecture_id}`, { name, mood, timeStarted, teacher_id })
+export const updateLecture = ({ name, mood, description, teacher_id, lecture_id }) => dispatch => {
+  axios.put(`/api/lectures/${lecture_id}`, { name, mood, description, teacher_id })
   .then(lecture => {
     console.log(lecture)
     dispatch(setLecture(lecture.data))
