@@ -35,7 +35,8 @@ export const fetchQuestionsBySessionString = ({sessionString}) => dispatch => {
 }
 
 const initialState = [{
-    content: "",
+    content: "Your questions will appear here! Click start lecture below to begin.",
+    default: true,
     correctAnswer: null,
     questionType: "",
     choices: []

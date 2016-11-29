@@ -14,9 +14,16 @@ class StudentLoopComponent extends Component {
       this.props.callSetCurrentQuestion({ content: question.content, choices: question.choices, questionType: question.questionType
       })
     })
+
     this.props.socket.on('endStudentLecture', () => {
       browserHistory.push('/post-loop-student-analysis')
     })
+
+  }
+
+  componentWillUnmount() {
+    console.log("YO YO YO", this.props)
+    this.props.socket.emit('something', { sessionString: this.props.session.sessionString })
   }
 
 
