@@ -11,6 +11,13 @@
   padding-top: 1em;
 }
 
+.turn-green {
+  background-color: green;
+}
+
+.turn-red {
+  background-color: red;
+}
 .submit-button-student {
   font-family: 'Work Sans', sans-serif;
   font-weight: bolder;
@@ -95,12 +102,12 @@
 }
 
 .answer.selected {
-  background-color: #26A69A;
+  background-color: #13293D;
   color: white;
 }
 
 .answer.correct {
-  background-color: #13293D;
+  background-color:#4DB6AC;
   color: white;
 }
 
