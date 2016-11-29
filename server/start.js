@@ -66,6 +66,9 @@ if (module === require.main) {
     socket.on('loopCreated', ({ loopUuId, role }) => {
       socket.join(loopUuId)
       console.log(`A ${role} just joined loop ${loopUuId}`)
+      if (role === 'Student') {
+        io.in(loopUuId).emit('studentJoined')
+      }
     })
 
     socket.on('studentAsk', ({ question, sessionString }) => {
@@ -96,6 +99,13 @@ if (module === require.main) {
 
     socket.on('teacherEndsLecture', ({ sessionString }) => {
       io.in(sessionString).emit('endStudentLecture')
+    })
+
+    socket.on('disconnecting', () => {
+      let rooms = socket.rooms
+      for(let room in rooms) {
+        io.in(room).emit('studentLeft')
+      }
     })
   })
 }

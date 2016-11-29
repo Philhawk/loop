@@ -14,13 +14,21 @@ class TeacherPresentMainCardsComponent extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        button: 'nextCard'
+        button: 'nextCard',
+        totalStudents: 0
       }
       this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
       this.onSendAnswer = this.onSendAnswer.bind(this);
       this.onEndLecture = this.onEndLecture.bind(this);
       this.props.socket.on('studentMoodIndex', ({mood}) => {
         this.props.callStudentAddMood({mood: mood})
+    })
+    this.props.socket.on('studentJoined', () => {
+      this.setState({totalStudents: this.state.totalStudents + 1 })
+    })
+    this.props.socket.on('studentLeft', () => {
+      console.log("STUDENT LEFT!!!")
+      this.setState({ totalStudents: this.state.totalStudents - 1 })
     })
   };
 
@@ -150,6 +158,7 @@ class TeacherPresentMainCardsComponent extends Component {
                         }
                    </div>
                </div>
+               <p></p>
                {this.showButton()}
               </div>
             </div>
@@ -157,9 +166,10 @@ class TeacherPresentMainCardsComponent extends Component {
           <div className="col s12 m4 l4 teacherPresentationNextCard">
             <div className="card white">
               <div className="card-content black-text">
+                <div className="card-title">Total Students: { this.state.totalStudents }</div>
                 <span className="card-title">Current Mood: { this.showMoodIndicator() } </span>
-                  <div>
-                     <SmoothieComponent ref="chart" width="200" height="200"/>
+                  <div className='mood-box'>
+                     <SmoothieComponent ref="chart"/>
 
                   </div>
               </div>
