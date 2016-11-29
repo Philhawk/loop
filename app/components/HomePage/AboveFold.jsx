@@ -1,6 +1,7 @@
 //React
 import React, { Component } from 'react';
 import CarouselVideo from '../CarouselVideo'
+import { Link } from 'react-router';
 
 /* ---  Component --- */
 class AboveFold extends Component {
@@ -31,7 +32,8 @@ class AboveFold extends Component {
 
         <div className="row padding-rule">
           <div className="header-buttons col s6 m6 l6">
-            <a className="button-left" href="#">For Teachers</a>
+
+              <Link className="button-left" to="/welcome">For Teachers</Link>
           </div>
 
           <div className="header-buttons col s6 m6 l6">
