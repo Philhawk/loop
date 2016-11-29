@@ -18,6 +18,9 @@ const Session = db.define('sessions', {
   },
   timeStarted: {
     type: Sequelize.DATE,
+  },
+  bitly: {
+    type: Sequelize.STRING
   }
 })
 

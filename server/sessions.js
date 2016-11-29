@@ -18,6 +18,19 @@ sessionsRouter.get('/', (req, res, next) => {
   .catch(next);
 });
 
+sessionsRouter.get('/active', (req, res, next) => {
+  db.model('sessions').findAll({
+    include: [{ model: db.model('lectures'), include: [{model: db.model('users'), as: 'teacher'}] }],
+    where: {
+      active: true
+    }
+  })
+  .then(sessions => {
+    res.json(sessions)
+  })
+  .catch(next);
+});
+
 // get a specific session by its ID
 sessionsRouter.get('/:sessionId', (req, res, next) => {
   db.model('sessions').findById(req.params.sessionId)
@@ -49,8 +62,8 @@ sessionsRouter.post('/', (req, res, next) => {
   .catch(next);
 });
 
-// update a specific session
-sessionsRouter.put('/:sessionId', (req, res, next) => {
+// update a specific session AND add bitly link
+sessionsRouter.put('/:sessionId/activate', (req, res, next) => {
   console.log(req.params.sessionId)
   db.model('sessions').findById(req.params.sessionId)
   .then(session => {
@@ -58,9 +71,24 @@ sessionsRouter.put('/:sessionId', (req, res, next) => {
     .then(updatedSession => {
       bitly.shorten('http://loop-teach.herokuapp.com/studentLoop/' + session.sessionString)
       .then(response => {
-        updatedSession.dataValues.bitly = response.data.url
-        res.status(201).send(updatedSession)
+        session.update({ bitly: response.data.url })
+        .then(updatedSession => {
+          res.status(201).send(updatedSession)
+        })
       })
+    })
+  })
+  .catch(next);
+})
+
+// update a specific session
+sessionsRouter.put('/:sessionId/end', (req, res, next) => {
+  console.log(req.params.sessionId)
+  db.model('sessions').findById(req.params.sessionId)
+  .then(session => {
+    session.update(req.body)
+    .then(updatedSession => {
+      res.status(201).json(updatedSession)
     })
   })
   .catch(next);

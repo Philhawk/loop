@@ -9,13 +9,15 @@ import LoopAnalysis from './components/Loop/LoopAnalysis';
 import LoopStudentAnalysis from './components/Loop/LoopStudentAnalysis';
 import TeacherCreateLoop from './components/TeacherCreateLoop/TeacherCreateLoop';
 import StudentLoop from './components/StudentLoop/StudentLoop';
+import StudentLandingPage from './components/StudentLandingpage/StudentLandingpage'
 import store from './store';
 import {createSocket} from './reducers/socket';
 import {fetchCurrentSession} from './reducers/session';
 import {fetchQuestionsBySessionString} from './reducers/questionsList';
 import {getAllStudentQuestionsByLoop} from './reducers/studentQuestions';
 import {fetchQuestionsAnsweredLength} from './reducers/answeredQuestions';
-import { callSetCurrentQuestion } from './reducers/currentQuestion'
+import { callSetCurrentQuestion } from './reducers/currentQuestion';
+import { fetchActiveSessions } from './reducers/activeSessions';
 
 
 const onLoopEnter = () => {
@@ -32,7 +34,7 @@ const onLoopFinish = () => {
   store.dispatch(getAllStudentQuestionsByLoop({ session_id: store.getState().session.id}))
 }
 
-const onStudentEnter = (data) => {
+const onStudentLoopEnter = (data) => {
   const socket = io.connect();
   const getQuestions = store.dispatch(fetchQuestionsBySessionString({ sessionString: data.params.loopUuId}))
   const getSession = store.dispatch(fetchCurrentSession({ sessionString: data.params.loopUuId }))
@@ -47,6 +49,9 @@ const onStudentEnter = (data) => {
   })
 }
 
+const onForStudentsEnter = () => {
+  store.dispatch(fetchActiveSessions())
+}
 
 const routes =()=> (
   <Router history={browserHistory}>
@@ -55,11 +60,14 @@ const routes =()=> (
       <Route path = 'welcome' component={LoginSignupChoice} />
       <Route path = 'create-loop' component={TeacherCreateLoop} />
       <Route path ='loop/*' component={Loop} onEnter={onLoopEnter}/>
-      <Route path='studentLoop/:loopUuId' component={StudentLoop} onEnter={onStudentEnter} />
+      <Route path='studentLoop/:loopUuId' component={StudentLoop} onEnter={onStudentLoopEnter} />
       <Route path='post-loop-analysis' component={LoopAnalysis} onEnter={onLoopFinish} />
       <Route path='post-loop-student-analysis' component={LoopStudentAnalysis} />
+      <Route path='activeLoops' component={StudentLandingPage} onEnter={onForStudentsEnter} />
     </Route>
   </Router>
 );
+
+
 
 export default routes;

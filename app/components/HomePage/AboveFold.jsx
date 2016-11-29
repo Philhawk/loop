@@ -36,7 +36,7 @@ class AboveFold extends Component {
           </div>
 
           <div className="header-buttons col s6 m6 l6">
-            <Link className="button-right" to="/welcome">For Students</Link>
+            <Link className="button-right" to="/activeLoops">For Students</Link>
           </div>
         </div>
 
