@@ -63,7 +63,7 @@ const routes =()=> (
       <Route path='studentLoop/:loopUuId' component={StudentLoop} onEnter={onStudentLoopEnter} />
       <Route path='post-loop-analysis' component={LoopAnalysis} onEnter={onLoopFinish} />
       <Route path='post-loop-student-analysis' component={LoopStudentAnalysis} />
-      <Route path='for-students' component={StudentLandingPage} onEnter={onForStudentsEnter} />
+      <Route path='activeLoops' component={StudentLandingPage} onEnter={onForStudentsEnter} />
     </Route>
   </Router>
 );

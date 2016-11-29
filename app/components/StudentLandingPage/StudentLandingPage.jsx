@@ -15,7 +15,7 @@ class StudentLandingPageComponent extends Component {
         {
           this.props.activeSessions.map((session, i) => (
             <div className='row card' key={i}>
-              <p className='card-title'>Lecture Title: {session.lecture.title}</p>
+              <p className='card-title'>Lecture Title: {session.lecture.name}</p>
               <p className='card-title'>Teacher: {session.lecture.teacher.name}</p>
               <p className='card-title'>Link: <a href={session.bitly}>Join Loop</a></p>
             </div>
