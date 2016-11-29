@@ -10,10 +10,12 @@ export default class TeacherPresentTabbedSection extends Component {
   render() {
     return (
         <div className="row card">
-            <div className="col s12 m8 l8 teacherPresentationTabbedSection">
+            <div className="col s12 m8 l8 teacherPresentationTabbedSection card-title">
+              Questions
               <TeacherPresentTabbedLeft />
             </div>
-            <div className="col s12 m4 l4 teacherPresentationTabbedSection">
+            <div className="col s12 m4 l4 teacherPresentationTabbedSection card-title">
+              Data
              <TeacherPresentTabbedRight />
             </div>
         </div>

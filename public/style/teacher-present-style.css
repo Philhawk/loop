@@ -99,13 +99,21 @@
     color: black !important;
 }
 
+.special-box-shadow {
+  box-shadow: 0 !important;
+}
+
 .card-title {
-    font-weight: bolder;
-   font-family: 'Work Sans', sans-serif;
+  font-weight: bolder;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .student-question {
-  border: 1px solid black;
+  font-size: 14px !important;
+  margin-top: 1.2em;
+  padding-top: 0.1em;
+  border: 1px solid grey;
+  border-radius: 4px;
   text-align: left;
 }
 

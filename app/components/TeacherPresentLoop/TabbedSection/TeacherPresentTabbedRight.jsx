@@ -62,9 +62,6 @@ class TeacherPresentTabbedRightComponent extends React.Component {
   render() {
     return (
       <div className="card">
-          <span className="card-title">
-            Data
-          </span>
           {this.displayData()}
       </div>
     );
