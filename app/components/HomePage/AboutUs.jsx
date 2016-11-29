@@ -40,7 +40,7 @@ class WhyUseIt extends Component {
             <p>I have an insatiable appetite for building listening and learning from the talented people that surround me. I'd describe myself as hard-working, ambitious and eager to learn.</p>
           </div>
           <div className="col s12 m3">
-            <img className="circle responsive-img" src="img/aboutUs/andrew.jpg"/>
+            <img className="circle responsive-img" src="img/aboutUs/Andrew.jpg"/>
             <h5 className="about-us-names">Andrew</h5>
             <p>I began working as a software developer in part because of what I saw during my teaching experience. I saw many technological tools that teachers and students were forced to use that were inadequate at best and actively inhibiting to student progress at worst.</p>
             <p>I see technology as being one of the great equalizers in our society, and in the school I was working in, it often was not.</p>
