@@ -12,24 +12,28 @@ var SmoothieComponent = require('react-smoothie');
 
 class TeacherPresentMainCardsComponent extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        button: 'nextCard',
-        totalStudents: 0
-      }
-      this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
-      this.onSendAnswer = this.onSendAnswer.bind(this);
-      this.onEndLecture = this.onEndLecture.bind(this);
-      this.props.socket.on('studentMoodIndex', ({mood}) => {
-        this.props.callStudentAddMood({mood: mood})
+    super(props);
+    this.state = {
+      button: 'startLecture',
+      totalStudents: 0
+    }
+    this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
+    this.onSendAnswer = this.onSendAnswer.bind(this);
+    this.onEndLecture = this.onEndLecture.bind(this);
+
+    this.props.socket.on('studentMoodIndex', ({mood}) => {
+      this.props.callStudentAddMood({mood: mood})
     })
+
     this.props.socket.on('studentJoined', () => {
       this.setState({totalStudents: this.state.totalStudents + 1 })
     })
+
     this.props.socket.on('studentLeft', () => {
       console.log("STUDENT LEFT!!!")
       this.setState({ totalStudents: this.state.totalStudents - 1 })
     })
+
   };
 
   componentDidMount() {
@@ -91,6 +95,10 @@ class TeacherPresentMainCardsComponent extends Component {
     } else if(this.state.button === 'endLecture') {
       return (
         <Link to='/post-loop-analysis'><Button waves='light' className="##d32f2f red darken-2" onClick={this.onEndLecture}>End Lecture</Button></Link>
+      )
+    } else if(this.state.button === 'startLecture') {
+      return (
+        <Button waves='light' className="#00bfa5 teal accent-4" onClick={this.onCurrentCardRemove}>Start Lecture</Button>
       )
     }
   }

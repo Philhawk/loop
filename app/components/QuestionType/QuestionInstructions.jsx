@@ -13,8 +13,8 @@ export default class QuestionInstructions extends Component {
         <h5> Welcome! Lets Create some questions.</h5>
         <div className="instruction-text">
           <p>Click "CREATE QUESTION" to make questions</p>
-          <p>Once your satisfied with the question you've made, click "SAVE QUESTION".</p>
-          <p>When you've finished making questions, press the "START PRESENTATION" button.</p>
+          <p>Once you're satisfied with the question you've made, click "SAVE QUESTION" to add it to your queue.</p>
+          <p>When you are finished making questions, press the "START PRESENTATION" button to begin.</p>
         </div>
       </div>
     )
