@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Input, Button } from 'react-materialize';
 import { createQuestion } from 'APP/app/reducers/questionsList';
 import { connect } from 'react-redux';
+import Snackbar from 'material-ui/Snackbar';
 
 class FillInBlankComponent extends Component {
   constructor() {
@@ -14,29 +15,43 @@ class FillInBlankComponent extends Component {
     }
   }
 
-onQuestionCreate(e) {
-  e.preventDefault()
-  this.props.createQuestion({
-    content: e.target.question.value,
-    correctAnswer: this.state.selectedAnswer,
-    questionType: 'fillInTheBlank', // remember to input the correct question type
-    choices: [e.target.answer_A.value, e.target.answer_B.value, e.target.answer_C.value, e.target.answer_D.value],
-    lecture_id: this.props.lecture.id
-  })
-  // resets all form fields on submit
-  e.target.question.value = "";
-  e.target.answer_A.value = "";
-  e.target.answer_B.value = "";
-  e.target.answer_C.value = "";
-  e.target.answer_D.value = "";
-  // need to figure out how to deselect radio buttons.
-}
+    onQuestionCreate(e) {
+      e.preventDefault()
+      this.props.createQuestion({
+        content: e.target.question.value,
+        correctAnswer: this.state.selectedAnswer,
+        questionType: 'fillInTheBlank', // remember to input the correct question type
+        choices: [e.target.answer_A.value, e.target.answer_B.value, e.target.answer_C.value, e.target.answer_D.value],
+        lecture_id: this.props.lecture.id
+      })
+      // resets all form fields on submit
+      e.target.question.value = "";
+      e.target.answer_A.value = "";
+      e.target.answer_B.value = "";
+      e.target.answer_C.value = "";
+      e.target.answer_D.value = "";
+      // need to figure out how to deselect radio buttons.
+    }
 
-onRadioSelect(e) {
-  this.setState({
-    selectedAnswer: e.target.value
-  })
-}
+    onRadioSelect(e) {
+      this.setState({
+        selectedAnswer: e.target.value,
+        open: false
+      })
+    }
+
+    handleTouchTap = () => {
+      this.setState({
+        open: true
+      });
+    };
+
+    handleRequestClose = () => {
+      this.setState({
+        open: false,
+      });
+    };
+
 
   render() {
     return (
@@ -70,7 +85,13 @@ onRadioSelect(e) {
             <Input name='correct' type='radio' value='1' label='B' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='2' label='C' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='3' label='D' className='with-gap' onClick={this.onRadioSelect}/>
-            <Button waves='light' >Save question</Button>
+            <Button waves='light' onTouchTap={this.handleTouchTap}> Save question</Button>
+            <Snackbar
+              open={this.state.open}
+              message="Card Created"
+              autoHideDuration={4000}
+              onRequestClose={this.handleRequestClose}
+            />
           </div>
         </form>
 

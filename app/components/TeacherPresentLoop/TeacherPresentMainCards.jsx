@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { Link } from 'react-router';
 import { callRemoveQuestion } from '../../reducers/questionsList';
 import { callReset } from '../../reducers/data';
 import { callOpenEndedReset} from '../../reducers/openEndedAnswers'
@@ -17,6 +18,7 @@ class TeacherPresentMainCardsComponent extends Component {
       }
       this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
       this.onSendAnswer = this.onSendAnswer.bind(this);
+      this.onEndLecture = this.onEndLecture.bind(this);
       this.props.socket.on('studentMoodIndex', ({mood}) => {
         this.props.callStudentAddMood({mood: mood})
     })
@@ -41,12 +43,15 @@ class TeacherPresentMainCardsComponent extends Component {
   onCurrentCardRemove(){
     axios.put(`/api/sessions/${this.props.session.sessionString}/next`)
     .then((session) => {
-      console.log("SESSIONDATA", session.data)
       this.props.socket.emit('teacherAsk', {question: this.props.questionsList[1], sessionString: this.props.session.sessionString})
       this.props.callRemoveQuestion();
       this.props.callReset();
       this.props.callOpenEndedReset();
-      this.setState({ button: 'revealAnswer' })
+      if (this.props.questionsList.length === 0) {
+        this.setState({ button: 'endLecture' })
+      } else {
+        this.setState({ button: 'revealAnswer' })
+      }
     })
   }
 
@@ -60,6 +65,12 @@ class TeacherPresentMainCardsComponent extends Component {
     this.setState({ button: 'nextCard' })
   }
 
+  onEndLecture() {
+    this.props.socket.emit('teacherEndsLecture', ({
+      sessionString: this.props.session.sessionString
+    }))
+  }
+
   showButton() {
     if(this.state.button === 'nextCard') {
       return (
@@ -69,11 +80,48 @@ class TeacherPresentMainCardsComponent extends Component {
       return (
         <Button waves='light' className="#0d47a1 blue darken-4" onClick={this.onSendAnswer}>Reveal Answer</Button>
       )
+    } else if(this.state.button === 'endLecture') {
+      return (
+        <Link to='/post-loop-analysis'><Button waves='light' className="##d32f2f red darken-2" onClick={this.onEndLecture}>End Lecture</Button></Link>
+      )
+    }
+  }
+
+  showMoodIndicator() {
+    if(this.props.studentMood > 50) {
+      return (
+        <div style={{color: 'green', display: 'inherit'}}>
+          Excellent
+        </div>
+        )
+      } else if (this.props.studentMood < 50 && this.props.studentMood > 0) {
+        return(
+          <div style={{color: 'green', display: 'inherit'}}>
+            Good
+          </div>
+        )
+      } else if (this.props.studentMood < 0 && this.props.studentMood > -50) {
+      return(
+        <div style={{color: 'red', display: 'inherit' }}>
+          Needs Work
+        </div>
+      )
+    } else if (this.props.studentMood > -300 && this.props.studentMood < -50) {
+      return(
+        <div style={{color: 'red', display: 'inherit' }}>
+          Unhappy
+        </div>
+      )
+    } else if (this.props.studentMood < -300) {
+      return(
+        <iframe src="//giphy.com/embed/3o7yDiinjCb8eegczS" width="260px" height="260px" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      )
     }
   }
 
 
   render() {
+
     return (
         <div className="row card TeacherPresentMainCards">
           <div className="col s12 m8 l8 teacherPresentationCurrentCard">
@@ -82,13 +130,24 @@ class TeacherPresentMainCardsComponent extends Component {
                 <span className="card-title">Current Card</span>
                 <div className="card blue-grey darken-1">
                    <div className="card-content white-text">
-                       <span className="card-title"> {this.props.questionsList[0].content} </span>
+                       <span className="card-title">  {this.props.questionsList[0] ? this.props.questionsList[0].content : "No More Questions!"} </span>
                        {
-                        this.props.questionsList[0].choices.map((choice, i) => (
-                           <p> {choice} </p>
-                          )
-                        )
-                       }
+                        this.props.questionsList[0] && this.props.questionsList[0].choices.map((choice, i) => {
+                            if(this.props.questionsList.length === 0) {
+                              return (
+                                <p>Lecture Ended </p>
+                              )
+                            } else {
+                              return (
+                              <div className={Number(this.props.questionsList[0].correctAnswer) === i ? 'card blue' : 'card red'}>
+                                <div className="card-content white-text">
+                                  {choice}
+                                </div>
+                              </div>
+                              )
+                            }
+                          })
+                        }
                    </div>
                </div>
                {this.showButton()}
@@ -98,14 +157,11 @@ class TeacherPresentMainCardsComponent extends Component {
           <div className="col s12 m4 l4 teacherPresentationNextCard">
             <div className="card white">
               <div className="card-content black-text">
-                <span className="card-title">Current Mood
+                <span className="card-title">Current Mood: { this.showMoodIndicator() } </span>
                   <div>
                      <SmoothieComponent ref="chart" width="200" height="200"/>
-                     {
-                        this.props.studentMood
-                     }
+
                   </div>
-                </span>
               </div>
             </div>
           </div>

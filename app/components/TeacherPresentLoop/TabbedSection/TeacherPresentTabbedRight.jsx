@@ -43,6 +43,7 @@ class TeacherPresentTabbedRightComponent extends React.Component {
 
 
   displayData() {
+    if(!this.props.questionsList[0]) return <p>No More Questions!</p>
     if(this.props.questionsList[0].questionType === 'multipleChoice') {
       return <MultipleChoiceData data={this.props.data}/>
     } else if(this.props.questionsList[0].questionType === 'openEnded') {
@@ -61,9 +62,6 @@ class TeacherPresentTabbedRightComponent extends React.Component {
   render() {
     return (
       <div className="card">
-          <span className="card-title">
-            Data
-          </span>
           {this.displayData()}
       </div>
     );

@@ -4,6 +4,7 @@ import {Button} from 'react-materialize';
 import { connect } from 'react-redux';
 import { createStudentQuestion, answerQuestion, studentRemoveQuestion } from '../../../reducers/studentQuestions';
 import store from '../../../store';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 const styles = {
   headline: {
@@ -38,20 +39,18 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
 
   render() {
     return (
-      <div className="card">
-          <span className="card-title">
-          Questions
-          </span>
-          <div>
+      <div className="special-box-shadow">
+
             {
               this.props.studentQuestions.map((question, i) => (
+
                 <div className="row student-question" key={i}>
                   <p className="col s10">{question.content}</p>
                   <span className="col s2 student-question-button">
                     <Button
                       floating
 
-                      className="red"
+                      className="green"
                       waves="light"
                       icon="done"
                       onClick={() => {
@@ -64,7 +63,6 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
                 )
               )
             }
-          </div>
 
       </div>
     );

@@ -6,6 +6,7 @@ import App from './components/App/App';
 import LoginSignupChoice from './components/LoginSignupChoice';
 import Loop from './components/Loop/Loop';
 import LoopAnalysis from './components/Loop/LoopAnalysis';
+import LoopStudentAnalysis from './components/Loop/LoopStudentAnalysis';
 import TeacherCreateLoop from './components/TeacherCreateLoop/TeacherCreateLoop';
 import StudentLoop from './components/StudentLoop/StudentLoop';
 import store from './store';
@@ -56,6 +57,7 @@ const routes =()=> (
       <Route path ='loop/*' component={Loop} onEnter={onLoopEnter}/>
       <Route path='studentLoop/:loopUuId' component={StudentLoop} onEnter={onStudentEnter} />
       <Route path='post-loop-analysis' component={LoopAnalysis} onEnter={onLoopFinish} />
+      <Route path='post-loop-student-analysis' component={LoopStudentAnalysis} />
     </Route>
   </Router>
 );

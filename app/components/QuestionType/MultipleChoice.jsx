@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Input, Button } from 'react-materialize';
 import { createQuestion } from 'APP/app/reducers/questionsList';
 import { connect } from 'react-redux';
+import Snackbar from 'material-ui/Snackbar';
+
 
 class MultipleChoiceComponent extends Component {
   constructor() {
@@ -32,11 +34,25 @@ onQuestionCreate(e) {
   // need to figure out how to deselect radio buttons.
 }
 
-onRadioSelect(e) {
-  this.setState({
-    selectedAnswer: e.target.value
-  })
-}
+  onRadioSelect(e) {
+    this.setState({
+      selectedAnswer: e.target.value,
+      open: false
+    })
+  }
+
+  handleTouchTap = () => {
+    this.setState({
+      open: true
+    });
+  };
+
+  handleRequestClose = () => {
+    this.setState({
+      open: false,
+    });
+  };
+
 
   render() {
     return (
@@ -69,7 +85,13 @@ onRadioSelect(e) {
             <Input name='correct' type='radio' value='1' label='B' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='2' label='C' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='3' label='D' className='with-gap' onClick={this.onRadioSelect}/>
-            <Button waves='light'>Save question</Button>
+            <Button waves='light' onTouchTap={this.handleTouchTap}>Save question</Button>
+            <Snackbar
+              open={this.state.open}
+              message="Card Created"
+              autoHideDuration={4000}
+              onRequestClose={this.handleRequestClose}
+            />
           </div>
 
         </form>
