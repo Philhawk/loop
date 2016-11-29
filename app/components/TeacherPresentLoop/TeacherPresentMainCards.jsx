@@ -158,8 +158,8 @@ class TeacherPresentMainCardsComponent extends Component {
             <div className="card white">
               <div className="card-content black-text">
                 <span className="card-title">Current Mood: { this.showMoodIndicator() } </span>
-                  <div>
-                     <SmoothieComponent ref="chart" width="200" height="200"/>
+                  <div className='mood-box'>
+                     <SmoothieComponent ref="chart"/>
 
                   </div>
               </div>

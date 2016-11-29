@@ -8,6 +8,10 @@
   padding-top: 1em;
 }
 
+.mood-box {
+  overflow: hidden;
+}
+
 .whatisit {
   background-color: #006494;
 }
