@@ -47,14 +47,6 @@ class TeacherPresentControlBarComponent extends Component {
       backgroundColor: 'red'
   };
 
-  generatePresentorStartButton = () => {
-    return (
-      <div className="col s12 m7 l7">
-        <RaisedButton label="Stop" backgroundColor='red' labelColor='white'/>
-        <Link to="/post-loop-analysis"> STOP </Link>
-      </div>
-    )
-  }
 
   render() {
     const shareUrl = this.props.session.bitly;
@@ -72,7 +64,7 @@ class TeacherPresentControlBarComponent extends Component {
                           {this.generatePresentorLink('https://YouBestBeWatching.com')}
                       </div>
                     </div>
-                    <div className="col s12 m3 l3">
+                    <div className="col s12 m6 l6">
                       <div className="row">
                         <div className="col s12 m4 l3">
                           <h4>Share On Social</h4>
@@ -110,13 +102,7 @@ class TeacherPresentControlBarComponent extends Component {
                       </div>
                     </div>
 
-                    <div className="col s12 m3 l3">
-                      <div className="row">
-                        <div className="col s12 m4 l5">
-                        </div>
-                        {this.generatePresentorStartButton()}
-                      </div>
-                    </div>
+
                 </div>
           </div>
         </div>
