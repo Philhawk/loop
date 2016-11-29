@@ -37,4 +37,3 @@ const mapDispatchToProps = { login }
 const Login = connect(null, mapDispatchToProps)(LoginComponent)
 
 export default Login;
-

@@ -6,7 +6,7 @@ import FillInBlank from '../QuestionType/FillInBlank';
 import MultipleChoice from '../QuestionType/MultipleChoice';
 import OpenEnded from '../QuestionType/OpenEnded';
 import { createLecture } from '../../reducers/lecture';
-import { createSession, updateSessionTime } from '../../reducers/session';
+import { createSession, activateSession } from '../../reducers/session';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
 import axios from 'axios';
@@ -36,7 +36,7 @@ class TeacherCreateLoopComponent extends Component {
   }
 
   componentWillUnmount() {
-    this.props.updateSessionTime({ session_id: this.props.session.id })
+    this.props.activateSession({ session_id: this.props.session.id })
   }
 
   onFillInBlank(e) {
@@ -77,13 +77,28 @@ class TeacherCreateLoopComponent extends Component {
 
         <div className="row backgroundCard teacher-text">
           <div className="col s12 m12 l12 card">
-
               <div className="col s12 m12 l6" id="questionCreation">
-                <Link to={`/loop/${this.props.session.sessionString}`}>
-                  <Button waves='light' id="startPresBtn">Start Presentation</Button>
-                </Link>
-                <div className="card-panel z-depth-3">
+                <div className="row">
+                  <div className="col s12">
 
+                    <Link to={`/loop/${this.props.session.sessionString}`}>
+                      <Button waves='light' id="startPresBtn">Start Presentation</Button>
+                    </Link>
+                  </div>
+                  <div className="col s12 card-panel z-depth-3">
+                  <form>
+                    <span className="card-title">Name Your Loop Below</span>
+                    <div className="input-field inline card-content">
+                      <input id="loopName" type="text" className="validate" />
+                      <label htmlFor="loopName">Loop Name</label>
+                    </div>
+                    <div className="card-action">
+                      <Button className="createBtn" onClick={this.onOpenEnded}>Name Loop</Button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+                <div className="card-panel z-depth-3">
                   {this.showQuestion()}
                 </div>
               </div>
@@ -147,7 +162,7 @@ class TeacherCreateLoopComponent extends Component {
 
 const mapStateToProps = ({ auth, lecture, session, questionsList }) => ({ auth, lecture, session, questionsList })
 
-const mapDispatchToProps = { createSession, createLecture , updateSessionTime }
+const mapDispatchToProps = { createSession, createLecture , activateSession }
 const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
 
 export default TeacherCreateLoop;
