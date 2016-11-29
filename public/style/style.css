@@ -306,6 +306,10 @@ nav ul a {
   font-size: 1em;
 }
 
+.head-shot {
+  text-align: center;
+}
+
 .no-pad {
   margin-bottom: 0px;
 }
