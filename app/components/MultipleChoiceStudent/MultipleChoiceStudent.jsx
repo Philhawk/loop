@@ -43,19 +43,9 @@ class MultipleChoiceStudentComponent extends Component {
             return (
               <div className="col l3 m6 s12 student-answers" key={index}>
                 <div className="row">
-                  <div className={
-                      `card
-                      answer
-                      hoverable
-                      z-depth-1
-                      ${ this.state.selected === index ? "selected" : ""}
-                      ${ Number(this.state.correctAnswer) === index ? "correct": ""}
-                      `}
-                       onClick={() => this.setState({ selected: index })}>
-                    <form>
-                      { Number(this.state.correctAnswer) === index ? <p>Correct Answer!</p> : null }
+                { Number(this.state.correctAnswer) === index ? <p style={{color: 'green'}}>Correct Answer!</p> : null }
+                  <div className={ `card answer hoverable z-depth-1 ${ this.state.selected === index ? "selected" : ""} ${ Number(this.state.correctAnswer) === index ? "correct": ""}`} onClick={() => this.setState({ selected: index })}>
                       <p>{choice}</p>
-                    </form>
                   </div>
                 </div>
               </div>

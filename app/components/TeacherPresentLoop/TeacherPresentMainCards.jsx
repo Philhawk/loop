@@ -38,7 +38,7 @@ class TeacherPresentMainCardsComponent extends Component {
 
   componentDidMount() {
     console.log('what is the props', this.props)
-    var ts1 = this.refs.chart.addTimeSeries({},{ strokeStyle: 'rgba(0, 255, 0, 1)', fillStyle: 'rgba(0, 255, 0, 0.2)', lineWidth: 20 });
+    var ts1 = this.refs.chart.addTimeSeries({},{ strokeStyle: 'rgba(0, 255, 0, 1)', fillStyle: 'rgba(0, 255, 0, 0.2)', lineWidth: 6 });
 
     this.dataGenerator = setInterval(() => {
       var time = new Date().getTime();
@@ -176,8 +176,8 @@ class TeacherPresentMainCardsComponent extends Component {
               <div className="card-content black-text">
                 <div className="card-title">Total Students: { this.state.totalStudents }</div>
                 <span className="card-title">Current Mood: { this.showMoodIndicator() } </span>
-                  <div >
-                     <SmoothieComponent ref="chart" width="300px" height="300px"/>
+                  <div style={{overflow: "hidden"}} >
+                     <SmoothieComponent labels={{fillStyle:'rgb(0, 100, 148)'}} grid={{strokeStyle:'rgb(43, 155, 252)', fillStyle:'rgb(0, 100, 148)', lineWidth: 1, millisPerLine: 250, verticalSections: 6}} ref="chart" width="300px" height="300px"/>
                   </div>
               </div>
             </div>
@@ -185,7 +185,6 @@ class TeacherPresentMainCardsComponent extends Component {
         </div>
     );
   }
-
 
 }
 

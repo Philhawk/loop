@@ -6,44 +6,45 @@ class MultipleChoiceDataComponent extends Component {
   constructor(props) {
     super(props);
   }
-  
+
   componentDidMount() {
     this._updateChart();
   }
-  
+
   componentDidUpdate() {
     this._updateChart();
   }
-  
+
   maxCount(data){
     let maxAnswers = data.reduce((a,b) => {
       return (a < b) ? b : a;
     })
     return (maxAnswers) ? maxAnswers : 1;
   }
-  
+
   genSeries(maxValue){
     let values = [0,1];
-    
+
     for(let i =1; i <= maxValue; i++){
-      values.push(i+1);  
+      values.push(i+1);
     }
-    
+
     return values;
   }
-  
-  
+
+
   _updateChart() {
     const chart = c3.generate({
       bindto: '#chart',
       padding: {
          top: 20,
-         left: 20,
-         right: 20
+         left: 30,
+         right: 20,
+         bottom: 20
       },
       data: {
         columns: [
-         ['Response',this.props.data[0],this.props.data[1],this.props.data[2],this.props.data[3]] 
+         ['Response',this.props.data[0],this.props.data[1],this.props.data[2],this.props.data[3]]
        ],
         type: 'bar'
         },
@@ -73,7 +74,7 @@ class MultipleChoiceDataComponent extends Component {
       }
     })
   }
-  
+
   render() {
     return (
         <div id="chart"></div>
