@@ -32,12 +32,11 @@ class AboveFold extends Component {
 
         <div className="row padding-rule">
           <div className="header-buttons col s6 m6 l6">
-
-              <Link className="button-left" to="/welcome">For Teachers</Link>
+            <Link className="button-left" to="/welcome">For Teachers</Link>
           </div>
 
           <div className="header-buttons col s6 m6 l6">
-            <a className="button-right" href="#">For Students</a>
+            <Link className="button-right" to="/welcome">For Students</Link>
           </div>
         </div>
 
