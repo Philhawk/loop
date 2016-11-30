@@ -6,7 +6,11 @@ body {
   float: right;
 }
 
-#return-home-signin {
+.white-text {
+  color: white !important;
+}
+
+.return-home-signin {
   float: right;
 }
 
