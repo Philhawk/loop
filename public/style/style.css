@@ -55,7 +55,7 @@
 .termsandconditions {
     padding-top: 2em !important;
     text-align: left;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Avenir', sans-serif;
     font-weight: 50;
     color: white;
     font-size: 1em;
@@ -83,7 +83,7 @@
 .bottom-brand-logo {
   padding-top: 2em;
   text-align: left;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
   color: white;
   font-size: 1em;
@@ -99,11 +99,11 @@
 .what-is-it-text {
   padding-top: 2em !important;
   /*text-align: left;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 200;
   color: #31BEF8;
   font-size: 1.2em;*/
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 200;
   color:  #31BEF8;
   font-size: 1.12em;
@@ -114,11 +114,11 @@
 .about-us-text {
   padding-top: 2em !important;
   /*text-align: left;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 200;
   color: #31BEF8;
   font-size: 1.2em;*/
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 200;
   color:  #31BEF8;
   font-size: 1.12em;
@@ -130,8 +130,9 @@
 .left-icon {
   padding-left: 2em;
 }
+
 .sub-heading-text {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
   color: white;
   font-size: 1.272em;
@@ -140,7 +141,7 @@
 }
 
 .brand-text {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
   color: white;
   font-size: 1em;
@@ -162,7 +163,7 @@
 .button-left {
   text-align: right;
   float: right;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
   color: white;
   font-size: 1em;
@@ -190,14 +191,14 @@
 }
 
 .coverflow__text__39hqd {
-  font-family: 'Work Sans', sans-serif !important;
+  font-family: 'Avenir', sans-serif !important;
   font-weight: 50 !important;
   color: white !important;
 }
 
 .fancy-stats {
   text-align: center;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
   color: #31BEF8;
   font-size: 2.62em;
@@ -210,7 +211,7 @@
 
 .stats-explainer {
   text-align: center;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
   color: white;
   font-size: 1em;
@@ -219,7 +220,7 @@
 
 .student-stories-header {
   text-align: center;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 800;
   color: #F4A657;
   font-size: 0.72em;
@@ -228,7 +229,7 @@
 
 .student-stories-explainer {
   text-align: center;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
   color: white;
   font-size: 0.72em;
@@ -237,7 +238,7 @@
 
 .button-right {
   text-align: left;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
   color: white;
   font-size: 1em;
@@ -260,7 +261,7 @@
 
 .button-learn {
   text-align: left;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
   color: white;
   font-size: 1em;
@@ -327,7 +328,7 @@ nav ul a {
 }
 
 .whatsummary{
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
   color: white;
   font-size: 1em;
@@ -342,7 +343,7 @@ nav ul a {
 }
 
 .why-use-it-heading-text {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
   color: white;
   font-size: 2em;
@@ -351,9 +352,9 @@ nav ul a {
 }
 
 .about-us-heading-text {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
-  color: white;
+  color: #039be5;
   padding-top: 2em !important;
   font-size: 2em;
   text-align: center;;
@@ -374,6 +375,64 @@ nav ul a {
 /*super large*/
 
 @media (min-width: 1600px) {
+
+  .font-fam {
+    font-size: 25px;
+  }
+
+  .row {
+    margin-bottom: 0 !important;
+  }
+
+  .sub-heading-text {
+    font-family: 'Avenir', sans-serif;
+    font-weight: 50;
+    color: white;
+    font-size: 2.4em;
+    text-align: center;
+    padding-top: 1em;
+  }
+
+  nav ul a {
+    font-size: 1.6rem !important;
+    padding: 15px 15px;
+    margin-right: 1.2em;
+  }
+
+  .whatsummary {
+    font-size: 1.8em;
+  }
+
+  .why-use-it-heading-text {
+    font-size: 3em;
+  }
+
+  .button-learn {
+    font-size: 34px;
+  }
+
+  .material-icons {
+    font-size: 128px !important;
+  }
+
+  .what-is-it-text {
+    font-size: 2.12em;
+  }
+
+  .fancy-stats {
+    font-size: 4em;
+  }
+
+  .stats-explainer {
+    font-size: 1.6em;
+  }
+  .button-right {
+    font-size: 30px;
+  }
+
+  .button-left {
+    font-size: 30px;
+  }
   .row {
     padding-bottom: 1em;
   }
@@ -386,6 +445,7 @@ nav ul a {
     background-color: #006494;
   }
 }
+
 
 
 @media (min-width: 1092px) {
@@ -446,19 +506,158 @@ nav ul a {
   }
 }
 
-/*small screen*/
 
-@media (max-width: 415px) {
+
+@media screen and (max-device-width: 375px) and (max-device-height: 667px) {
+
+  .sub-heading-text {
+    font-family: 'Avenir', sans-serif;
+    font-weight: 50;
+    color: white;
+    font-size: 1.4em;
+    text-align: center;
+    padding-top: 1em;
+  }
 
   a.brand-logo {
     padding-left: 0;
   }
 
+
+  /*I KNOW IT ISNT RIGHT TO DO EACH ONE INDIVIDUALLY, BUT CHAINING DOES NOT WORK*/
+
+  .stats-explainer {
+    font-size: 1em;
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .why-use-it-heading-text {
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .about-us-heading-text {
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .button-learn{
+    margin-top: 1em;
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .student-stories-header {
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .student-stories-explainer{
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .what-is-it-text {
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .whatsummary{
+    font-family: 'Avenir', sans-serif;
+  }
+
+
+  .fancy-stats{
+    font-size: 2em;
+    font-family: 'Avenir', sans-serif;
+  }
+
   .button-left {
+    font-family: 'Avenir', sans-serif;
     padding: 0.24em 2em 0.2em;
   }
 
   .button-right {
+    font-family: 'Avenir', sans-serif;
+    padding: 0.24em 2em 0.2em;
+  }
+
+  .why-use-it-text {
+    padding-left: 3em !important;
+  }
+
+  .whyuseit {
+    padding-bottom: 3em;
+  }
+
+  .whatisit {
+    background-color: #006494;
+    width: auto;
+  }
+}
+
+/*small screen*/
+
+
+@media (max-width: 430px) {
+
+  .sub-heading-text {
+    font-family: 'Avenir', sans-serif;
+    font-weight: 50;
+    color: white;
+    font-size: 1.4em;
+    text-align: center;
+    padding-top: 1em;
+  }
+
+  a.brand-logo {
+    padding-left: 0;
+  }
+
+
+  /*I KNOW IT ISNT RIGHT TO DO EACH ONE INDIVIDUALLY, BUT CHAINING DOES NOT WORK*/
+
+  .stats-explainer {
+    font-size: 1em;
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .why-use-it-heading-text {
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .about-us-heading-text {
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .button-learn{
+    margin-top: 1em;
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .student-stories-header {
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .student-stories-explainer{
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .what-is-it-text {
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .whatsummary{
+    font-family: 'Avenir', sans-serif;
+  }
+
+
+  .fancy-stats{
+    font-size: 2em;
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .button-left {
+    font-family: 'Avenir', sans-serif;
+    padding: 0.24em 2em 0.2em;
+  }
+
+  .button-right {
+    font-family: 'Avenir', sans-serif;
     padding: 0.24em 2em 0.2em;
   }
 

@@ -59,7 +59,7 @@ class TeacherPresentControlBarComponent extends Component {
                     <div className="col s12 m6 l6">
                       <div className="row">
                         <div className="col s12 m4 l3">
-                          <h4>Share Your Loop</h4>
+                          <h4 className="share-something">Share Your Loop</h4>
                         </div>
                           {this.generatePresentorLink('https://YouBestBeWatching.com')}
                       </div>
@@ -67,14 +67,14 @@ class TeacherPresentControlBarComponent extends Component {
                     <div className="col s12 m6 l6">
                       <div className="row">
                         <div className="col s12 m4 l3">
-                          <h4>Share On Social</h4>
+                          <h4 className="share-something">Share On Social</h4>
                         </div>
                         <div className="col s4 m4 l3">
                           <GooglePlusShareButton
                             url={shareUrl}
                             className="social-buttons">
                             <GooglePlusIcon
-                              size={32}
+                              size={40}
                               round />
                           </GooglePlusShareButton>
                         </div>
@@ -84,7 +84,7 @@ class TeacherPresentControlBarComponent extends Component {
                             title={title}
                             className="social-buttons">
                             <FacebookIcon
-                              size={32}
+                              size={40}
                               round />
                           </FacebookShareButton>
                         </div>
@@ -94,7 +94,7 @@ class TeacherPresentControlBarComponent extends Component {
                             title={title}
                             className="social-buttons">
                             <TwitterIcon
-                              size={32}
+                              size={40}
                               round />
                           </TwitterShareButton>
                         </div>

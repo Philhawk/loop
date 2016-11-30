@@ -120,3 +120,18 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+
+@media (min-width: 1600px) {
+
+  .share-something {
+    font-size: 1.32em !important;
+  }
+
+  .teacherPresentationViewMain {
+    background-color: #EEF4F9;
+    margin-top: 8em;
+    font-weight: normal;
+  }
+
+}
