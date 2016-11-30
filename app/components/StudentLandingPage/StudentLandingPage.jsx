@@ -46,7 +46,9 @@ class StudentLandingPageComponent extends Component {
             <img src="/class.jpg" />
           </CardMedia>
           <CardTitle />
-
+          <CardActions>
+            <FlatButton label="Return Home" href='/'> </FlatButton>
+          </CardActions>
         </Card>
       </div>
     )
