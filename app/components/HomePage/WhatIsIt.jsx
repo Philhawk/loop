@@ -22,7 +22,7 @@ class WhatIsIt extends Component {
           </div>
           <div className="col s0 m0 l2 "></div>
 
-          <div className="col s12 m12 l8">
+          <div className="col s12 m12 l8" id="homepage-icons">
             <div className="row">
               <div className="col s6 m6 l6">
                 <div className='row'>
