@@ -36,7 +36,7 @@ class OpenEndedStudentComponent extends Component {
 
   showButton() {
     if (this.state.submitted) {
-      return <Button className={ "disabled"}>Submitted</Button>
+      return <Button className="disabled submit-button-student">Submitted</Button>
     } else {
      return <Button className="submit-button-student" onClick={this.onSubmitAnswer}>Submit Answer</Button>
     }
