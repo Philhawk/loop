@@ -1,10 +1,10 @@
 /*Teacher Veiw Styles*/
 
 .teacher-text {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-size: 1em;
   color: black;
-  font-weight: bolder;
+  font-weight: normal;
 }
 
 .welcome-modal {

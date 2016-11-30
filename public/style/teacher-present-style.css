@@ -10,7 +10,7 @@
 .teacherPresentationViewMain {
   background-color: #EEF4F9;
   padding: 0px !important;
-
+  font-weight: normal;
 }
 
 .teacherPresentationViewContent .row{
@@ -43,7 +43,7 @@
 }
 
 .TeacherPresentCurrentUser{
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: bolder;
   text-align: center;
   background-color: #606885;
@@ -53,7 +53,7 @@
 
 .TeacherPresentCurrentUser h4 {
   color: white;
-  font-weight: bolder;
+  font-weight: normal;
   padding: .5em 0 .5em 0;
   margin: 0 !important;
 }
@@ -63,16 +63,16 @@
  *Control Bar Styles
  */
 .teacherPresentationControlBar {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   background-color: white;
   margin-top: 1em;
   margin-bottom: 0 !important;
 }
 
 .teacherPresentationControlBar h4 {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   font-weight: 50;
-  font-weight: bolder;
+  font-weight: normal;
   color: black;
   text-align: center;
   font-size: 1em;
@@ -83,7 +83,7 @@
 }
 
 .presentorLink {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
   background-color: #4E546C !important;
   color: white !important;
   margin-top: 0.35em !important;
@@ -96,7 +96,7 @@
 
 .teacherPresentTabs {
     background-color: white !important;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Avenir', sans-serif;
     color: black !important;
 }
 
@@ -105,8 +105,7 @@
 }
 
 .card-title {
-  font-weight: 900 !important;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Avenir', sans-serif;
 }
 
 .student-question {
