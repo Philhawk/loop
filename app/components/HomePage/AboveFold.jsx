@@ -10,10 +10,6 @@ class AboveFold extends Component {
   }
 
   render() {
-    // Material UI styles
-    const styles = {
-
-    };
 
 // AboveFold component
     return (
