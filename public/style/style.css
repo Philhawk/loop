@@ -130,6 +130,7 @@
 .left-icon {
   padding-left: 2em;
 }
+
 .sub-heading-text {
   font-family: 'Work Sans', sans-serif;
   font-weight: 50;
@@ -353,7 +354,7 @@ nav ul a {
 .about-us-heading-text {
   font-family: 'Work Sans', sans-serif;
   font-weight: 50;
-  color: white;
+  color: #039be5;
   padding-top: 2em !important;
   font-size: 2em;
   text-align: center;;
@@ -374,6 +375,64 @@ nav ul a {
 /*super large*/
 
 @media (min-width: 1600px) {
+
+  .font-fam {
+    font-size: 25px;
+  }
+
+  .row {
+    margin-bottom: 0 !important;
+  }
+
+  .sub-heading-text {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 50;
+    color: white;
+    font-size: 2.4em;
+    text-align: center;
+    padding-top: 1em;
+  }
+
+  nav ul a {
+    font-size: 1.6rem !important;
+    padding: 15px 15px;
+    margin-right: 1.2em;
+  }
+
+  .whatsummary {
+    font-size: 1.8em;
+  }
+
+  .why-use-it-heading-text {
+    font-size: 3em;
+  }
+
+  .button-learn {
+    font-size: 34px;
+  }
+
+  .material-icons {
+    font-size: 128px !important;
+  }
+
+  .what-is-it-text {
+    font-size: 2.12em;
+  }
+
+  .fancy-stats {
+    font-size: 4em;
+  }
+
+  .stats-explainer {
+    font-size: 1.6em;
+  }
+  .button-right {
+    font-size: 30px;
+  }
+
+  .button-left {
+    font-size: 30px;
+  }
   .row {
     padding-bottom: 1em;
   }
@@ -386,6 +445,7 @@ nav ul a {
     background-color: #006494;
   }
 }
+
 
 
 @media (min-width: 1092px) {

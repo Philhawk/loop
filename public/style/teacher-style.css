@@ -82,6 +82,33 @@
 
 
 
+@media (min-width: 1600px) {
+  .header-text-for-instructions {
+    font-size: 2.92em;
+  }
+
+  .question-content-side-nav {
+    font-size: 1.5em;
+  }
+
+  .name-loop-font {
+    font-size: 26px;
+  }
+
+  input[type=text] {
+    font-size: 1.3rem;
+  }
+
+  .instruction-text {
+    text-align: left;
+    font-size: 1.6em;
+  }
+
+  #loop-description {
+    font-size: 1.3rem !important;
+  }
+}
+
 /*mediun Screen*/
 @media (max-width: 1092px) {
   .create-loop {

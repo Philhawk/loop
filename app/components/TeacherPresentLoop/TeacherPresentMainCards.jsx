@@ -179,7 +179,7 @@ class TeacherPresentMainCardsComponent extends Component {
                 <div className="card-title">Total Students: { this.state.totalStudents }</div>
                 <span className="card-title">Current Mood: { this.showMoodIndicator() } </span>
                   <div style={{overflow: "hidden"}} >
-                     <SmoothieComponent labels={{fillStyle:'rgb(0, 100, 148)'}} grid={{strokeStyle:'rgb(43, 155, 252)', fillStyle:'rgb(0, 100, 148)', lineWidth: 1, millisPerLine: 250, verticalSections: 6}} ref="chart" width="300px" height="300px"/>
+                     <SmoothieComponent labels={{fillStyle:'rgb(0, 100, 148)'}} grid={{strokeStyle:'rgb(43, 155, 252)', fillStyle:'rgb(0, 100, 148)', lineWidth: 1, millisPerLine: 250, verticalSections: 6}} ref="chart" width="450px" height="300px"/>
                   </div>
               </div>
             </div>
