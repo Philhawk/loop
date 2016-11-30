@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import {Card, CardMedia, CardText } from 'material-ui/Card';
+import { Link } from 'react-router';
+import { Button }  from 'react-materialize';
 
 class LoopStudentAnalysisComponent extends Component {
   constructor() {
@@ -29,6 +31,9 @@ class LoopStudentAnalysisComponent extends Component {
                 </CardText>
                 <CardMedia></CardMedia>
               </Card>
+              <Button waves='light' className="#4E546C darken-2 return-home-finish">
+                <Link to="/" className="white-text">Return Home</Link>
+              </Button>
               </Tab>
               <Tab label="Your Questions" >
               </Tab>

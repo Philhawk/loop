@@ -6,8 +6,18 @@ body {
   float: right;
 }
 
-#return-home-signin {
+.white-text {
+  color: white !important;
+}
+
+.return-home-signin {
   float: right;
+}
+.return-home-finish {
+  margin-top: 2em;
+  margin-left: 5em;
+  padding-left: 3em;
+  padding-right: 3em;
 }
 
 .login-switchers {

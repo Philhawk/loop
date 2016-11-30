@@ -21,12 +21,15 @@ class LoginComponent extends Component {
     return (
       <div>
         <form className="form-signin" onSubmit={this.onLogin}>
-          <h3 className="form-signin-heading">Sign In</h3>
+          <h3 className="form-signin-heading">Login</h3>
           <hr className="colorgraph"></hr>
           <input className="form-control" name="email" placeholder="Username" />
           <input className="form-control" name="password" type="password" placeholder="Password" />
           <Button waves='light' className="#c2185b pink darken-2">Login</Button>
-          <Link to="/" id="return-home-signin">Return Home</Link>
+          <Button waves='light' className="#c2185b green darken-2 return-home-signin">
+            <Link to="/" className="white-text">Return Home</Link>
+          </Button>
+
         </form>
       </div>
     )
