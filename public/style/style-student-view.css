@@ -21,6 +21,12 @@
 .submit-button-student {
   font-family: 'Work Sans', sans-serif;
   font-weight: bolder;
+  margin: 10px auto 0px auto;
+  display: block;
+
+}
+.submit-button-student-container {
+  text-align: center;
 }
 
 #set-mood .thumb-buttons {
@@ -130,6 +136,10 @@
   float: right;
 }
 
+#student-open-ended {
+  width: 100%;
+}
+
 #student-multiple-choice .answers {
   margin-top: 0px;
 }
@@ -188,8 +198,6 @@
 @media (min-width: 1091px) {
   #incoming-question .question-row {
     font-size: 28px;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
   }
 
   #set-mood .card {
@@ -212,14 +220,13 @@
   #student-multiple-choice .answers {
     font-size: 22px
   }
+  #student-open-ended .row {
+    padding-bottom: 1em;
+  }
 }
 
 /*Large Screen*/
 @media (max-width: 993px) {
-
-  .submit-button-student {
-    margin-left: 32%;
-  }
 
   #student-multiple-choice {
   }
@@ -237,6 +244,9 @@
   #student-multiple-choice .answers {
     font-size: 22px
   }
+  #student-open-ended .row {
+    padding-bottom: 1em;
+  }
 }
 
 @media (max-width: 832px) {
@@ -247,6 +257,9 @@
   }
   #student-multiple-choice .answers {
     font-size: 20px
+  }
+  #student-open-ended .row {
+    padding-bottom: 1em;
   }
 }
 
@@ -262,13 +275,8 @@
   #student-multiple-choice .answers {
     font-size: 18px
   }
-  #student-open-ended {
-    padding-bottom: 2em;
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-  .submit-button-student {
-    margin-left: 25%;
+  #student-open-ended .row {
+    padding-bottom: 1em;
   }
 }
 
@@ -277,6 +285,9 @@
     font-size: 58px;
     float: none;
     color: #26A69A;
+  }
+  #student-open-ended .row {
+    padding-bottom: 1em;
   }
 
   #set-mood .thumb-buttons {
@@ -304,18 +315,13 @@
   .question-incoming {
     font-size: 20px;
   }
-  #student-open-ended {
-    padding-bottom: 2em;
-    padding-left: 1em;
-    padding-right: 1em;
-  }
   .material-icons.md-72 {
     font-size: 50px;
     float: none;
     color: #26A69A;
   }
-  .submit-button-student {
-    margin-left: 18%;
+  #student-open-ended .row {
+    padding-bottom: 1em;
   }
 }
 
@@ -328,15 +334,14 @@
   #set-mood .thumbs {
     font-size: 30px;
   }
+  #student-open-ended .row {
+    padding-bottom: 1em;
+  }
 }
 
 /*small screen*/
 
 @media (max-width: 450px) {
-  .submit-button-student {
-    margin-left: 20%;
-    padding: 0.24em 4em;
-  }
 
   #student-multiple-choice {
   }
@@ -346,15 +351,13 @@
   #student-multiple-choice .answers {
     font-size: 16px
   }
-  #student-open-ended {
-    padding-bottom: 2em;
-    padding-left: 1em;
-    padding-right: 1em;
-  }
   .material-icons.md-72 {
     font-size: 42px;
     float: none;
     color: #26A69A;
+  }
+  #student-open-ended .row {
+    padding-bottom: 1em;
   }
 }
 
@@ -364,19 +367,16 @@
 /*iphone5*/
 @media (max-width: 376px) {
 
-  .submit-button-student {
-    margin-bottom: 1em;
-    margin-left: 18%;
-    padding: 0.24em 3em;
-  }
-
   #set-mood .card {
     padding-right: 0;
     padding-left: 0;
     padding-top: 4em;
     align-items: center;
     justify-content: center;
-}
+  }
+  #student-open-ended .row {
+    padding-bottom: 1em;
+  }
 
   #student-multiple-choice {
   }
@@ -385,11 +385,6 @@
   }
   #student-multiple-choice .answers {
     font-size: 16px;
-  }
-  #student-open-ended {
-    padding-bottom: 2em;
-    padding-left: 1em;
-    padding-right: 1em;
   }
   #set-mood .thumb-buttons {
       height: 60px;
@@ -400,10 +395,6 @@
 
 /*iphone5*/
 @media (max-width: 321px) {
-  .submit-button-student {
-    margin-left: 16%;
-    padding: 0.24em 3Em;
-  }
 
   #student-multiple-choice {
   }
@@ -413,9 +404,7 @@
   #student-multiple-choice .answers {
     font-size: 16px;
   }
-  #student-open-ended {
-    padding-bottom: 2em;
-    padding-left: 1em;
-    padding-right: 1em;
+  #student-open-ended .row {
+    padding-bottom: 1em;
   }
 }
