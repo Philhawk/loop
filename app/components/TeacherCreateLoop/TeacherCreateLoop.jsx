@@ -164,6 +164,7 @@ class TeacherCreateLoopComponent extends Component {
               >
               <form onSubmit={this.onNameLoop}>
                 <div className="input-field inline card-content">
+                  <img src="/logo.png"></img>
                   <h2 className='welcome-modal'> Let's get started </h2>
                   <span className="card-title">Name Your Loop</span>
                   <br/>

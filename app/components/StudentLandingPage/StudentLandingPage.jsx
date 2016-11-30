@@ -10,28 +10,53 @@ class StudentLandingPageComponent extends Component {
     super();
   }
 
+
+  activeSessions() {
+    return(
+      <div className='container'>
+        {console.log('WHAT IS THE ACTIVE SESSIONS', this.props.activeSessions.length)}
+        { this.props.activeSessions.map((session, i) => (
+          <Card className='card-wot'>
+            <CardMedia overlay={<CardTitle title={session.lecture.name} subtitle={session.lecture.teacher.name} />} >
+              <img src="https://source.unsplash.com/random/520x66" />
+            </CardMedia>
+            <CardTitle />
+            <CardText>
+              {session.lecture.description}
+            </CardText>
+            <CardActions>
+              <FlatButton label="Join Loop" href={session.bitly}> </FlatButton>
+              <FlatButton label={ `Started ${moment(session.timeStarted).from(moment(new Date()))}` }> </FlatButton>
+            </CardActions>
+
+          </Card>
+          ))
+        }
+    </div>
+    )
+  }
+
+  noActiveSessions() {
+    return (
+      <div className='container'>
+        <Card className='card-wot'>
+          <CardMedia overlay={
+            <CardTitle title="Class is out!" subtitle="There are no active Loops in progress. Come back later"/>
+          }>
+            <img src="/class.jpg" />
+          </CardMedia>
+          <CardTitle />
+
+        </Card>
+      </div>
+    )
+  }
+
   render() {
 
     return (
-        <div className='container'>
-          {console.log('WHAT IS THE ACTIVE SESSIONS', this.props.activeSessions)}
-          { this.props.activeSessions.map((session, i) => (
-            <Card className='card-wot'>
-              <CardMedia overlay={<CardTitle title={session.lecture.name} subtitle={session.lecture.teacher.name} />} >
-                <img src="https://source.unsplash.com/random/520x66" />
-              </CardMedia>
-              <CardTitle />
-              <CardText>
-                {session.lecture.description}
-              </CardText>
-              <CardActions>
-                <FlatButton label="Join Loop" href={session.bitly}> </FlatButton>
-                <FlatButton label={ `Started ${moment(session.timeStarted).from(moment(new Date()))}` }> </FlatButton>
-              </CardActions>
-
-            </Card>
-            ))
-          }
+      <div>
+        {this.props.activeSessions.length === 0 ? this.noActiveSessions() : this.activeSessions()}
       </div>
     )
   }
