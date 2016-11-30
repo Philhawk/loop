@@ -22,7 +22,7 @@ class AboveFold extends Component {
 
         <div className="row">
           <div className="sub-heading-text col s12 m12 l12">
-            A realtime teaching tool that allows students and teachers to responsievly interact in the classroom
+            A realtime teaching tool that allows students and teachers to responsively interact in the classroom
           </div>
         </div>
 
@@ -73,7 +73,7 @@ class AboveFold extends Component {
               Student stories
             </div>
             <div className="student-stories-explainer padding-rule-less">
-              A realtime teaching tool that allows students and teachers to responsievly interact in the classroom
+              A realtime teaching tool that allows students and teachers to responsively interact in the classroom
             </div>
           </div>
         </div>
