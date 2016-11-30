@@ -10,7 +10,7 @@ export default class QuestionInstructions extends Component {
   render() {
     return (
       <div>
-        <h4> Now, let's create some questions.</h4>
+        <h4 className='header-text-for-instructions'> Now, let's create some questions.</h4>
         <div className="instruction-text">
           <p>Click a <b>CREATE</b> button to make questions.</p>
           <p>Once you're satisfied with the question you've made, click <b>SAVE QUESTION</b> to add it to your queue.</p>

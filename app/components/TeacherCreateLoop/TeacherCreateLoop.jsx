@@ -147,7 +147,7 @@ class TeacherCreateLoopComponent extends Component {
                       return (
                       <div className="card #37474f white-grey darken-3" key={i}>
                         <div className="card-content black-text">
-                          <p>{question.content}</p>
+                          <p className='question-content-side-nav'>{question.content}</p>
                         </div>
                       </div>
                     )
@@ -163,10 +163,10 @@ class TeacherCreateLoopComponent extends Component {
                 <div className="input-field inline card-content">
                   <img src="/logo.png"></img>
                   <h2 className='welcome-modal'> Let's get started </h2>
-                  <span className="card-title">Name Your Loop</span>
+                  <span className="card-title name-loop-font">Name Your Loop</span>
                   <br/>
                   <input id="loop-name" name="loopName" type="text" />
-                  <span className="card-title">Describe Your Loop</span>
+                  <span className="card-title name-loop-font">Describe Your Loop</span>
                   <textarea id="loop-description" name="loopDescription" className="materialize-textarea"></textarea>
                 </div>
                 <div className="card-action">

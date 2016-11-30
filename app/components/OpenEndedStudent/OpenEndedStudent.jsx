@@ -36,7 +36,7 @@ class OpenEndedStudentComponent extends Component {
 
   showButton() {
     if (this.state.submitted) {
-      return <Button className={ "disabled"}>Submitted</Button>
+      return <Button className="disabled submit-button-student">Submitted</Button>
     } else {
      return <Button className="submit-button-student" onClick={this.onSubmitAnswer}>Submit Answer</Button>
     }
@@ -62,19 +62,19 @@ class OpenEndedStudentComponent extends Component {
 
   render() {
     return (
-      <div className="container" id="student-open-ended">
+      <div id="student-open-ended">
         {this.showCorrectAnswer()}
         <div className="row">
             <form className="col s12">
-              <div className="row card-panel z-depth-2">
+              <div className="row card z-depth-2">
                 <div className="input-field col s12">
                   <i className="material-icons prefix">mode_edit</i>
                   <textarea id="open-ended-student-answer" className="materialize-textarea" onChange={this.getInput}></textarea>
                   <label htmlFor="open-ended-student-answer" >Type your answer here...</label>
                 </div>
+                {this.showButton()}
               </div>
             </form>
-            {this.showButton()}
           </div>
       </div>
     )
