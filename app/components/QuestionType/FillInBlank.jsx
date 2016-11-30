@@ -3,6 +3,7 @@ import { Input, Button } from 'react-materialize';
 import { createQuestion } from 'APP/app/reducers/questionsList';
 import { connect } from 'react-redux';
 import Snackbar from 'material-ui/Snackbar';
+import injectTapEventPlugin from "react-tap-event-plugin";
 
 class FillInBlankComponent extends Component {
   constructor() {
@@ -52,7 +53,6 @@ class FillInBlankComponent extends Component {
       });
     };
 
-
   render() {
     return (
       <div className="card-content">
@@ -85,7 +85,7 @@ class FillInBlankComponent extends Component {
             <Input name='correct' type='radio' value='1' label='B' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='2' label='C' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='3' label='D' className='with-gap' onClick={this.onRadioSelect}/>
-            <Button waves='light' className="button-pad" onTouchTap={this.handleTouchTap}> Save question</Button>
+            <Button waves='light' className="button-pad" onTouchTap={this.handleTouchTap}>Save question</Button>
             <Snackbar
               open={this.state.open}
               message="Card Created"
