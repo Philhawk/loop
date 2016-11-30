@@ -28,7 +28,7 @@ class MultipleChoiceStudentComponent extends Component {
 
   showButton() {
     if (this.state.submitted) {
-      return <Button className={ "disabled"}>Submitted</Button>
+      return <Button className="disabled submit-button-student">Submitted</Button>
     } else {
      return <Button className="submit-button-student" onClick={this.onSubmitAnswer}>Submit Answer</Button>
     }
@@ -52,9 +52,11 @@ class MultipleChoiceStudentComponent extends Component {
             )
           })
         }
-        {
-          this.showButton()
-        }
+        <div className="row">
+          <div clasName="col s12 submit-button-student-container">
+            {this.showButton()}
+          </div>
+        </div>
       </div>
     )
   }
