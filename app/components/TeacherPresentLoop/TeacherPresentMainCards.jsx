@@ -16,7 +16,8 @@ class TeacherPresentMainCardsComponent extends Component {
     super(props);
     this.state = {
       button: 'startLecture',
-      totalStudents: 0
+      totalStudents: 0,
+      revealAnswer: false
     }
     this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
     this.onSendAnswer = this.onSendAnswer.bind(this);
@@ -61,9 +62,9 @@ class TeacherPresentMainCardsComponent extends Component {
       this.props.callReset();
       this.props.callOpenEndedReset();
       if (this.props.questionsList.length === 0) {
-        this.setState({ button: 'endLecture' })
+        this.setState({ button: 'endLecture', revealAnswer: false })
       } else {
-        this.setState({ button: 'revealAnswer' })
+        this.setState({ button: 'revealAnswer', revealAnswer: false })
       }
     })
   }
@@ -75,7 +76,7 @@ class TeacherPresentMainCardsComponent extends Component {
       sessionString: this.props.session.sessionString,
       questionType: this.props.questionsList[0].questionType
     }))
-    this.setState({ button: 'nextCard' })
+    this.setState({ button: 'nextCard',revealAnswer: true })
   }
 
   onEndLecture() {
@@ -155,13 +156,21 @@ class TeacherPresentMainCardsComponent extends Component {
                               return (
                                 <p>Lecture Ended </p>
                               )
-                            } else {
+                            } else if(this.state.revealAnswer) {
                               return (
-                              <div className={Number(this.props.questionsList[0].correctAnswer) === i ? 'card blue' : 'card red'}>
-                                <div className="card-content white-text">
-                                  {choice}
+                                <div className={Number(this.props.questionsList[0].correctAnswer) === i ? 'card blue teacherPresentRightAnswer z-depth-2' : 'card white teacherPresentWrongAnswer z-depth-0'} id={'choice_' + i}>
+                                  <div className={Number(this.props.questionsList[0].correctAnswer) === i ? 'card-content white-text' : 'card-content black-text'}>
+                                    {choice}
+                                  </div>
                                 </div>
-                              </div>
+                              )
+                            } else{
+                              return (
+                                <div className="card blue" id={'choice_' + i}>
+                                  <div className="card-content white-text">
+                                    {choice}
+                                  </div>
+                                </div>
                               )
                             }
                           })
