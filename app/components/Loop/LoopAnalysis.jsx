@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Slider from 'material-ui/Slider';
+import { Button }  from 'react-materialize';
+import { Link } from 'react-router';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
@@ -75,7 +77,9 @@ class LoopAnalysis extends Component {
                 </CardText>
                 <CardMedia></CardMedia>
               </Card>
-
+              <Button waves='light' className="#4E546C darken-2 return-home-finish">
+                <Link to="/" className="white-text">Return Home</Link>
+              </Button>
               </Tab>
               <Tab label="Questions" >
                 <div>
