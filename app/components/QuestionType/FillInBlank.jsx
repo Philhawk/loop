@@ -80,12 +80,12 @@ class FillInBlankComponent extends Component {
             <label htmlFor="answer_D">D</label>
           </div>
           <div className="radioSelects">
-            <p>Correct Answer</p>
+            <p className="p-tag-pad-bot">Correct Answer</p>
             <Input name='correct' type='radio' value='0' label='A' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='1' label='B' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='2' label='C' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='3' label='D' className='with-gap' onClick={this.onRadioSelect}/>
-            <Button waves='light' onTouchTap={this.handleTouchTap}> Save question</Button>
+            <Button waves='light' className="button-pad" onTouchTap={this.handleTouchTap}> Save question</Button>
             <Snackbar
               open={this.state.open}
               message="Card Created"
