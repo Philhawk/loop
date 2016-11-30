@@ -10,11 +10,11 @@ export default class QuestionInstructions extends Component {
   render() {
     return (
       <div>
-        <h5> Welcome! Lets Create some questions.</h5>
+        <h5> Welcome! Let's create some questions.</h5>
         <div className="instruction-text">
-          <p>Click "CREATE QUESTION" to make questions</p>
-          <p>Once you're satisfied with the question you've made, click "SAVE QUESTION" to add it to your queue.</p>
-          <p>When you are finished making questions, press the "START PRESENTATION" button to begin.</p>
+          <p>Click <b>CREATE QUESTION</b> to make questions.</p>
+          <p>Once you're satisfied with the question you've made, click <b>SAVE QUESTION</b> to add it to your queue.</p>
+          <p>When you are finished making questions, press the <b>START PRESENTATION</b> button to begin.</p>
         </div>
       </div>
     )

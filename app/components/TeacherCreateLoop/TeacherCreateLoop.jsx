@@ -4,23 +4,33 @@ import { Link } from 'react-router';
 import QuestionInstructions from '../QuestionType/QuestionInstructions';
 import FillInBlank from '../QuestionType/FillInBlank';
 import MultipleChoice from '../QuestionType/MultipleChoice';
+import Dialog from 'material-ui/Dialog';
 import OpenEnded from '../QuestionType/OpenEnded';
 import { createLecture, updateLecture } from '../../reducers/lecture';
 import { createSession, activateSession } from '../../reducers/session';
 import { connect } from 'react-redux';
+import NameLoopPanel from '../NameLoopPanel'
 import uuid from 'uuid';
 import axios from 'axios';
-
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class TeacherCreateLoopComponent extends Component {
   constructor() {
     super();
-    this.state = {whois: "QuestionInstructions"};
+    this.state = {
+      whois: "QuestionInstructions",
+      open: true,
+    };
     this.onFillInBlank = this.onFillInBlank.bind(this);
     this.onMultipleChoice = this.onMultipleChoice.bind(this);
     this.onOpenEnded = this.onOpenEnded.bind(this);
     this.onNameLoop = this.onNameLoop.bind(this);
   }
+
+  handleClose(){
+    this.setState({open: false});
+  };
 
   componentDidMount() {
   $('.lean-overlay').remove()
@@ -42,6 +52,7 @@ class TeacherCreateLoopComponent extends Component {
 
   onNameLoop(e) {
     e.preventDefault();
+    this.handleClose()
     this.props.updateLecture({ name: e.target.loopName.value, description: e.target.loopDescription.value, lecture_id: this.props.lecture.id })
   }
 
@@ -79,6 +90,7 @@ class TeacherCreateLoopComponent extends Component {
 
 
   render() {
+
     return (
 
         <div className="row backgroundCard teacher-text">
@@ -88,26 +100,13 @@ class TeacherCreateLoopComponent extends Component {
                 <Link to={`/loop/${this.props.session.sessionString}`}>
                   <Button waves='light' id="startPresBtn">Start Presentation</Button>
                 </Link>
-                <div className="col s12 card-panel z-depth-3">
 
-                <form onSubmit={this.onNameLoop}>
-                  <div className="input-field inline card-content">
-                    <span className="card-title">Name Your Loop Below</span>
-                    <input id="loop-name" name="loopName" type="text" />
-                    <span className="card-title">Describe Your Loop Below</span>
-                    <textarea id="loop-description" name="loopDescription" className="materialize-textarea"></textarea>
-                  </div>
-                  <div className="card-action">
-                    <Button className="createBtn">Create Loop</Button>
-                  </div>
-                </form>
-
-                </div>
                 <div className={`card-panel z-depth-3 card-bottom-pad ${this.state.whois === 'QuestionInstructions' ? 'intro-card' : ''}`}>
 
                   {this.showQuestion()}
                 </div>
               </div>
+
 
               <div className="col s12 m12 l3" id="questionOption">
                 <div className="card white-grey z-depth-3">
@@ -159,7 +158,24 @@ class TeacherCreateLoopComponent extends Component {
                   })
                 }
               </div>
-
+              <Dialog
+                modal={true}
+                open={this.state.open}
+              >
+              <form onSubmit={this.onNameLoop}>
+                <div className="input-field inline card-content">
+                  <h2 className='welcome-modal'> Let's get started </h2>
+                  <span className="card-title">Name Your Loop</span>
+                  <br/>
+                  <input id="loop-name" name="loopName" type="text" />
+                  <span className="card-title">Describe Your Loop</span>
+                  <textarea id="loop-description" name="loopDescription" className="materialize-textarea"></textarea>
+                </div>
+                <div className="card-action">
+                  <Button className="createBtnBox">Create Loop</Button>
+                </div>
+              </form>
+              </Dialog>
             </div>
           </div>
     );
