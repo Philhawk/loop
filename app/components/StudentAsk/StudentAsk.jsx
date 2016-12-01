@@ -18,10 +18,10 @@ class StudentAskComponent extends Component {
   render() {
     return (
       <div id="ask-question">
+        <div className="row card small z-depth-2">
         <p id="confusedText">
           Feeling confused in class Ask a question below and your teacher will see it in real time!
         </p>
-        <div className="row card small z-depth-2">
           <form className="col s12" onSubmit={this.onQuestionSubmit}>
             <div className="row">
               <div className="input-field col s12">

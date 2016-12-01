@@ -8,7 +8,7 @@ export default class TeacherPresentTabbedSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'classQuestions',
+      value: 'classQuestions'
     }
   }
 
