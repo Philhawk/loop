@@ -39,19 +39,9 @@ class TeacherPresentMainCardsComponent extends Component {
   };
 
   componentDidMount() {
-    console.log('what is the props', this.props)
-    var ts1 = this.refs.chart.addTimeSeries({},{ strokeStyle: 'rgba(0, 255, 0, 1)', fillStyle: 'rgba(0, 255, 0, 0.2)', lineWidth: 6 });
-
-    this.dataGenerator = setInterval(() => {
-      var time = new Date().getTime();
-      var random = Math.random()
-      console.log('what is the studentMood: ', this.props.studentMood)
-      ts1.append(time,(this.props.studentMood));
-    }, 100)
   }
 
   componentWillUnmount() {
-    clearInterval(this.dataGenerator);
   }
 
   onCurrentCardRemove(){
@@ -143,7 +133,7 @@ class TeacherPresentMainCardsComponent extends Component {
 
     return (
         <div className="row card TeacherPresentMainCards">
-          <div className="col s12 m8 l8 teacherPresentationCurrentCard">
+          <div className="col s12 m12 l12 teacherPresentationCurrentCard">
             <div className="card white">
               <div className="card-content black-text">
                 <span className="card-title">Current Card</span>
@@ -179,17 +169,6 @@ class TeacherPresentMainCardsComponent extends Component {
                </div>
                <p></p>
                {this.showButton()}
-              </div>
-            </div>
-          </div>
-          <div className="col s12 m4 l4 teacherPresentationNextCard">
-            <div className="card white">
-              <div className="card-content black-text">
-                <div className="card-title">Total Students: { this.state.totalStudents }</div>
-                <span className="card-title">Current Mood: { this.showMoodIndicator() } </span>
-                  <div style={{overflow: "hidden"}} >
-                     <SmoothieComponent labels={{fillStyle:'rgb(0, 100, 148)'}} grid={{strokeStyle:'rgb(43, 155, 252)', fillStyle:'rgb(0, 100, 148)', lineWidth: 1, millisPerLine: 250, verticalSections: 6}} ref="chart" width="450px" height="300px"/>
-                  </div>
               </div>
             </div>
           </div>

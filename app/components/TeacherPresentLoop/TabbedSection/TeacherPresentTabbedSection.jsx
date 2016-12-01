@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TeacherPresentTabbedLeft from './TeacherPresentTabbedLeft';
 import TeacherPresentTabbedRight from './TeacherPresentTabbedRight';
+import StudentMoodChart from './StudentMoodChart';
 import {Tabs, Tab} from 'material-ui/Tabs';
 
 export default class TeacherPresentTabbedSection extends Component {
@@ -46,7 +47,7 @@ export default class TeacherPresentTabbedSection extends Component {
         <Tab label="Mood" value="mood">
           <div>
             <h2 style={styles.headline}>Mood</h2>
-              <TeacherPresentTabbedRight />
+             <StudentMoodChart />
           </div>
         </Tab>
       </Tabs>
