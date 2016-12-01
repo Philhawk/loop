@@ -27,20 +27,18 @@ class TeacherPresentCardPanelComponent extends Component {
 
   render() {
     return (
-        <div className="row">
-            <div className="row TeacherPresentCurrentUser">
-                <h4>{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</h4>
-                {this.generatePresentorStopButton()}
-            </div>
+        <div>
             <div>
                 {
                   this.props.questionsList.slice(0).map((question, i) => {
                     if(question.default === true) return null
                     else {
                       return (
-                        <div className="card #37474f white-grey darken-3" key={i}>
-                          <div className="card-content black-text">
-                            <p>{question.content}</p>
+                        <div className="col s4">
+                          <div className="card #37474f white-grey darken-3" key={i}>
+                            <div className="card-content black-text">
+                              <p>{question.content}</p>
+                            </div>
                           </div>
                         </div>
                       )
@@ -58,3 +56,10 @@ const mapDispatchToProps = { callRemoveQuestion };
 const TeacherPresentCardPanel = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentCardPanelComponent)
 
 export default TeacherPresentCardPanel;
+
+            // This shows who is logged in at a given time
+
+            // <div className="row TeacherPresentCurrentUser">
+            //     <h4>{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</h4>
+            //     {this.generatePresentorStopButton()}
+            // </div>

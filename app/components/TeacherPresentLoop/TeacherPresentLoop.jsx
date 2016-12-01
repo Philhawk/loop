@@ -25,13 +25,10 @@ class TeacherPresentLoopComponent extends Component {
     return (
       <div className="teacherPresentationContainer">
         <div className="row card teacherPresentationViewMain">
-          <div className="col s12 m8 l9 teacherPresentationViewContent">
+          <div className="col s12 m12 l12 teacherPresentationViewContent">
              <TeacherPresentControlBar />
              <TeacherPresentMainCards />
              <TeacherPresentTabbedSection />
-          </div>
-          <div className="col s12 m4 l3 z-depth-1 teacherPresentationViewPanel">
-             <TeacherPresentCardPanel />
           </div>
         </div>
       </div>

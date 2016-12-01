@@ -8,7 +8,7 @@ import { callOpenEndedReset} from '../../reducers/openEndedAnswers'
 import { endSession } from '../../reducers/session'
 import { Button } from 'react-materialize';
 import { callStudentAddMood } from '../../reducers/studentMood';
-
+import TeacherPresentCardPanel from './CardPanel/TeacherPresentCardPanel';
 
 class TeacherPresentMainCardsComponent extends Component {
   constructor(props) {
@@ -90,9 +90,9 @@ class TeacherPresentMainCardsComponent extends Component {
                         this.props.questionsList[0] && this.props.questionsList[0].choices.map((choice, i) => {
                             if(this.props.questionsList.length === 0) {
                               return (
-                                <p>Lecture Ended </p>
+                                <p>Lecture Ended</p>
                               )
-                            } else if(this.state.revealAnswer) {
+                            } else if (this.state.revealAnswer) {
                               return (
                                 <div className={Number(this.props.questionsList[0].correctAnswer) === i ? 'card blue teacherPresentRightAnswer z-depth-2' : 'card white teacherPresentWrongAnswer z-depth-0'} id={'choice_' + i}>
                                   <div className={Number(this.props.questionsList[0].correctAnswer) === i ? 'card-content white-text' : 'card-content black-text'}>
@@ -100,7 +100,7 @@ class TeacherPresentMainCardsComponent extends Component {
                                   </div>
                                 </div>
                               )
-                            } else{
+                            } else {
                               return (
                                 <div className="card blue" id={'choice_' + i}>
                                   <div className="card-content white-text">
@@ -116,6 +116,11 @@ class TeacherPresentMainCardsComponent extends Component {
                <p></p>
                {this.showButton()}
               </div>
+            </div>
+          </div>
+          <div className="col s12 m12 l12">
+            <div className="card">
+              <TeacherPresentCardPanel />
             </div>
           </div>
         </div>
