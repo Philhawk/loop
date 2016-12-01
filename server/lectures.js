@@ -23,9 +23,19 @@ lecturesRouter.get('/:lectureId', (req, res, next) => {
   .catch(next);
 });
 
+// get a specific lecture by teacherID
+lecturesRouter.get('/teacher/:teacherId', (req, res, next) => {
+  db.model('lectures').findAll({
+    where: { teacher_id: req.params.teacherId }
+  })
+  .then(lectureList => {
+    res.json(lectureList);
+  })
+  .catch(next);
+});
+
 // create a lecture
 lecturesRouter.post('/', (req, res, next) => {
-  console.log('THIS IS THE BODY', req.body)
   db.model('lectures').create(req.body)
   .then(lecture => {
     res.status(201).json(lecture)

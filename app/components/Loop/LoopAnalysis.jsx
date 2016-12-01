@@ -73,13 +73,14 @@ class LoopAnalysis extends Component {
                 <CardText style={{color: 'white', backgroundColor: 'blue', margin: '1em 0 1em 0', paddingBottom: '1em'}}>
                   Final Student Mood:
                   <h1>{this.props.studentMood}</h1>
-                  {console.log('THIS IS THE PTOPPPPSDFPSDPFSPFSPDFPSDF', this.props)}
                 </CardText>
                 <CardMedia></CardMedia>
               </Card>
-              <Button waves='light' className="#4E546C darken-2 return-home-finish">
-                <Link to="/" className="white-text">Return Home</Link>
-              </Button>
+              <Link to="/profile/previousLoops" className="white-text">
+                <Button waves='light' className="#4E546C darken-2 return-home-finish">
+                  Return Home
+                </Button>
+              </Link>
               </Tab>
               <Tab label="Questions" >
                 <div>

@@ -17,11 +17,6 @@ class TeacherPresentLoopComponent extends Component {
     })
   }
 
-  componentWillUnmount(e) {
-    this.props.endSession({ session_id: this.props.session.id })
-  }
-
-
   render() {
     return (
       <div className="teacherPresentationContainer">

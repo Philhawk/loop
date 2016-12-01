@@ -24,7 +24,8 @@ questionsRouter.get('/:questionId', (req, res, next) => {
 });
 
 // get all questions associated with a specific lecture
-questionsRouter.get('/lectures/:lectureId', (req, res, next) => {
+questionsRouter.get('/lecture/:lectureId', (req, res, next) => {
+  console.log("LECTURE ID", req.params.lectureId)
   db.model('questions').findAll({
     where: {
       lecture_id: req.params.lectureId
