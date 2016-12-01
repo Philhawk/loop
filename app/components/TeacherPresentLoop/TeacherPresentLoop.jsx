@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TeacherPresentControlBar from './TeacherPresentControlBar'
 import TeacherPresentMainCards from './TeacherPresentMainCards'
+import TeacherLoggedIn from './TeacherLoggedIn'
 import TeacherPresentCardPanel from './CardPanel/TeacherPresentCardPanel'
 import TeacherPresentTabbedSection from './TabbedSection/TeacherPresentTabbedSection'
 import { endSession } from '../../reducers/session';
@@ -20,13 +21,11 @@ class TeacherPresentLoopComponent extends Component {
     return (
       <div className="teacherPresentationContainer">
         <div className="row card teacherPresentationViewMain">
-          <div className="col s12 m8 l9 teacherPresentationViewContent">
+          <div className="col s12 m12 l12 teacherPresentationViewContent">
              <TeacherPresentControlBar />
+             <TeacherLoggedIn />
              <TeacherPresentMainCards />
              <TeacherPresentTabbedSection />
-          </div>
-          <div className="col s12 m4 l3 z-depth-1 teacherPresentationViewPanel">
-             <TeacherPresentCardPanel />
           </div>
         </div>
       </div>

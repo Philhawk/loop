@@ -39,7 +39,7 @@ class WhyUseIt extends Component {
           <div className="col s12 m3 l3 head-shot">
             <img className="circle responsive-img" src="img/aboutUs/Wolverine.jpg"/>
             <h5 className="about-us-names">Andy</h5>
-            <p>I began working as a software developer in part because of what I saw during my teaching experience. I saw many technological tools that teachers and students were forced to use that were inadequate at best and actively inhibiting to student progress at worst.</p>
+            <p>Versatile, business savvy Full Stack developer proficient in multiple stacks and environments with a passion for solving problems. If you can dream it, we can build it.</p>
           </div>
         </div>
       </div>
