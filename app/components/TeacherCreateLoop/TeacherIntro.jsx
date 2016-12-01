@@ -217,7 +217,7 @@ class TeacherCreateLoopComponent extends Component {
            <div className="row backgroundCard">
              <div className='col s6 m6 l6'>
                <div className="col s12 m12 l12" id="questionOption">
-                 <div className="card white-grey z-depth-3">
+                 <div className="card white-grey">
                    <div className="card-content black-text">
                      <span className="card-title">Fill in the blank</span>
                    </div>
@@ -226,7 +226,7 @@ class TeacherCreateLoopComponent extends Component {
                    </div>
                  </div>
 
-                 <div className="card white-grey z-depth-3">
+                 <div className="card white-grey">
                    <div className="card-content black-text">
                      <span className="card-title">Multiple Choice</span>
                    </div>
@@ -235,7 +235,7 @@ class TeacherCreateLoopComponent extends Component {
                    </div>
                  </div>
 
-                 <div className="card white-grey z-depth-3">
+                 <div className="card white-grey">
                    <div className="card-content black-text">
                      <span className="card-title">Open Ended</span>
                    </div>
@@ -246,12 +246,11 @@ class TeacherCreateLoopComponent extends Component {
 
 
                  <div className='start-presentation-button-on-create'>
-                   <FlatButton
-                     label="Back"
-                     onTouchTap={this.handlePrev}
-                   />
+                 <Link to={`/profile/previousLoops`}>
+                   <Button waves='light' id="startPresBtn">Save Presentation</Button>
+                 </Link>
                    <RaisedButton
-                     label={stepIndex === 2 ? 'Start Presentation' : 'Continue'}
+                     label={'Start Presentation'}
                      disabled={ this.props.questionsList.length === 1 ? true : false }
                      primary={true}
                      onTouchTap={this.handleNext}
@@ -288,9 +287,6 @@ class TeacherCreateLoopComponent extends Component {
                     <StepLabel iconContainerStyle={{width: 70}}>Name</StepLabel>
                   </Step>
                   <Step>
-                    <StepLabel iconContainerStyle={{width: 70}}>Choose</StepLabel>
-                  </Step>
-                  <Step>
                     <StepLabel iconContainerStyle={{width: 70}}>Customize</StepLabel>
                   </Step>
                   <Step>
@@ -298,15 +294,9 @@ class TeacherCreateLoopComponent extends Component {
                   </Step>
                 </Stepper>
                 <div style={contentStyle}>
-                  {finished ? (
-                    <Link to={`/loop/${this.props.session.sessionString}`}>
-                      <Button waves='light' id="startPresBtn">Start Presentation</Button>
-                    </Link>
-                  ) : (
-                    <div>
-                      <p>{this.getStepContent(stepIndex)}</p>
-                    </div>
-                  )}
+                  <div>
+                    <p>{this.getStepContent(stepIndex)}</p>
+                  </div>
                 </div>
               </div>
               </div>
