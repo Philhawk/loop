@@ -11,8 +11,6 @@ class TeacherPresentCardPanelComponent extends Component {
     this.onEndLecture = this.onEndLecture.bind(this);
   }
 
-
-
   generatePresentorStopButton = () => {
     return (
         <Link to='/post-loop-analysis'><Button waves='light' className="##d32f2f red darken-2" onClick={this.onEndLecture}>Stop Presentation</Button></Link>
@@ -27,20 +25,18 @@ class TeacherPresentCardPanelComponent extends Component {
 
   render() {
     return (
-        <div className="row">
-            <div className="row TeacherPresentCurrentUser">
-                <h4>{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</h4>
-                {this.generatePresentorStopButton()}
-            </div>
+        <div>
             <div>
                 {
                   this.props.questionsList.slice(0).map((question, i) => {
                     if(question.default === true) return null
                     else {
                       return (
-                        <div className="card #37474f white-grey darken-3" key={i}>
-                          <div className="card-content black-text">
-                            <p>{question.content}</p>
+                        <div className="col s4">
+                          <div className="card #37474f white-grey darken-3" key={i}>
+                            <div className="card-content black-text">
+                              <p>{question.content}</p>
+                            </div>
                           </div>
                         </div>
                       )

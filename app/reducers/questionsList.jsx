@@ -22,6 +22,7 @@ export const callRemoveQuestion = () => dispatch => {
   dispatch(removeQuestion())
 }
 
+
 export const createQuestion = ({content, correctAnswer, questionType, choices, lecture_id }) => dispatch => {
   axios.post('/api/questions', {content, correctAnswer, questionType, choices, lecture_id })
   .then(question => dispatch(addQuestion(question.data)))
@@ -31,6 +32,13 @@ export const fetchQuestionsBySessionString = ({sessionString}) => dispatch => {
   return axios.get(`/api/questions/session/${sessionString}`)
   .then(questions => {
     dispatch(setQuestions(questions.data))
+  })
+}
+
+export const fetchAllQuestionsByLectureId = ({lecture_id}) => dispatch => {
+  axios.get(`/api/questions/lecture/${lecture_id}`)
+  .then(questionsList => {
+    dispatch(addQuestion(questionsList.data))
   })
 }
 

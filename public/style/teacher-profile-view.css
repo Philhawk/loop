@@ -1,0 +1,15 @@
+#teacher-profile-sidebar {
+  border-right: black 1px solid;
+  height: 100vh;
+  background-color: white;
+
+}
+
+#teacher-profile-page {
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.teacher-profile-loops {
+  margin-top: 2em;
+}

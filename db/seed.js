@@ -29,15 +29,12 @@ const seedLectures = () => db.Promise.each([
 ], lecture => db.model('lectures').create(lecture));
 
 const seedQuestions = () => db.Promise.each([
-  {content: 'Who is the antagonist of Othello?', correctAnswer: 'Iago', questionType: 'multipleChoice', choices: ['Iago', 'Othello', 'Cassio', 'Desdemona'], lecture_id: 1},
-  {content: 'What are two ways Othello experienced racism in Act I?', questionType: 'openEnded', lecture_id: 1},
-  {content: 'What is one of the biggest symbols of the play?', correctAnswer: 'the handkerchief', questionType: 'fillInTheBlank', lecture_id: 1},
-  {content: 'What is the method for creating new data?', correctAnswer: 'POST', questionType: 'multipleChoice', choices: ['GET', 'POST', 'PUT', 'DELETE'], lecture_id: 2},
-  {content: 'Write a function for starting a server in express.', questionType: 'openEnded', lecture_id: 2},
-  {content: 'What is the method for using middleware?', correctAnswer: 'use', questionType: 'fillInTheBlank', lecture_id: 2},
-  {content: 'Why is it bad practice to mutate the state in Redux?', questionType: 'openEnded', lecture_id: 3},
-  {content: 'What is the name of an asynchronus action creator?', correctAnswer: 'thunk', questionType: 'fillInTheBlank', lecture_id: 3},
-  {content: 'What mechanism in Redux holds the state?', correctAnswer: 'store', questionType: 'multipleChoice', choices: ['reducer', 'store', 'thunk', 'action creator'], lecture_id: 3},
+  {content: 'Who is the antagonist of Othello?', correctAnswer: 0, questionType: 'multipleChoice', choices: ['Iago', 'Othello', 'Cassio', 'Desdemona'], lecture_id: 1},
+  {content: 'What are two ways Othello experienced racism in Act I?', correctAnswer: "Racial slurs from Brabantio and Roderigo", choices: [], questionType: 'openEnded', lecture_id: 1},
+  {content: 'What is the method for creating new data?', correctAnswer: 1, questionType: 'multipleChoice', choices: ['GET', 'POST', 'PUT', 'DELETE'], lecture_id: 2},
+  {content: 'Write a function for starting a server in express.', questionType: 'openEnded', correctAnswer: "app.listen(3000)", choices: [], lecture_id: 2},
+  {content: 'Why is it bad practice to mutate the state in Redux?', questionType: 'openEnded', correctAnswer: "Because then you can't predict what will happen and the logger won't work", choices: [], lecture_id: 3},
+  {content: 'What mechanism in Redux holds the state?', correctAnswer: 1, questionType: 'multipleChoice', choices: ['reducer', 'store', 'thunk', 'action creator'], lecture_id: 3},
 ], question => db.model('questions').create(question));
 
 const seedResponses = () => db.Promise.each([
@@ -45,20 +42,14 @@ const seedResponses = () => db.Promise.each([
   {userResponse: 'Cassio', timeStamp: Date.UTC(2016, 11, 5, 8, 31, 30), question_id: 1},
   {userResponse: 'Iago and Roderigo used racial slurs when describing him', timeStamp: Date.UTC(2016, 11, 5, 8, 40, 30), question_id: 2},
   {userResponse: 'I dunno :(', timeStamp: Date.UTC(2016, 11, 5, 8, 41, 13), question_id: 2},
-  {userResponse: 'handkerchief', timeStamp: Date.UTC(2016, 11, 5, 9, 1, 10), question_id: 3},
-  {userResponse: 'sword', timeStamp: Date.UTC(2016, 11, 5, 9, 2, 45), question_id: 3},
-  {userResponse: 'POST', timeStamp: Date.UTC(2016, 11, 8, 11, 32, 30), question_id: 4},
-  {userResponse: 'PUT', timeStamp: Date.UTC(2016, 11, 8, 11, 32, 55), question_id: 4},
-  {userResponse: 'app.listen(3000)', timeStamp: Date.UTC(2016, 11, 8, 11, 52, 19), question_id: 5},
-  {userResponse: 'app.startAllTheServersPlease(3000)', timeStamp: Date.UTC(2016, 11, 9, 11, 53, 39), question_id: 5},
-  {userResponse: 'use', timeStamp: Date.UTC(2016, 11, 8, 12, 02, 30), question_id: 6},
-  {userResponse: 'put', timeStamp: Date.UTC(2016, 11, 8, 12, 03, 11), question_id: 6},
-  {userResponse: 'Because immutable data leads to less unexpected behavior.', timeStamp: Date.UTC(2016, 11, 13, 14, 44, 34), question_id: 7},
-  {userResponse: 'Cause Tom said so.', timeStamp: Date.UTC(2016, 11, 13, 14, 45, 31), question_id: 7},
-  {userResponse: 'thunk', timeStamp: Date.UTC(2016, 11, 13, 15, 1, 30), question_id: 8},
-  {userResponse: 'bunk', timeStamp: Date.UTC(2016, 11, 13, 15, 2, 21), question_id: 8},
-  {userResponse: 'store', timeStamp: Date.UTC(2016, 11, 13, 15, 15, 46), question_id: 9},
-  {userResponse: 'reducer', timeStamp: Date.UTC(2016, 11, 13, 15, 16, 46), question_id: 9},
+  {userResponse: 'POST', timeStamp: Date.UTC(2016, 11, 8, 11, 32, 30), question_id: 3},
+  {userResponse: 'PUT', timeStamp: Date.UTC(2016, 11, 8, 11, 32, 55), question_id: 3},
+  {userResponse: 'app.listen(3000)', timeStamp: Date.UTC(2016, 11, 8, 11, 52, 19), question_id: 4},
+  {userResponse: 'app.startAllTheServersPlease(3000)', timeStamp: Date.UTC(2016, 11, 9, 11, 53, 39), question_id: 4},
+  {userResponse: 'Because immutable data leads to less unexpected behavior.', timeStamp: Date.UTC(2016, 11, 13, 14, 44, 34), question_id: 5},
+  {userResponse: 'Cause Tom said so.', timeStamp: Date.UTC(2016, 11, 13, 14, 45, 31), question_id: 5},
+  {userResponse: 'store', timeStamp: Date.UTC(2016, 11, 13, 15, 15, 46), question_id: 6},
+  {userResponse: 'reducer', timeStamp: Date.UTC(2016, 11, 13, 15, 16, 46), question_id: 6},
 ], response => db.model('responses').create(response));
 
 seedSessions = () => db.Promise.each([

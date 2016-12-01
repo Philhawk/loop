@@ -13,7 +13,7 @@ class LoginComponent extends Component {
   onLogin(e) {
     e.preventDefault()
     this.props.login(e.target.email.value, e.target.password.value)
-    .then(() => browserHistory.push('/create-intro'))
+    .then(() => browserHistory.push('/profile/previousLoops'))
     .catch((err) => console.log("LOGIN FAILED",err))
   }
 

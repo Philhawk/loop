@@ -33,6 +33,18 @@ export const activateSession = ({session_id}) => dispatch => {
   .catch(err => console.error(err));
 }
 
+export const createActiveSession = ({ sessionString, lecture_id }) => dispatch => {
+  return axios.post('/api/sessions/active', {
+    sessionString,
+    lecture_id,
+    active: true,
+    timeStarted: Date.now()
+  })
+  .then(session => {
+    dispatch(setCurrentSession(session.data))
+  })
+}
+
 export const endSession = ({ session_id }) => dispatch => {
   axios.put(`/api/sessions/${session_id}/end`, { active: false })
   .then(session => {
