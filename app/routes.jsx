@@ -21,7 +21,7 @@ import PreviousLoops from './components/TeacherProfilePage/PreviousLoops';
 import store from './store';
 import {createSocket} from './reducers/socket';
 import {fetchCurrentSession} from './reducers/session';
-import {fetchQuestionsBySessionString} from './reducers/questionsList';
+import { fetchQuestionsBySessionString, addInitialState } from './reducers/questionsList';
 import {getAllStudentQuestionsByLoop} from './reducers/studentQuestions';
 import {fetchQuestionsAnsweredLength} from './reducers/answeredQuestions';
 import { callSetCurrentQuestion } from './reducers/currentQuestion';
@@ -30,6 +30,9 @@ import { fetchLecturesByTeacher } from './reducers/lectureList';
 
 
 const onLoopEnter = () => {
+  if(!store.getState().questionsList[0].default) {
+    store.dispatch(addInitialState())
+  }
   const socket = io.connect();
   store.dispatch(createSocket(socket));
   socket.emit('loopCreated', {
