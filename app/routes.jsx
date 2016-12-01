@@ -8,6 +8,7 @@ import Loop from './components/Loop/Loop';
 import LoopAnalysis from './components/Loop/LoopAnalysis';
 import LoopStudentAnalysis from './components/Loop/LoopStudentAnalysis';
 import TeacherCreateLoop from './components/TeacherCreateLoop/TeacherCreateLoop';
+import TeacherIntro from './components/TeacherCreateLoop/TeacherIntro';
 import StudentLoop from './components/StudentLoop/StudentLoop';
 import StudentLandingPage from './components/StudentLandingPage/StudentLandingPage'
 import store from './store';
@@ -58,6 +59,7 @@ const routes =()=> (
     <Route path='/'>
       <IndexRoute component={App}/>
       <Route path = 'welcome' component={LoginSignupChoice} />
+      <Route path = 'create-intro' component={TeacherIntro} />
       <Route path = 'create-loop' component={TeacherCreateLoop} />
       <Route path ='loop/*' component={Loop} onEnter={onLoopEnter}/>
       <Route path='studentLoop/:loopUuId' component={StudentLoop} onEnter={onStudentLoopEnter} />
