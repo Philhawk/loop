@@ -8,7 +8,6 @@ import { callOpenEndedReset} from '../../reducers/openEndedAnswers'
 import { endSession } from '../../reducers/session'
 import { Button } from 'react-materialize';
 import { callStudentAddMood } from '../../reducers/studentMood';
-var SmoothieComponent = require('react-smoothie');
 
 
 class TeacherPresentMainCardsComponent extends Component {
@@ -22,27 +21,7 @@ class TeacherPresentMainCardsComponent extends Component {
     this.onCurrentCardRemove = this.onCurrentCardRemove.bind(this);
     this.onSendAnswer = this.onSendAnswer.bind(this);
     this.onEndLecture = this.onEndLecture.bind(this);
-
-    this.props.socket.on('studentMoodIndex', ({mood}) => {
-      this.props.callStudentAddMood({mood: mood})
-    })
-
-    this.props.socket.on('studentJoined', () => {
-      this.setState({totalStudents: this.state.totalStudents + 1 })
-    })
-
-    this.props.socket.on('studentLeft', () => {
-      console.log("STUDENT LEFT!!!")
-      this.setState({ totalStudents: this.state.totalStudents - 1 })
-    })
-
   };
-
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
 
   onCurrentCardRemove(){
     axios.put(`/api/sessions/${this.props.session.sessionString}/next`)
@@ -96,39 +75,6 @@ class TeacherPresentMainCardsComponent extends Component {
     }
   }
 
-  showMoodIndicator() {
-    if(this.props.studentMood > 50) {
-      return (
-        <div style={{color: 'green', display: 'inherit'}}>
-          Excellent
-        </div>
-        )
-      } else if (this.props.studentMood < 50 && this.props.studentMood > 0) {
-        return(
-          <div style={{color: 'green', display: 'inherit'}}>
-            Good
-          </div>
-        )
-      } else if (this.props.studentMood < 0 && this.props.studentMood > -50) {
-      return(
-        <div style={{color: 'red', display: 'inherit' }}>
-          Needs Work
-        </div>
-      )
-    } else if (this.props.studentMood > -300 && this.props.studentMood < -50) {
-      return(
-        <div style={{color: 'red', display: 'inherit' }}>
-          Unhappy
-        </div>
-      )
-    } else if (this.props.studentMood < -300) {
-      return(
-        <iframe src="//giphy.com/embed/3o7yDiinjCb8eegczS" width="260px" height="260px" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-      )
-    }
-  }
-
-
   render() {
 
     return (
@@ -175,12 +121,11 @@ class TeacherPresentMainCardsComponent extends Component {
         </div>
     );
   }
-
 }
 
 
-const mapStateToProps = ({ questionsList, socket, studentMood, session }) => ({ questionsList, socket, studentMood, session })
-const mapDispatchToProps = { callStudentAddMood, callRemoveQuestion, callReset, callOpenEndedReset, endSession };
+const mapStateToProps = ({ questionsList, socket, session }) => ({ questionsList, socket, session })
+const mapDispatchToProps = {callRemoveQuestion, callReset, callOpenEndedReset, endSession };
 const TeacherPresentMainCards = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentMainCardsComponent)
 
 export default TeacherPresentMainCards;
