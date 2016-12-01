@@ -11,8 +11,6 @@ class TeacherPresentCardPanelComponent extends Component {
     this.onEndLecture = this.onEndLecture.bind(this);
   }
 
-
-
   generatePresentorStopButton = () => {
     return (
         <Link to='/post-loop-analysis'><Button waves='light' className="##d32f2f red darken-2" onClick={this.onEndLecture}>Stop Presentation</Button></Link>
@@ -56,10 +54,3 @@ const mapDispatchToProps = { callRemoveQuestion };
 const TeacherPresentCardPanel = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentCardPanelComponent)
 
 export default TeacherPresentCardPanel;
-
-            // This shows who is logged in at a given time
-
-            // <div className="row TeacherPresentCurrentUser">
-            //     <h4>{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</h4>
-            //     {this.generatePresentorStopButton()}
-            // </div>

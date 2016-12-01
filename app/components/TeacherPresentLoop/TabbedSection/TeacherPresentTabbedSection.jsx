@@ -8,7 +8,7 @@ export default class TeacherPresentTabbedSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'questions',
+      value: 'classQuestions',
     }
   }
 
@@ -32,21 +32,21 @@ export default class TeacherPresentTabbedSection extends Component {
 
     return (
       <Tabs value={this.state.value} onChange={this.handleChange}>
-        <Tab label="Questions" value="questions">
+        <Tab label="Class Questions" value="classQuestions">
           <div>
-            <h2 style={styles.headline}>Questions</h2>
+            <h2 style={styles.headline}>Class Questions</h2>
               <TeacherPresentTabbedLeft />
           </div>
         </Tab>
-        <Tab label="Data" value="data">
+        <Tab label="Student Answers" value="studentAnswers">
           <div>
-            <h2 style={styles.headline}>Data</h2>
+            <h2 style={styles.headline}>Student Answers</h2>
               <TeacherPresentTabbedRight />
           </div>
         </Tab>
-        <Tab label="Mood" value="mood">
+        <Tab label="Class Mood" value="classMood">
           <div>
-            <h2 style={styles.headline}>Mood</h2>
+            <h2 style={styles.headline}>Class Mood</h2>
              <StudentMoodChart />
           </div>
         </Tab>
