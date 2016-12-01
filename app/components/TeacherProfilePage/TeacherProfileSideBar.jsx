@@ -12,7 +12,7 @@ export default ({ auth }) => (
       View Old Loops
     </div>
     <div className="row">
-      <Link to='/create-loop'><Button>Create a New Loop</Button></Link>
+      <Link to='/create-intro'><Button>Create a New Loop</Button></Link>
     </div>
   </div>
 )
