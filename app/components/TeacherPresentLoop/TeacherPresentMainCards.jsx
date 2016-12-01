@@ -154,11 +154,11 @@ class TeacherPresentMainCardsComponent extends Component {
                         this.props.questionsList[0] && this.props.questionsList[0].choices.map((choice, i) => {
                             if(this.props.questionsList.length === 0) {
                               return (
-                                <p>Lecture Ended </p>
+                                <p key={i}>Lecture Ended </p>
                               )
                             } else if(this.state.revealAnswer) {
                               return (
-                                <div className={Number(this.props.questionsList[0].correctAnswer) === i ? 'card blue teacherPresentRightAnswer z-depth-2' : 'card white teacherPresentWrongAnswer z-depth-0'} id={'choice_' + i}>
+                                <div key={i} className={Number(this.props.questionsList[0].correctAnswer) === i ? 'card blue teacherPresentRightAnswer z-depth-2' : 'card white teacherPresentWrongAnswer z-depth-0'} id={'choice_' + i}>
                                   <div className={Number(this.props.questionsList[0].correctAnswer) === i ? 'card-content white-text' : 'card-content black-text'}>
                                     {choice}
                                   </div>
@@ -166,7 +166,7 @@ class TeacherPresentMainCardsComponent extends Component {
                               )
                             } else{
                               return (
-                                <div className="card blue" id={'choice_' + i}>
+                                <div key={i} className="card blue" id={'choice_' + i}>
                                   <div className="card-content white-text">
                                     {choice}
                                   </div>

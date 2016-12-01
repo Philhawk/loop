@@ -1,7 +1,9 @@
+// outside libraries
 import React from 'react';
 import { Route, IndexRoute, browserHistory, Router } from 'react-router';
 import io from 'socket.io-client'
-//components
+
+// components
 import App from './components/App/App';
 import LoginSignupChoice from './components/LoginSignupChoice';
 import Loop from './components/Loop/Loop';
@@ -10,6 +12,11 @@ import LoopStudentAnalysis from './components/Loop/LoopStudentAnalysis';
 import TeacherCreateLoop from './components/TeacherCreateLoop/TeacherCreateLoop';
 import StudentLoop from './components/StudentLoop/StudentLoop';
 import StudentLandingPage from './components/StudentLandingPage/StudentLandingPage'
+import TeacherProfilePage from './components/TeacherProfilePage/TeacherProfilePage'
+import LoopStats from './components/TeacherProfilePage/LoopStats';
+import PreviousLoops from './components/TeacherProfilePage/PreviousLoops';
+
+// reducers
 import store from './store';
 import {createSocket} from './reducers/socket';
 import {fetchCurrentSession} from './reducers/session';
@@ -18,6 +25,7 @@ import {getAllStudentQuestionsByLoop} from './reducers/studentQuestions';
 import {fetchQuestionsAnsweredLength} from './reducers/answeredQuestions';
 import { callSetCurrentQuestion } from './reducers/currentQuestion';
 import { fetchActiveSessions } from './reducers/activeSessions';
+import { fetchLecturesByTeacher } from './reducers/lectureList';
 
 
 const onLoopEnter = () => {
@@ -53,6 +61,10 @@ const onForStudentsEnter = () => {
   store.dispatch(fetchActiveSessions())
 }
 
+const onTeacherProfileEnter = () => {
+  store.dispatch(fetchLecturesByTeacher({ id: store.getState().auth.id}))
+}
+
 const routes =()=> (
   <Router history={browserHistory}>
     <Route path='/'>
@@ -64,6 +76,10 @@ const routes =()=> (
       <Route path='post-loop-analysis' component={LoopAnalysis} onEnter={onLoopFinish} />
       <Route path='post-loop-student-analysis' component={LoopStudentAnalysis} />
       <Route path='activeLoops' component={StudentLandingPage} onEnter={onForStudentsEnter} />
+      <Route path='profile' component={TeacherProfilePage} onEnter={onTeacherProfileEnter}>
+        <Route path='loopStats' component={LoopStats} />
+        <Route path ='previousLoops' component={PreviousLoops} />
+      </Route>
     </Route>
   </Router>
 );

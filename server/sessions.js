@@ -62,6 +62,22 @@ sessionsRouter.post('/', (req, res, next) => {
   .catch(next);
 });
 
+// creates a session that is both active and has a bitly link
+sessionsRouter.post('/active', (req, res, next) => {
+  console.log('THIS IS THE BODY', req.body)
+  db.model('sessions').create(req.body)
+  .then(session => {
+    bitly.shorten('http://loop-teach.herokuapp.com/studentLoop/' + session.sessionString)
+    .then(response => {
+      session.update({ bitly: response.data.url })
+      .then(updatedSession => {
+        res.status(201).send(updatedSession);
+      })
+    })
+  })
+  .catch(next);
+});
+
 // update a specific session AND add bitly link
 sessionsRouter.put('/:sessionId/activate', (req, res, next) => {
   console.log(req.params.sessionId)
