@@ -4,6 +4,7 @@ import { Button } from 'react-materialize';
 import OpenEnded from '../QuestionType/OpenEnded';
 import MultipleChoice from '../QuestionType/MultipleChoice';
 import FillInBlank from '../QuestionType/FillInBlank';
+import uuid from 'uuid';
 
 import { connect } from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
@@ -29,11 +30,16 @@ class TeacherCreateLoopComponent extends Component {
     this.onFillInBlank = this.onFillInBlank.bind(this);
     this.onMultipleChoice = this.onMultipleChoice.bind(this);
     this.onOpenEnded = this.onOpenEnded.bind(this);
+    this.onFillInBlankNext = this.onFillInBlankNext.bind(this);
+    this.onMultipleChoiceNext = this.onMultipleChoiceNext.bind(this);
+    this.onOpenEndedNext = this.onOpenEndedNext.bind(this);
+    this.handleFirstContinue = this.handleFirstContinue.bind(this);
+
   }
 
   componentDidMount() {
     this.props.createLecture({
-      name: '',
+      name: 'something',
       mood: 0,
       timeStarted: null,
       teacher_id: this.props.auth.id
@@ -54,18 +60,29 @@ class TeacherCreateLoopComponent extends Component {
     });
   };
 
+  handleFirstContinue(e){
+    e.preventDefault()
+
+    const {stepIndex} = this.state;
+
+    this.props.updateLecture(
+      { name: e.target.loopName.value,
+        description: e.target.loopDescription.value,
+        lecture_id: this.props.lecture.id
+      })
+
+    this.setState({
+      stepIndex: stepIndex + 1,
+      finished: stepIndex >= 2,
+    });
+  };
+
   handlePrev = () => {
     const {stepIndex} = this.state;
     if (stepIndex > 0) {
       this.setState({stepIndex: stepIndex - 1});
     }
   };
-
-  onNameLoop(e) {
-    e.preventDefault();
-    this.handleClose()
-    this.props.updateLecture({ name: e.target.loopName.value, description: e.target.loopDescription.value, lecture_id: this.props.lecture.id })
-  }
 
   onFillInBlank(e) {
     const {stepIndex} = this.state;
@@ -76,6 +93,16 @@ class TeacherCreateLoopComponent extends Component {
     });
 
     e.preventDefault()
+    e.target.fill
+  }
+
+  onFillInBlankNext(e) {
+    e.preventDefault()
+
+    this.setState({
+      whois: "fillInBlank",
+    });
+
     e.target.fill
   }
 
@@ -91,6 +118,17 @@ class TeacherCreateLoopComponent extends Component {
     e.target.fill
   }
 
+  onMultipleChoiceNext(e) {
+    e.preventDefault()
+
+    this.setState({
+      whois: "multipleChoice",
+    });
+
+  }
+
+
+
   onOpenEnded(e) {
     const {stepIndex} = this.state;
     this.setState({
@@ -101,6 +139,13 @@ class TeacherCreateLoopComponent extends Component {
 
     e.preventDefault()
     e.target.fill
+  }
+
+  onOpenEndedNext(e) {
+    e.preventDefault()
+    this.setState({
+      whois: "openEnded",
+    });
   }
 
   showQuestion() {
@@ -125,12 +170,13 @@ class TeacherCreateLoopComponent extends Component {
            <div className="row backgroundCard">
              <div className='col s6 m6 l6'>
                <QuestionInstructions />
-               <form >
+               <form onSubmit={this.handleFirstContinue} >
                    <span className="name-loop-font">Name Your Loop</span>
                    <br/>
                    <input id="loop-name" name="loopName" type="text" />
                    <span className="name-loop-font">Describe Your Loop</span>
                    <textarea id="loop-description" name="loopDescription" className="materialize-textarea"></textarea>
+                  <Button className="createBtn">Continue</Button>
                </form>
              </div>
              <div className='col s6 m6 l6'>
@@ -176,7 +222,7 @@ class TeacherCreateLoopComponent extends Component {
                      <span className="card-title">Fill in the blank</span>
                    </div>
                    <div className="card-action">
-                     <Button className="createBtn" onClick={this.onFillInBlank}>Create</Button>
+                     <Button className="createBtn" onTouchTap={this.onFillInBlankNext}>Create</Button>
                    </div>
                  </div>
 
@@ -185,7 +231,7 @@ class TeacherCreateLoopComponent extends Component {
                      <span className="card-title">Multiple Choice</span>
                    </div>
                    <div className="card-action">
-                     <Button className="createBtn" onClick={this.onMultipleChoice}>Create</Button>
+                     <Button className="createBtn" onTouchTap={this.onMultipleChoiceNext}>Create</Button>
                    </div>
                  </div>
 
@@ -194,9 +240,23 @@ class TeacherCreateLoopComponent extends Component {
                      <span className="card-title">Open Ended</span>
                    </div>
                    <div className="card-action">
-                     <Button className="createBtn" onClick={this.onOpenEnded}>Create</Button>
+                     <Button className="createBtn" onTouchTap={this.onOpenEndedNext}>Create</Button>
                    </div>
                  </div>
+
+
+                 <div className='start-presentation-button-on-create'>
+                   <FlatButton
+                     label="Back"
+                     onTouchTap={this.handlePrev}
+                   />
+                   <RaisedButton
+                     label={stepIndex === 2 ? 'Start Presentation' : 'Continue'}
+                     disabled={ this.props.questionsList.length === 1 ? true : false }
+                     primary={true}
+                     onTouchTap={this.handleNext}
+                   />
+                  </div>
                </div>
              </div>
              <div className='col s6 m6 l6'>
@@ -245,20 +305,6 @@ class TeacherCreateLoopComponent extends Component {
                   ) : (
                     <div>
                       <p>{this.getStepContent(stepIndex)}</p>
-                      <div>
-                        <FlatButton
-                          label="Back"
-                          disabled={stepIndex === 0}
-                          onTouchTap={this.handlePrev}
-                          style={stepIndex === 1 ? {display: 'none'} : {marginRight: 12}}
-                        />
-                        <RaisedButton
-                          label={stepIndex === 2 ? 'Finish' : 'Continue'}
-                          primary={true}
-                          onTouchTap={this.handleNext}
-                          style={stepIndex === 1 ? {display: 'none'} : {marginRight: 12}}
-                        />
-                      </div>
                     </div>
                   )}
                 </div>

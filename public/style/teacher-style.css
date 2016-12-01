@@ -16,6 +16,10 @@
   padding-bottom: 0.2em;
 }
 
+.start-presentation-button-on-create {
+    margin-top: 4em;
+}
+
 .no-shadow {
   box-shadow: none;
 }
