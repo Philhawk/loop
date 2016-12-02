@@ -39,7 +39,6 @@ class PreviousLoopsComponent extends Component {
                 </CardText>
                 <CardActions>
                   <Button value={lecture.id} onClick={this.onStartLoopClick}>Start Loop</Button>
-                  <Button>Edit Loop</Button>
                   <Button>Loop Stats</Button>
                 </CardActions>
               </Card>

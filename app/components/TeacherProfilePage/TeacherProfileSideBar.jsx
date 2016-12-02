@@ -5,14 +5,14 @@ import { Link } from 'react-router';
 export default ({ auth }) => (
   <div className='col s2' id='teacher-profile-sidebar'>
     <div className="row">
-        <img src={auth.imagePath} alt="You!"/>
+        <img className='user-profile-pic' src={auth.imagePath} alt="You!"/>
         <h4>{auth.name}</h4>
     </div>
     <div className="row">
-      View Old Loops
+      Saved Loops
     </div>
     <div className="row">
-      <Link to='/create-intro'><Button>Create a New Loop</Button></Link>
+      <Link to='/create-intro'><Button>Create Loop</Button></Link>
     </div>
   </div>
 )
