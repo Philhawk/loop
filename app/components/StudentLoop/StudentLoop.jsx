@@ -5,10 +5,14 @@ import StudentMood from '../StudentMood/StudentMood';
 import { callSetCurrentQuestion } from '../../reducers/currentQuestion';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
+import {Tabs, Tab} from 'material-ui/Tabs';
 
 class StudentLoopComponent extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      value: 'studentQustionsForTeacher'
+    }
     this.props.socket.on('newTeacherQuestion', ({question}) => {
       console.log(question)
       this.props.callSetCurrentQuestion({ content: question.content, choices: question.choices, questionType: question.questionType
@@ -21,6 +25,12 @@ class StudentLoopComponent extends Component {
 
   }
 
+  handleChange = (value) => {
+    this.setState({
+      value: value,
+    });
+  };
+
   componentWillUnmount() {
     console.log("YO YO YO", this.props)
     this.props.socket.emit('something', { sessionString: this.props.session.sessionString })
@@ -28,25 +38,37 @@ class StudentLoopComponent extends Component {
 
 
   render() {
+
+    const styles = {
+      headline: {
+        fontSize: 24,
+        paddingTop: 16,
+        marginBottom: 12,
+        fontWeight: 400,
+      },
+    };
+
     return (
       <div id="student-view">
         <div className="row">
-          <div className="col s12 no-padding">
+          <div className="col s12">
             <div className="card z-depth-2">
               <IncomingQuestion />
             </div>
           </div>
         </div>
-        <div className="row card z-depth-2">
-          <div className="card z-depth-2">
-            <div className="col s8">
+        <Tabs value={this.state.value} onChange={this.handleChange}>
+          <Tab label="Questions" value="studentQustionsForTeacher">
+            <div>
               <StudentAsk />
             </div>
-            <div className="col s4" id="current-feeling">
+          </Tab>
+          <Tab label="Your Mood" value="yourMood">
+            <div>
               <StudentMood />
             </div>
-          </div>
-        </div>
+          </Tab>
+        </Tabs>
       </div>
     );
   }
