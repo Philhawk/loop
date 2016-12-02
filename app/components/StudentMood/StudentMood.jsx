@@ -25,24 +25,23 @@ class StudentMoodComponent extends Component {
             Let your teacher know how you're feeling.
           </h5>
           <div className="col s12">
-            <div className="col s2"></div>
             <div className="row">
+              <div className="col s2"></div>
               <div className="col s3">
-                <button onClick={this.onSubmitUnderstand} className="btn-floating btn-large waves-effect teal lighten-2 waves-light thumb-buttons">
+                <button onClick={this.onSubmitUnderstand} className="btn-floating  waves-effect teal lighten-2 waves-light thumb-buttons">
                   <i className="material-icons thumbs">thumb_up</i>
                 </button>
               </div>
               <div className="col s3">
-                <button className="btn-floating btn-large waves-effect teal lighten-2 waves-light thumb-buttons">
+                <button className="btn-floating waves-effect teal lighten-2 waves-light thumb-buttons">
                   <i className="material-icons thumbs">thumbs_up_down</i>
                 </button>
               </div>
               <div className="col s3">
-                <button  onClick={this.onSubmitDontUnderstand} className="btn-floating btn-large waves-effect teal lighten-2 waves-light thumb-buttons">
+                <button onClick={this.onSubmitDontUnderstand} className="btn-floating waves-effect teal lighten-2 waves-light thumb-buttons">
                   <i className="material-icons thumbs">thumb_down</i>
                 </button>
               </div>
-            <div className="col s2"></div>
             </div>
           </div>
         </div>

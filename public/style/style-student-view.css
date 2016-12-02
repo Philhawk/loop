@@ -84,7 +84,6 @@
 .material-icons.md-72 {
   font-size: 72px;
   float: right;
-
 }
 
 .answer:hover {
@@ -149,8 +148,6 @@
 #ask-question .btn {
   font-family: 'Work Sans', sans-serif;
   font-weight: bolder;
-
-
 }
 
 #ask-question-field {
@@ -180,8 +177,8 @@
   }
 
   #set-mood .card {
-      align-items: center;
-      justify-content: center;
+/*      align-items: center;
+      justify-content: center;*/
   }
 
   #student-multiple-choice .answers {
