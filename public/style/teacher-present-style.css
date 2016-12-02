@@ -46,12 +46,12 @@
   font-family: 'Avenir', sans-serif;
   font-weight: bolder;
   text-align: center;
-  background-color: #006494;
+  background-color: #FFFFFF;
   margin: 0;
 }
 
 .TeacherPresentCurrentUser h4 {
-  color: white;
+  color: black;
   font-weight: normal;
   padding: .5em 0 .5em 0;
   margin: 0 !important;

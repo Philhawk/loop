@@ -24,12 +24,12 @@ class TeacherLoggedInComponent extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col s2"></div>
-          <div className="col s8 card TeacherPresentCurrentUser">
+
+          <div className="col s12 card TeacherPresentCurrentUser">
             <h4>{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</h4>
             {this.generatePresentorStopButton()}
           </div>
-        <div className="col s2"></div>
+
         </div>
     )
   }

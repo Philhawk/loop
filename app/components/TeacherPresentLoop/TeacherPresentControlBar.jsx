@@ -20,7 +20,6 @@ class TeacherPresentControlBarComponent extends Component {
   // bitlyShareLink = this.props.session.bitly;
 
   paperStyle = {
-
     height: '3em',
     width: '100%',
     textAlign: 'center',
@@ -33,7 +32,7 @@ class TeacherPresentControlBarComponent extends Component {
   generatePresentorLink = (linkURL) => {
     return (
       <div className="col s12 m8 l9">
-        <Paper className="presentorLink" style={this.paperStyle} zDepth={2}>
+        <Paper className="presentorLink" style={this.paperStyle}>
             {this.props.session.bitly}
         </Paper>
       </div>
