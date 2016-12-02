@@ -11,6 +11,10 @@
   padding-bottom: 1em;
 }
 
+.startpaddingbtn {
+  margin-left: 3em;
+}
+
 .welcome-modal {
   text-align: center;
   padding-bottom: 0.2em;

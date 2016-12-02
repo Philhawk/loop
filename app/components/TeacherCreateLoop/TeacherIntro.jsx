@@ -215,6 +215,28 @@ class TeacherCreateLoopComponent extends Component {
        case 2:
          return (
            <div className="row backgroundCard">
+
+            <div className='row'>
+              <div className='col s12 m12 l12'>
+                 <div className='col s6 m6 l6'>
+                    <Link to={`/profile/previousLoops`}>
+                      <RaisedButton
+                        label={'Save Presentation for later'}
+                        primary={true}
+                      />
+                    </Link>
+                  </div>
+                  <div className='col s6 m6 l6'>
+                    <Link to={`/loop/${this.props.session.sessionString}`}>
+                      <RaisedButton
+                        label={'Start Presentation'}
+                        disabled={ this.props.questionsList.length === 1 ? true : false }
+                        primary={true}
+                      />
+                    </Link>
+                   </div>
+              </div>
+            </div>
              <div className='col s6 m6 l6'>
                <div className="col s12 m12 l12" id="questionOption">
                  <div className="card white-grey">
@@ -244,18 +266,6 @@ class TeacherCreateLoopComponent extends Component {
                    </div>
                  </div>
 
-
-                 <div className='start-presentation-button-on-create'>
-                 <Link to={`/profile/previousLoops`}>
-                   <Button waves='light' id="startPresBtn">Save Presentation</Button>
-                 </Link>
-                   <RaisedButton
-                     label={'Start Presentation'}
-                     disabled={ this.props.questionsList.length === 1 ? true : false }
-                     primary={true}
-                     onTouchTap={this.handleNext}
-                   />
-                  </div>
                </div>
              </div>
              <div className='col s6 m6 l6'>
