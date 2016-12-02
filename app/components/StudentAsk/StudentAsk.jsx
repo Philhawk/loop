@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button } from 'react-materialize'
 
 class StudentAskComponent extends Component {
   constructor() {
@@ -28,9 +29,9 @@ class StudentAskComponent extends Component {
               <div className="input-field col s10">
                 <textarea name="studentAsk" id="ask-question-field" className="materialize-textarea"></textarea>
                 <label className="labelText" htmlFor="textarea1">Ask a question here...</label>
-                  <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <Button className="#0d47a1 blue darken-4" type="submit" name="action">Submit
                     <i className="material-icons right">send</i>
-                  </button>
+                  </Button>
               </div>
               <div className="col s1"></div>
             </div>

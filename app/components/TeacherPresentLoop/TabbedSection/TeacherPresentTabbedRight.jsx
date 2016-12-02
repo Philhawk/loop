@@ -73,15 +73,3 @@ const mapDispatchToProps = { callStudentSelectA, callStudentSelectB, callStudent
 const TeacherPresentTabbedRight = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentTabbedRightComponent)
 
 export default TeacherPresentTabbedRight;
-
-  //Bring back the tabs for more data views
-
-        // <Tabs
-        //   onChange={this.handleChange}
-        //   value={this.state.slideIndex}
-        // >
-        //   <Tab className="teacherPresentTabs" label="Data" value={0} />          onChange={this.handleChange}
-        //   value={this.state.slideIndex}
-        // >
-        //   <Tab className="teacherPresentTabs" label="Data" value={0} />
-        // </Tabs>

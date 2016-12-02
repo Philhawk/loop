@@ -31,9 +31,9 @@
 }
 
 #set-mood .thumb-buttons {
+  background-color: #0d47a1 !important;
   height: 100px;
   width: 100px;
-  background-color: red;
   line-height: 0 !important;
   text-align: center;
 }
@@ -63,6 +63,7 @@
   text-align: left;
 }
 
+/*CHECKING*/
 .answer {
   font-family: 'Work Sans', sans-serif;
   font-weight: bold;
@@ -73,7 +74,7 @@
 }
 
 #incoming-question i {
-  color: #26A69A;
+  color: #0d47a1;
   vertical-align: text-top;
   display: inline-block;
   margin: 20px auto;
@@ -102,7 +103,12 @@
 }
 
 .answer.correct {
-  background-color:#4DB6AC;
+  background-color: #85C150;
+  color: white;
+}
+
+.answer.incorrect {
+  background-color: #F30000;
   color: white;
 }
 

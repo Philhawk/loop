@@ -30,7 +30,7 @@ class MultipleChoiceStudentComponent extends Component {
     if (this.state.submitted) {
       return <Button className="disabled submit-button-student">Submitted</Button>
     } else {
-     return <Button className="submit-button-student" onClick={this.onSubmitAnswer}>Submit Answer</Button>
+     return <Button className="submit-button-student #0d47a1 blue darken-4" onClick={this.onSubmitAnswer}>Submit Answer</Button>
     }
   }
 
@@ -43,9 +43,8 @@ class MultipleChoiceStudentComponent extends Component {
             return (
               <div className="col l3 m6 s12 student-answers" key={index}>
                 <div className="row">
-                { Number(this.state.correctAnswer) === index ? <p style={{color: 'green'}}>Correct Answer!</p> : null }
                   <div className={ `card answer hoverable z-depth-1 ${ this.state.selected === index ? "selected" : ""} ${ Number(this.state.correctAnswer) === index ? "correct": ""}`} onClick={() => this.setState({ selected: index })}>
-                      <p>{choice}</p>
+                    <div>{choice}</div>
                   </div>
                 </div>
               </div>
@@ -53,7 +52,7 @@ class MultipleChoiceStudentComponent extends Component {
           })
         }
         <div className="row">
-          <div clasName="col s12 submit-button-student-container">
+          <div className="col s12 submit-button-student-container">
             {this.showButton()}
           </div>
         </div>
@@ -67,3 +66,4 @@ const mapStateToProps = ({ currentQuestion, socket, session }) => ({ currentQues
 const MultipleChoiceStudent = connect(mapStateToProps)(MultipleChoiceStudentComponent)
 
 export default MultipleChoiceStudent;
+                  // { Number(this.state.correctAnswer) === index ? <p style={{color: 'green'}}>Correct Answer!</p> : null }
