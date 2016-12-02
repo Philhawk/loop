@@ -13,10 +13,6 @@
   font-weight: normal;
 }
 
-.teacherPresentationViewContent .row{
-  padding-bottom: 0px !important;
-}
-
 .teacherPresentationViewPanel {
   background-color: #4E546C;
   padding: 0 !important;
@@ -111,9 +107,20 @@
   font-size: 14px !important;
   margin-top: 1.2em;
   padding-top: 0.1em;
+  padding-bottom: 0.6em !important;
   border: 1px solid grey;
   border-radius: 4px;
   text-align: left;
+}
+
+.p-tag-surrounding-incoming-question {
+  height: 50px !important;
+  padding-top: 0.72em;
+  padding-left: 2em;
+}
+
+.teacherPresentationViewContent .row{
+  padding-bottom: 0px;
 }
 
 .student-question-button {
@@ -163,6 +170,3 @@
 .recharts-legend-wrapper{
   padding-top: 5px;
 }
-
-
-
