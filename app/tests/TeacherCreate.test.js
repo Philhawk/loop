@@ -25,11 +25,15 @@ global.navigator = {
   userAgent: 'node.js'
 };
 
-
 describe('<TeacherCreateLoop />', function () {
   it('TeacherCreateLoopComponent Mounts', function () {
     
-     let TCLComponent = shallow(<TeacherCreateLoopComponent session={{sessionString:"test"}} question={{content:'just some funky stuff'}} />);
+     let TCLComponent = shallow(
+        <TeacherCreateLoopComponent contextTypes={{contextTypes:'test'}}session={{sessionString:"test"}} question={{content:'just some funky stuff'}} />,
+        {
+        contextTypes: {'test' : 'test'},
+        childContextTypes: {'test': React.PropTypes.object}
+      });
     //expect(wrapper.find(NavItem)).to.have.length(3);
   });
 });
