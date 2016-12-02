@@ -4,6 +4,6 @@ import { Link } from 'react-router';
 
 export default ({ auth }) => (
   <div className='row'>
-    YO FROM LOOP STATS!
+
   </div>
 )

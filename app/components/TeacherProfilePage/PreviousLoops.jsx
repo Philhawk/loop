@@ -52,9 +52,10 @@ class PreviousLoopsComponent extends Component {
                     <Button value={lecture.id} onClick={this.onDeleteLoopClick}>Delete Loop</Button>
                   </div>
                   <div className="row loop-stats">
-                    <FlatButton>Stats</FlatButton>
+                    <Link to={`/loopStats/${id}`}><FlatButton>See Stats</FlatButton></Link>
                     <FlatButton>Stat 1</FlatButton>
                     <FlatButton>Stat 2</FlatButton>
+                    <FlatButton>Stat 3</FlatButton>
                   </div>
                 </CardActions>
               </Card>

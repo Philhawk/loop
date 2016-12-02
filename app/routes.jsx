@@ -82,7 +82,7 @@ const routes =()=> (
       <Route path='post-loop-student-analysis' component={LoopStudentAnalysis} />
       <Route path='activeLoops' component={StudentLandingPage} onEnter={onForStudentsEnter} />
       <Route path='profile' component={TeacherProfilePage} onEnter={onTeacherProfileEnter}>
-        <Route path='loopStats' component={LoopStats} />
+        <Route path='loopStats/:id' component={LoopStats} />
         <Route path ='previousLoops' component={PreviousLoops} />
       </Route>
     </Route>
