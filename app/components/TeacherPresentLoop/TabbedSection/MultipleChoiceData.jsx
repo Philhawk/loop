@@ -1,83 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import c3 from 'c3'
+import { BarChart, ResponsiveContainer, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 class MultipleChoiceDataComponent extends Component {
   constructor(props) {
     super(props);
   }
-
-  componentDidMount() {
-    this._updateChart();
-  }
-
-  componentDidUpdate() {
-    this._updateChart();
-  }
-
-  maxCount(data){
-    let maxAnswers = data.reduce((a,b) => {
-      return (a < b) ? b : a;
-    })
-    return (maxAnswers) ? maxAnswers : 1;
-  }
-
-  genSeries(maxValue){
-    let values = [0,1];
-
-    for(let i =1; i <= maxValue; i++){
-      values.push(i+1);
-    }
-
-    return values;
-  }
-
-
-  _updateChart() {
-    const chart = c3.generate({
-      bindto: '#chart',
-      padding: {
-         top: 20,
-         left: 30,
-         right: 20,
-         bottom: 20
-      },
-      data: {
-        columns: [
-         ['Response',this.props.data[0],this.props.data[1],this.props.data[2],this.props.data[3]]
-       ],
-        type: 'bar'
-        },
-      bar: {
-        width: {
-            ratio: 0.5 // this makes bar width 50% of length between ticks
-        }
-      },
-      axis: {
-        x: {
-            type: 'category',
-            categories: ['A', 'B', 'C', 'D'],
-            tick: {
-              centered: true
-            }
-        },
-        y: {
-          label: {
-             text: 'Count',
-             position: 'outer-middle',
-          },
-          tick : {
-            values: this.genSeries(this.maxCount(this.props.data)),
-            count: this.maxCount(this.props.data)
-          },
-        }
-      }
-    })
-  }
-
+  
   render() {
+    const data = [
+      {name: 'A', response: this.props.data[0]},
+      {name: 'B', response: this.props.data[1]},
+      {name: 'C', response: this.props.data[2]},
+      {name: 'D', response: this.props.data[3]}
+    ];
+    
     return (
-        <div id="chart"></div>
+      <ResponsiveContainer>
+        <BarChart data={data}
+              margin={{top: 20, right: 30, left: 0, bottom: 20}}>
+         <XAxis dataKey="name"/>
+         <YAxis/>
+         <CartesianGrid strokeDasharray="3 3"/>
+         <Tooltip/>
+         <Legend margin={{top: 20, right: 0, left: 0, bottom: 0}} />
+         <Bar dataKey="response" fill="#82ca9d" />
+        </BarChart>
+      </ResponsiveContainer>
     );
   }
 }
