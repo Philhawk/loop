@@ -22,8 +22,8 @@ class TeacherPresentLoopComponent extends Component {
       <div className="teacherPresentationContainer">
         <div className="row card teacherPresentationViewMain">
           <div className="col s12 m12 l12 teacherPresentationViewContent">
-             <TeacherPresentControlBar />
              <TeacherLoggedIn />
+             <TeacherPresentControlBar />
              <TeacherPresentMainCards />
              <TeacherPresentTabbedSection />
           </div>

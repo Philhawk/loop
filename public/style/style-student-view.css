@@ -18,13 +18,14 @@
 .turn-red {
   background-color: red;
 }
+
 .submit-button-student {
   font-family: 'Work Sans', sans-serif;
   font-weight: bolder;
   margin: 10px auto 0px auto;
   display: block;
-
 }
+
 .submit-button-student-container {
   text-align: center;
 }
@@ -34,22 +35,11 @@
   width: 100px;
   background-color: red;
   line-height: 0 !important;
+  text-align: center;
 }
-
-#set-mood .card {
-  padding-top: 6em;
-  padding-left: 1.8em;
-  align-items: center;
-  justify-content: center;
-}
-
 
 #set-mood .thumbs {
   font-size: 56px;
-}
-
-#student-view {
-  padding: 3vh 3vw 3vh 3vw;
 }
 
 .card {
@@ -58,9 +48,9 @@
 
 #student-view {
   background-color: #006494;
-  padding: 2em;
   margin-bottom: 0;
   height: 100vh;
+  padding: 3vh 3vw 3vh 3vw;
 }
 
 .question-incoming {
@@ -146,16 +136,14 @@
 
 #confusedText {
   font-family: 'Work Sans', sans-serif;
-  font-weight: 50;
-  color: black;
-  font-size: 18px;
+  padding-top: 1em;
+  text-align: center;
 }
 
 #mood-explanation-text {
   font-family: 'Work Sans', sans-serif;
-  font-weight: 50;
-  color: black;
-  font-size: 18px;
+  padding-top: 1em;
+  text-align: center;
 }
 
 #ask-question .btn {
@@ -174,20 +162,11 @@
 /*super large*/
 
 @media (min-width: 1280px) {
-  #set-mood .card {
-    padding-top: 6em;
-    align-items: center;
-    justify-content: center;
-  }
+
 
 }
 @media (max-width: 1280px) {
-  #set-mood .card {
-    padding-top: 0;
-    padding-left: 3em;
-    align-items: center;
-    justify-content: center;
-  }
+
 
   .change-width-mid {
     width: 100% !important;
@@ -231,13 +210,6 @@
   #student-multiple-choice {
   }
 
-  #set-mood .card {
-    padding-top: 0;
-    padding-left: 0;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
   .question-incoming {
     font-size: 24px;
   }
@@ -297,14 +269,6 @@
 
   #set-mood .thumbs {
       font-size: 40px;
-  }
-
-  #set-mood .card {
-    padding-right: 0;
-    padding-left: 0;
-    padding-top: 2em;
-    align-items: center;
-    justify-content: center;
   }
 
 }
@@ -367,13 +331,6 @@
 /*iphone5*/
 @media (max-width: 376px) {
 
-  #set-mood .card {
-    padding-right: 0;
-    padding-left: 0;
-    padding-top: 4em;
-    align-items: center;
-    justify-content: center;
-  }
   #student-open-ended .row {
     padding-bottom: 1em;
   }

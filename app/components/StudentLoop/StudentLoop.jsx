@@ -60,14 +60,12 @@ class StudentLoopComponent extends Component {
         <Tabs value={this.state.value} onChange={this.handleChange}>
           <Tab label="Questions" value="studentQustionsForTeacher">
             <div>
-              <h2 style={styles.headline}>Questions</h2>
-                <StudentAsk />
+              <StudentAsk />
             </div>
           </Tab>
           <Tab label="Your Mood" value="yourMood">
             <div>
-              <h2 style={styles.headline}>Your Mood</h2>
-                <StudentMood />
+              <StudentMood />
             </div>
           </Tab>
         </Tabs>
