@@ -31,6 +31,13 @@ export const updateLecture = ({ name, mood, description, teacher_id, lecture_id 
   })
 }
 
+export const deleteLecture = ({ lecture_id }) => dispatch => {
+  return axios.delete(`/api/lectures/${lecture_id}`)
+  .then(() => {
+    console.log("LOOP DELETED")
+  })
+}
+
 const initialState = { id: 0, name: "", mood: 0, timeStarted: null}
 
 const reducer = (state = initialState, { lecture, type }) => {
