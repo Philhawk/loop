@@ -13,3 +13,8 @@
 .teacher-profile-loops {
   margin-top: 2em;
 }
+
+.loop-stats {
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
+}
