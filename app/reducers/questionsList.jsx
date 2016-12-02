@@ -5,6 +5,7 @@ import axios from 'axios';
 const ADD_QUESTION = "ADD_QUESTION";
 const REMOVE_QUESTION = "REMOVE_QUESTION";
 const SET_QUESTIONS = "SET_QUESTIONS";
+const ADD_INITIAL_STATE = "ADD_INITIAL_STATE";
 
 export const addQuestion = question => ({
   type: ADD_QUESTION, question
@@ -18,8 +19,16 @@ export const setQuestions = (questions) => ({
   type: SET_QUESTIONS, questions
 })
 
+export const addInitialState = () => ({
+  type: ADD_INITIAL_STATE
+})
+
 export const callRemoveQuestion = () => dispatch => {
   dispatch(removeQuestion())
+}
+
+export const callAddInitialState = () => dispatch => {
+  dispatch(addInitialState())
 }
 
 
@@ -59,6 +68,8 @@ const reducer = (state = initialState, action) => {
     return state.slice(1)
     case SET_QUESTIONS:
     return action.questions
+    case ADD_INITIAL_STATE:
+    return initialState.concat(state);
   }
   return state;
 }
