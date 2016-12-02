@@ -80,7 +80,7 @@ class StudentMoodChartComponent extends Component {
           <div className="card-title">Total Students: { this.state.totalStudents }</div>
           <span className="card-title">{ this.showMoodIndicator() } </span>
             <div style={{overflow: "hidden"}} >
-               <SmoothieComponent labels={{fillStyle:'rgb(0, 100, 148)'}} grid={{strokeStyle:'rgb(43, 155, 252)', fillStyle:'rgb(0, 100, 148)', lineWidth: 1, millisPerLine: 250, verticalSections: 6}} ref="chart" width="500px" height="250px"/>
+               <SmoothieComponent labels={{fillStyle:'rgb(0, 100, 148)'}} grid={{strokeStyle:'rgb(43, 155, 252)', fillStyle:'rgb(0, 100, 148)', lineWidth: 1, millisPerLine: 250, verticalSections: 6}} ref="chart" width="700px" height="350px"/>
             </div>
         </div>
       </div>
