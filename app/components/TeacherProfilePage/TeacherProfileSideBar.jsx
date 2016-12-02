@@ -9,7 +9,7 @@ export default ({ auth }) => (
         <h4>{auth.name}</h4>
     </div>
     <div className="row">
-      Saved Loops
+      <Link to='/profile/previousLoops'><Button>Saved Loops</Button></Link>
     </div>
     <div className="row">
       <Link to='/create-intro'><Button>Create Loop</Button></Link>

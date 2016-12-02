@@ -4,7 +4,7 @@ import moment from 'moment';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Slider from 'material-ui/Slider';
 import { Button }  from 'react-materialize';
-import { Link } from 'react-router';
+import { browserHistory } from 'react-router';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
@@ -15,19 +15,38 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import {Card, CardActions, CardMedia, CardHeader, CardText} from 'material-ui/Card';
+import { updateSession } from '../../reducers/session';
 
 class LoopAnalysis extends Component {
   constructor() {
     super();
+    this.state = {
+      sessionLength: '',
+    }
+    this.onReturnHome = this.onReturnHome.bind(this);
   }
 
-
-  render() {
+  componentWillReceiveProps(nextProps) {
+    console.log("NEXT PROPS", nextProps)
     let timeNow = moment();
     let lectureStart = moment(this.props.session.timeStarted)
     let duration = moment.duration(timeNow - lectureStart)
     let formattedTimeDuration = moment(duration.asMilliseconds()).format('mm:ss')
+    this.setState({ sessionLength: formattedTimeDuration })
+  }
 
+  onReturnHome(e) {
+    e.preventDefault();
+    this.props.updateSession({
+      session_id: this.props.session.id,
+      sessionLength: this.state.sessionLength
+    })
+    .then(() => {
+      browserHistory.push("/profile/previousLoops");
+    })
+  }
+
+  render() {
     const styles = {
       headline: {
         fontSize: 24,
@@ -36,7 +55,6 @@ class LoopAnalysis extends Component {
         fontWeight: 400,
       },
     };
-
 
     return (
 
@@ -48,7 +66,7 @@ class LoopAnalysis extends Component {
               <Card>
                 <CardText style={{color: 'white', backgroundColor: 'teal', margin: '1em 0 1em 0', paddingBottom: '1em'}}>
                   Duration:
-                  <h1>{formattedTimeDuration}</h1>
+                  <h1>{this.state.sessionLength}</h1>
                 </CardText>
                 <CardMedia></CardMedia>
               </Card>
@@ -76,11 +94,9 @@ class LoopAnalysis extends Component {
                 </CardText>
                 <CardMedia></CardMedia>
               </Card>
-              <Link to="/profile/previousLoops" className="white-text">
-                <Button waves='light' className="#4E546C darken-2 return-home-finish">
+                <Button waves='light' className="#4E546C darken-2 return-home-finish" onClick={this.onReturnHome}>
                   Return Home
                 </Button>
-              </Link>
               </Tab>
               <Tab label="Questions" >
                 <div>
@@ -115,6 +131,7 @@ class LoopAnalysis extends Component {
 }
 
 const mapStateToProps = ({ session, studentQuestions, studentMood, answeredQuestions}) => ({ session, studentQuestions, studentMood, answeredQuestions })
-const Loop = connect(mapStateToProps)(LoopAnalysis)
+const mapDispatchToProps = { updateSession }
+const Loop = connect(mapStateToProps, mapDispatchToProps)(LoopAnalysis)
 
 export default Loop;

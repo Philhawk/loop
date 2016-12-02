@@ -112,7 +112,7 @@ sessionsRouter.put('/:sessionId/activate', (req, res, next) => {
 })
 
 // update a specific session
-sessionsRouter.put('/:sessionId/end', (req, res, next) => {
+sessionsRouter.put('/:sessionId', (req, res, next) => {
   console.log(req.params.sessionId)
   db.model('sessions').findById(req.params.sessionId)
   .then(session => {
@@ -124,7 +124,7 @@ sessionsRouter.put('/:sessionId/end', (req, res, next) => {
   .catch(next);
 })
 
-// increments currentQuestion of a session by 1
+// increments currentQuestion property on session of a session by 1
 sessionsRouter.put('/:sessionString/next', (req, res, next) => {
   db.model('sessions').findOne({
     where: {
@@ -142,7 +142,7 @@ sessionsRouter.put('/:sessionString/next', (req, res, next) => {
   .catch(next);
 })
 
-// deletes a specific question
+// deletes a specific session
 sessionsRouter.delete('/:sessionId', (req, res, next) => {
   db.model('sessions').findById(req.params.sessionId)
   .then(session => {

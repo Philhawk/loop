@@ -29,7 +29,6 @@ import { fetchActiveSessions } from './reducers/activeSessions';
 import { fetchLecturesByTeacher } from './reducers/lectureList';
 import { fetchSessions } from './reducers/activeSessions';
 
-
 const onLoopEnter = () => {
   if(!store.getState().questionsList[0].default) {
     store.dispatch(addInitialState())
@@ -70,10 +69,6 @@ const onTeacherProfileEnter = () => {
   store.dispatch(fetchLecturesByTeacher({ id: store.getState().auth.id}))
 }
 
-const onLoopStatsEnter = (data) => {
-  store.dispatch(fetchSessions({ id: data.params.id }))
-}
-
 const routes =()=> (
   <Router history={browserHistory}>
     <Route path='/'>
@@ -87,7 +82,7 @@ const routes =()=> (
       <Route path='post-loop-student-analysis' component={LoopStudentAnalysis} />
       <Route path='activeLoops' component={StudentLandingPage} onEnter={onForStudentsEnter} />
       <Route path='profile' component={TeacherProfilePage} onEnter={onTeacherProfileEnter}>
-        <Route path='/loopStats/:id' component={LoopStats} onEnter={onLoopStatsEnter} />
+        <Route path='/loopStats' component={LoopStats} />
         <Route path ='previousLoops' component={PreviousLoops} />
       </Route>
     </Route>
