@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button }  from 'react-materialize';
 import { Link, browserHistory } from 'react-router'
 import { connect } from 'react-redux'
-import FlatButton from 'material-ui/FlatButton';
 import uuid from 'uuid';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import { createActiveSession } from '../../reducers/session';
@@ -12,16 +11,19 @@ import { fetchLecturesByTeacher } from '../../reducers/lectureList';
 
 
 
+
 class PreviousLoopsComponent extends Component {
   constructor() {
     super();
     this.onStartLoopClick = this.onStartLoopClick.bind(this);
     this.onDeleteLoopClick = this.onDeleteLoopClick.bind(this);
+    this.onLoopStatsClick = this.onLoopStatsClick.bind(this);
   }
 
   onStartLoopClick(e) {
+    console.log("EEEEE", e.target.value)
     this.props.fetchAllQuestionsByLectureId({ lecture_id: e.target.value })
-    this.props.fetchLecture(e.target.value)
+    this.props.fetchLecture({ lecture_id: e.target.value})
     this.props.createActiveSession({sessionString: uuid(), lecture_id: e.target.value })
     .then(() => {
       browserHistory.push(`/loop/${this.props.session.sessionString}`)
@@ -32,6 +34,14 @@ class PreviousLoopsComponent extends Component {
     this.props.deleteLecture({ lecture_id: e.target.value })
     .then(() => {
       this.props.fetchLecturesByTeacher({ id: this.props.auth.id })
+    })
+  }
+
+  onLoopStatsClick(e) {
+    e.preventDefault()
+    this.props.fetchLecture({ lecture_id: e.target.value })
+    .then(() => {
+      browserHistory.push(`loopStats`)
     })
   }
 
@@ -52,9 +62,7 @@ class PreviousLoopsComponent extends Component {
                     <Button value={lecture.id} onClick={this.onDeleteLoopClick}>Delete Loop</Button>
                   </div>
                   <div className="row loop-stats">
-                    <FlatButton>Stats</FlatButton>
-                    <FlatButton>Stat 1</FlatButton>
-                    <FlatButton>Stat 2</FlatButton>
+                    <Button value={lecture.id} onClick={this.onLoopStatsClick}>See Stats</Button>
                   </div>
                 </CardActions>
               </Card>
