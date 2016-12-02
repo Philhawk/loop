@@ -15,6 +15,13 @@ export const fetchActiveSessions = () => dispatch => {
   })
 }
 
+export const fetchSessions = ({id}) => dispatch => {
+  axios.get(`/api/sessions/lecture/${id}`)
+  .then(sessions => {
+    dispatch(setActiveSessions(sessions.data))
+  })
+}
+
 // initial state
 const initialState = [];
 

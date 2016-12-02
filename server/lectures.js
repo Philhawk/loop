@@ -26,6 +26,7 @@ lecturesRouter.get('/:lectureId', (req, res, next) => {
 // get a specific lecture by teacherID
 lecturesRouter.get('/teacher/:teacherId', (req, res, next) => {
   db.model('lectures').findAll({
+    include: [ { model: db.model('sessions') } ],
     where: { teacher_id: req.params.teacherId }
   })
   .then(lectureList => {
