@@ -4,8 +4,17 @@ import { Link } from 'react-router';
 import { Button } from 'react-materialize';
 
 class TeacherLoggedInComponent extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      totalStudents: 0
+    }
+    this.props.socket.on('studentJoined', () => {
+      this.setState({ totalStudents: this.state.totalStudents + 1 })
+    })
+    this.props.socket.on('studentLeft', () => {
+      this.setState({ totalStudents: this.state.totalStudents - 1 })
+    })
     this.onEndLecture = this.onEndLecture.bind(this);
   }
 
@@ -26,16 +35,21 @@ class TeacherLoggedInComponent extends Component {
       <div className="row">
 
           <div className="col s12 card TeacherPresentCurrentUser">
-            <h4>{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</h4>
-            {this.generatePresentorStopButton()}
+            <h4 className="col s4">{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</h4>
+            <div className="col s4 card-title">
+              Total Students: { this.state.totalStudents }
+            </div>
+            <div className="col s4">
+              {this.generatePresentorStopButton()}
+            </div>
           </div>
 
-        </div>
+      </div>
     )
   }
 }
 
-const mapStateToProps = ({auth}) => ({auth})
+const mapStateToProps = ({auth, socket}) => ({auth, socket})
 const mapDispatchToProps = {};
 const TeacherLoggedIn = connect(mapStateToProps, mapDispatchToProps)(TeacherLoggedInComponent)
 
