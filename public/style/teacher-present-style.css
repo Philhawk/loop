@@ -47,7 +47,7 @@
   font-weight: bolder;
   text-align: center;
   background-color: #FFFFFF;
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .TeacherPresentCurrentUser h4 {
@@ -83,7 +83,7 @@
 
 .presentorLink {
   font-family: 'Avenir', sans-serif;
-  background-color: #4E546C !important;
+  background-color: #546E7A!important;
   color: white !important;
   margin-top: 0.35em !important;
 }

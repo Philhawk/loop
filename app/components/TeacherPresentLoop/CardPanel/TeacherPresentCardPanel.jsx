@@ -32,8 +32,8 @@ class TeacherPresentCardPanelComponent extends Component {
                     if(question.default === true) return null
                     else {
                       return (
-                        <div className="col s4">
-                          <div className="card #37474f white-grey darken-3" key={i}>
+                        <div className="col s4" key={i}>
+                          <div className="card #37474f white-grey darken-3" >
                             <div className="card-content black-text">
                               <p>{question.content}</p>
                             </div>
