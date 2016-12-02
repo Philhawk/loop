@@ -65,10 +65,10 @@ class TeacherPresentControlBarComponent extends Component {
                     </div>
                     <div className="col s12 m6 l6">
                       <div className="row">
-                        <div className="col s12 m4 l3">
+                        <div className="col s12 m3 l3">
                           <h4 className="share-something">Share On Social</h4>
                         </div>
-                        <div className="col s4 m4 l3">
+                        <div className="col s4 m3 l3">
                           <GooglePlusShareButton
                             url={shareUrl}
                             className="social-buttons">
@@ -77,7 +77,7 @@ class TeacherPresentControlBarComponent extends Component {
                               round />
                           </GooglePlusShareButton>
                         </div>
-                        <div className="col s4 m4 l3">
+                        <div className="col s4 m3 l3">
                           <FacebookShareButton
                             url={shareUrl}
                             title={title}
@@ -87,7 +87,7 @@ class TeacherPresentControlBarComponent extends Component {
                               round />
                           </FacebookShareButton>
                         </div>
-                        <div className="col s4 m4 l3">
+                        <div className="col s4 m3 l3">
                           <TwitterShareButton
                             url={shareUrl}
                             title={title}

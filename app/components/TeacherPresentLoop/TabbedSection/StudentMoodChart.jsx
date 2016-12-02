@@ -10,18 +10,8 @@ var SmoothieComponent = require('react-smoothie');
 class StudentMoodChartComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      totalStudents: 0,
-    }
     this.props.socket.on('studentMoodIndex', ({mood}) => {
       this.props.callStudentAddMood({mood: mood})
-    })
-    this.props.socket.on('studentJoined', () => {
-      this.setState({totalStudents: this.state.totalStudents + 1 })
-    })
-    this.props.socket.on('studentLeft', () => {
-      console.log("STUDENT LEFT!!!")
-      this.setState({ totalStudents: this.state.totalStudents - 1 })
     })
   }
 
@@ -77,7 +67,6 @@ class StudentMoodChartComponent extends Component {
     return (
       <div className="card white">
         <div className="card-content black-text">
-          <div className="card-title">Total Students: { this.state.totalStudents }</div>
           <span className="card-title">{ this.showMoodIndicator() } </span>
             <div style={{overflow: "hidden"}} >
                <SmoothieComponent labels={{fillStyle:'rgb(0, 100, 148)'}} grid={{strokeStyle:'rgb(43, 155, 252)', fillStyle:'rgb(0, 100, 148)', lineWidth: 1, millisPerLine: 250, verticalSections: 6}} ref="chart" width="500px" height="250px"/>

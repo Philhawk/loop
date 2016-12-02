@@ -20,7 +20,9 @@ class TeacherLoggedInComponent extends Component {
 
   generatePresentorStopButton = () => {
     return (
-        <Link to='/post-loop-analysis'><Button waves='light' className="##d32f2f red darken-2" onClick={this.onEndLecture}>Stop Presentation</Button></Link>
+        <Link to='/post-loop-analysis'>
+          <Button waves='light' className="##d32f2f red darken-2" onClick={this.onEndLecture}>Stop Presentation</Button>
+        </Link>
     )
   }
 
@@ -34,12 +36,12 @@ class TeacherLoggedInComponent extends Component {
     return (
       <div className="row">
 
-          <div className="col s12 card TeacherPresentCurrentUser">
-            <h4 className="col s4">{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</h4>
-            <div className="col s4 card-title">
+          <div className="col s12 card TeacherPresentCurrentUser" style={{"padding": "20px"}}>
+            <h5 className="col s12 m12 l4">{this.props.auth && this.props.auth.name || 'NotLoggedInFail'}</h5>
+            <h5 className="col s12 m12 l4">
               Total Students: { this.state.totalStudents }
-            </div>
-            <div className="col s4">
+            </h5>
+            <div className="col s12 m12 l4">
               {this.generatePresentorStopButton()}
             </div>
           </div>
