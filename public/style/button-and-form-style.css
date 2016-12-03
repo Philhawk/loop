@@ -1,0 +1,28 @@
+/*Changes the colors for the multiple choice and fill in the blank forms*/
+.input-field input:focus + label {
+ color: #0D47A1 !important;
+}
+
+.input-field input:focus {
+ border-bottom: 1px solid #0D47A1 !important;
+ box-shadow: 0 1px 0 0 #0D47A1 !important
+}
+
+/* Changes the colors for the open ended form */
+.input-field textarea:focus + label {
+  color: #0D47A1 !important;
+}
+
+.input-field textarea:focus {
+   border-bottom: 1px solid #0D47A1 !important;
+   box-shadow: 0 1px 0 0 #0D47A1 !important
+}
+
+/* Changes colors for the login and name your loop fields*/
+form input:focus {
+  border-bottom: 1px solid #0D47A1 !important;
+}
+
+form textarea:focus {
+  border-bottom: 1px solid #0D47A1 !important;
+}

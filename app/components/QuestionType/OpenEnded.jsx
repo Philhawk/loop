@@ -48,14 +48,14 @@ class OpenEndedComponent extends Component {
           <h3 className="form-signin-heading">Open Ended</h3>
           <h5 id="formh5">Enter your question in the form below</h5>
           <div className="input-field col s12">
-            <textarea id="icon_prefix2" className="materialize-textarea" name="question"></textarea>
-            <label htmlFor="icon_prefix2">Question</label>
+            <textarea className="materialize-textarea" name="question"></textarea>
+            <label>Question</label>
           </div>
           <div className="input-field col s12">
-            <textarea id="icon_prefix2" className="materialize-textarea" name="answer"></textarea>
-            <label htmlFor="icon_prefix2">Answer</label>
+            <textarea className="materialize-textarea" name="answer"></textarea>
+            <label>Answer</label>
           </div>
-          <Button waves='light' onTouchTap={this.handleTouchTap}>Save question</Button>
+          <Button className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.handleTouchTap}>Save question</Button>
           <Snackbar
             open={this.state.open}
             message="Card Created"

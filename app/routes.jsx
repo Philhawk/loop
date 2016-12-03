@@ -75,6 +75,7 @@ const routes =()=> (
       <IndexRoute component={App}/>
       <Route path = 'welcome' component={LoginSignupChoice} />
       <Route path = 'create-intro' component={TeacherIntro} />
+       {/*TeacherCreateLoop is a backup*/}
       <Route path = 'create-loop' component={TeacherCreateLoop} />
       <Route path ='loop/*' component={Loop} onEnter={onLoopEnter}/>
       <Route path='studentLoop/:loopUuId' component={StudentLoop} onEnter={onStudentLoopEnter} />

@@ -111,7 +111,7 @@ class TeacherCreateLoopComponent extends Component {
                     <span className="card-title">Fill in the blank</span>
                   </div>
                   <div className="card-action">
-                    <Button waves='light' className="#0d47a1 blue darken-4" onClick={this.onFillInBlank}>Create</Button>
+                    <Button waves='light' className="createBtn" onClick={this.onFillInBlank}>Create</Button>
                   </div>
                 </div>
 

@@ -107,11 +107,6 @@
   color: white;
 }
 
-.answer.incorrect {
-  background-color: #F30000;
-  color: white;
-}
-
 #student-multiple-choice {
   text-align: left;
   margin: auto 5% auto 5%;
