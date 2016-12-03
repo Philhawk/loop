@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Tabs, Tab} from 'material-ui/Tabs';
+
+const styles = {
+  headline: {
+    fontSize: 24,
+    paddingTop: 16,
+    marginBottom: 12,
+    fontWeight: 400,
+  },
+};
 
 class LoopStatsComponent extends Component {
   constructor() {
@@ -71,46 +81,46 @@ class LoopStatsComponent extends Component {
     this.setState({ responses })
   }
 
+  handleChange = (value) => {
+    this.setState({
+      value: value,
+    });
+  };
+
   render() {
     return (
-      <div>
-        <div className='row'>
-          <div className='col s8'>
-            <h3>Loop Name: {this.props.lecture.name}</h3>
-            <h4>Loop Description: {this.props.lecture.description}</h4>
-          </div>
-          <div className='col s4'>
-            <h5>Times Ran: {this.props.lecture.sessions.length}</h5>
-            <h5>Average Length: {this.state.averageTime}</h5>
-          </div>
-        </div>
-          <div className="row">
-            {
-            this.state.responses && this.state.responses.map((response, i) => {
-              return response.type === 'multipleChoice' ?
 
-                  <div className="col s12 card" key={i}>
-                    <h5>{response.question}</h5>
-                    <p>{response.choices[0]}: {response.a}</p>
-                    <p>{response.choices[1]}: {response.b}</p>
-                    <p>{response.choices[2]}: {response.c}</p>
-                    <p>{response.choices[3]}: {response.d}</p>
-                  </div>
-               :
-               <div className="col s12 card" key={i}>
-                 <h5>{response.question}</h5>
-                 {
-                  response.answers.map((response, i) => {
-                    return (
-                      <p>{response}</p>
-                    )
-                  })
-                }
-                </div>
-            })
-          }
-          </div>
+      <div className="row backgroundCardOther">
+        <div className='col s12 m12 l12 card no-pad-tab-view'>
+          <Tabs
+           value={this.state.value}
+           onChange={this.handleChange}
+         >
+           <Tab label="Tab A" value="a" >
+             <div>
+               <h2 style={styles.headline}>Controllable Tab A</h2>
+               <p>
+                 Tabs are also controllable if you want to programmatically pass them their values.
+                 This allows for more functionality in Tabs such as not
+                 having any Tab selected or assigning them different values.
+               </p>
+             </div>
+           </Tab>
+           <Tab label="Tab B" value="b">
+             <div>
+               <h2 style={styles.headline}>Controllable Tab B</h2>
+               <p>
+                 This is another example of a controllable tab. Remember, if you
+                 use controllable Tabs, you need to give all of your tabs values or else
+                 you wont be able to select them.
+               </p>
+             </div>
+           </Tab>
+         </Tabs>
+        </div>
       </div>
+
+
     )
   }
 }
@@ -120,3 +130,43 @@ const mapDispatchToProps = {};
 const LoopStats = connect(mapStateToProps, mapDispatchToProps)(LoopStatsComponent)
 
 export default LoopStats;
+
+
+// <div>
+//   <div className='row'>
+//     <div className='col s8'>
+//       <h3>Loop Name: {this.props.lecture.name}</h3>
+//       <h4>Loop Description: {this.props.lecture.description}</h4>
+//     </div>
+//     <div className='col s4'>
+//       <h5>Times Ran: {this.props.lecture.sessions.length}</h5>
+//       <h5>Average Length: {this.state.averageTime}</h5>
+//     </div>
+//   </div>
+//     <div className="row">
+//       {
+//       this.state.responses && this.state.responses.map((response, i) => {
+//         return response.type === 'multipleChoice' ?
+//
+//             <div className="col s12 card" key={i}>
+//               <h5>{response.question}</h5>
+//               <p>{response.choices[0]}: {response.a}</p>
+//               <p>{response.choices[1]}: {response.b}</p>
+//               <p>{response.choices[2]}: {response.c}</p>
+//               <p>{response.choices[3]}: {response.d}</p>
+//             </div>
+//          :
+//          <div className="col s12 card" key={i}>
+//            <h5>{response.question}</h5>
+//            {
+//             response.answers.map((response, i) => {
+//               return (
+//                 <p>{response}</p>
+//               )
+//             })
+//           }
+//           </div>
+//       })
+//     }
+//     </div>
+// </div>
