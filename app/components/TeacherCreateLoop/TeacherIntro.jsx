@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import { createLecture, updateLecture } from '../../reducers/lecture';
-import { createSession, activateSession } from '../../reducers/session';
+import { createSession, activateSession, deleteSession } from '../../reducers/session';
 import { callAddInitialState, callClearQuestions } from '../../reducers/questionsList';
 import QuestionInstructions from '../QuestionType/QuestionInstructions';
 
@@ -36,7 +36,7 @@ class TeacherCreateLoopComponent extends Component {
     this.onOpenEndedNext = this.onOpenEndedNext.bind(this);
     this.handleFirstContinue = this.handleFirstContinue.bind(this);
     this.onSavePresentation = this.onSavePresentation.bind(this);
-
+    this.onStartPresentation = this.onStartPresentation.bind(this);
   }
 
   componentDidMount() {
@@ -48,10 +48,6 @@ class TeacherCreateLoopComponent extends Component {
     }).then(
       () => this.props.createSession({sessionString: uuid(), lecture_id: this.props.lecture.id})
     )
-  }
-
-  componentWillUnmount() {
-    this.props.activateSession({ session_id: this.props.session.id })
   }
 
   handleNext = () => {
@@ -133,7 +129,11 @@ class TeacherCreateLoopComponent extends Component {
   }
 
   onSavePresentation(e) {
-    this.props.callClearQuestions()
+    this.props.deleteSession({ session_id: this.props.session.id })
+  }
+
+  onStartPresentation(e) {
+    this.props.activateSession({ session_id: this.props.session.id })
   }
 
   onOpenEnded(e) {
@@ -240,6 +240,7 @@ class TeacherCreateLoopComponent extends Component {
                         label={'Start Presentation'}
                         disabled={ this.props.questionsList.length === 1 ? true : false }
                         primary={true}
+                        onClick={this.onStartPresentation}
                       />
                     </Link>
                    </div>
@@ -327,7 +328,15 @@ class TeacherCreateLoopComponent extends Component {
 
 const mapStateToProps = ({ auth, lecture, session, questionsList }) => ({ auth, lecture, session, questionsList })
 
-const mapDispatchToProps = { createSession, createLecture , activateSession, updateLecture, callAddInitialState, callClearQuestions }
+const mapDispatchToProps = {
+  createSession,
+  createLecture,
+  activateSession,
+  updateLecture,
+  callAddInitialState,
+  callClearQuestions,
+  deleteSession
+}
 const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
 
 export default TeacherCreateLoop;

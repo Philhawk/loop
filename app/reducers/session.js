@@ -59,6 +59,13 @@ export const endSession = ({ session_id, sessionLength, active }) => dispatch =>
   })
   .catch(err => console.error(err));}
 
+  export const deleteSession = ({ session_id }) => dispatch => {
+    axios.delete(`/api/sessions/${session_id}`)
+    .then(() => {
+      console.log('SESSION DESTROYED');
+    })
+  }
+
 // Initial State
 const initialState = {
   sessionString: '',
