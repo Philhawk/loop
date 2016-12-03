@@ -10,6 +10,7 @@ const alice = {
 }
 
 describe('/api/auth', () => {
+  console.log("YOYOYOYOYOYO")
   before('create a user', () =>
     db.didSync
       .then(() =>
@@ -21,7 +22,7 @@ describe('/api/auth', () => {
   )
 
   describe('POST /local/login (username, password)', () => {
-    xit('succeeds with a valid username and password', () =>
+    it('succeeds with a valid username and password', () =>
       request(app)
         .post('/api/auth/local/login')
         .send(alice)
@@ -30,7 +31,7 @@ describe('/api/auth', () => {
         .expect('Location', '/')
       )
 
-    xit('fails with an invalid username and password', () =>
+    it('fails with an invalid username and password', () =>
       request(app)
         .post('/api/auth/local/login')
         .send({username: alice.username, password: 'wrong'})
@@ -45,7 +46,7 @@ describe('/api/auth', () => {
         .post('/api/auth/local/login')
         .send(alice))
 
-      xit('responds with the currently logged in user', () =>
+      it('responds with the currently logged in user', () =>
         agent.get('/api/auth/whoami')
           .set('Accept', 'application/json')
           .expect(200)
@@ -55,7 +56,7 @@ describe('/api/auth', () => {
       )
     })
 
-    xit('when not logged in, responds with an empty object', () =>
+    it('when not logged in, responds with an empty object', () =>
       request(app).get('/api/auth/whoami')
         .expect(200)
         .then(res => expect(res.body).to.eql({}))
@@ -69,7 +70,7 @@ describe('/api/auth', () => {
       .post('/api/auth/local/login')
       .send(alice))
 
-    xit('logs you out and redirects to whoami', () => agent
+    it('logs you out and redirects to whoami', () => agent
       .post('/api/auth/logout')
       .expect(302)
       .expect('Location', '/api/auth/whoami')
