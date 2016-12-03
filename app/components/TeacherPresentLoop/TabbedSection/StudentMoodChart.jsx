@@ -16,13 +16,11 @@ class StudentMoodChartComponent extends Component {
   }
 
   componentDidMount() {
-    console.log('what is the props', this.props)
     var ts1 = this.refs.chart.addTimeSeries({},{ strokeStyle: 'rgba(0, 255, 0, 1)', fillStyle: 'rgba(0, 255, 0, 0.2)', lineWidth: 6 });
 
     this.dataGenerator = setInterval(() => {
       var time = new Date().getTime();
       var random = Math.random()
-      console.log('what is the studentMood: ', this.props.studentMood)
       ts1.append(time,(this.props.studentMood));
     }, 100)
   }

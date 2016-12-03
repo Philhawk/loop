@@ -14,7 +14,6 @@ export const setStudentQuestionsForLoop = questions => ({ type: STUDENT_SHOW_ALL
 export const createStudentQuestion = ({ questionContent, session_id }) => dispatch => {
   axios.post('/api/studentQuestions', { content: questionContent, session_id })
   .then(studentQuestion => {
-    console.log("STUDENT QUESTION", studentQuestion.data)
     dispatch(studentAddQuestion(studentQuestion.data))
   })
 }

@@ -14,7 +14,6 @@ export const callStudentAddMood = mood => dispatch => {
 export const putMood = ({ sessionId, mood }) => dispatch => {
   axios.put(`/api/sessions/${sessionId}/mood`, { mood })
   .then((session) => {
-    console.log(session.data)
   })
 }
 

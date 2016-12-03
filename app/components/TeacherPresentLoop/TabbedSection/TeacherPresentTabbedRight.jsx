@@ -28,7 +28,6 @@ class TeacherPresentTabbedRightComponent extends React.Component {
     };
 
     this.props.socket.on('studentMultipleChoiceAnswer', ({answer}) => {
-      console.log("YO YO YO", answer, typeof answer)
       this.props.postResponse({ userResponse: answer, question_id: this.props.questionsList[0].id })
       if(answer === 0) this.props.callStudentSelectA()
       else if(answer === 1) this.props.callStudentSelectB()

@@ -9,9 +9,13 @@ import { createActiveSession } from '../../reducers/session';
 import { fetchAllQuestionsByLectureId, addQuestion } from '../../reducers/questionsList'
 import { fetchLecture, deleteLecture } from '../../reducers/lecture';
 import { fetchLecturesByTeacher } from '../../reducers/lectureList';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 
-
+const style = {
+  marginRight: 20,
+};
 
 class PreviousLoopsComponent extends Component {
   constructor() {
@@ -19,7 +23,6 @@ class PreviousLoopsComponent extends Component {
   }
 
   onStartLoopClick(e) {
-    console.log("EEEEE", e)
     this.props.fetchAllQuestionsByLectureId({ lecture_id: e })
     this.props.fetchLecture({ lecture_id: e})
     this.props.createActiveSession({sessionString: uuid(), lecture_id: e})
@@ -45,6 +48,11 @@ class PreviousLoopsComponent extends Component {
   render() {
     return (
       <div id="previous-loops">
+        <div className='create-new-loop-from-small-screen'>
+           <FloatingActionButton containerElement={<Link to="/create-intro" />} style={style}>
+             <ContentAdd />
+           </FloatingActionButton>
+       </div>
         {
           this.props.lectureList.map((lecture, i) => (
             <div className="col s12 m12 l6" key={i}>
@@ -62,6 +70,7 @@ class PreviousLoopsComponent extends Component {
             </div>
           ))
         }
+
       </div>
     )
   }

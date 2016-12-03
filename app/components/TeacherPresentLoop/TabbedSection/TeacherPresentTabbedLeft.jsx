@@ -30,7 +30,6 @@ class TeacherPresentTabbedLeftComponent extends React.Component {
       slideIndex: 0,
     };
     this.props.socket.on('newStudentQuestion', ({ question }) => {
-      console.log(question)
       this.props.createStudentQuestion({questionContent: question, answered: false, session_id: this.props.session.id })
     })
   }

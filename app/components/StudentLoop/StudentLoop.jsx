@@ -14,7 +14,6 @@ class StudentLoopComponent extends Component {
       value: 'studentQustionsForTeacher'
     }
     this.props.socket.on('newTeacherQuestion', ({question}) => {
-      console.log(question)
       this.props.callSetCurrentQuestion({ content: question.content, choices: question.choices, questionType: question.questionType
       })
     })
@@ -32,7 +31,6 @@ class StudentLoopComponent extends Component {
   };
 
   componentWillUnmount() {
-    console.log("YO YO YO", this.props)
     this.props.socket.emit('something', { sessionString: this.props.session.sessionString })
   }
 

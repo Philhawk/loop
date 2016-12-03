@@ -68,7 +68,6 @@ sessionsRouter.get('/lecture/:id', (req, res, next) => {
 
 // create a session
 sessionsRouter.post('/', (req, res, next) => {
-  console.log('THIS IS THE BODY', req.body)
   db.model('sessions').create(req.body)
   .then(session => {
     res.status(201).send(session)
@@ -78,7 +77,6 @@ sessionsRouter.post('/', (req, res, next) => {
 
 // creates a session that is both active and has a bitly link
 sessionsRouter.post('/active', (req, res, next) => {
-  console.log('THIS IS THE BODY', req.body)
   db.model('sessions').create(req.body)
   .then(session => {
     bitly.shorten('http://loop-teach.herokuapp.com/studentLoop/' + session.sessionString)
@@ -94,7 +92,6 @@ sessionsRouter.post('/active', (req, res, next) => {
 
 // update a specific session AND add bitly link
 sessionsRouter.put('/:sessionId/activate', (req, res, next) => {
-  console.log(req.params.sessionId)
   db.model('sessions').findById(req.params.sessionId)
   .then(session => {
     session.update(req.body)
@@ -113,7 +110,6 @@ sessionsRouter.put('/:sessionId/activate', (req, res, next) => {
 
 // update a specific session
 sessionsRouter.put('/:sessionId', (req, res, next) => {
-  console.log("REQ BODY IN SESSION", req.body)
   db.model('sessions').findById(req.params.sessionId)
   .then(session => {
     session.update(req.body)

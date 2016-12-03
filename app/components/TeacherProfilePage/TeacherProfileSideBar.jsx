@@ -15,7 +15,6 @@ class TeacherProfileSideBar extends Component {
   render() {
     return (
       <div className="col s2" id="teacher-profile-sidebar">
-      {console.log('WHAT IS THE AUTH', this.props.auth)}
         <div className="row top-row-profile">
             <img className="user-profile-pic" src="/img/genericteacher.jpg" alt="You!"/>
             <h6 className='user-profile-name'>{this.props.auth.name}</h6>

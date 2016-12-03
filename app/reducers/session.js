@@ -11,7 +11,6 @@ export const setCurrentSession = session => ({ type: SET_CURRENT_SESSION, sessio
 export const createSession = ({ sessionString, active, lecture_id, bitly }) => dispatch => {
   axios.post('/api/sessions', { sessionString, active, lecture_id, bitly })
   .then(session => {
-    console.log(session.data);
     dispatch(setCurrentSession(session.data))
   })
   .catch(err => console.error(err));
@@ -28,7 +27,6 @@ export const fetchCurrentSession = ({ sessionString }) => dispatch => {
 export const updateSession = ({ session_id, sessionLength }) => dispatch => {
   return axios.put(`/api/sessions/${session_id}`, { sessionLength, active: false })
   .then(session => {
-    console.log(session.data)
   })
 }
 
