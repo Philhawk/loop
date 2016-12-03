@@ -49,7 +49,7 @@ class LoopStatsComponent extends Component {
       // if multiple choice, compute a data object with keys of every time an answer was selected
       // then push to the responses array at the end
       if(question.questionType === 'multipleChoice') {
-        let data = { question: question.content, type: 'multipleChoice', a: 0, b: 0, c: 0, d: 0 }
+        let data = { question: question.content, type: 'multipleChoice', a: 0, b: 0, c: 0, d: 0, choices: question.choices }
         question.responses.forEach((response, i) => {
             if (response.userResponse === '0') data.a = data.a + 1
             else if (response.userResponse === '1') data.b = data.b + 1
@@ -91,10 +91,10 @@ class LoopStatsComponent extends Component {
 
                   <div className="col s12 card" key={i}>
                     <h5>{response.question}</h5>
-                    <p>A: {response.a}</p>
-                    <p>B: {response.b}</p>
-                    <p>C: {response.c}</p>
-                    <p>D: {response.d}</p>
+                    <p>{response.choices[0]}: {response.a}</p>
+                    <p>{response.choices[1]}: {response.b}</p>
+                    <p>{response.choices[2]}: {response.c}</p>
+                    <p>{response.choices[3]}: {response.d}</p>
                   </div>
                :
                <div className="col s12 card" key={i}>
