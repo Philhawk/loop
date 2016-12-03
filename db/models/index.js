@@ -16,6 +16,7 @@ Lecture.belongsToMany(User, { through: 'Participant' })
 Question.belongsTo(Lecture);
 Response.belongsTo(Question);
 Session.belongsTo(Lecture);
+Lecture.hasMany(Session);
 StudentQuestion.belongsTo(Session);
 
 module.exports = {User, Lecture, Question, Response, Session, StudentQuestion}

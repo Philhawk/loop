@@ -8,24 +8,10 @@ const seedUsers = () => db.Promise.each([
   {name: 'Max Exampleton', email: 'max@max.max', password: '1234', role: 'Teacher'},
 ], user => db.model('users').create(user));
 
-// const users = [
-//   {name: 'Barack Obama', email: 'barack@example.gov', password: '1234', role: 'Teacher'},
-//   {name: 'Peter Exampleton', email: 'peter@example.com', password: '1234', role: 'Student'},
-//   {name: 'Susie Sampleton', email: 'susie@example.com', password: '1234', role: 'Student'},
-//   {name: 'Barb Sampling', email: 'barb@example.com', password: '1234', role: 'Student'},
-//   {name: 'Max Exampleton', email: 'max@max.max', password: '1234', role: 'Teacher'},
-// ]
-//
-//
-// var promises = [];
-// for(var i = 0; i < users.length; i++) {
-//   promises.push(db.model('users').create(users[i]))
-// }
-
 const seedLectures = () => db.Promise.each([
-  {name: 'English II Othello', mood: 75, timeStarted: Date.UTC(2016, 11, 5, 8, 25), teacher_id: 1},
-  {name: 'Express.js', mood: 90, timeStarted: Date.UTC(2016, 11, 8, 11, 30), teacher_id: 1},
-  {name: 'Intro to Redux', mood: 20, timeStarted: Date.UTC(2016, 11, 13, 14, 40), teacher_id: 5}
+  {name: 'English II Othello', description: 'A set of questions for the play Othello for the class English II', mood: 75, timeStarted: Date.UTC(2016, 11, 5, 8, 25), teacher_id: 1},
+  {name: 'Express.js', description: 'A set of questions for the express API routing framework.', mood: 90, timeStarted: Date.UTC(2016, 11, 8, 11, 30), teacher_id: 1},
+  {name: 'Intro to Redux', description: 'A set of questions related to the Redux state management library.', mood: 20, timeStarted: Date.UTC(2016, 11, 13, 14, 40), teacher_id: 5}
 ], lecture => db.model('lectures').create(lecture));
 
 const seedQuestions = () => db.Promise.each([
@@ -53,11 +39,14 @@ const seedResponses = () => db.Promise.each([
 ], response => db.model('responses').create(response));
 
 seedSessions = () => db.Promise.each([
-  {sessionString: '12d9dc83-01d6-4085-9cb3-aed81af7b29c', active: false, lecture_id: 1},
-  {sessionString: 'bd6f8c3b-1443-4eee-aa37-c912b9a2bd60', active: false, lecture_id: 1},
-  {sessionString: '64ab97b1-e2ce-4462-8145-0078bd7c946b', active: false, lecture_id: 2},
-  {sessionString: '1a537699-3b81-4dbe-bf3d-507c801681a7', active: false, lecture_id: 2},
-  {sessionString: '270ae15c-d8c9-4e86-bcc3-c05335876132', active: false, lecture_id: 3},
+  {sessionString: '12d9dc83-01d6-4085-9cb3-aed81af7b29c', sessionLength: '45:00', active: false, lecture_id: 1},
+  {sessionString: 'bd6f8c3b-1443-4eee-aa37-c912b9a2bd60', sessionLength: '20:30', active: false, lecture_id: 1},
+  {sessionString: 'bd6f8c3b-1443-4eee-aa37-c912b9a2bd60', sessionLength: '11:31', active: false, lecture_id: 1},
+  {sessionString: 'bd6f8c3b-1443-4eee-aa37-c912b9a2bd60', sessionLength: '50:50', active: false, lecture_id: 1},
+  {sessionString: 'bd6f8c3b-1443-4eee-aa37-c912b9a2bd60', sessionLength: '59:59', active: false, lecture_id: 1},
+  {sessionString: '64ab97b1-e2ce-4462-8145-0078bd7c946b', sessionLength: '22:10', active: false, lecture_id: 2},
+  {sessionString: '1a537699-3b81-4dbe-bf3d-507c801681a7', sessionLength: '31:17', active: false, lecture_id: 2},
+  {sessionString: '270ae15c-d8c9-4e86-bcc3-c05335876132', sessionLength: '44:45', active: false, lecture_id: 3},
 ], session => db.model('sessions').create(session))
 
 

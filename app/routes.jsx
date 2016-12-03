@@ -27,7 +27,7 @@ import {fetchQuestionsAnsweredLength} from './reducers/answeredQuestions';
 import { callSetCurrentQuestion } from './reducers/currentQuestion';
 import { fetchActiveSessions } from './reducers/activeSessions';
 import { fetchLecturesByTeacher } from './reducers/lectureList';
-
+import { fetchSessions } from './reducers/activeSessions';
 
 const onLoopEnter = () => {
   if(!store.getState().questionsList[0].default) {
@@ -82,7 +82,7 @@ const routes =()=> (
       <Route path='post-loop-student-analysis' component={LoopStudentAnalysis} />
       <Route path='activeLoops' component={StudentLandingPage} onEnter={onForStudentsEnter} />
       <Route path='profile' component={TeacherProfilePage} onEnter={onTeacherProfileEnter}>
-        <Route path='loopStats' component={LoopStats} />
+        <Route path='/loopStats' component={LoopStats} />
         <Route path ='previousLoops' component={PreviousLoops} />
       </Route>
     </Route>

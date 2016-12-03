@@ -16,16 +16,23 @@ lecturesRouter.get('/', (req, res, next) => {
 
 // get a specific lecture by its ID
 lecturesRouter.get('/:lectureId', (req, res, next) => {
-  db.model('lectures').findById(req.params.lectureId)
+  console.log("req params lecture ID", req.params.lectureId)
+  db.model('lectures').findOne({
+    include: [ { model: db.model('sessions') } ],
+    where: {
+      id: req.params.lectureId
+    }
+  })
   .then(lecture => {
     res.json(lecture);
   })
   .catch(next);
 });
 
-// get a specific lecture by teacherID
+// get all lectures by a teacher's ID include sessions
 lecturesRouter.get('/teacher/:teacherId', (req, res, next) => {
   db.model('lectures').findAll({
+    include: [ { model: db.model('sessions') } ],
     where: { teacher_id: req.params.teacherId }
   })
   .then(lectureList => {
