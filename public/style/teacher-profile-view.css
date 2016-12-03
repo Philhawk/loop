@@ -6,6 +6,35 @@
 
 }
 
+.loop-questions-card {
+  max-width: 100vh;
+  padding: 2em;
+  margin: 0 auto;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+}
+
+.loop-stats-card {
+  max-width: 600px;
+  padding: 2em;
+  margin: 0 auto;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+}
+
+.card-panel-palette-lightblue {
+  background-color: #00BCD4;
+  color: white;
+}
+
+.card-panel-palette-darkblue {
+  background-color: #0d47a1;
+  color: white;
+}
+.card-panel-palette-grey {
+  background-color:  #546E7A;
+  color: white;
+}
 
 .top-row-profile {
   background-image: url(../img/office.jpg);
@@ -63,23 +92,25 @@
 
 
 
-/*mediun Screen*/
-@media (max-width: 769px) {
 
+@media (min-width: 683px) {
+  .create-new-loop-from-small-screen {
+    display: none;
+  }
 }
-
-
-
-@media screen and (max-device-width: 375px) and (max-device-height: 667px) {
-
-}
-
-/*small screen*/
-
 
 @media (max-width: 682px) {
+  .created-loops {
+    margin-left: 2em !important;
+  }
+
   #teacher-profile-sidebar {
     display: none;
+  }
+  .create-new-loop-from-small-screen {
+    position: fixed;
+    top: 0px;
+    right: 0px;
   }
 }
 

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Tabs, Tab} from 'material-ui/Tabs';
+import { BarChart, ResponsiveContainer, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const styles = {
   headline: {
     fontSize: 24,
     paddingTop: 16,
+    paddingBottom: 16,
+    paddingLeft: 20,
     marginBottom: 12,
     fontWeight: 400,
   },
@@ -88,7 +91,7 @@ class LoopStatsComponent extends Component {
   };
 
   render() {
-    console.log("RESPONSES!", this.state.responses)
+
     return (
 
       <div className="row backgroundCardOther">
@@ -97,19 +100,96 @@ class LoopStatsComponent extends Component {
            value={this.state.value}
            onChange={this.handleChange}
          >
-           <Tab label="Tab A" value="a" >
+           <Tab label="Loop Data" value="a" >
              <div>
-               <h2 style={styles.headline}>Controllable Tab A</h2>
-               <p>
-                 Tabs are also controllable if you want to programmatically pass them their values.
-                 This allows for more functionality in Tabs such as not
-                 having any Tab selected or assigning them different values.
-               </p>
+               <h2 style={styles.headline}>Loop Data</h2>
+               <div className="row">
+                <div className='col s12 m12 l12'>
+                  <div className='row'>
+                    <div className='col s12 m4 l4'>
+                      <div className="card-panel-palette-grey loop-stats-card">
+                        <p> Name </p>
+
+                        <h4> {this.props.lecture.name} </h4>
+                      </div>
+                    </div>
+                    <div className='col s12 m4 l4'>
+                      <div className="card-panel-palette-darkblue loop-stats-card">
+                        <p> Times Played </p>
+
+                        <h4> {this.props.lecture.sessions.length}</h4>
+                      </div>                    </div>
+                    <div className='col s12 m4 l4'>
+                      <div className="card-panel-palette-lightblue loop-stats-card">
+                      <p> Average Duration </p>
+
+                      <h4> {this.state.averageTime} </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+             </div>
+             <div>
+
+              <Tabs value={this.state.value} onChange={this.handleChange} >
+                { this.state.responses && this.state.responses.map((response, i) => {
+
+                const data = [
+                  {name: 'option i', responseOption: response.a},
+                  {name: 'option 2', responseOption: response.b},
+                  {name: 'option 3', responseOption: response.c},
+                  {name: 'option 4', responseOption: response.d}
+                ]
+
+                console.log('THIS IS THE DATA', data)
+
+                return(
+                     <Tab label={`Q` + (i + 1)} value={response.question.content} >
+                       <div className="card-panel-palette-grey loop-questions-card">
+                         <p> Question </p>
+
+                         <h4> {response.question} </h4>
+                       </div>
+                       {
+                        (response.type === 'multipleChoice') ? (
+                          <ResponsiveContainer>
+                            <BarChart data={data}
+                                  margin={{top: 20, right: 30, left: 0, bottom: 20}}>
+                             <XAxis dataKey="name"/>
+                             <YAxis/>
+                             <CartesianGrid strokeDasharray="3 3"/>
+                             <Tooltip/>
+                             <Legend margin={{top: 20, right: 0, left: 0, bottom: 0}} />
+                             <Bar dataKey="response" fill="#82ca9d" />
+                            </BarChart>
+                          </ResponsiveContainer>
+                         ) : (
+                         <div className="col s12 card" key={i}>
+                           <h5>{response.question}</h5>
+                           {
+                            response.answers.map((response, i) => {
+                              return (
+                                <p>{response}</p>
+                              )
+                            })
+                          }
+                          </div>
+                        )
+                      }
+
+                     </Tab>
+                   )
+                 })
+               }
+              </Tabs>
+
+
              </div>
            </Tab>
-           <Tab label="Tab B" value="b">
+           <Tab label="Loop Mood" value="b">
              <div>
-               <h2 style={styles.headline}>Controllable Tab B</h2>
+               <h2 style={styles.headline}>Loop Mood</h2>
                <p>
                  This is another example of a controllable tab. Remember, if you
                  use controllable Tabs, you need to give all of your tabs values or else
@@ -131,6 +211,23 @@ const mapDispatchToProps = {};
 const LoopStats = connect(mapStateToProps, mapDispatchToProps)(LoopStatsComponent)
 
 export default LoopStats;
+
+// { this.state.responses && this.state.responses.map((response, i) => {
+//
+//   return(
+//       <Tabs value={this.state.value} onChange={this.handleChange} >
+//         <Tab label={`Q` + (i + 1)} value={response.question} >
+//           <div>
+//             <h2 style={styles.headline}>Controllable Tab A</h2>
+//             <p>
+//
+//             </p>
+//           </div>
+//         </Tab>
+//       </Tabs>
+//     )
+//   })
+// }
 
 
 // <div>

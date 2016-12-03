@@ -6,15 +6,17 @@ class MultipleChoiceDataComponent extends Component {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
+
     const data = [
       {name: 'A', response: this.props.data[0]},
       {name: 'B', response: this.props.data[1]},
       {name: 'C', response: this.props.data[2]},
       {name: 'D', response: this.props.data[3]}
     ];
-    
+
+    console.log('THI SIS THE STUDENT RESPONSE OF THE QUESTION', data)
     return (
       <ResponsiveContainer>
         <BarChart data={data}
