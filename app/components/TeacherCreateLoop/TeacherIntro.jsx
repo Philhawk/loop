@@ -183,7 +183,7 @@ class TeacherCreateLoopComponent extends Component {
                    <input id="loop-name" name="loopName" type="text" />
                    <span className="name-loop-font">Describe Your Loop</span>
                    <textarea id="loop-description" name="loopDescription" className="materialize-textarea"></textarea>
-                  <Button className="createBtn">Continue</Button>
+                  <Button className='#0d47a1 blue darken-4' waves='light'>Continue</Button>
                </form>
              </div>
              <div className='col s6 m6 l6'>
@@ -204,14 +204,14 @@ class TeacherCreateLoopComponent extends Component {
 
                <div className='button-questions-pad'>
                 <div className='col s4 m4 l4'>
-                  <Button className="createBtn" onTouchTap={this.onFillInBlank}>Fill in the blank</Button>
+                  <Button className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onFillInBlank}>Fill in the blank</Button>
                 </div>
 
                 <div className='col s4 m4 l4'>
-                  <Button className="createBtn" onTouchTap={this.onMultipleChoice}>Multiple Choice</Button>
+                  <Button className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onMultipleChoice}>Multiple Choice</Button>
                 </div>
                 <div className='col s4 m4 l4'>
-                  <Button className="createBtn" onTouchTap={this.onOpenEnded}>Open Ended</Button>
+                  <Button className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onOpenEnded}>Open Ended</Button>
                 </div>
                 </div>
              </div>
@@ -252,7 +252,7 @@ class TeacherCreateLoopComponent extends Component {
                      <span className="card-title">Fill in the blank</span>
                    </div>
                    <div className="card-action">
-                     <Button className="createBtn" onTouchTap={this.onFillInBlankNext}>Create</Button>
+                     <Button className='#0d47a1 blue darken-4' waves='light'onTouchTap={this.onFillInBlankNext}>Create</Button>
                    </div>
                  </div>
 
@@ -261,7 +261,7 @@ class TeacherCreateLoopComponent extends Component {
                      <span className="card-title">Multiple Choice</span>
                    </div>
                    <div className="card-action">
-                     <Button className="createBtn" onTouchTap={this.onMultipleChoiceNext}>Create</Button>
+                     <Button className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onMultipleChoiceNext}>Create</Button>
                    </div>
                  </div>
 
@@ -270,7 +270,7 @@ class TeacherCreateLoopComponent extends Component {
                      <span className="card-title">Open Ended</span>
                    </div>
                    <div className="card-action">
-                     <Button className="createBtn" onTouchTap={this.onOpenEndedNext}>Create</Button>
+                     <Button className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onOpenEndedNext}>Create</Button>
                    </div>
                  </div>
 

@@ -3,7 +3,7 @@
 }
 
 .teacher-text {
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Avenir", sans-serif;
   font-weight: 50;
   color: black;
   font-size: 6em;
@@ -20,8 +20,7 @@
 }
 
 .submit-button-student {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: bolder;
+  font-family: "Avenir", sans-serif;
   margin: 10px auto 0px auto;
   display: block;
 }
@@ -54,8 +53,7 @@
 }
 
 .question-incoming {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: bolder;
+  font-family: "Avenir", sans-serif;
   color: black;
   font-size: 1em;
   text-align: center;
@@ -63,9 +61,8 @@
   text-align: left;
 }
 
-/*CHECKING*/
 .answer {
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Avenir", sans-serif;
   font-weight: bold;
   color: black;
   font-size: 1em;
@@ -107,11 +104,6 @@
   color: white;
 }
 
-.answer.incorrect {
-  background-color: #F30000;
-  color: white;
-}
-
 #student-multiple-choice {
   text-align: left;
   margin: auto 5% auto 5%;
@@ -140,25 +132,24 @@
 }
 
 #confusedText {
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Avenir", sans-serif;
   padding-top: 1em;
   text-align: center;
 }
 
 #mood-explanation-text {
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Avenir", sans-serif;
   padding-top: 1em;
   text-align: center;
 }
 
 #ask-question .btn {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: bolder;
+  font-family: "Avenir", sans-serif;
 }
 
 #ask-question-field {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: bolder;
+  font-family: "Avenir", sans-serif;
+
 }
 
 

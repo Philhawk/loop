@@ -15,8 +15,6 @@
   background-image: url(../img/office.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
- /* height: 100vh;
-  max-width: 100vw;*/
   margin-bottom: 0;
 }
 
@@ -30,7 +28,7 @@
 }
 
 .start-presentation-button-on-create {
-    margin-top: 4em;
+  margin-top: 4em;
 }
 
 .no-shadow {
@@ -67,6 +65,7 @@
 }
 
 .form-questions {
+  font-family: "Avenir", sans-serif;
   padding: 30px 38px 66px;
   margin: 0 auto;
   background-color: #E8f1f2;
@@ -88,9 +87,6 @@
   margin-bottom: 1em;
 }
 
-.createBtn {
-  color: white;
-}
 .createBtnBox {
   float: right;
 }

@@ -85,7 +85,7 @@ onQuestionCreate(e) {
             <Input name='correct' type='radio' value='1' label='B' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='2' label='C' className='with-gap' onClick={this.onRadioSelect}/>
             <Input name='correct' type='radio' value='3' label='D' className='with-gap' onClick={this.onRadioSelect}/>
-            <Button waves='light' className="button-pad" onTouchTap={this.handleTouchTap}>Save question</Button>
+            <Button className='#0d47a1 blue darken-4 button-pad' waves='light' onTouchTap={this.handleTouchTap}>Save question</Button>
             <Snackbar
               open={this.state.open}
               message="Card Created"

@@ -1,6 +1,7 @@
 /*Teacher Presentation View Styles*/
 
 .teacherPresentationContainer{
+  font-family: "Avenir", sans-serif;
   background-color: #006494;
   padding: 2em;
   margin-bottom: 0;
@@ -39,7 +40,6 @@
 }
 
 .TeacherPresentCurrentUser{
-  font-family: 'Avenir', sans-serif;
   font-weight: bolder;
   text-align: center;
   background-color: #FFFFFF;
