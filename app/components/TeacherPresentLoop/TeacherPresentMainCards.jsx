@@ -7,7 +7,7 @@ import { callReset } from '../../reducers/data';
 import { callOpenEndedReset} from '../../reducers/openEndedAnswers'
 import { endSession } from '../../reducers/session'
 import { Button } from 'react-materialize';
-import { callStudentAddMood } from '../../reducers/studentMood';
+import { putMood } from '../../reducers/studentMood';
 import TeacherPresentCardPanel from './CardPanel/TeacherPresentCardPanel';
 
 class TeacherPresentMainCardsComponent extends Component {
@@ -30,6 +30,7 @@ class TeacherPresentMainCardsComponent extends Component {
       this.props.callRemoveQuestion();
       this.props.callReset();
       this.props.callOpenEndedReset();
+      this.props.putMood({ mood: this.props.studentMood, sessionId: this.props.session.id })
       if (this.props.questionsList.length === 0) {
         this.setState({ button: 'endLecture', revealAnswer: false })
       } else {
@@ -129,8 +130,8 @@ class TeacherPresentMainCardsComponent extends Component {
 }
 
 
-const mapStateToProps = ({ questionsList, socket, session }) => ({ questionsList, socket, session })
-const mapDispatchToProps = {callRemoveQuestion, callReset, callOpenEndedReset, endSession };
+const mapStateToProps = ({ questionsList, socket, session, studentMood }) => ({ questionsList, socket, session, studentMood })
+const mapDispatchToProps = {callRemoveQuestion, callReset, callOpenEndedReset, endSession, putMood };
 const TeacherPresentMainCards = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentMainCardsComponent)
 
 export default TeacherPresentMainCards;

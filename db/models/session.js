@@ -24,6 +24,10 @@ const Session = db.define('sessions', {
   },
   sessionLength: {
     type: Sequelize.STRING
+  },
+  mood: {
+    type: Sequelize.ARRAY(Sequelize.INTEGER),
+    defaultValue: []
   }
 })
 

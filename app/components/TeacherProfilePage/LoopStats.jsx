@@ -59,7 +59,7 @@ class LoopStatsComponent extends Component {
       // if multiple choice, compute a data object with keys of every time an answer was selected
       // then push to the responses array at the end
       if(question.questionType === 'multipleChoice') {
-        let data = { question: question.content, type: 'multipleChoice', a: 0, b: 0, c: 0, d: 0, choices: question.choices }
+        let data = { question: question.content, type: 'multipleChoice', a: 0, b: 0, c: 0, d: 0, choices: question.choices, correctAnswer: question.correctAnswer }
         question.responses.forEach((response, i) => {
             if (response.userResponse === '0') data.a = data.a + 1
             else if (response.userResponse === '1') data.b = data.b + 1
@@ -70,7 +70,7 @@ class LoopStatsComponent extends Component {
 
         //if open ended, push all responses to the data array and then push into the results array
       } else if (question.questionType === 'openEnded') {
-        let data = {question: question.content, type: 'openEnded', answers: []}
+        let data = {question: question.content, type: 'openEnded', answers: [], correctAnswer: question.correctAnswer }
         question.responses.forEach(response => {
           data.answers.push(response.userResponse)
         })
@@ -88,6 +88,7 @@ class LoopStatsComponent extends Component {
   };
 
   render() {
+    console.log("RESPONSES!", this.state.responses)
     return (
 
       <div className="row backgroundCardOther">
