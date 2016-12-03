@@ -7,11 +7,16 @@
 }
 
 .loop-questions-card {
-  max-width: 100vh;
+  max-width: 124vh;
+  height: 18vh;
   padding: 2em;
   margin: 0 auto;
   transition: box-shadow .25s;
   border-radius: 2px;
+}
+
+.no-padding-on-stats-view {
+  padding: 0 !important;
 }
 
 .loop-stats-card {

@@ -23,7 +23,6 @@ class PreviousLoopsComponent extends Component {
   }
 
   onStartLoopClick(e) {
-    console.log("EEEEE", e)
     this.props.fetchAllQuestionsByLectureId({ lecture_id: e })
     this.props.fetchLecture({ lecture_id: e})
     this.props.createActiveSession({sessionString: uuid(), lecture_id: e})

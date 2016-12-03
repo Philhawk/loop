@@ -39,7 +39,6 @@ export const callReset = () => dispatch => {
 export const postResponse = ({ userResponse, question_id }) => dispatch => {
   axios.post('/api/responses', { userResponse, question_id })
   .then((response) => {
-    console.log(response.data)
   })
 }
 

@@ -9,7 +9,6 @@ class IncomingQuestionComponent extends Component {
   }
 
   answerType(){
-    console.log(this.props)
     if(this.props.currentQuestion.questionType === 'multipleChoice') {
       return <MultipleChoiceStudent />
     } else if(this.props.currentQuestion.questionType === "fillInTheBlank") {

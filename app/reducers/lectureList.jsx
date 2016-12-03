@@ -8,7 +8,6 @@ export const setLectures = lectureList => ({ type: SET_LECTURES, lectureList })
 
 // async action creators
 export const fetchLecturesByTeacher = ({ id }) => dispatch => {
-  console.log("ID", id)
   axios.get(`/api/lectures/teacher/${id}`)
   .then(lectureList => {
     dispatch(setLectures(lectureList.data));

@@ -16,7 +16,6 @@ lecturesRouter.get('/', (req, res, next) => {
 
 // get a specific lecture by its ID
 lecturesRouter.get('/:lectureId', (req, res, next) => {
-  console.log("req params lecture ID", req.params.lectureId)
   db.model('lectures').findOne({
     include: [
       {

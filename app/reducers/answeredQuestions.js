@@ -9,7 +9,6 @@ export const teacherQuestionsAnswered = length => ({ type: TEACHER_QUESTIONS_ANS
 export const fetchQuestionsAnsweredLength = ({session_id}) => dispatch => {
   axios.get(`api/studentQuestions/session/${session_id}/answered`)
   .then((questions) => {
-    console.log('MASHED POTATO', questions.data)
     dispatch(teacherQuestionsAnswered(questions.data.length))
   })
 }

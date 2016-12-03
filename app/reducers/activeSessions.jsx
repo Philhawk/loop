@@ -10,7 +10,6 @@ export const setActiveSessions = (sessionList) => ({ type: SET_ACTIVE_SESSIONS, 
 export const fetchActiveSessions = () => dispatch => {
   axios.get('/api/sessions/active')
   .then(sessions => {
-    console.log(sessions.data)
     dispatch(setActiveSessions(sessions.data))
   })
 }
