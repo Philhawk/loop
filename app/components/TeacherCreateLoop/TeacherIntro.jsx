@@ -183,7 +183,7 @@ class TeacherCreateLoopComponent extends Component {
                </form>
              </div>
              <div className='col s6 m6 l6'>
-                <img className="createloopimage" src="/createloop.png" />
+                <img className="responsive-img" src="/createloop.png" />
 
              </div>
            </div>
@@ -211,7 +211,7 @@ class TeacherCreateLoopComponent extends Component {
                 </div>
                 </div>
              </div>
-                <img className="createloopimage" src="/createquestions.png" />
+                <img className="responsive-img" src="/createquestions.png"></img>
              </div>
            </div>
          )

@@ -35,6 +35,9 @@
   box-shadow: none;
 }
 
+.no-pad-tab-view {
+  padding: 0 !important;
+
 .question-instructions-main {
   padding-top: 8%;
 }
@@ -110,9 +113,14 @@
 }
 
 
+.createLoopImage {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
 .createloopimage {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 100% !important;
+  max-height: 100% !important;
 }
 
 @media (min-width: 1600px) {

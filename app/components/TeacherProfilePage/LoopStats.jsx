@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Tabs, Tab} from 'material-ui/Tabs';
+
+const styles = {
+  headline: {
+    fontSize: 24,
+    paddingTop: 16,
+    marginBottom: 12,
+    fontWeight: 400,
+  },
+};
 
 class LoopStatsComponent extends Component {
   constructor() {
@@ -49,7 +59,7 @@ class LoopStatsComponent extends Component {
       // if multiple choice, compute a data object with keys of every time an answer was selected
       // then push to the responses array at the end
       if(question.questionType === 'multipleChoice') {
-        let data = { question: question.content, type: 'multipleChoice', a: 0, b: 0, c: 0, d: 0 }
+        let data = { question: question.content, type: 'multipleChoice', a: 0, b: 0, c: 0, d: 0, choices: question.choices, correctAnswer: question.correctAnswer }
         question.responses.forEach((response, i) => {
             if (response.userResponse === '0') data.a = data.a + 1
             else if (response.userResponse === '1') data.b = data.b + 1
@@ -60,7 +70,7 @@ class LoopStatsComponent extends Component {
 
         //if open ended, push all responses to the data array and then push into the results array
       } else if (question.questionType === 'openEnded') {
-        let data = {question: question.content, type: 'openEnded', answers: []}
+        let data = {question: question.content, type: 'openEnded', answers: [], correctAnswer: question.correctAnswer }
         question.responses.forEach(response => {
           data.answers.push(response.userResponse)
         })
@@ -71,46 +81,47 @@ class LoopStatsComponent extends Component {
     this.setState({ responses })
   }
 
-  render() {
-    return (
-      <div>
-        <div className='row'>
-          <div className='col s8'>
-            <h3>Loop Name: {this.props.lecture.name}</h3>
-            <h4>Loop Description: {this.props.lecture.description}</h4>
-          </div>
-          <div className='col s4'>
-            <h5>Times Ran: {this.props.lecture.sessions.length}</h5>
-            <h5>Average Length: {this.state.averageTime}</h5>
-          </div>
-        </div>
-          <div className="row">
-            {
-            this.state.responses && this.state.responses.map((response, i) => {
-              return response.type === 'multipleChoice' ?
+  handleChange = (value) => {
+    this.setState({
+      value: value,
+    });
+  };
 
-                  <div className="col s12 card" key={i}>
-                    <h5>{response.question}</h5>
-                    <p>A: {response.a}</p>
-                    <p>B: {response.b}</p>
-                    <p>C: {response.c}</p>
-                    <p>D: {response.d}</p>
-                  </div>
-               :
-               <div className="col s12 card" key={i}>
-                 <h5>{response.question}</h5>
-                 {
-                  response.answers.map((response, i) => {
-                    return (
-                      <p>{response}</p>
-                    )
-                  })
-                }
-                </div>
-            })
-          }
-          </div>
+  render() {
+    console.log("RESPONSES!", this.state.responses)
+    return (
+
+      <div className="row backgroundCardOther">
+        <div className='col s12 m12 l12 card no-pad-tab-view'>
+          <Tabs
+           value={this.state.value}
+           onChange={this.handleChange}
+         >
+           <Tab label="Tab A" value="a" >
+             <div>
+               <h2 style={styles.headline}>Controllable Tab A</h2>
+               <p>
+                 Tabs are also controllable if you want to programmatically pass them their values.
+                 This allows for more functionality in Tabs such as not
+                 having any Tab selected or assigning them different values.
+               </p>
+             </div>
+           </Tab>
+           <Tab label="Tab B" value="b">
+             <div>
+               <h2 style={styles.headline}>Controllable Tab B</h2>
+               <p>
+                 This is another example of a controllable tab. Remember, if you
+                 use controllable Tabs, you need to give all of your tabs values or else
+                 you wont be able to select them.
+               </p>
+             </div>
+           </Tab>
+         </Tabs>
+        </div>
       </div>
+
+
     )
   }
 }
@@ -120,3 +131,43 @@ const mapDispatchToProps = {};
 const LoopStats = connect(mapStateToProps, mapDispatchToProps)(LoopStatsComponent)
 
 export default LoopStats;
+
+
+// <div>
+//   <div className='row'>
+//     <div className='col s8'>
+//       <h3>Loop Name: {this.props.lecture.name}</h3>
+//       <h4>Loop Description: {this.props.lecture.description}</h4>
+//     </div>
+//     <div className='col s4'>
+//       <h5>Times Ran: {this.props.lecture.sessions.length}</h5>
+//       <h5>Average Length: {this.state.averageTime}</h5>
+//     </div>
+//   </div>
+//     <div className="row">
+//       {
+//       this.state.responses && this.state.responses.map((response, i) => {
+//         return response.type === 'multipleChoice' ?
+//
+//             <div className="col s12 card" key={i}>
+//               <h5>{response.question}</h5>
+//               <p>{response.choices[0]}: {response.a}</p>
+//               <p>{response.choices[1]}: {response.b}</p>
+//               <p>{response.choices[2]}: {response.c}</p>
+//               <p>{response.choices[3]}: {response.d}</p>
+//             </div>
+//          :
+//          <div className="col s12 card" key={i}>
+//            <h5>{response.question}</h5>
+//            {
+//             response.answers.map((response, i) => {
+//               return (
+//                 <p>{response}</p>
+//               )
+//             })
+//           }
+//           </div>
+//       })
+//     }
+//     </div>
+// </div>

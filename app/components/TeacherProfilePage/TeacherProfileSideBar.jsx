@@ -18,7 +18,7 @@ class TeacherProfileSideBar extends Component {
       {console.log('WHAT IS THE AUTH', this.props.auth)}
         <div className="row top-row-profile">
             <img className="user-profile-pic" src="/img/genericteacher.jpg" alt="You!"/>
-            <h6 style={{color: 'white'}}>{this.props.auth.name}</h6>
+            <h6 className='user-profile-name'>{this.props.auth.name}</h6>
         </div>
         <div className="row">
           <Menu style={{width: "144px"}}>

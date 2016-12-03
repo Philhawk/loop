@@ -113,10 +113,23 @@ sessionsRouter.put('/:sessionId/activate', (req, res, next) => {
 
 // update a specific session
 sessionsRouter.put('/:sessionId', (req, res, next) => {
-  console.log(req.params.sessionId)
   db.model('sessions').findById(req.params.sessionId)
   .then(session => {
     session.update(req.body)
+    .then(updatedSession => {
+      res.status(201).json(updatedSession)
+    })
+  })
+  .catch(next);
+})
+
+// add mood to session's mood array
+sessionsRouter.put('/:sessionId/mood', (req, res, next) => {
+  db.model('sessions').findById(req.params.sessionId)
+  .then(session => {
+    session.update({
+      mood: session.mood.concat(req.body.mood)
+    })
     .then(updatedSession => {
       res.status(201).json(updatedSession)
     })
