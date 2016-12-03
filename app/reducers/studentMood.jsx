@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // Constants
 const STUDENT_ADD_MOOD = "STUDENT_ADD_MOOD";
 
@@ -7,6 +9,13 @@ export const studentAddMood = ({mood}) => ({ type: STUDENT_ADD_MOOD, mood })
 // Async Action Creators
 export const callStudentAddMood = mood => dispatch => {
   dispatch(studentAddMood(mood))
+}
+
+export const putMood = ({ sessionId, mood }) => dispatch => {
+  axios.put(`/api/sessions/${sessionId}/mood`, { mood })
+  .then((session) => {
+    console.log(session.data)
+  })
 }
 
 // Initial State
