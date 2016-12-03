@@ -132,7 +132,6 @@ class TeacherCreateLoopComponent extends Component {
   }
 
 
-
   onOpenEnded(e) {
     const {stepIndex} = this.state;
     this.setState({
