@@ -21,6 +21,9 @@ const Session = db.define('sessions', {
   },
   bitly: {
     type: Sequelize.STRING
+  },
+  sessionLength: {
+    type: Sequelize.STRING
   }
 })
 

@@ -9,8 +9,8 @@ export const setLecture = lecture => ({
   lecture
 })
 
-export const fetchLecture = lecture_id => dispatch => {
-  axios.get(`/api/lectures/${lecture_id}`)
+export const fetchLecture = ({lecture_id}) => dispatch => {
+  return axios.get(`/api/lectures/${lecture_id}`)
   .then(lecture => {
     dispatch(setLecture(lecture.data))
   })
