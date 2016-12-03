@@ -42,8 +42,10 @@ class LoginSignUpComponent extends Component {
 
         <div>
           <div className="row">
-            <Button waves='light' className="#0091ea light-blue accent-4 col l6 m6 s6 login-switchers" onClick={this.onLoginSelect}>Login</Button>
-            <Button waves='light' className="#ff8a65 deep-orange lighten-2 col l6 m6 s6 login-switchers" onClick={this.onSignUpSelect}>SignUp</Button>
+          <div className="col s1 m2 l3"></div>
+            <Button waves='light' className="#0d47a1 blue darken-4 col s5 m4 l3 login-switchers" onClick={this.onLoginSelect}>Login</Button>
+            <Button waves='light' className="#ff8a65 deep-orange lighten-2 col s5 m4 l3 login-switchers" onClick={this.onSignUpSelect}>SignUp</Button>
+          <div className="col s1 m2 l3"></div>
           </div>
           <div className="card-panel z-depth-4 font-fam">
             {this.showForm()}

@@ -25,8 +25,8 @@ class LoginComponent extends Component {
           <hr className="colorgraph"></hr>
           <input className="form-control" name="email" placeholder="Username" />
           <input className="form-control" name="password" type="password" placeholder="Password" />
-          <Button waves='light' className="#c2185b pink darken-2">Login</Button>
-          <Button waves='light' className="#c2185b green darken-2 return-home-signin">
+          <Button waves='light' className="#0d47a1 blue darken-4">Login</Button>
+          <Button waves='light' className="#546e7a blue-grey darken-1 return-home-signin">
             <Link to="/" className="white-text">Return Home</Link>
           </Button>
 

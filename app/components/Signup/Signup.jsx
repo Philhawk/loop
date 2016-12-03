@@ -31,8 +31,8 @@ class SignUpComponent extends Component {
           <Input className="form-control" name="email" type="email" placeholder="Email" s={12} />
           <Input className="form-control" name="password" type="password" placeholder="Password" s={12} />
           <Input className="form-control" name="role" type="" placeholder="Role" s={12} id="role-field" />
-          <Button waves='light' className="#c2185b pink darken-2">Submit</Button>
-          <Button waves='light' className="#c2185b green darken-2 return-home-signin">
+          <Button waves='light' className="#0d47a1 blue darken-4">Submit</Button>
+          <Button waves='light' className="#546e7a blue-grey darken-1 return-home-signin">
             <Link to="/" className="white-text">Return Home</Link>
           </Button>
 
