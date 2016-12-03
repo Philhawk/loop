@@ -57,7 +57,7 @@ class FillInBlankComponent extends Component {
     return (
       <div className="card-content">
 
-        <form className="form-questions" onSubmit={this.onQuestionCreate}>
+        <form className="form-signin" onSubmit={this.onQuestionCreate}>
           <h3 className="form-signin-heading">Fill in the blank.</h3>
           <div className="input-field col s12">
             <input id="question" name="question" type="text"/>
