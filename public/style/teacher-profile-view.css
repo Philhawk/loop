@@ -42,3 +42,56 @@
   margin-right: 1em;
   margin-left: 1em;
 }
+
+.user-profile-name {
+  color: white;
+  padding-left: 2em;
+}
+
+@media (min-width: 1440px) {
+  .user-profile-name {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .user-profile-name {
+    color: white;
+    padding-left: 4em;
+  }
+}
+
+
+
+/*mediun Screen*/
+@media (max-width: 769px) {
+
+}
+
+
+
+@media screen and (max-device-width: 375px) and (max-device-height: 667px) {
+
+}
+
+/*small screen*/
+
+
+@media (max-width: 682px) {
+  #teacher-profile-sidebar {
+    display: none;
+  }
+}
+
+
+
+
+/*iphone5*/
+@media (max-width: 376px) {
+
+}
+
+/*iphone5*/
+@media (max-width: 321px) {
+
+}
