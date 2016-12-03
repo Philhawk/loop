@@ -10,7 +10,7 @@ class TeacherProfilePageComponent extends Component {
 
   render(){
     return(
-      <div className="row" id="teacher-profile-page">
+      <div className="row inner-padding" id="teacher-profile-page">
         <TeacherProfileSideBar auth={ this.props.auth }/>
         <div className="col s10">
           {this.props.children}

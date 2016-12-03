@@ -1,8 +1,27 @@
 #teacher-profile-sidebar {
-  border-right: black 1px solid;
+  border-right: 1px solid;
   height: 100vh;
   background-color: white;
+  padding: 0 !important;
 
+}
+
+
+.top-row-profile {
+  background-image: url(../img/office.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 8em;
+  margin-bottom: 0;
+}
+
+
+.user-profile-pic {
+  margin-top: 10%;
+  margin-left: 34%;
+  border-radius: 24px 24px 24px 24px;
+  height: 4em;
+  text-align: center;
 }
 
 #teacher-profile-page {
