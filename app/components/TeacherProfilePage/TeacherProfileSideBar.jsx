@@ -1,18 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button } from 'react-materialize';
 import { Link } from 'react-router';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
+import Drawer from 'material-ui/Drawer';
 
-export default ({ auth }) => (
-  <div className='col s2' id='teacher-profile-sidebar'>
-    <div className="row">
-        <img className='user-profile-pic' src={auth.imagePath} alt="You!"/>
-        <h4>{auth.name}</h4>
-    </div>
-    <div className="row">
-      <Link to='/profile/previousLoops'><Button>Saved Loops</Button></Link>
-    </div>
-    <div className="row">
-      <Link to='/create-intro'><Button>Create Loop</Button></Link>
-    </div>
-  </div>
-)
+
+class TeacherProfileSideBar extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+  render() {
+    return (
+      <div className="col s2" id="teacher-profile-sidebar">
+      {console.log('WHAT IS THE AUTH', this.props.auth)}
+        <div className="row top-row-profile">
+            <img className="user-profile-pic" src="/img/genericteacher.jpg" alt="You!"/>
+            <h6 style={{color: 'white'}}>{this.props.auth.name}</h6>
+        </div>
+        <div className="row">
+          <Menu style={{width: "144px"}}>
+            <MenuItem containerElement={<Link to="/profile/previousLoops" />} primaryText="Saved Loops" />
+            <MenuItem containerElement={<Link to="/create-intro" />} primaryText="Create Loop" />
+          </Menu>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default TeacherProfileSideBar;
