@@ -113,6 +113,7 @@ sessionsRouter.put('/:sessionId/activate', (req, res, next) => {
 
 // update a specific session
 sessionsRouter.put('/:sessionId', (req, res, next) => {
+  console.log("REQ BODY IN SESSION", req.body)
   db.model('sessions').findById(req.params.sessionId)
   .then(session => {
     session.update(req.body)

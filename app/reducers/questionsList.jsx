@@ -6,6 +6,7 @@ const ADD_QUESTION = "ADD_QUESTION";
 const REMOVE_QUESTION = "REMOVE_QUESTION";
 const SET_QUESTIONS = "SET_QUESTIONS";
 const ADD_INITIAL_STATE = "ADD_INITIAL_STATE";
+const CLEAR_QUESTIONS = 'CLEAR_QUESTIONS';
 
 export const addQuestion = question => ({
   type: ADD_QUESTION, question
@@ -23,12 +24,20 @@ export const addInitialState = () => ({
   type: ADD_INITIAL_STATE
 })
 
+export const clearQuestions = () => ({
+  type: CLEAR_QUESTIONS
+})
+
 export const callRemoveQuestion = () => dispatch => {
   dispatch(removeQuestion())
 }
 
 export const callAddInitialState = () => dispatch => {
   dispatch(addInitialState())
+}
+
+export const callClearQuestions = () => dispatch => {
+  dispatch(clearQuestions());
 }
 
 
@@ -70,6 +79,8 @@ const reducer = (state = initialState, action) => {
     return action.questions
     case ADD_INITIAL_STATE:
     return initialState.concat(state);
+    case CLEAR_QUESTIONS:
+    return initialState
   }
   return state;
 }

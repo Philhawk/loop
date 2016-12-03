@@ -11,7 +11,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import { createLecture, updateLecture } from '../../reducers/lecture';
 import { createSession, activateSession } from '../../reducers/session';
-import { callAddInitialState } from '../../reducers/questionsList';
+import { callAddInitialState, callClearQuestions } from '../../reducers/questionsList';
 import QuestionInstructions from '../QuestionType/QuestionInstructions';
 
 import {
@@ -35,6 +35,7 @@ class TeacherCreateLoopComponent extends Component {
     this.onMultipleChoiceNext = this.onMultipleChoiceNext.bind(this);
     this.onOpenEndedNext = this.onOpenEndedNext.bind(this);
     this.handleFirstContinue = this.handleFirstContinue.bind(this);
+    this.onSavePresentation = this.onSavePresentation.bind(this);
 
   }
 
@@ -131,6 +132,9 @@ class TeacherCreateLoopComponent extends Component {
 
   }
 
+  onSavePresentation(e) {
+    this.props.callClearQuestions()
+  }
 
   onOpenEnded(e) {
     const {stepIndex} = this.state;
@@ -226,6 +230,7 @@ class TeacherCreateLoopComponent extends Component {
                       <RaisedButton
                         label={'Save Presentation for later'}
                         primary={true}
+                        onClick={this.onSavePresentation}
                       />
                     </Link>
                   </div>
@@ -322,7 +327,7 @@ class TeacherCreateLoopComponent extends Component {
 
 const mapStateToProps = ({ auth, lecture, session, questionsList }) => ({ auth, lecture, session, questionsList })
 
-const mapDispatchToProps = { createSession, createLecture , activateSession, updateLecture, callAddInitialState }
+const mapDispatchToProps = { createSession, createLecture , activateSession, updateLecture, callAddInitialState, callClearQuestions }
 const TeacherCreateLoop = connect(mapStateToProps, mapDispatchToProps)(TeacherCreateLoopComponent)
 
 export default TeacherCreateLoop;

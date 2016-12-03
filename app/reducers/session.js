@@ -26,7 +26,7 @@ export const fetchCurrentSession = ({ sessionString }) => dispatch => {
 }
 
 export const updateSession = ({ session_id, sessionLength }) => dispatch => {
-  return axios.put(`/api/sessions/${session_id}`, { sessionLength })
+  return axios.put(`/api/sessions/${session_id}`, { sessionLength, active: false })
   .then(session => {
     console.log(session.data)
   })
@@ -52,8 +52,8 @@ export const createActiveSession = ({ sessionString, lecture_id }) => dispatch =
   })
 }
 
-export const endSession = ({ session_id }) => dispatch => {
-  axios.put(`/api/sessions/${session_id}`, { active: false })
+export const endSession = ({ session_id, sessionLength, active }) => dispatch => {
+  axios.put(`/api/sessions/${session_id}`, { active, sessionLength })
   .then(session => {
     dispatch(setCurrentSession(session.data))
   })
