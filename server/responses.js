@@ -32,7 +32,7 @@ responseRouter.post('/', (req, res, next) => {
   .catch(next);
 });
 
-// update a specific student question
+// update a specific student response
 responseRouter.put('/:responseId', (req, res, next) => {
   db.model('responses').findById(req.params.responseId)
   .then(lecture => {
