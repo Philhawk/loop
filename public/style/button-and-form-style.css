@@ -18,11 +18,21 @@
    box-shadow: 0 1px 0 0 #0D47A1 !important
 }
 
-/* Changes colors for the login and name your loop fields*/
+/* Changes colors for the login and name your loop fields */
 form input:focus {
   border-bottom: 1px solid #0D47A1 !important;
 }
 
 form textarea:focus {
   border-bottom: 1px solid #0D47A1 !important;
+}
+
+/* Controls the colors for the radio selects after they have been checked */
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+    background-color: #0D47A1;
+    z-index: 0;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+    border: 2px solid #0d47a1;
 }
