@@ -93,7 +93,7 @@ class LoopAnalysis extends Component {
                 </CardText>
                 <CardMedia></CardMedia>
               </Card>
-                <Button waves='light' className="#4E546C darken-2 return-home-finish" onClick={this.onReturnHome}>
+                <Button waves='light' className="#546e7a blue-grey darken-1 return-home-finish" onClick={this.onReturnHome}>
                   Return Home
                 </Button>
               </Tab>

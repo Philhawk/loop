@@ -31,7 +31,7 @@ class LoopStudentAnalysisComponent extends Component {
                 </CardText>
                 <CardMedia></CardMedia>
               </Card>
-              <Button waves='light' className="#4E546C darken-2 return-home-finish">
+              <Button waves='light' className="#546e7a blue-grey darken-1 return-home-finish">
                 <Link to="/" className="white-text">Return Home</Link>
               </Button>
               </Tab>
