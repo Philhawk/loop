@@ -6,47 +6,110 @@ class LoopStatsComponent extends Component {
     super();
     this.state = {
       averageTime: '',
-      sessionTimes: []
+      sessionTimes: [],
+      responses: []
     }
   }
 
   componentDidMount() {
+    // push all the session lengths to an array and put them on the component state
     let sessionTimes = [];
     this.props.lecture.sessions.forEach(session => {
       sessionTimes.push(session.sessionLength)
     })
     this.setState({ sessionTimes })
 
+    // for each session length, convert it to time in seconds
     let timesInSeconds = [];
     sessionTimes.forEach(time => {
       let timeArray = time.split(':')
       timesInSeconds.push(Number(timeArray[0]) * 60 + Number(timeArray[1]) )
     })
-    console.log("TIMESINSECONDS", timesInSeconds)
+
+    // sum up all the times in seconds to get a total time in seconds
     let length = timesInSeconds.length;
     let totalTime = timesInSeconds.reduce((a, b) => {
       return a + b;
     })
+
+    // get the average time in seconds and then compute the average time in 'mm:ss' format
+    // then set the state of average time to the result
     let averageTimeInSeconds = Math.floor(totalTime / length);
     let minutes = Math.floor(averageTimeInSeconds / 60);
     let seconds = averageTimeInSeconds % 60;
-    console.log("TIIIIIIIIIME", `${minutes}:${seconds}`)
+    seconds = seconds < 10 ? String('0' + seconds) : seconds;
     this.setState({ averageTime: `${minutes}:${seconds}` })
+
+    // set up a responses array that will hold the results of every question
+    let responses = []
+
+    // map over each question and perform a different operation depending on question type
+    this.props.lecture.questions.map((question, i) => {
+
+      // if multiple choice, compute a data object with keys of every time an answer was selected
+      // then push to the responses array at the end
+      if(question.questionType === 'multipleChoice') {
+        let data = { question: question.content, type: 'multipleChoice', a: 0, b: 0, c: 0, d: 0 }
+        question.responses.forEach((response, i) => {
+            if (response.userResponse === '0') data.a = data.a + 1
+            else if (response.userResponse === '1') data.b = data.b + 1
+            else if (response.userResponse === '2') data.c = data.c + 1
+            else if (response.userResponse === '3') data.d = data.d + 1
+        })
+        responses.push(data)
+
+        //if open ended, push all responses to the data array and then push into the results array
+      } else if (question.questionType === 'openEnded') {
+        let data = {question: question.content, type: 'openEnded', answers: []}
+        question.responses.forEach(response => {
+          data.answers.push(response.userResponse)
+        })
+        responses.push(data)
+      }
+    })
+    // set the state with the responses
+    this.setState({ responses })
   }
 
   render() {
-    console.log("TIMEEEEEEEE", this.state.averageTime)
     return (
-      <div className='row'>
-        <div className='col s8'>
-          <h3>Loop Name: {this.props.lecture.name}</h3>
-          <h4>Loop Description: {this.props.lecture.description}</h4>
+      <div>
+        <div className='row'>
+          <div className='col s8'>
+            <h3>Loop Name: {this.props.lecture.name}</h3>
+            <h4>Loop Description: {this.props.lecture.description}</h4>
+          </div>
+          <div className='col s4'>
+            <h5>Times Ran: {this.props.lecture.sessions.length}</h5>
+            <h5>Average Length: {this.state.averageTime}</h5>
+          </div>
         </div>
-        <div className='col s4'>
-          <h5>Times Ran: {this.props.lecture.sessions.length}</h5>
-          <h5>Average Length: {this.state.averageTime}</h5>
-          <h5></h5>
-        </div>
+          <div className="row">
+            {
+            this.state.responses && this.state.responses.map((response, i) => {
+              return response.type === 'multipleChoice' ?
+
+                  <div className="col s12 card" key={i}>
+                    <h5>{response.question}</h5>
+                    <p>A: {response.a}</p>
+                    <p>B: {response.b}</p>
+                    <p>C: {response.c}</p>
+                    <p>D: {response.d}</p>
+                  </div>
+               :
+               <div className="col s12 card" key={i}>
+                 <h5>{response.question}</h5>
+                 {
+                  response.answers.map((response, i) => {
+                    return (
+                      <p>{response}</p>
+                    )
+                  })
+                }
+                </div>
+            })
+          }
+          </div>
       </div>
     )
   }

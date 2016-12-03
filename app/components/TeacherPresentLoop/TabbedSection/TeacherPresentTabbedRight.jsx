@@ -1,7 +1,7 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import { connect } from 'react-redux';
-import { callStudentSelectA, callStudentSelectB, callStudentSelectC, callStudentSelectD } from '../../../reducers/data';
+import { callStudentSelectA, callStudentSelectB, callStudentSelectC, callStudentSelectD, postResponse } from '../../../reducers/data';
 import { callAddAnswer } from '../../../reducers/openEndedAnswers'
 import MultipleChoiceData from './MultipleChoiceData';
 import OpenEndedData from './OpenEndedData';
@@ -29,6 +29,7 @@ class TeacherPresentTabbedRightComponent extends React.Component {
 
     this.props.socket.on('studentMultipleChoiceAnswer', ({answer}) => {
       console.log("YO YO YO", answer, typeof answer)
+      this.props.postResponse({ userResponse: answer, question_id: this.props.questionsList[0].id })
       if(answer === 0) this.props.callStudentSelectA()
       else if(answer === 1) this.props.callStudentSelectB()
       else if(answer === 2) this.props.callStudentSelectC()
@@ -36,6 +37,7 @@ class TeacherPresentTabbedRightComponent extends React.Component {
     })
 
     this.props.socket.on('studentOpenEndedAnswer', ({ answer }) => {
+      this.props.postResponse({ userResponse: answer, question_id: this.props.questionsList[0].id })
       this.props.callAddAnswer(answer);
     })
 
@@ -69,7 +71,7 @@ class TeacherPresentTabbedRightComponent extends React.Component {
 }
 
 const mapStateToProps = ({socket, data, questionsList, openEndedAnswers }) => ({socket, data, questionsList, openEndedAnswers })
-const mapDispatchToProps = { callStudentSelectA, callStudentSelectB, callStudentSelectC, callStudentSelectD, callAddAnswer }
+const mapDispatchToProps = { callStudentSelectA, callStudentSelectB, callStudentSelectC, callStudentSelectD, callAddAnswer, postResponse }
 const TeacherPresentTabbedRight = connect(mapStateToProps, mapDispatchToProps)(TeacherPresentTabbedRightComponent)
 
 export default TeacherPresentTabbedRight;

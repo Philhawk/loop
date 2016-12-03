@@ -55,7 +55,6 @@ studentQuestionRouter.get('/session/:session_id/answered', (req, res, next) => {
 
 // create a student question
 studentQuestionRouter.post('/', (req, res, next) => {
-  console.log('THIS IS THE BODY', req.body)
   db.model('studentQuestions').create(req.body)
   .then(studentQuestion => {
     res.status(201).json(studentQuestion)

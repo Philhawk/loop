@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // Constants
 
 const STUDENT_SELECT_A = "STUDENT_SELECT_A";
@@ -34,9 +36,19 @@ export const callReset = () => dispatch => {
   dispatch(reset())
 }
 
+export const postResponse = ({ userResponse, question_id }) => dispatch => {
+  axios.post('/api/responses', { userResponse, question_id })
+  .then((response) => {
+    console.log(response.data)
+  })
+}
+
+
+
 // Initial State
 const initialState = [0, 0, 0, 0];
 
+// reducer
 const reducer = (state=initialState, action) => {
   switch(action.type) {
     case STUDENT_SELECT_A:

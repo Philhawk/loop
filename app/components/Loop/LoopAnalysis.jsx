@@ -27,7 +27,6 @@ class LoopAnalysis extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("NEXT PROPS", nextProps)
     let timeNow = moment();
     let lectureStart = moment(this.props.session.timeStarted)
     let duration = moment.duration(timeNow - lectureStart)
