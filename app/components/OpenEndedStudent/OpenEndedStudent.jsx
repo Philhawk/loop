@@ -34,14 +34,21 @@ class OpenEndedStudentComponent extends Component {
     this.setState({submitted: true})
   }
 
+  // prevents disabled button from being able to submit another answer
+  onSubmittedButtonClick(e) {
+    e.preventDefault()
+  }
+
+  // switches button to disabled after a student submits an answer
   showButton() {
     if (this.state.submitted) {
-      return <Button className="disabled submit-button-student">Submitted</Button>
+      return <Button className="disabled submit-button-student" onClick={this.onSubmittedButtonClick}>Submitted</Button>
     } else {
      return <Button className='#0d47a1 blue darken-4 submit-button-student' waves='light' onClick={this.onSubmitAnswer}>Submit Answer</Button>
     }
   }
 
+  // will render the correct answer once the teacher clicks the reveal button
   showCorrectAnswer() {
     if(this.state.correctAnswer) {
       return (
