@@ -44,7 +44,7 @@ class OpenEndedComponent extends Component {
   render() {
     return (
       <div className="card-content">
-        <form className="form-questions" onSubmit={this.onQuestionCreate}>
+        <form className="form-signin" onSubmit={this.onQuestionCreate}>
           <h3 className="form-signin-heading">Open Ended</h3>
           <h5 id="formh5">Enter your question in the form below</h5>
           <div className="input-field col s12">
