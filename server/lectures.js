@@ -18,7 +18,13 @@ lecturesRouter.get('/', (req, res, next) => {
 lecturesRouter.get('/:lectureId', (req, res, next) => {
   console.log("req params lecture ID", req.params.lectureId)
   db.model('lectures').findOne({
-    include: [ { model: db.model('sessions') } ],
+    include: [
+      {
+        model: db.model('questions'),
+        include: [{ model: db.model('responses') }]
+      },
+      db.model('sessions'),
+    ],
     where: {
       id: req.params.lectureId
     }

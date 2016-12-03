@@ -24,18 +24,18 @@ const seedQuestions = () => db.Promise.each([
 ], question => db.model('questions').create(question));
 
 const seedResponses = () => db.Promise.each([
-  {userResponse: 'Iago', timeStamp: Date.UTC(2016, 11, 5, 8, 30, 30), question_id: 1},
-  {userResponse: 'Cassio', timeStamp: Date.UTC(2016, 11, 5, 8, 31, 30), question_id: 1},
+  {userResponse: '0', timeStamp: Date.UTC(2016, 11, 5, 8, 30, 30), question_id: 1},
+  {userResponse: '2', timeStamp: Date.UTC(2016, 11, 5, 8, 31, 30), question_id: 1},
   {userResponse: 'Iago and Roderigo used racial slurs when describing him', timeStamp: Date.UTC(2016, 11, 5, 8, 40, 30), question_id: 2},
   {userResponse: 'I dunno :(', timeStamp: Date.UTC(2016, 11, 5, 8, 41, 13), question_id: 2},
-  {userResponse: 'POST', timeStamp: Date.UTC(2016, 11, 8, 11, 32, 30), question_id: 3},
-  {userResponse: 'PUT', timeStamp: Date.UTC(2016, 11, 8, 11, 32, 55), question_id: 3},
+  {userResponse: '1', timeStamp: Date.UTC(2016, 11, 8, 11, 32, 30), question_id: 3},
+  {userResponse: '2', timeStamp: Date.UTC(2016, 11, 8, 11, 32, 55), question_id: 3},
   {userResponse: 'app.listen(3000)', timeStamp: Date.UTC(2016, 11, 8, 11, 52, 19), question_id: 4},
   {userResponse: 'app.startAllTheServersPlease(3000)', timeStamp: Date.UTC(2016, 11, 9, 11, 53, 39), question_id: 4},
   {userResponse: 'Because immutable data leads to less unexpected behavior.', timeStamp: Date.UTC(2016, 11, 13, 14, 44, 34), question_id: 5},
   {userResponse: 'Cause Tom said so.', timeStamp: Date.UTC(2016, 11, 13, 14, 45, 31), question_id: 5},
-  {userResponse: 'store', timeStamp: Date.UTC(2016, 11, 13, 15, 15, 46), question_id: 6},
-  {userResponse: 'reducer', timeStamp: Date.UTC(2016, 11, 13, 15, 16, 46), question_id: 6},
+  {userResponse: '1', timeStamp: Date.UTC(2016, 11, 13, 15, 15, 46), question_id: 6},
+  {userResponse: '0', timeStamp: Date.UTC(2016, 11, 13, 15, 16, 46), question_id: 6},
 ], response => db.model('responses').create(response));
 
 seedSessions = () => db.Promise.each([

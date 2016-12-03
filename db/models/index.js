@@ -14,7 +14,9 @@ const StudentQuestion = require('./studentQuestion');
 Lecture.belongsTo(User, { as: 'teacher' });
 Lecture.belongsToMany(User, { through: 'Participant' })
 Question.belongsTo(Lecture);
+Lecture.hasMany(Question);
 Response.belongsTo(Question);
+Question.hasMany(Response);
 Session.belongsTo(Lecture);
 Lecture.hasMany(Session);
 StudentQuestion.belongsTo(Session);
