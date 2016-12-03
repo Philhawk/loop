@@ -8,6 +8,7 @@ node_modules/*
 public/bundle.js
 public/bundle.js.map
 .DS_Store
+public/.DS_Store
 
 # NPM errors
 npm-debug.log
