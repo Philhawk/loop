@@ -46,7 +46,6 @@ studentQuestionRouter.get('/session/:session_id/answered', (req, res, next) => {
     }
   })
   .then(studentQuestions => {
-    console.log('THIS IS THE STUDENT QUEEEEEEESTIONS', studentQuestions)
     res.json(studentQuestions)
   })
   .catch(next);
