@@ -1,47 +1,17 @@
-# Hi, I'm bones
+# Loop
 
-I'm a happy little skeleton. You can clone me to use as a starter on your projects!
-I have React, Redux, Sequelize, and Express all just rattling around in here ready
-to go.
+[![Build Status](https://semaphoreapp.com/api/v1/projects/d4cca506-99be-44d2-b19e-176f36ec8cf1/128505/shields_badge.svg)](https://semaphoreapp.com/boennemann/badges) [![NPM version](https://badge.fury.io/js/badge-list.svg)](http://badge.fury.io/js/badge-list) [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
-## I need node >= 6.7.0
+We're Loop, a real-time communication tool for teachers to interact with their students in the classroom.
 
-If you don't have it, I'll complain and tell you how to install it.
-
-## 1. Make me into something!
-
-Create a git repo however you want to. You can fork me on Github, but you can only do
-that once (so weird!). You can also create a Github repo and clone it, or just do
-`git init` in an empty directory on your machine.
+## To Start.
 
 After you have a repo on your machine:
 
 ```
-git remote add bones https://github.com/queerviolet/bones.git
-git fetch bones
-git merge bones/master
-```
-
-And then you'll have me! If I change—which I probably will—you can get the most recent
-version by doing this again:
-
-```
-git fetch bones
-git merge bones/master
-```
-
-## 2. I need a name.
-
-I don't have a name. I think I used to have one, but it turned to dust right along with my
-heart and liver and pituitary gland and all that stuff.
-
-Anyway, I'll need one. Give me a name in `package.json`.
-
-## 3. Start my dusty heart
-
-Short and sweet:
-
-```
+git remote add loop https://github.com/Philhawk/loop.git
+git fetch loop
+git merge loop/master
 npm install
 npm run build-watch
 npm start
@@ -51,7 +21,15 @@ npm start
 probably want to watch the build and run me in separate terminals. Otherwise, build errors get
 all mixed in with HTTP request logging.
 
-## My anatomy
+## To Test.
+
+From the project root:
+
+```
+npm test
+```
+
+## Built With
 
 `/app` has the React/Redux setup. `main.jsx` is the entry point.
 
@@ -62,7 +40,7 @@ assuming you're using postgres.
 
 `/bin` has scripts. (Right now it has *one* script that creates a useful symlink.)
 
-## Conventions
+## Style Guide
 
 I use `require` and `module.exports` in `.js` files.
 
