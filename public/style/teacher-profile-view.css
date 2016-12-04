@@ -109,6 +109,11 @@
     margin-left: 2em !important;
   }
 
+  .loop-questions-card {
+      max-width: 124vh;
+      height: 24vh;
+  }
+  
   #teacher-profile-sidebar {
     display: none;
   }
