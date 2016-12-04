@@ -23,13 +23,15 @@ all mixed in with HTTP request logging.
 
 ## To Test
 
+We've used Mocha, Chai and Chai Enzyme predominantly for testing.
+
 From the project root:
 
 ```
 npm test
 ```
 
-## Built With
+## Navigating
 
 `/app` has the React/Redux setup. `main.jsx` is the entry point.
 
@@ -39,6 +41,21 @@ assuming you're using postgres.
 `/server` has the Express server and routes. `start.js` is the entry point.
 
 `/bin` has scripts. (Right now it has *one* script that creates a useful symlink.)
+
+
+## Tools
+
+  - [React](https://facebook.github.io/react/)
+  - [Redux](http://redux.js.org/docs/introduction/)
+  - [Express](http://expressjs.com/)
+  - [Node](https://nodejs.org/en/)
+  - [Sequelize](http://docs.sequelizejs.com/en/v3/)
+  - [Material UI](http://www.material-ui.com/)
+  - [Socket.Io](http://socket.io/)
+  - [Babel](https://babeljs.io/)
+  - [D3](https://d3js.org/)
+
+
 
 ## Style Guide
 
