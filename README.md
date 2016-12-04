@@ -42,12 +42,16 @@ assuming you're using postgres.
 
 ## Style Guide
 
-I use `require` and `module.exports` in `.js` files.
+We use `require` and `module.exports` in `.js` files.
 
-I use `import` and `export` in `.jsx` files, unless `require` makes for cleaner code.
+We use `import` and `export` in `.jsx` files, unless `require` makes for cleaner code.
 
-I use two spaces, no semi-colons, and trailing commas where possible. I'll
-have a linter someday soon.
+## Written with Love by ...
+
+  - [Phil Jacob](https://github.com/Philhawk)
+  - [Andrew Gionfriddo](https://github.com/agionfriddo)
+  - [George Smith-Sweeper](https://github.com/GeorgeSmith-Sweeper)
+  - [Andrew Vays](https://github.com/avays)
 
 
 
