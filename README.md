@@ -4,7 +4,7 @@
 
 We're Loop, a real-time communication tool for teachers to interact with their students in the classroom.
 
-## To Start.
+## To Start
 
 After you have a repo on your machine:
 
@@ -21,7 +21,7 @@ npm start
 probably want to watch the build and run me in separate terminals. Otherwise, build errors get
 all mixed in with HTTP request logging.
 
-## To Test.
+## To Test
 
 From the project root:
 
