@@ -681,6 +681,10 @@ nav ul a {
 
 /*iphone5*/
 @media (max-width: 376px) {
+  #homepage-icons {
+    padding-bottom: 2em;
+  }
+
   .row{
     margin-bottom: 1px;
   }

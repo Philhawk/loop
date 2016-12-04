@@ -223,16 +223,6 @@ class LoopStatsComponent extends Component {
 
              </div>
            </Tab>
-           <Tab label="Loop Mood" value="b">
-             <div>
-               <h2 style={styles.headline}>Loop Mood</h2>
-               <p>
-                 This is another example of a controllable tab. Remember, if you
-                 use controllable Tabs, you need to give all of your tabs values or else
-                 you wont be able to select them.
-               </p>
-             </div>
-           </Tab>
          </Tabs>
         </div>
       </div>
