@@ -14,6 +14,7 @@ class StudentLandingPageComponent extends Component {
   activeSessions() {
     return(
       <div className='container'>
+        { console.log('THIS IS THE ACTIVESESSIONS', this.props.activeSessions[0]) }
         { this.props.activeSessions.map((session, i) => (
           <Card className='card-wot'>
             <CardMedia overlay={<CardTitle title={session.lecture.name} subtitle={session.lecture.teacher.name} />} >
