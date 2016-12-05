@@ -2,7 +2,7 @@ const db = require('APP/db');
 
 const seedUsers = () => db.Promise.each([
   {name: 'Barack Obama', email: 'barack@example.gov', password: '1234', role: 'Teacher'},
-  {name: 'Andrew Gionfriddo', email: 'Andrew.Gionfriddo@loop.edu', password: '1234', role: 'Teacher'},
+  {name: 'Andrew Gionfriddo', email: 'andrew@loop.edu', password: '1234', role: 'Teacher'},
   {name: 'Phil Jacob', email: 'Phil.Jacob@loop.edu', password: '1234', role: 'Teacher'},
   {name: 'George Smith-Sweeper', email: 'George.Smith-Sweeper@loop.edu', password: '1234', role: 'Teacher'},
   {name: 'Andrew Vays', email: 'AndyVays@loop.edu', password: '1234', role: 'Teacher'},

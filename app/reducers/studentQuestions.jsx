@@ -4,11 +4,13 @@ import axios from 'axios';
 const STUDENT_ADD_QUESTION = "STUDENT_ADD_QUESTION";
 const STUDENT_REMOVE_QUESTION = "STUDENT_REMOVE_QUESTION"
 const STUDENT_SHOW_ALL_QUESTIONS = "STUDENT_SHOW_ALL_QUESTIONS"
+const CLEAR_STUDENT_QUESTIONS = "CLEAR_STUDENT_QUESTIONS"
 
 // Sync Action Creators
 export const studentAddQuestion = question => ({ type: STUDENT_ADD_QUESTION, question })
 export const studentRemoveQuestion = index => ({ type: STUDENT_REMOVE_QUESTION, index })
 export const setStudentQuestionsForLoop = questions => ({ type: STUDENT_SHOW_ALL_QUESTIONS, questions})
+export const clearStudentQuestions = () => ({ type: CLEAR_STUDENT_QUESTIONS })
 
 // Async Action Creators
 export const createStudentQuestion = ({ questionContent, session_id }) => dispatch => {
@@ -32,6 +34,10 @@ export const answerQuestion = ({ id }) => dispatch => {
   })
 }
 
+export const callClearStudentQuestions = () => dispatch => {
+  dispatch(clearStudentQuestions());
+}
+
 
 // Initial State
 const initialState = []
@@ -44,6 +50,8 @@ const reducer = (state=initialState, action) => {
       return state.slice(0, action.index).concat(state.slice(action.index + 1))
     case STUDENT_SHOW_ALL_QUESTIONS:
       return action.questions
+    case CLEAR_STUDENT_QUESTIONS:
+      return initialState
     default:
       return state;
   }

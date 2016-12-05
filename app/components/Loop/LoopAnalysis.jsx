@@ -16,6 +16,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import {Card, CardActions, CardMedia, CardHeader, CardText} from 'material-ui/Card';
 import { updateSession } from '../../reducers/session';
+import { callClearStudentQuestions } from '../../reducers/studentQuestions';
 
 class LoopAnalysis extends Component {
   constructor() {
@@ -36,6 +37,7 @@ class LoopAnalysis extends Component {
 
   onReturnHome(e) {
     e.preventDefault();
+    this.props.callClearStudentQuestions()
     this.props.updateSession({
       session_id: this.props.session.id,
       sessionLength: this.state.sessionLength
@@ -130,7 +132,7 @@ class LoopAnalysis extends Component {
 }
 
 const mapStateToProps = ({ session, studentQuestions, studentMood, answeredQuestions}) => ({ session, studentQuestions, studentMood, answeredQuestions })
-const mapDispatchToProps = { updateSession }
+const mapDispatchToProps = { updateSession, callClearStudentQuestions }
 const Loop = connect(mapStateToProps, mapDispatchToProps)(LoopAnalysis)
 
 export default Loop;
