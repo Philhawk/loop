@@ -126,7 +126,6 @@ class LoopAnalysis extends Component {
             </Tabs>
           </form>
         </div>
-
     );
   }
 }
