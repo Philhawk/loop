@@ -20,7 +20,7 @@ class WhyUseIt extends Component {
         </div>
         <div className="row whatsummary">
           <div className="col s12 m3 l3 head-shot">
-            <img className="circle responsive-img" src="img/aboutUs/Thor.jpg"/>
+            <img className="circle responsive-img" src="img/aboutUs/AndrewCropped.JPG"/>
             <h5 className="about-us-names">Andrew</h5>
             <p>I began working as a software developer in part because of what I saw during my teaching experience. I saw many technological tools that teachers and students were forced to use that were inadequate at best and actively inhibiting to student progress at worst.</p>
           </div>
