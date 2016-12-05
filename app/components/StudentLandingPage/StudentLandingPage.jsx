@@ -9,7 +9,7 @@ class StudentLandingPageComponent extends Component {
   constructor() {
     super();
   }
-
+ 
 
   activeSessions() {
     return(
