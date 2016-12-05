@@ -129,6 +129,7 @@ class TeacherCreateLoopComponent extends Component {
   }
 
   onSavePresentation(e) {
+    this.props.callClearQuestions()
     this.props.deleteSession({ session_id: this.props.session.id })
   }
 
