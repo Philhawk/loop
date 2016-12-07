@@ -31,7 +31,7 @@ class WhyUseIt extends Component {
             </p>
           </div>
           <div className="col s12 m3 l3 head-shot">
-            <img className="circle responsive-img" src="img/aboutUs/PhilCropped.jpg"/>
+            <img className="circle responsive-img" src="img/aboutUs/PhilCropped.JPG"/>
             <h5 className="about-us-names">Phil</h5>
             <p>I've worn many hats over the years. Teacher, financial analyst, journalist and now as a Web Developer. I place a tremendous amount of importance on spending every day learning something new.</p>
 
