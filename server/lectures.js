@@ -27,6 +27,7 @@ lecturesRouter.get('/:lectureId', (req, res, next) => {
     where: {
       id: req.params.lectureId
     }
+    
   })
   .then(lecture => {
     res.json(lecture);
