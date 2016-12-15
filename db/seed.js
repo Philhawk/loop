@@ -1,14 +1,17 @@
 const db = require('APP/db');
 
 const seedUsers = () => db.Promise.each([
-  {name: 'Andrew Gionfriddo', email: 'andrew@loop.edu', password: '1234', role: 'Teacher'},
-  {name: 'Phil Jacob', email: 'Phil.Jacob@loop.edu', password: '1234', role: 'Teacher'},
-  {name: 'George Smith-Sweeper', email: 'George.Smith-Sweeper@loop.edu', password: '1234', role: 'Teacher'},
-  {name: 'Andrew Vays', email: 'AndyVays@loop.edu', password: '1234', role: 'Teacher'},
-  {name: 'Peter Exampleton', email: 'peter@example.com', password: '1234', role: 'Student'},
-  {name: 'Susie Sampleton', email: 'susie@example.com', password: '1234', role: 'Student'},
-  {name: 'Barb Sampling', email: 'barb@example.com', password: '1234', role: 'Student'},
-  {name: 'Max Exampleton', email: 'max@max.max', password: '1234', role: 'Teacher'},
+  {name: 'Andrew Gionfriddo', email: 'andrew@loop.edu', password: '1234', role: 'Teacher', entity_id: 1},
+  {name: 'Phil Jacob', email: 'Phil.Jacob@loop.edu', password: '1234', role: 'Teacher', entity_id: 2},
+  {name: 'George Smith-Sweeper', email: 'George.Smith-Sweeper@loop.edu', password: '1234', role: 'Teacher', entity_id: 1},
+  {name: 'Andrew Vays', email: 'AndyVays@loop.edu', password: '1234', role: 'Teacher', entity_id: 1},
+  {name: 'Peter Exampleton', email: 'peter@example.com', password: '1234', role: 'Student', entity_id: 1},
+  {name: 'Susie Sampleton', email: 'susie@example.com', password: '1234', role: 'Student', entity_id: 1},
+  {name: 'Barb Sampling', email: 'barb@example.com', password: '1234', role: 'Student', entity_id: 1},
+  {name: 'Max Exampleton', email: 'max@max.max', password: '1234', role: 'Teacher', entity_id: 2},
+  {name: 'Admin', email: 'admin@loop.edu', password: '1234', role: 'Admin'},
+  {name: 'WindhamAdmin', email: 'admin@windham.edu', password: '1234', role: 'entityAdmin', entity_id: 1},
+  {name: 'FakeAdmin', email: 'admin@fake.com', password: '1234', role: 'entityAdmin', entity_id: 2},
 ], user => db.model('users').create(user));
 
 const seedLectures = () => db.Promise.each([
@@ -52,6 +55,11 @@ seedSessions = () => db.Promise.each([
   {sessionString: '270ae15c-d8c9-4e86-bcc3-c05335876132', sessionLength: '44:45', mood: [50, 50, 55], active: false, lecture_id: 3},
 ], session => db.model('sessions').create(session))
 
+seedEntities = () => db.Promise.each([
+  {name: 'Windham Public Schools', address: '123 Fake Street', phone: '123-456-7890', type: 'School'},
+  {name: 'Fake Company', address: '456 Fake Street', phone: '987-654-3210', type: 'Company'}
+], entity => db.model('entities').create(entity));
+
 
 const seedParticipants = () => {
   let findingStudents = db.model('users').findAll({ where: { role: 'Student' }});
@@ -69,6 +77,8 @@ const seedParticipants = () => {
 
 db.didSync
   .then(() => db.sync({force: true}))
+  .then(seedEntities)
+  .then(entities => console.log(`Seeded ${entities.length} entities OK`))
   .then(seedUsers)
   .then(users => console.log(`Seeded ${users.length} users OK`))
   .then(seedLectures)
@@ -80,6 +90,6 @@ db.didSync
   .then(seedSessions)
   .then(sessions => console.log(`Seeded ${sessions.length} sessions OK`))
   .then(seedParticipants)
-  .then(response => console.log('Successfully seeded the responses.'))
+  .then(response => console.log('Successfully seeded the Participants.'))
   .catch(error => console.error(error))
   // .finally(() => db.close())
