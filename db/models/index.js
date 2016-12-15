@@ -21,8 +21,8 @@ Question.hasMany(Response);
 Session.belongsTo(Lecture);
 Lecture.hasMany(Session);
 StudentQuestion.belongsTo(Session);
-Teacher.belongsTo(Entity);
-Entity.hasMany(Teacher);
+User.belongsTo(Entity);
+Entity.hasMany(User);
 
 module.exports = {
   User,
