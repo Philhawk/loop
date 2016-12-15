@@ -10,6 +10,7 @@ const Question = require('./question');
 const Response = require('./response');
 const Session = require('./session');
 const StudentQuestion = require('./studentQuestion');
+const Entity = require('./entity');
 
 Lecture.belongsTo(User, { as: 'teacher' });
 Lecture.belongsToMany(User, { through: 'Participant' })
@@ -20,5 +21,15 @@ Question.hasMany(Response);
 Session.belongsTo(Lecture);
 Lecture.hasMany(Session);
 StudentQuestion.belongsTo(Session);
+Teacher.belongsTo(Entity);
+Entity.hasMany(Teacher);
 
-module.exports = {User, Lecture, Question, Response, Session, StudentQuestion}
+module.exports = {
+  User,
+  Lecture,
+  Question,
+  Response,
+  Session,
+  StudentQuestion,
+  Entity
+}

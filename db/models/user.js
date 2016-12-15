@@ -17,7 +17,7 @@ const User = db.define('users', {
   // We support oauth, so users may or may not have passwords.
   password_digest: Sequelize.STRING,
 	password: Sequelize.VIRTUAL,
-  role: Sequelize.ENUM('Teacher', 'Student'),
+  role: Sequelize.ENUM('Teacher', 'Student', 'Admin'),
   imagePath: {
     type: Sequelize.STRING,
     defaultValue: 'https://thesocietypages.org/socimages/files/2009/05/yammer.gif'
