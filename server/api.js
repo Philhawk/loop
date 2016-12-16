@@ -12,6 +12,7 @@ api
   .use('/sessions', require('./sessions'))
   .use('/studentQuestions', require('./studentQuestions'))
   .use('/responses', require('./responses'))
+  .use('entities', require('./entities'))
 
 // Send along any errors
 api.use((err, req, res, next) => {
