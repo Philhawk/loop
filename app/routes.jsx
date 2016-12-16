@@ -26,7 +26,7 @@ import {getAllStudentQuestionsByLoop} from './reducers/studentQuestions';
 import {fetchQuestionsAnsweredLength} from './reducers/answeredQuestions';
 import { callSetCurrentQuestion } from './reducers/currentQuestion';
 import { fetchActiveSessions } from './reducers/activeSessions';
-import { fetchLecturesByTeacher } from './reducers/lectureList';
+import { fetchLecturesByTeacher, fetchAllLectures } from './reducers/lectureList';
 import { fetchSessions } from './reducers/activeSessions';
 
 const onLoopEnter = () => {
@@ -66,7 +66,11 @@ const onForStudentsEnter = () => {
 }
 
 const onTeacherProfileEnter = () => {
-  store.dispatch(fetchLecturesByTeacher({ id: store.getState().auth.id}))
+  if(store.getState().auth.role === 'Admin') {
+    store.dispatch(fetchAllLectures())
+  } else {
+    store.dispatch(fetchLecturesByTeacher({ id: store.getState().auth.id}))
+  }
 }
 
 const routes =()=> (

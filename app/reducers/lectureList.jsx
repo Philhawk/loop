@@ -14,6 +14,13 @@ export const fetchLecturesByTeacher = ({ id }) => dispatch => {
   })
 }
 
+export const fetchAllLectures = () => dispatch => {
+  axios.get('/api/lectures')
+  .then(lectureList => {
+    dispatch(setLectures(lectureList.data));
+  })
+}
+
 const initialState = [];
 
 const reducer = (state = initialState, { lectureList, type }) => {
