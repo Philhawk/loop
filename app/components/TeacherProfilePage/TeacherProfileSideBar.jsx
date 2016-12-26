@@ -4,12 +4,23 @@ import { Link } from 'react-router';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import Drawer from 'material-ui/Drawer';
+import { connect } from 'react-redux';
 
 
-class TeacherProfileSideBar extends Component {
+class TeacherProfileSideBarComponent extends Component {
   constructor(props) {
     super(props);
 
+  }
+
+  renderEntitiesOption() {
+    if(this.props.auth.role === 'Admin') {
+      return (
+        <MenuItem containerElement={<Link to="/profile/entities" />} primaryText="View Entities" />
+      )
+    } else {
+      return null;
+    }
   }
 
   render() {
@@ -23,11 +34,16 @@ class TeacherProfileSideBar extends Component {
           <Menu style={{width: "144px"}}>
             <MenuItem containerElement={<Link to="/profile/previousLoops" />} primaryText="Saved Loops" />
             <MenuItem containerElement={<Link to="/create-intro" />} primaryText="Create Loop" />
+            {this.renderEntitiesOption()}
           </Menu>
         </div>
       </div>
     )
   }
 }
+
+const mapStateToProps = ({ auth }) => ({ auth });
+
+const TeacherProfileSideBar = connect(mapStateToProps)(TeacherProfileSideBarComponent);
 
 export default TeacherProfileSideBar;

@@ -12,6 +12,7 @@ import data from './data';
 import openEndedAnswers from './openEndedAnswers';
 import activeSessions from './activeSessions';
 import lectureList from './lectureList';
+import entities from './entities';
 
 const rootReducer = combineReducers({
   auth,
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
   openEndedAnswers,
   answeredQuestions,
   activeSessions,
-  lectureList
+  lectureList,
+  entities
 })
 
 export default rootReducer
