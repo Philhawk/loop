@@ -16,6 +16,7 @@ import StudentLandingPage from './components/StudentLandingPage/StudentLandingPa
 import TeacherProfilePage from './components/TeacherProfilePage/TeacherProfilePage'
 import LoopStats from './components/TeacherProfilePage/LoopStats';
 import PreviousLoops from './components/TeacherProfilePage/PreviousLoops';
+import Entities from './components/TeacherProfilePage/Entities';
 
 // reducers
 import store from './store';
@@ -28,6 +29,7 @@ import { callSetCurrentQuestion } from './reducers/currentQuestion';
 import { fetchActiveSessions } from './reducers/activeSessions';
 import { fetchLecturesByTeacher, fetchAllLectures } from './reducers/lectureList';
 import { fetchSessions } from './reducers/activeSessions';
+import { fetchEntities } from './reducers/entities';
 
 const onLoopEnter = () => {
   if(!store.getState().questionsList[0].default) {
@@ -68,6 +70,7 @@ const onForStudentsEnter = () => {
 const onTeacherProfileEnter = () => {
   if(store.getState().auth.role === 'Admin') {
     store.dispatch(fetchAllLectures())
+    store.dispatch(fetchEntities())
   } else {
     store.dispatch(fetchLecturesByTeacher({ id: store.getState().auth.id}))
   }
@@ -89,6 +92,7 @@ const routes =()=> (
       <Route path='profile' component={TeacherProfilePage} onEnter={onTeacherProfileEnter}>
         <Route path='/loopStats' component={LoopStats} />
         <Route path ='previousLoops' component={PreviousLoops} />
+        <Route path = 'entities' component={Entities} />
       </Route>
     </Route>
   </Router>

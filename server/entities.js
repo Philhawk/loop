@@ -9,7 +9,7 @@ const entitiesRouter = express.Router();
 entitiesRouter.get('/', (req, res, next) => {
   db.model('entities').findAll()
   .then(entities => {
-    res.json(ent);
+    res.json(entities);
   })
   .catch(next);
 })
