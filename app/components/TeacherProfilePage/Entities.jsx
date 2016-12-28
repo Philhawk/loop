@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import { fetchUsersByEntity } from '../../reducers/usersList';
 
 
 const style = {
@@ -15,6 +16,10 @@ const style = {
 class EntitiesComponent extends Component {
   constructor() {
     super();
+  }
+
+  onViewUsersClick(entityId) {
+    this.props.fetchUsersByEntity(entityId);
   }
 
   render() {
@@ -34,6 +39,9 @@ class EntitiesComponent extends Component {
                 <CardText>
                   {entity.type}
                 </CardText>
+                <CardActions>
+                  <FlatButton value={entity.id} onClick={this.onViewUsersClick.bind(this, entity.id)}>View Users</FlatButton>
+                </CardActions>
               </Card>
             </div>
           ))
@@ -45,7 +53,7 @@ class EntitiesComponent extends Component {
 }
 
 const mapStateToProps = ({ entities }) => ({ entities });
-const mapDispatchToProps = {  };
+const mapDispatchToProps = { fetchUsersByEntity };
 const Entities = connect(mapStateToProps, mapDispatchToProps)(EntitiesComponent)
 
 export default Entities;

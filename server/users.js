@@ -23,6 +23,18 @@ usersRouter.get('/:userId', (req, res, next) => {
   .catch(next);
 });
 
+// get all users associated with an entity
+usersRouter.get('/entity/:entityId', (req, res, next) => {
+  db.model('users').findAll({
+    where: {
+      entity_id: req.params.entityId
+    }
+  })
+  .then(users => {
+    res.json(users)
+  })
+})
+
 // create a user
 usersRouter.post('/', (req, res, next) => {
   db.model('users').create(req.body)
