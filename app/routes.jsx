@@ -17,6 +17,7 @@ import TeacherProfilePage from './components/TeacherProfilePage/TeacherProfilePa
 import LoopStats from './components/TeacherProfilePage/LoopStats';
 import PreviousLoops from './components/TeacherProfilePage/PreviousLoops';
 import Entities from './components/TeacherProfilePage/Entities';
+import UsersList from './components/TeacherProfilePage/UsersList';
 
 // reducers
 import store from './store';
@@ -93,6 +94,7 @@ const routes =()=> (
         <Route path='/loopStats' component={LoopStats} />
         <Route path ='previousLoops' component={PreviousLoops} />
         <Route path = 'entities' component={Entities} />
+        <Route path = 'usersList' component={UsersList} />
       </Route>
     </Route>
   </Router>

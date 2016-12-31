@@ -13,48 +13,40 @@ const style = {
   marginRight: 20,
 };
 
-class EntitiesComponent extends Component {
+class UsersListComponent extends Component {
   constructor() {
     super();
   }
 
-  onViewUsersClick(entityId) {
-    this.props.fetchUsersByEntity(entityId);
-    browserHistory.push('/profile/usersList')
-  }
 
   render() {
     return (
       <div id="previous-loops">
         {
-          this.props.entities.map((entity, i) => (
+          this.props.usersList.map((user, i) => (
             <div className="col s12 m12 l6" key={i}>
               <Card>
-                <CardTitle title={entity.name} className="teacher-profile-loops"/>
+                <CardHeader
+                  title={user.name}
+                  avatar="/img/genericteacher.jpg"
+                />
                 <CardText>
-                  {entity.address}
+                  Email: {user.email}
                 </CardText>
                 <CardText>
-                  {entity.phone}
+                  Role: {user.role}
                 </CardText>
-                <CardText>
-                  {entity.type}
-                </CardText>
-                <CardActions>
-                  <FlatButton value={entity.id} onClick={this.onViewUsersClick.bind(this, entity.id)}>View Users</FlatButton>
-                </CardActions>
               </Card>
             </div>
           ))
         }
-
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ entities }) => ({ entities });
-const mapDispatchToProps = { fetchUsersByEntity };
-const Entities = connect(mapStateToProps, mapDispatchToProps)(EntitiesComponent)
+const mapStateToProps = ({ usersList }) => ({ usersList });
+const mapDispatchToProps = { };
+const UsersList = connect(mapStateToProps, mapDispatchToProps)(UsersListComponent)
 
-export default Entities;
+export default UsersList;
