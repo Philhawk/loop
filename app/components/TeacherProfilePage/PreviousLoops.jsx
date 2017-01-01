@@ -8,7 +8,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import { createActiveSession } from '../../reducers/session';
 import { fetchAllQuestionsByLectureId, addQuestion } from '../../reducers/questionsList'
 import { fetchLecture, deleteLecture } from '../../reducers/lecture';
-import { fetchLecturesByTeacher } from '../../reducers/lectureList';
+import { fetchLecturesByTeacher, fetchAllLectures } from '../../reducers/lectureList';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
@@ -34,7 +34,11 @@ class PreviousLoopsComponent extends Component {
   onDeleteLoopClick(e) {
     this.props.deleteLecture({ lecture_id: e})
     .then(() => {
-      this.props.fetchLecturesByTeacher({ id: this.props.auth.id })
+      if(this.props.auth.role === 'Admin') {
+        this.props.fetchAllLectures()
+      } else {
+        this.props.fetchLecturesByTeacher({ id: this.props.auth.id })
+      }
     })
   }
 
@@ -77,7 +81,7 @@ class PreviousLoopsComponent extends Component {
 }
 
 const mapStateToProps = ({ lectureList, session, auth }) => ({ lectureList, session, auth });
-const mapDispatchToProps = { createActiveSession, fetchAllQuestionsByLectureId, fetchLecture, addQuestion, deleteLecture, fetchLecturesByTeacher }
+const mapDispatchToProps = { createActiveSession, fetchAllQuestionsByLectureId, fetchLecture, addQuestion, deleteLecture, fetchLecturesByTeacher, fetchAllLectures }
 const PreviousLoops = connect(mapStateToProps, mapDispatchToProps)(PreviousLoopsComponent)
 
 export default PreviousLoops;
