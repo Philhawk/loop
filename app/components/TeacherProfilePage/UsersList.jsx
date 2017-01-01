@@ -29,9 +29,22 @@ class UsersListComponent extends Component {
   render() {
     return (
       <div id="previous-loops">
+        <div className="col s12 m12 l6 user">
+          <Card>
+            <CardHeader
+              title='New User'
+              avatar="/img/plus.jpg"
+            />
+            <CardText>Click below to create a new user for this entity</CardText>
+            <CardText>Place Holder</CardText>
+            <CardActions>
+              <FlatButton>Create User</FlatButton>
+            </CardActions>
+          </Card>
+        </div>
         {
           this.props.usersList.map((user, i) => (
-            <div className="col s12 m12 l6" key={i}>
+            <div className="col s12 m12 l6 user" key={i}>
               <Card>
                 <CardHeader
                   title={user.name}
