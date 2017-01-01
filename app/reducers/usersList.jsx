@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // actions
 const SET_USERS = 'SET_USERS';
+const DELETE_USER = 'DELETE_USER';
 
 // sync action creator
 export const setUsers = users => ({
@@ -11,14 +12,18 @@ export const setUsers = users => ({
 
 // async action creator
 export const fetchUsersByEntity = (entityId) => dispatch => {
-  console.log(entityId)
+  console.log("ENTITY ID IN USERSLIST REDUCER", entityId)
   axios.get(`/api/users/entity/${entityId}`)
   .then(users => {
     dispatch(setUsers(users.data))
   })
 };
 
-// initil state
+export const removeUserFromDatabase = (userId) => dispatch => {
+  return axios.delete(`/api/users/${userId}`)
+}
+
+// initial state
 const initialState = [];
 
 // reducer

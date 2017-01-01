@@ -7,6 +7,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import { fetchUsersByEntity } from '../../reducers/usersList';
+import { fetchEntity } from '../../reducers/selectedEntity';
 
 
 const style = {
@@ -19,6 +20,8 @@ class EntitiesComponent extends Component {
   }
 
   onViewUsersClick(entityId) {
+    console.log("ID IN COMPONENT", entityId)
+    this.props.fetchEntity(entityId)
     this.props.fetchUsersByEntity(entityId);
     browserHistory.push('/profile/usersList')
   }
@@ -54,7 +57,7 @@ class EntitiesComponent extends Component {
 }
 
 const mapStateToProps = ({ entities }) => ({ entities });
-const mapDispatchToProps = { fetchUsersByEntity };
+const mapDispatchToProps = { fetchUsersByEntity, fetchEntity };
 const Entities = connect(mapStateToProps, mapDispatchToProps)(EntitiesComponent)
 
 export default Entities;
