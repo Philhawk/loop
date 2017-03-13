@@ -9,7 +9,7 @@ import OpenEnded from '../QuestionType/OpenEnded';
 import { createLecture, updateLecture } from '../../reducers/lecture';
 import { createSession, activateSession } from '../../reducers/session';
 import { connect } from 'react-redux';
-import NameLoopPanel from '../NameLoopPanel'
+import NameLoopPanel from '../NameLoopPanel';
 import uuid from 'uuid';
 import axios from 'axios';
 import FlatButton from 'material-ui/FlatButton';
@@ -32,6 +32,8 @@ class TeacherCreateLoopComponent extends Component {
     this.setState({open: false});
   };
 
+  // when the component mounts, create the lecture with a teacher id
+  // create a session string with a lecture_id and sessionString
   componentDidMount() {
     this.props.createLecture({
       name: '',
@@ -43,6 +45,8 @@ class TeacherCreateLoopComponent extends Component {
     )
   }
 
+  // when the component unmounts, active the session that was created in,
+  // componentDidMount
   componentWillUnmount() {
     this.props.activateSession({ session_id: this.props.session.id })
   }
