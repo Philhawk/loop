@@ -69,7 +69,7 @@ class TeacherCreateLoopComponent extends Component {
     this.setState({whois: "openEnded"})
   }
 
-
+  // displays the question component that matches the state change
   showQuestion() {
     if (this.state.whois === "fillInBlank") {
       return <FillInBlank />
