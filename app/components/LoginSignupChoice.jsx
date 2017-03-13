@@ -29,6 +29,7 @@ class LoginSignUpComponent extends Component {
       document.body.style = "";
   }
 
+  // will show the login or signup form depending on what was placed on the state
   showForm() {
     if (this.state.whois === "login") {
       return <Login />
