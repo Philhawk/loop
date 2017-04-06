@@ -3,6 +3,12 @@
 const Sequelize = require('sequelize');
 const db = require('APP/db');
 
+// When creating a question,
+// there must be content,
+// a correctAnswer as text,
+// a question type must be specified,
+// choices are required if the question is not open ended
+
 const Question = db.define('questions', {
   content: {
     type: Sequelize.TEXT,
