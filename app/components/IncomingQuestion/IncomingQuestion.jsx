@@ -8,6 +8,8 @@ class IncomingQuestionComponent extends Component {
     super();
   }
 
+  // switches out the component displayed,
+  // based on the questionType selected by the user
   answerType(){
     if(this.props.currentQuestion.questionType === 'multipleChoice') {
       return <MultipleChoiceStudent />

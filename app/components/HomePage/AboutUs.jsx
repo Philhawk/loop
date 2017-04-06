@@ -48,7 +48,3 @@ class WhyUseIt extends Component {
 }
 
 export default WhyUseIt;
-
-
-/* Waiting on A^2 hi-res head shots*/
-// Need Andy's about me statement
