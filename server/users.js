@@ -14,7 +14,9 @@ usersRouter.get('/', (req, res, next) => {
   .catch(next);
 });
 
-// get a specific user
+// get a specific user by their user id,
+// return that user,
+// catch any errors
 usersRouter.get('/:userId', (req, res, next) => {
   db.model('users').findById(req.params.userId)
   .then(user => {
