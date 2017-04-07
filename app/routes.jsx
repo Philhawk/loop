@@ -32,6 +32,9 @@ import { fetchLecturesByTeacher, fetchAllLectures } from './reducers/lectureList
 import { fetchSessions } from './reducers/activeSessions';
 import { fetchEntities } from './reducers/entities';
 
+// add the initial state if one hasn't been set,
+// open a socket, and assign a sessionString to the loopUuId,
+// assign the return value of auth and role on the store
 const onLoopEnter = () => {
   if(!store.getState().questionsList[0].default) {
     store.dispatch(addInitialState())
