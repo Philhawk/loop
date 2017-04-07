@@ -24,6 +24,8 @@ class LoginSignUpComponent extends Component {
     this.setState({whois: "signup"})
   }
 
+  // clears the overlay that is created,
+  // when the side nav appears on mobile
   componentDidMount() {
     $('#sidenav-overlay').remove()
       document.body.style = "";
