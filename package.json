@@ -2,7 +2,7 @@
   "name": "loop",
   "version": "0.0.1",
   "engines": {
-    "node": "6.7.0"
+    "node": "7.7.2"
   },
   "description": "Real-time feedback for teachers in the classroom.",
   "main": "index.js",
