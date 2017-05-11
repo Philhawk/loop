@@ -1,4 +1,4 @@
-import axios from 'axios';
+ import axios from 'axios';
 
 // actions
 const SET_USERS = 'SET_USERS';
