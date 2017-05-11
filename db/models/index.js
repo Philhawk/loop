@@ -1,4 +1,4 @@
-z'use strict';
+'use strict';
 
 // Require our models. Running each module registers the model into sequelize
 // so any other part of the application could call sequelize.model('User')
