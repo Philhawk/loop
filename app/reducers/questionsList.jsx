@@ -72,15 +72,15 @@ const reducer = (state = initialState, action) => {
 
   switch(action.type) {
     case ADD_QUESTION:
-    return state.concat(action.question)
+      return state.concat(action.question)
     case REMOVE_QUESTION:
-    return state.slice(1)
+      return state.slice(1)
     case SET_QUESTIONS:
-    return action.questions
+      return action.questions
     case ADD_INITIAL_STATE:
-    return initialState.concat(state);
+      return initialState.concat(state);
     case CLEAR_QUESTIONS:
-    return initialState
+      return initialState
   }
   return state;
 }
