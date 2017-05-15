@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 import auth from './auth';
 import currentQuestion from './currentQuestion';
 import questionsList from './questionsList';
@@ -14,7 +14,7 @@ import activeSessions from './activeSessions';
 import lectureList from './lectureList';
 import entities from './entities';
 import usersList from './usersList';
-import selectedEntity from './selectedEntity'
+import selectedEntity from './selectedEntity';
 
 const rootReducer = combineReducers({
   auth,
@@ -32,7 +32,7 @@ const rootReducer = combineReducers({
   lectureList,
   entities,
   usersList,
-  selectedEntity
-})
+  selectedEntity,
+});
 
-export default rootReducer
+export default rootReducer;
