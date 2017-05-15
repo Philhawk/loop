@@ -22,10 +22,10 @@ class LoopAnalysis extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let timeNow = moment();
-    let lectureStart = moment(this.props.session.timeStarted);
-    let duration = moment.duration(timeNow - lectureStart);
-    let formattedTimeDuration = moment(duration.asMilliseconds()).format('mm:ss');
+    const timeNow = moment();
+    const lectureStart = moment(this.props.session.timeStarted);
+    const duration = moment.duration(timeNow - lectureStart);
+    const formattedTimeDuration = moment(duration.asMilliseconds()).format('mm:ss');
     this.setState({ sessionLength: formattedTimeDuration });
   }
 
