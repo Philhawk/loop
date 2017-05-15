@@ -29,7 +29,6 @@ import { fetchQuestionsAnsweredLength } from './reducers/answeredQuestions';
 import { callSetCurrentQuestion } from './reducers/currentQuestion';
 import { fetchActiveSessions } from './reducers/activeSessions';
 import { fetchLecturesByTeacher, fetchAllLectures } from './reducers/lectureList';
-import { fetchSessions } from './reducers/activeSessions';
 import { fetchEntities } from './reducers/entities';
 
 // add the initial state if one hasn't been set,
@@ -76,7 +75,7 @@ const onTeacherProfileEnter = () => {
     store.dispatch(fetchAllLectures());
     store.dispatch(fetchEntities());
   } else {
-    store.dispatch(fetchLecturesByTeacher({ id: store.getState().auth.id}));
+    store.dispatch(fetchLecturesByTeacher({ id: store.getState().auth.id }));
   }
 };
 
