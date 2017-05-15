@@ -1,5 +1,3 @@
-'use strict';
-
 // Require our models. Running each module registers the model into sequelize
 // so any other part of the application could call sequelize.model('User')
 // to get access to the User model.
@@ -13,7 +11,7 @@ const StudentQuestion = require('./studentQuestion');
 const Entity = require('./entity');
 
 Lecture.belongsTo(User, { as: 'teacher' });
-Lecture.belongsToMany(User, { through: 'Participant' })
+Lecture.belongsToMany(User, { through: 'Participant' });
 Question.belongsTo(Lecture);
 Lecture.hasMany(Question);
 Response.belongsTo(Question);
@@ -31,5 +29,5 @@ module.exports = {
   Response,
   Session,
   StudentQuestion,
-  Entity
-}
+  Entity,
+};
