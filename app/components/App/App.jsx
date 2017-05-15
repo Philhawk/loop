@@ -8,14 +8,11 @@ import Footer from '../HomePage/Footer';
 
 
 export default class App extends Component {
-  constructor() {
-    super();
-  }
 
   render() {
     return (
       <div className="homepage">
-        <OurNavbar/>
+        <OurNavbar />
         <AboveFold />
         <WhatIsIt />
         <WhyUseIt />
