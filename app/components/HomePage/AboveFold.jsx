@@ -1,19 +1,13 @@
-//React
-import React, { Component } from 'react';
-import CarouselVideo from '../CarouselVideo'
 import { Link } from 'react-router';
+import React, { Component } from 'react';
+import CarouselVideo from '../CarouselVideo';
 
 /* ---  Component --- */
 class AboveFold extends Component {
-  constructor() {
-    super();
-  }
 
   render() {
-
-// AboveFold component
     return (
-      <div className="container" style={{paddingBottom: '2em'}}>
+      <div className="container" style={{ paddingBottom: '2em' }}>
         <div className="row">
           <div className="heading-text col s12 m12 l12">
             Loop
