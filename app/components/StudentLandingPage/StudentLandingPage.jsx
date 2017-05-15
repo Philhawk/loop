@@ -9,7 +9,7 @@ class StudentLandingPageComponent extends Component {
   constructor() {
     super();
   }
- 
+
 
   activeSessions() {
     return(
@@ -65,23 +65,7 @@ class StudentLandingPageComponent extends Component {
   }
 }
 
-const mapStateToProps = ({ activeSessions }) => ({ activeSessions })
-const StudentLandingPage = connect(mapStateToProps)(StudentLandingPageComponent)
+const mapStateToProps = ({ activeSessions }) => ({ activeSessions });
+const StudentLandingPage = connect(mapStateToProps)(StudentLandingPageComponent);
 
 export default StudentLandingPage;
-
-
-//
-// <div className='row card' key={i}>
-// <p className='card-title'>Lecture Title: </p>
-// <p className='card-title'>Teacher: {session.lecture.teacher.name}</p>
-// <p className='card-title'>Link: <a href={session.bitly}>Join Loop</a></p>
-// </div>
-
-
-// <div >
-// <div className='row card'>
-// <h2>Join A Loop Below</h2>
-// </div>
-//
-// </div>

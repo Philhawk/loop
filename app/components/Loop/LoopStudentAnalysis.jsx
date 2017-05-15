@@ -18,7 +18,6 @@ class LoopStudentAnalysisComponent extends Component {
     const formattedTimeDuration = moment(duration.asMilliseconds()).format('mm:ss');
 
     return (
-
         <div>
           <form className="post-loop-analysis">
             <h3 className="post-loop-analysis-heading">Well done!</h3>
@@ -40,7 +39,6 @@ class LoopStudentAnalysisComponent extends Component {
             </Tabs>
           </form>
         </div>
-
     );
   }
 }

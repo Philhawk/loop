@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import LoginSignupChoice from '../LoginSignupChoice';
-import { Navbar, NavItem, Icon } from 'react-materialize';
+import { Navbar, NavItem } from 'react-materialize';
 import { Link } from 'react-router';
 
 export default class OurNavbar extends Component {
-  constructor() {
-    super();
-  }
-
 
   render() {
     return (
