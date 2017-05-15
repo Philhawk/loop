@@ -11,7 +11,7 @@ injectTapEventPlugin();
 render (
   <Provider store={store}>
     <MuiThemeProvider>
-      <Routes/>
+      <Routes />
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('main'),

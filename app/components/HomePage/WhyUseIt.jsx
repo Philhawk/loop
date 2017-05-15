@@ -1,14 +1,9 @@
-//React
 import React, { Component } from 'react';
 
 /* ---  Component --- */
 class WhyUseIt extends Component {
-  constructor() {
-    super();
-  }
 
   render() {
-
 // WhyUseIt component
     return (
       <div className="whyuseit">
@@ -32,7 +27,7 @@ class WhyUseIt extends Component {
           <div className="col s1 m1 l1">
           </div>
           <div className="whatsummary col s11 m11 l5">
-            When asked, teachers always comment on the lack of real-time feedback they can get from students. That' where Loop comes in.
+            When asked, teachers always comment on the lack of real-time feedback they can get from students. That's where Loop comes in.
           </div>
         </div>
         <div className="row">

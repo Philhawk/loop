@@ -1,15 +1,10 @@
-//React
+//
 import React, { Component } from 'react';
 
 /* ---  Component --- */
 class WhatIsIt extends Component {
-  constructor() {
-    super();
-  }
 
   render() {
-
-// WhatIsIt component
     return (
       <div>
         <a name="what-is-it"></a>
@@ -25,7 +20,7 @@ class WhatIsIt extends Component {
           <div className="col s12 m12 l8" id="homepage-icons">
             <div className="row">
               <div className="col s6 m6 l6">
-                <div className='row'>
+                <div className="row">
                   <div className="col s12 m12 l4">
                     <i className="material-icons">account_circle</i>
                   </div>
@@ -35,7 +30,7 @@ class WhatIsIt extends Component {
                 </div>
               </div>
               <div className="col s6 m6 l6">
-                <div className='row'>
+                <div className="row">
                   <div className="col s12 m12 l4">
                     <i className="material-icons">assignment</i>
                   </div>
@@ -47,7 +42,7 @@ class WhatIsIt extends Component {
             </div>
             <div className="row">
               <div className="col s6 m6 l6">
-                <div className='row'>
+                <div className="row">
                   <div className="col s12 m12 l4">
                     <i className="material-icons">speaker_notes</i>
                   </div>
@@ -57,7 +52,7 @@ class WhatIsIt extends Component {
                 </div>
               </div>
               <div className="col s6 m6 l6">
-                <div className='row'>
+                <div className="row">
                   <div className="col s12 m12 l4">
                     <i className="material-icons">pie_chart</i>
                   </div>
