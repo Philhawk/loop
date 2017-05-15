@@ -10,12 +10,12 @@ class IncomingQuestionComponent extends Component {
 
   // switches out the component displayed,
   // based on the questionType selected by the user
-  answerType(){
-    if(this.props.currentQuestion.questionType === 'multipleChoice') {
+  answerType() {
+    if (this.props.currentQuestion.questionType === 'multipleChoice') {
       return <MultipleChoiceStudent />
-    } else if(this.props.currentQuestion.questionType === "fillInTheBlank") {
+    } else if (this.props.currentQuestion.questionType === 'fillInTheBlank') {
       return <MultipleChoiceStudent />
-    } else if(this.props.currentQuestion.questionType === "openEnded") {
+    } else if (this.props.currentQuestion.questionType === 'openEnded') {
       return <OpenEndedStudent />
     } else {
       return null;
@@ -41,7 +41,7 @@ class IncomingQuestionComponent extends Component {
   }
 }
 
-const mapStateToProps = ({currentQuestion}) => ({currentQuestion})
-const IncomingQuestion = connect(mapStateToProps)(IncomingQuestionComponent)
+const mapStateToProps = ({ currentQuestion }) => ({ currentQuestion });
+const IncomingQuestion = connect(mapStateToProps)(IncomingQuestionComponent);
 
 export default IncomingQuestion;
