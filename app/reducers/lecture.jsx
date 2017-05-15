@@ -25,7 +25,7 @@ export const createLecture = ({ name, mood, description, teacher_id }) => (dispa
 
 export const updateLecture = ({ name, mood, description, teacher_id, lecture_id }) => (dispatch) => {
   axios.put(`/api/lectures/${lecture_id}`, { name, mood, description, teacher_id })
-  .then(lecture => {
+  .then((lecture) => {
     dispatch(setLecture(lecture.data));
   });
 };
