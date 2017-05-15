@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Unauthorized from '../Unauthorized/Unauthorized';
-import TeacherCreateLoop from '../TeacherCreateLoop/TeacherCreateLoop';
 import TeacherPresentLoop from '../TeacherPresentLoop/TeacherPresentLoop';
 import StudentLoop from '../StudentLoop/StudentLoop';
 import { connect } from 'react-redux';
@@ -11,16 +9,15 @@ class LoopComponent extends Component {
   }
 
   studentOrTeacher() {
-    if(this.props.auth.role === "Teacher") {
-      return <TeacherPresentLoop />
+    if (this.props.auth.role === "Teacher") {
+      return <TeacherPresentLoop />;
     } else {
-      return <StudentLoop />
+      return <StudentLoop />;
     }
   }
 
   render() {
     return (
-
       <div>
         <TeacherPresentLoop />
       </div>
@@ -28,7 +25,7 @@ class LoopComponent extends Component {
   }
 }
 
-const mapStateToProps = ({auth}) => ({auth})
-const Loop = connect(mapStateToProps)(LoopComponent)
+const mapStateToProps = ({ auth }) => ({ auth });
+const Loop = connect(mapStateToProps)(LoopComponent);
 
 export default Loop;
