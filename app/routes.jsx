@@ -81,22 +81,22 @@ const onTeacherProfileEnter = () => {
 
 const routes = () => (
   <Router history={browserHistory}>
-    <Route path='/'>
+    <Route path="/">
       <IndexRoute component={App} />
-      <Route path='welcome' component={LoginSignupChoice} />
-      <Route path='create-intro' component={TeacherIntro} />
+      <Route path="welcome" component={LoginSignupChoice} />
+      <Route path="create-intro" component={TeacherIntro} />
       { /*TeacherCreateLoop is a backup*/ }
-      <Route path='create-loop' component={TeacherCreateLoop} />
-      <Route path='loop/*' component={Loop} onEnter={onLoopEnter} />
-      <Route path='studentLoop/:loopUuId' component={StudentLoop} onEnter={onStudentLoopEnter} />
-      <Route path='post-loop-analysis' component={LoopAnalysis} onEnter={onLoopFinish} />
-      <Route path='post-loop-student-analysis' component={LoopStudentAnalysis} />
-      <Route path='activeLoops' component={StudentLandingPage} onEnter={onForStudentsEnter} />
-      <Route path='profile' component={TeacherProfilePage} onEnter={onTeacherProfileEnter}>
-        <Route path='/loopStats' component={LoopStats} />
-        <Route path='previousLoops' component={PreviousLoops} />
-        <Route path='entities' component={Entities} />
-        <Route path='usersList' component={UsersList} />
+      <Route path="create-loop" component={TeacherCreateLoop} />
+      <Route path="loop/*" component={Loop} onEnter={onLoopEnter} />
+      <Route path="studentLoop/:loopUuId" component={StudentLoop} onEnter={onStudentLoopEnter} />
+      <Route path="post-loop-analysis" component={LoopAnalysis} onEnter={onLoopFinish} />
+      <Route path="post-loop-student-analysis" component={LoopStudentAnalysis} />
+      <Route path="activeLoops" component={StudentLandingPage} onEnter={onForStudentsEnter} />
+      <Route path="profile" component={TeacherProfilePage} onEnter={onTeacherProfileEnter}>
+        <Route path="/loopStats" component={LoopStats} />
+        <Route path="previousLoops" component={PreviousLoops} />
+        <Route path="entities" component={Entities} />
+        <Route path="usersList" component={UsersList} />
       </Route>
     </Route>
   </Router>
