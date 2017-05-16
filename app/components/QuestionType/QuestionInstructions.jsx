@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 export default class QuestionInstructions extends Component {
   constructor() {
@@ -14,7 +13,6 @@ export default class QuestionInstructions extends Component {
         <div className="instruction-text">
           <p> Loops are made to be discovered,</p>
           <p> Once you create a Loop, it'll be visible to students anywhere. Let them join the conversation in your virtual classroom</p>
-
         </div>
       </div>
     )
