@@ -10,23 +10,23 @@ export const setEntities = entities => ({
 });
 
 // async action creators
-export const fetchEntities = () => dispatch => {
+export const fetchEntities = () => (dispatch) => {
     axios.get('/api/entities')
-    .then(entities => {
-        dispatch(setEntities(entities.data))
-    })
-}
+    .then((entities) => {
+        dispatch(setEntities(entities.data));
+    });
+};
 
 // initial state
 const initialState = [];
 
 const reducer = (state = initialState, { entities, type }) => {
-    switch(type) {
+    switch (type) {
         case SET_ENTITIES:
             return entities;
         default:
             return state;
     }
-}
+};
 
 export default reducer;
