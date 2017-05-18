@@ -24,11 +24,12 @@ export const fetchAllLectures = () => (dispatch) => {
 const initialState = [];
 
 const reducer = (state = initialState, { lectureList, type }) => {
-  switch(type) {
+  switch (type) {
     case SET_LECTURES:
       return lectureList;
+    default:
+      return state;
   }
-  return state;
 };
 
 export default reducer;
