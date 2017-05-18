@@ -51,7 +51,7 @@ export const createActiveSession = ({ sessionString, lecture_id }) => (dispatch)
 
 export const endSession = ({ session_id, sessionLength, active }) => (dispatch) => {
   axios.put(`/api/sessions/${session_id}`, { active, sessionLength })
-  .then(session => {
+  .then((session) => {
     dispatch(setCurrentSession(session.data));
   })
   .catch(err => console.error(err));
