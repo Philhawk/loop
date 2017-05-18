@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 // Constants
-const STUDENT_ADD_QUESTION = "STUDENT_ADD_QUESTION";
-const STUDENT_REMOVE_QUESTION = "STUDENT_REMOVE_QUESTION"
-const STUDENT_SHOW_ALL_QUESTIONS = "STUDENT_SHOW_ALL_QUESTIONS"
-const CLEAR_STUDENT_QUESTIONS = "CLEAR_STUDENT_QUESTIONS"
+const STUDENT_ADD_QUESTION = 'STUDENT_ADD_QUESTION';
+const STUDENT_REMOVE_QUESTION = 'STUDENT_REMOVE_QUESTION';
+const STUDENT_SHOW_ALL_QUESTIONS = 'STUDENT_SHOW_ALL_QUESTIONS';
+const CLEAR_STUDENT_QUESTIONS = 'CLEAR_STUDENT_QUESTIONS';
 
 // Sync Action Creators
 export const studentAddQuestion = question => ({ type: STUDENT_ADD_QUESTION, question })
@@ -29,7 +29,7 @@ export const getAllStudentQuestionsByLoop = ({ session_id }) => dispatch => {
 
 // make an async thunk that will update the question status from unanswered to answered
 export const answerQuestion = ({ id }) => dispatch => {
-  axios.put(`/api/studentQuestions/${id}`, { status: "answered" })
+  axios.put(`/api/studentQuestions/${id}`, { status: 'answered' })
   .then(question => {
   })
 }
