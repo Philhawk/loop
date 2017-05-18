@@ -7,54 +7,54 @@ const STUDENT_SHOW_ALL_QUESTIONS = 'STUDENT_SHOW_ALL_QUESTIONS';
 const CLEAR_STUDENT_QUESTIONS = 'CLEAR_STUDENT_QUESTIONS';
 
 // Sync Action Creators
-export const studentAddQuestion = question => ({ type: STUDENT_ADD_QUESTION, question })
-export const studentRemoveQuestion = index => ({ type: STUDENT_REMOVE_QUESTION, index })
-export const setStudentQuestionsForLoop = questions => ({ type: STUDENT_SHOW_ALL_QUESTIONS, questions})
-export const clearStudentQuestions = () => ({ type: CLEAR_STUDENT_QUESTIONS })
+export const studentAddQuestion = question => ({ type: STUDENT_ADD_QUESTION, question });
+export const studentRemoveQuestion = index => ({ type: STUDENT_REMOVE_QUESTION, index });
+export const clearStudentQuestions = () => ({ type: CLEAR_STUDENT_QUESTIONS });
+export const setStudentQuestionsForLoop = questions => ({ type: STUDENT_SHOW_ALL_QUESTIONS, questions });
 
 // Async Action Creators
-export const createStudentQuestion = ({ questionContent, session_id }) => dispatch => {
+export const createStudentQuestion = ({ questionContent, session_id }) => (dispatch) => {
   axios.post('/api/studentQuestions', { content: questionContent, session_id })
-  .then(studentQuestion => {
-    dispatch(studentAddQuestion(studentQuestion.data))
-  })
-}
+  .then((studentQuestion) => {
+    dispatch(studentAddQuestion(studentQuestion.data));
+  });
+};
 
-export const getAllStudentQuestionsByLoop = ({ session_id }) => dispatch => {
+export const getAllStudentQuestionsByLoop = ({ session_id }) => (dispatch) => {
   axios.get(`/api/studentQuestions/session/${session_id}`)
-  .then(questions => {
-    dispatch(setStudentQuestionsForLoop(questions.data))
-  })
-}
+  .then((questions) => {
+    dispatch(setStudentQuestionsForLoop(questions.data));
+  });
+};
 
 // make an async thunk that will update the question status from unanswered to answered
-export const answerQuestion = ({ id }) => dispatch => {
+export const answerQuestion = ({ id }) => (dispatch) => {
   axios.put(`/api/studentQuestions/${id}`, { status: 'answered' })
-  .then(question => {
-  })
-}
+  .then((question) => {
+  });
+};
 
-export const callClearStudentQuestions = () => dispatch => {
+export const callClearStudentQuestions = () => (dispatch) => {
   dispatch(clearStudentQuestions());
-}
+};
 
 
 // Initial State
-const initialState = []
+const initialState = [];
 
-const reducer = (state=initialState, action) => {
-  switch(action.type) {
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
     case STUDENT_ADD_QUESTION:
       return state.concat(action.question);
     case STUDENT_REMOVE_QUESTION:
-      return state.slice(0, action.index).concat(state.slice(action.index + 1))
+      return state.slice(0, action.index).concat(state.slice(action.index + 1));
     case STUDENT_SHOW_ALL_QUESTIONS:
-      return action.questions
+      return action.questions;
     case CLEAR_STUDENT_QUESTIONS:
-      return initialState
+      return initialState;
     default:
       return state;
   }
-}
+};
 
 export default reducer;
