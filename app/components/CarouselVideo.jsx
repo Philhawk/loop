@@ -41,9 +41,9 @@ class CarouselVideo extends Component {
             },
           }}
         >
-          <img src="img/Carousel/pointing.jpg" data-action="http://www.fullstackacademy.com/student-gallery" alt="Students using a computer" />
-          <img src="img/Carousel/students-typing.jpg" alt="A teacher reading a screen" data-action="http://www.fullstackacademy.com/student-gallery" />
-          <img src="img/Carousel/fullstack-academy.jpg" data-action="http://www.fullstackacademy.com/student-gallery" alt="A class in session" />
+          <img src="img/Carousel/pointing.jpg" data-action="http://www.fullstackacademy.com/student-gallery" alt="Indivdual attention" />
+          <img src="img/Carousel/students-typing.jpg" alt="Increase participation" data-action="http://www.fullstackacademy.com/student-gallery" />
+          <img src="img/Carousel/fullstack-academy.jpg" data-action="http://www.fullstackacademy.com/student-gallery" alt="Enhance presentations" />
         </Coverflow>
       </StyleRoot>
     );
