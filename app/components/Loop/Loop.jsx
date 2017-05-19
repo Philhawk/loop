@@ -9,7 +9,7 @@ class LoopComponent extends Component {
   }
 
   studentOrTeacher() {
-    if (this.props.auth.role === "Teacher") {
+    if (this.props.auth.role === 'Teacher') {
       return <TeacherPresentLoop />;
     } else {
       return <StudentLoop />;
