@@ -7,11 +7,11 @@ const DELETE_USER = 'DELETE_USER';
 // sync action creator
 export const setUsers = users => ({
   type: SET_USERS,
-  users,
+  users
 });
 
 // async action creator
-export const fetchUsersByEntity = (entityId) => (dispatch) => {
+export const fetchUsersByEntity = (entityId) => dispatch => {
   console.log('ENTITY ID IN USERSLIST REDUCER', entityId);
   axios.get(`/api/users/entity/${entityId}`)
   .then((users) => {
@@ -19,7 +19,7 @@ export const fetchUsersByEntity = (entityId) => (dispatch) => {
   });
 };
 
-export const removeUserFromDatabase = (userId) => (dispatch) => {
+export const removeUserFromDatabase = (userId) => dispatch => {
   return axios.delete(`/api/users/${userId}`);
 };
 
