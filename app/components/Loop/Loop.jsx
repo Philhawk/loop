@@ -1,7 +1,7 @@
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import TeacherPresentLoop from '../TeacherPresentLoop/TeacherPresentLoop';
-import StudentLoop from '../StudentLoop/StudentLoop';
-import { connect } from 'react-redux';
+import { StudentLoop } from '../StudentLoop/StudentLoop';
 
 class LoopComponent extends Component {
   constructor() {
