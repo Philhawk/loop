@@ -46,7 +46,7 @@ questionsRouter.get('/session/:sessionString', (req, res, next) => {
     })
     .then((questions) => {
       res.json(questions);
-    });
+    })
   })
   .catch(next);
 });
@@ -71,7 +71,7 @@ questionsRouter.delete('/:questionId', (req, res, next) => {
   db.model('questions').findById(req.params.questionId)
     .then((question) => {
       question.destroy()
-      .then(() => res.sendStatus(204));
+      .then(() => res.sendStatus(204))
     })
     .catch(next);
 });
