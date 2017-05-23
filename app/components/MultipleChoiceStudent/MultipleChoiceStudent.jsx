@@ -30,7 +30,7 @@ class MultipleChoiceStudentComponent extends Component {
     if (this.state.submitted) {
       return <Button className="disabled submit-button-student">Submitted</Button>;
     } else {
-     return <Button className="submit-button-student #0d47a1 blue darken-4" onClick={this.onSubmitAnswer}>Submit Answer</Button>;
+      return <Button className="submit-button-student #0d47a1 blue darken-4" onClick={this.onSubmitAnswer}>Submit Answer</Button>;
     }
   }
 

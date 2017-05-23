@@ -7,7 +7,7 @@ const DELETE_USER = 'DELETE_USER';
 // sync action creator
 export const setUsers = users => ({
   type: SET_USERS,
-  users
+  users,
 });
 
 // async action creator
