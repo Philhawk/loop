@@ -149,12 +149,18 @@
   font-size: 1em;
 }
 .homepage {
-  background-image: url(../img/background.png);
+/*  background-image: url(../img/background.png);
   background-size: cover;
   background-repeat: no-repeat;
- /* height: 100vh;
-  max-width: 100vw;*/
-  margin-bottom: 0;
+  margin-bottom: 0;*/
+  /*background: linear-gradient(139deg, rgb(6, 114, 179) 0%, rgb(10, 89, 129) 45%, rgb(60, 26, 103) 100%);*/
+  /*background: linear-gradient(30deg, rgb(33, 13, 108) 0%, rgb(40, 100, 137) 45%, rgb(82, 149, 102) 100%);*/
+  /*background: linear-gradient(167deg, rgb(96, 34, 51) 0%, rgb(41, 165, 220) 45%, rgb(84, 153, 209) 100%);*/
+  /*xbackground: linear-gradient(166deg, rgb(14, 98, 135) 0%, rgb(166, 99, 116) 45%, rgb(218, 214, 58) 100%);*/
+  background: linear-gradient(77deg, rgb(72, 221, 206) 0%, rgb(28, 86, 224) 45%, #006494 100%);
+
+
+
 }
 
 .whyusetext {
