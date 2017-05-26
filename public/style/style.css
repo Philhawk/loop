@@ -7,7 +7,6 @@
   padding-bottom: 1.2em;
 }
 
-
 .heading-text {
   font-family: 'Work Sans', sans-serif;
   font-weight: 50;
@@ -36,6 +35,7 @@
   font-weight: 500;
   font-size: 14px;
 }
+
 .container {
   margin-bottom: 2em;
 }
@@ -43,7 +43,6 @@
 .mood-box {
   overflow: hidden;
 }
-
 
 .whatisit {
   background-color: #006494;
@@ -55,14 +54,14 @@
 }
 
 .termsandconditions {
-    padding-top: 2em !important;
-    text-align: left;
-    font-family: 'Avenir', sans-serif;
-    font-weight: 50;
-    color: white;
-    font-size: 1em;
-    display: inline-block;
-    font-size: 15px;
+  padding-top: 2em !important;
+  text-align: left;
+  font-family: 'Avenir', sans-serif;
+  font-weight: 50;
+  color: white;
+  font-size: 1em;
+  display: inline-block;
+  font-size: 15px;
 }
 
 .post-loop-analysis {
@@ -93,18 +92,13 @@
   font-size: 15px;
 }
 .whyuseit {
-  background-color: #0C2239;
+  background-color: #006494;
   padding-bottom: 2em;
 }
 
 
 .what-is-it-text {
   padding-top: 2em !important;
-  /*text-align: left;
-  font-family: 'Avenir', sans-serif;
-  font-weight: 200;
-  color: #31BEF8;
-  font-size: 1.2em;*/
   font-family: 'Avenir', sans-serif;
   font-weight: 200;
   color:  #31BEF8;
@@ -115,11 +109,6 @@
 
 .about-us-text {
   padding-top: 2em !important;
-  /*text-align: left;
-  font-family: 'Avenir', sans-serif;
-  font-weight: 200;
-  color: #31BEF8;
-  font-size: 1.2em;*/
   font-family: 'Avenir', sans-serif;
   font-weight: 200;
   color:  #31BEF8;
@@ -153,10 +142,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 0;*/
-  /*background: linear-gradient(139deg, rgb(6, 114, 179) 0%, rgb(10, 89, 129) 45%, rgb(60, 26, 103) 100%);*/
-  /*background: linear-gradient(30deg, rgb(33, 13, 108) 0%, rgb(40, 100, 137) 45%, rgb(82, 149, 102) 100%);*/
-  /*background: linear-gradient(167deg, rgb(96, 34, 51) 0%, rgb(41, 165, 220) 45%, rgb(84, 153, 209) 100%);*/
-  /*xbackground: linear-gradient(166deg, rgb(14, 98, 135) 0%, rgb(166, 99, 116) 45%, rgb(218, 214, 58) 100%);*/
   background: linear-gradient(77deg, rgb(72, 221, 206) 0%, rgb(28, 86, 224) 45%, #006494 100%);
 
 
