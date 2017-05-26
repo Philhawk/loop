@@ -115,7 +115,6 @@
   font-size: 1.12em;
   text-align: left;
   padding-top: 1em;
-
 }
 
 .left-icon {
@@ -139,9 +138,6 @@
 }
 .homepage {
   background: linear-gradient(77deg, rgb(72, 221, 206) 0%, rgb(28, 86, 224) 45%, #006494 100%);
-
-
-
 }
 
 .whyusetext {
@@ -276,9 +272,9 @@
 }
 
 .divider{
-    width:5px;
-    height:auto;
-    display:inline-block;
+  width:5px;
+  height:auto;
+  display:inline-block;
 }
 
 .button-right:hover {
@@ -634,7 +630,6 @@ nav ul a {
   .whatsummary{
     font-family: 'Avenir', sans-serif;
   }
-
 
   .fancy-stats{
     font-size: 2em;

@@ -27,8 +27,8 @@ class WhyUseIt extends Component {
           <div className="col s12 m3 l3 head-shot">
             <img className="circle responsive-img" src="img/aboutUs/PhilCropped.JPG" alt="Headshot of Phil Jacobs" />
             <h5 className="about-us-names">Phil</h5>
-            <p>I've worn many hats over the years. Teacher, financial analyst, journalist and now as a Web Developer. I place a tremendous amount of importance on spending every day learning something new.</p>
-
+            <p>I've worn many hats over the years. Teacher, financial analyst, journalist and now as a Web Developer. I place a tremendous amount of importance on spending every day learning something new.
+            </p>
           </div>
           <div className="col s12 m3 l3 head-shot">
             <img className="circle responsive-img" src="img/aboutUs/AndyCropped.JPG" alt="Headshot of Andrew Vays" />
