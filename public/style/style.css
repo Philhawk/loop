@@ -45,11 +45,11 @@
 }
 
 .whatisit {
-  background-color: #006494;
+  background-color: #0C2239;
 }
 
 .footer {
-  background-color: #0C2239;
+  background-color: #006494;
   height: 6em;
 }
 
@@ -325,6 +325,7 @@ nav ul a {
   font-weight: 50;
   color: white;
   font-size: 1em;
+  margin-bottom: 0px;
 }
 
 .head-shot {
@@ -362,7 +363,7 @@ nav ul a {
 }
 
 .aboutus {
-  background-color: #385C7B;
+  background-color: #0C2239;
 }
 
 /*super large*/
@@ -435,7 +436,7 @@ nav ul a {
   }
 
   .whatisit {
-    background-color: #006494;
+    background-color: #0C2239;
   }
 }
 
@@ -451,7 +452,7 @@ nav ul a {
   }
 
   .whatisit {
-    background-color: #006494;
+    background-color: #0C2239;
   }
 }
 /*Large Screen*/
@@ -461,7 +462,7 @@ nav ul a {
   }
 
   .whatisit {
-    background-color: #006494;
+    background-color: #0C2239;
   }
 }
 
@@ -472,7 +473,7 @@ nav ul a {
   }
 
   .whatisit {
-    background-color: #006494;
+    background-color: #0C2239;
   }
 }
 
@@ -483,7 +484,7 @@ nav ul a {
   }
 
   .whatisit {
-    background-color: #006494;
+    background-color: #0C2239;
   }
 }
 
@@ -492,7 +493,7 @@ nav ul a {
 /*mediun Screen*/
 @media (max-width: 769px) {
   .whatisit {
-    background-color: #006494;
+    background-color: #0C2239;
  }
   .why-use-it-text {
     padding-left: 2.4em !important;
@@ -578,7 +579,7 @@ nav ul a {
   }
 
   .whatisit {
-    background-color: #006494;
+    background-color: #0C2239;
     width: auto;
   }
 }
@@ -663,7 +664,7 @@ nav ul a {
   }
 
   .whatisit {
-    background-color: #006494;
+    background-color: #0C2239;
     width: auto;
   }
 }
@@ -702,7 +703,7 @@ nav ul a {
   }
 
   .whatisit {
-    background-color: #006494;
+    background-color: #0C2239;
     width: auto;
   }
 }
@@ -736,7 +737,7 @@ nav ul a {
     font-size: 2em;
   }
   .whatisit {
-    background-color: #006494;
+    background-color: #0C2239;
     /*background-color: #006494;*/
 /*    height: 56vh;
 */    max-width: 100vw;
