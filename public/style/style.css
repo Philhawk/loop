@@ -138,10 +138,6 @@
   font-size: 1em;
 }
 .homepage {
-/*  background-image: url(../img/background.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin-bottom: 0;*/
   background: linear-gradient(77deg, rgb(72, 221, 206) 0%, rgb(28, 86, 224) 45%, #006494 100%);
 
 
@@ -738,9 +734,7 @@ nav ul a {
   }
   .whatisit {
     background-color: #0C2239;
-    /*background-color: #006494;*/
-/*    height: 56vh;
-*/    max-width: 100vw;
+    max-width: 100vw;
   }
 }
 
