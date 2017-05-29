@@ -81,6 +81,7 @@
 .companyname {
   padding-left: 0.2em;
 }
+
 .bottom-brand-logo {
   padding-top: 2em;
   text-align: left;
@@ -91,11 +92,11 @@
   display: inline-block;
   font-size: 15px;
 }
+
 .whyuseit {
   background-color: #006494;
   padding-bottom: 2em;
 }
-
 
 .what-is-it-text {
   padding-top: 2em !important;
@@ -105,7 +106,6 @@
   font-size: 1.12em;
   text-align: left;
 }
-
 
 .about-us-text {
   padding-top: 2em !important;

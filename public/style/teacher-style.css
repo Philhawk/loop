@@ -6,38 +6,30 @@
   color: black;
   font-weight: normal;
 }
-
 .header-text-for-instructions {
   padding-bottom: 1em;
 }
-
 .top-row-profile {
   background-image: url(../img/office.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   margin-bottom: 0;
 }
-
 .startpaddingbtn {
   margin-left: 3em;
 }
-
 .welcome-modal {
   text-align: center;
   padding-bottom: 0.2em;
 }
-
 .start-presentation-button-on-create {
   margin-top: 4em;
 }
-
 .no-shadow {
   box-shadow: none;
 }
-
 .no-pad-tab-view {
   padding: 0 !important;
-
 .question-instructions-main {
   padding-top: 8%;
 }
@@ -183,38 +175,27 @@
   }
 
 }
-
 @media (max-width: 550px) {
 
 }
-
 @media (max-width: 480px) {
   .social-buttons {
       padding-left: 2em;
       padding-top: 1em;
       padding-bottom: 2em;
   }
-
 }
-
 /*small screen*/
-
 @media (max-width: 450px) {
   .social-buttons {
       padding-left: 1em;
   }
 
 }
-
-
-
-
 /*iphone5*/
 @media (max-width: 376px) {
 
 }
-
-
 /*iphone5*/
 @media (max-width: 321px) {
 
