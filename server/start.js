@@ -1,9 +1,10 @@
 'use strict'
 
-const express = require('express')
-const bodyParser = require('body-parser')
-const {resolve} = require('path')
-const passport = require('passport')
+const express = require('express');
+const bodyParser = require('body-parser');
+const { resolve } = require('path');
+const passport = require('passport');
+const compression = require('compression');
 
 // Bones has a symlink from node_modules/APP to the root of the app.
 // That means that we can require paths relative to the app root by
@@ -13,6 +14,7 @@ const passport = require('passport')
 const pkg = require('APP')
 
 const app = express()
+app.use(compression())
 
 if (!pkg.isProduction && !pkg.isTesting) {
   // Logging middleware (dev only)
