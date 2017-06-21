@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 class Footer extends Component {
 
   render() {
-// Footer component
     return (
       <div className="footer">
         <div className="row">
