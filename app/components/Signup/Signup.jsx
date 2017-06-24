@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Input}  from 'react-materialize';
-import { signup } from 'APP/app/reducers/auth'
-import { Link, browserHistory } from 'react-router'
-import { connect } from 'react-redux'
+import { Button, Input } from 'react-materialize';
+import { signup } from 'APP/app/reducers/auth';
+import { Link, browserHistory } from 'react-router';
+import { connect } from 'react-redux';
 
 
 class SignUpComponent extends Component {
