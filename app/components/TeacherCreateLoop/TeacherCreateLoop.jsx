@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import { Button, Row, Input } from 'react-materialize';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import Dialog from 'material-ui/Dialog';
+import uuid from 'uuid';
+
 import QuestionInstructions from '../QuestionType/QuestionInstructions';
 import FillInBlank from '../QuestionType/FillInBlank';
 import MultipleChoice from '../QuestionType/MultipleChoice';
-import Dialog from 'material-ui/Dialog';
 import OpenEnded from '../QuestionType/OpenEnded';
 import { createLecture, updateLecture } from '../../reducers/lecture';
 import { createSession, activateSession } from '../../reducers/session';
-import { connect } from 'react-redux';
-import NameLoopPanel from '../NameLoopPanel';
-import uuid from 'uuid';
-import axios from 'axios';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
+
 
 class TeacherCreateLoopComponent extends Component {
   constructor() {
