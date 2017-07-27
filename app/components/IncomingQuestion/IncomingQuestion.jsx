@@ -4,9 +4,6 @@ import MultipleChoiceStudent from '../MultipleChoiceStudent/MultipleChoiceStuden
 import OpenEndedStudent from '../OpenEndedStudent/OpenEndedStudent';
 
 class IncomingQuestionComponent extends Component {
-  constructor() {
-    super();
-  }
 
   // switches out the component displayed,
   // based on the questionType selected by the user
