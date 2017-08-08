@@ -63,6 +63,7 @@
     "passport-local": "^1.0.0",
     "pg": "^6.1.0",
     "pg-native": "^1.10.0",
+    "prop-types": "^15.5.10",
     "radium": "^0.18.1",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.7",

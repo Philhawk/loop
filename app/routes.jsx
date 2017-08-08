@@ -9,7 +9,6 @@ import LoginSignupChoice from './components/LoginSignupChoice';
 import Loop from './components/Loop/Loop';
 import LoopAnalysis from './components/Loop/LoopAnalysis';
 import LoopStudentAnalysis from './components/Loop/LoopStudentAnalysis';
-import TeacherCreateLoop from './components/TeacherCreateLoop/TeacherCreateLoop';
 import TeacherIntro from './components/TeacherCreateLoop/TeacherIntro';
 import StudentLoop from './components/StudentLoop/StudentLoop';
 import StudentLandingPage from './components/StudentLandingPage/StudentLandingPage';

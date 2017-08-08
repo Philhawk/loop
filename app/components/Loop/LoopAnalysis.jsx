@@ -11,6 +11,7 @@ import { darkBlack } from 'material-ui/styles/colors';
 import { Card, CardMedia, CardText } from 'material-ui/Card';
 import { updateSession } from '../../reducers/session';
 import { callClearStudentQuestions } from '../../reducers/studentQuestions';
+import PropTypes from 'prop-types';
 
 class LoopAnalysis extends Component {
   constructor() {
@@ -23,7 +24,7 @@ class LoopAnalysis extends Component {
 
   componentWillReceiveProps(nextProps) {
     const timeNow = moment();
-    const lectureStart = moment(this.props.session.timeStarted);
+    const lectureStart = moment(this.props.session.timeStarted
     const duration = moment.duration(timeNow - lectureStart);
     const formattedTimeDuration = moment(duration.asMilliseconds()).format('mm:ss');
     this.setState({ sessionLength: formattedTimeDuration });
@@ -52,7 +53,6 @@ class LoopAnalysis extends Component {
     };
 
     return (
-
         <div>
           <form className="post-loop-analysis">
             <h3 className="post-loop-analysis-heading">Well done!</h3>
@@ -123,6 +123,8 @@ class LoopAnalysis extends Component {
     );
   }
 }
+
+
 
 const mapStateToProps = ({ session, studentQuestions, studentMood, answeredQuestions }) => ({ session, studentQuestions, studentMood, answeredQuestions });
 const mapDispatchToProps = { updateSession, callClearStudentQuestions };
