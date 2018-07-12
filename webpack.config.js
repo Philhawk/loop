@@ -4,30 +4,30 @@ module.exports = {
   entry: './app/main.jsx',
   output: {
     path: __dirname,
-    filename: './public/bundle.js'
+    filename: './public/bundle.js',
   },
   context: __dirname,
   devtool: 'source-map',
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css'],
+    extensions: ['.js', '.jsx', '.css'],
     moduleDirectories: [
-      'node_modules'
-    ]
+      'node_modules',
+    ],
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-2']
-        }
+          presets: ['react', 'env'],
+        },
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
-      }
-    ]
-  }
+        loader: 'style-loader!css-loader',
+      },
+    ],
+  },
 };
