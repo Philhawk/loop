@@ -50,7 +50,7 @@ class TeacherCreateLoopComponent extends Component {
     )
   }
 
-  handleNext = () => {
+  handleNext() {
     const {stepIndex} = this.state;
     this.setState({
       stepIndex: stepIndex + 1,
@@ -78,12 +78,12 @@ class TeacherCreateLoopComponent extends Component {
     });
   };
 
-  handlePrev = () => {
+  handlePrev() {
     const {stepIndex} = this.state;
     if (stepIndex > 0) {
       this.setState({stepIndex: stepIndex - 1});
     }
-  };
+  }
 
   onFillInBlank(e) {
     const {stepIndex} = this.state;

@@ -91,11 +91,11 @@ class LoopStatsComponent extends Component {
     this.setState({ responses })
   }
 
-  handleChange = (value) => {
+  handleChange(value) {
     this.setState({
       value: value,
     });
-  };
+  }
 
   render() {
 

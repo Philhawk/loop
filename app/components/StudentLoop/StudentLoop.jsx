@@ -24,7 +24,7 @@ class StudentLoopComponent extends Component {
 
   }
 
-  handleChange = (value) => {
+  handleChange(value) {
     this.setState({
       value: value,
     });

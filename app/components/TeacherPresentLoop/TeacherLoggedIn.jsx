@@ -18,7 +18,7 @@ class TeacherLoggedInComponent extends Component {
     this.onEndLecture = this.onEndLecture.bind(this);
   }
 
-  generatePresentorStopButton = () => {
+  generatePresentorStopButton() {
     return (
         <Link to='/post-loop-analysis'>
           <Button waves='light' className="##d32f2f red darken-2" onClick={this.onEndLecture}>Stop Presentation</Button>

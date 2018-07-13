@@ -5,12 +5,27 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { ShareButtons, ShareCounts, generateShareIcon } from 'react-share';
 
-const { TwitterShareButton, GooglePlusShareButton, FacebookShareButton} = ShareButtons;
+const { TwitterShareButton, GooglePlusShareButton, FacebookShareButton } = ShareButtons;
 
 const GooglePlusIcon = generateShareIcon('google');
 const TwitterIcon = generateShareIcon('twitter');
 const FacebookIcon = generateShareIcon('facebook');
+const paperStyle = {
+  height: '3em',
+  width: '100%',
+  textAlign: 'center',
+  padding: '.75em',
+  marginTop: '.25em',
+  marginBottom: '.25em',
+  display: 'inline-block',
+};
 
+const startButtonStyle = {
+  margin: 10,
+  width: '100%',
+  float: 'right',
+  backgroundColor: 'red',
+};
 
 class TeacherPresentControlBarComponent extends Component {
   constructor() {
@@ -19,33 +34,15 @@ class TeacherPresentControlBarComponent extends Component {
 
   // bitlyShareLink = this.props.session.bitly;
 
-  paperStyle = {
-    height: '3em',
-    width: '100%',
-    textAlign: 'center',
-    padding: '.75em',
-    marginTop: '.25em',
-    marginBottom: '.25em',
-    display: 'inline-block',
-  }
-
-  generatePresentorLink = (linkURL) => {
+  generatePresentorLink(linkURL) {
     return (
       <div className="col s12 m8 l9">
-        <Paper className="presentorLink" style={this.paperStyle}>
+        <Paper className="presentorLink" style={paperStyle}>
             {this.props.session.bitly}
         </Paper>
       </div>
-    )
-  };
-
-  startButtonStyle = {
-      margin: 10,
-      width: '100%',
-      float: 'right',
-      backgroundColor: 'red'
-  };
-
+    );
+  }
 
   render() {
     const shareUrl = this.props.session.bitly;

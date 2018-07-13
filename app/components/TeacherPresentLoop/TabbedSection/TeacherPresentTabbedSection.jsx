@@ -13,11 +13,11 @@ export default class TeacherPresentTabbedSection extends Component {
   }
 
 
-  handleChange = (value) => {
+  handleChange(value) {
     this.setState({
       value: value,
     });
-  };
+  }
 
   render() {
 

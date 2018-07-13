@@ -54,11 +54,11 @@ class TeacherPresentTabbedRightComponent extends React.Component {
     }
   }
 
-  handleChange = (value) => {
+  handleChange(value) {
     this.setState({
       slideIndex: value,
     });
-  };
+  }
 
   render() {
     return (
