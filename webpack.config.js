@@ -1,4 +1,4 @@
-'use strict';
+const path = require('path');
 
 module.exports = {
   entry: './app/main.jsx',
@@ -10,9 +10,7 @@ module.exports = {
   devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.jsx', '.css'],
-    moduleDirectories: [
-      'node_modules',
-    ],
+    root: [path.resolve(__dirname, 'node_modules')],
   },
   module: {
     rules: [

@@ -6,6 +6,8 @@ const {resolve} = require('path')
 
 const appLink = resolve(__dirname, '..', 'node_modules', 'APP')
 
+console.log(`I AM THE DIRNAME ${__dirname}`);
+
 const symlinkError = error =>
 `*******************************************************************
 ${appLink} must point to '..'
@@ -20,14 +22,14 @@ You might try this:
 
   rm ${appLink}
 
-Then run me again.  
+Then run me again.
 
   ~ xoxo, bones
 ********************************************************************`
 
 function makeAppSymlink() {
   console.log(`Linking '${appLink}' to '..'`)
-  try {    
+  try {
     try { fs.unlinkSync(appLink) } catch(swallowed) { }
     fs.symlinkSync('..', appLink)
   } catch (error) {
@@ -39,7 +41,7 @@ function makeAppSymlink() {
 
 function ensureAppSymlink() {
   try {
-    const currently = fs.readlinkSync(appLink)    
+    const currently = fs.readlinkSync(appLink)
     if (currently !== '..') {
       throw new Error(`${appLink} is pointing to '${currently}' rather than '..'`)
     }
