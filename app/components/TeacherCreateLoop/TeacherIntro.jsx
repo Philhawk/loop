@@ -7,8 +7,8 @@ import FillInBlank from '../QuestionType/FillInBlank';
 import uuid from 'uuid';
 
 import { connect } from 'react-redux';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from '@material-ui/core/FlatButton';
+import RaisedButton from '@material-ui/core/RaisedButton';
 import { createLecture, updateLecture } from '../../reducers/lecture';
 import { createSession, activateSession, deleteSession } from '../../reducers/session';
 import { callAddInitialState, callClearQuestions } from '../../reducers/questionsList';
@@ -18,7 +18,7 @@ import {
   Step,
   Stepper,
   StepLabel,
-} from 'material-ui/Stepper';
+} from '@material-ui/core/Stepper';
 
 class TeacherCreateLoopComponent extends Component {
   constructor() {

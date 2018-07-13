@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Tabs, Tab} from 'material-ui/Tabs';
+import {Tabs, Tab} from '@material-ui/core/Tabs';
 import { PieChart, Pie, BarChart, ResponsiveContainer, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import {List, ListItem} from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import Avatar from 'material-ui/Avatar';
-import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
+import {List, ListItem} from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import Avatar from '@material-ui/core/Avatar';
+import {grey400, darkBlack, lightBlack} from '@material-ui/core/colors';
 
 const styles = {
   headline: {

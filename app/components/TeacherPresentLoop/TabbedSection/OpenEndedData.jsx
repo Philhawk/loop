@@ -1,10 +1,10 @@
 import React from 'react';
-import {List, ListItem} from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import Avatar from 'material-ui/Avatar';
-import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
+import { List, ListItem } from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import Avatar from '@material-ui/core/Avatar';
+import { darkBlack } from '@material-ui/core/colors';
 
-export default ({openEndedAnswers}) => (
+export default ({ openEndedAnswers }) => (
   <div>
     {
         openEndedAnswers.map((answer, index) => ((

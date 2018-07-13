@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Input, Button } from 'react-materialize';
 import { createQuestion } from 'APP/app/reducers/questionsList';
 import { connect } from 'react-redux';
-import Snackbar from 'material-ui/Snackbar';
+import Snackbar from '@material-ui/core/Snackbar';
 import injectTapEventPlugin from "react-tap-event-plugin";
 
 class FillInBlankComponent extends Component {

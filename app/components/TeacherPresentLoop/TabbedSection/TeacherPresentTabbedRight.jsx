@@ -1,5 +1,5 @@
 import React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
+import {Tabs, Tab} from '@material-ui/core/Tabs';
 import { connect } from 'react-redux';
 import { callStudentSelectA, callStudentSelectB, callStudentSelectC, callStudentSelectD, postResponse } from '../../../reducers/data';
 import { callAddAnswer } from '../../../reducers/openEndedAnswers'

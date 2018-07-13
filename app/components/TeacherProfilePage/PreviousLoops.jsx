@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Button }  from 'react-materialize';
-import FlatButton from 'material-ui/FlatButton';
+import FlatButton from '@material-ui/core/FlatButton';
 import { Link, browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import uuid from 'uuid';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from '@material-ui/core/Card';
 import { createActiveSession } from '../../reducers/session';
 import { fetchAllQuestionsByLectureId, addQuestion } from '../../reducers/questionsList'
 import { fetchLecture, deleteLecture } from '../../reducers/lecture';
 import { fetchLecturesByTeacher, fetchAllLectures } from '../../reducers/lectureList';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+import FloatingActionButton from '@material-ui/core/FloatingActionButton';
+import ContentAdd from '@material-ui/core/svg-icons/content/add';
 
 
 const style = {

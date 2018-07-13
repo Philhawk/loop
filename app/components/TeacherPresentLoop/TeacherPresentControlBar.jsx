@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
+import Paper from '@material-ui/core/Paper';
+import RaisedButton from '@material-ui/core/RaisedButton';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { ShareButtons, ShareCounts, generateShareIcon } from 'react-share';

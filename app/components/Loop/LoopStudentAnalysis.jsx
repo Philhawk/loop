@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import { Tabs, Tab } from 'material-ui/Tabs';
-import { Card, CardMedia, CardText } from 'material-ui/Card';
+import { Tabs, Tab } from '@material-ui/core/Tabs';
+import { Card, CardMedia, CardText } from '@material-ui/core/Card';
 import { Link } from 'react-router';
 import { Button } from 'react-materialize';
 
