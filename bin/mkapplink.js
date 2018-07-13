@@ -6,8 +6,6 @@ const {resolve} = require('path')
 
 const appLink = resolve(__dirname, '..', 'node_modules', 'APP')
 
-console.log(`I AM THE DIRNAME ${__dirname}`);
-
 const symlinkError = error =>
 `*******************************************************************
 ${appLink} must point to '..'

@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   entry: './app/main.jsx',
   output: {
@@ -10,7 +8,7 @@ module.exports = {
   devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.jsx', '.css'],
-    root: [path.resolve(__dirname, 'node_modules')],
+    modules: ['node_modules'],
   },
   module: {
     rules: [
