@@ -41,13 +41,13 @@ onQuestionCreate(e) {
     })
   }
 
-  handleTouchTap = () => {
+  handleTouchTap() {
     this.setState({
       open: true
     });
   };
 
-  handleRequestClose = () => {
+  handleRequestClose() {
     this.setState({
       open: false,
     });

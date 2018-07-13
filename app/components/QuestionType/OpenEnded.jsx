@@ -28,18 +28,17 @@ class OpenEndedComponent extends Component {
     e.target.answer.value = "";
   }
 
-  handleTouchTap = () => {
+  handleTouchTap() {
     this.setState({
       open: true
     });
-  };
+  }
 
-  handleRequestClose = () => {
+  handleRequestClose() {
     this.setState({
       open: false,
     });
-  };
-
+  }
 
   render() {
     return (
