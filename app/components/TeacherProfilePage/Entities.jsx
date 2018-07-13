@@ -3,7 +3,6 @@ import Button from '@material-ui/core/Button';
 import { Link, browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from '@material-ui/core/Card';
-import ContentAdd from '@material-ui/core/svg-icons/content/add';
 import { fetchUsersByEntity } from '../../reducers/usersList';
 import { fetchEntity } from '../../reducers/selectedEntity';
 

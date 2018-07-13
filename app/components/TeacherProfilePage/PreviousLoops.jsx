@@ -8,7 +8,7 @@ import { createActiveSession } from '../../reducers/session';
 import { fetchAllQuestionsByLectureId, addQuestion } from '../../reducers/questionsList'
 import { fetchLecture, deleteLecture } from '../../reducers/lecture';
 import { fetchLecturesByTeacher, fetchAllLectures } from '../../reducers/lectureList';
-import ContentAdd from '@material-ui/core/svg-icons/content/add';
+import Icon from '@material-ui/core/Icon';
 
 
 const style = {
@@ -52,7 +52,9 @@ class PreviousLoopsComponent extends Component {
       <div id="previous-loops">
         <div className='create-new-loop-from-small-screen'>
            <Button variant="fab" containerElement={<Link to="/create-intro" />} style={style}>
-             <ContentAdd />
+             <Icon>
+              add_circle
+             </Icon>
            </Button>
        </div>
         {
