@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { Button } from 'react-materialize';
+import { Button as RButton } from 'react-materialize';
 import OpenEnded from '../QuestionType/OpenEnded';
 import MultipleChoice from '../QuestionType/MultipleChoice';
 import FillInBlank from '../QuestionType/FillInBlank';
 import uuid from 'uuid';
 
 import { connect } from 'react-redux';
-import FlatButton from '@material-ui/core/FlatButton';
-import RaisedButton from '@material-ui/core/RaisedButton';
+import Button from '@material-ui/core/Button';
 import { createLecture, updateLecture } from '../../reducers/lecture';
 import { createSession, activateSession, deleteSession } from '../../reducers/session';
 import { callAddInitialState, callClearQuestions } from '../../reducers/questionsList';
@@ -184,7 +183,7 @@ class TeacherCreateLoopComponent extends Component {
                    <input id="loop-name" name="loopName" type="text" />
                    <span className="name-loop-font">Describe Your Loop</span>
                    <textarea id="loop-description" name="loopDescription" className="materialize-textarea"></textarea>
-                  <Button className='#0d47a1 blue darken-4' waves='light'>Continue</Button>
+                  <RButton className='#0d47a1 blue darken-4' waves='light'>Continue</RButton>
                </form>
              </div>
              <div className='col s6 m6 l6'>
@@ -205,14 +204,14 @@ class TeacherCreateLoopComponent extends Component {
 
                <div className='button-questions-pad'>
                 <div className='col s4 m4 l4'>
-                  <Button className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onFillInBlank}>Fill in the blank</Button>
+                  <RButton className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onFillInBlank}>Fill in the blank</RButton>
                 </div>
 
                 <div className='col s4 m4 l4'>
-                  <Button className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onMultipleChoice}>Multiple Choice</Button>
+                  <RButton className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onMultipleChoice}>Multiple Choice</RButton>
                 </div>
                 <div className='col s4 m4 l4'>
-                  <Button className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onOpenEnded}>Open Ended</Button>
+                  <RButton className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onOpenEnded}>Open Ended</RButton>
                 </div>
                 </div>
              </div>
@@ -228,7 +227,8 @@ class TeacherCreateLoopComponent extends Component {
               <div className='col s12 m12 l12'>
                  <div className='col s6 m6 l6'>
                     <Link to={`/profile/previousLoops`}>
-                      <RaisedButton
+                      <Button
+                        variant="raised"
                         label={'Save Presentation for later'}
                         primary={true}
                         onClick={this.onSavePresentation}
@@ -237,7 +237,8 @@ class TeacherCreateLoopComponent extends Component {
                   </div>
                   <div className='col s6 m6 l6'>
                     <Link to={`/loop/${this.props.session.sessionString}`}>
-                      <RaisedButton
+                      <Button
+                        variant="raised"
                         label={'Start Presentation'}
                         disabled={ this.props.questionsList.length === 1 ? true : false }
                         primary={true}
@@ -254,7 +255,7 @@ class TeacherCreateLoopComponent extends Component {
                      <span className="card-title">Fill in the blank</span>
                    </div>
                    <div className="card-action">
-                     <Button className='#0d47a1 blue darken-4' waves='light'onTouchTap={this.onFillInBlankNext}>Create</Button>
+                     <RButton className='#0d47a1 blue darken-4' waves='light'onTouchTap={this.onFillInBlankNext}>Create</RButton>
                    </div>
                  </div>
 
@@ -263,7 +264,7 @@ class TeacherCreateLoopComponent extends Component {
                      <span className="card-title">Multiple Choice</span>
                    </div>
                    <div className="card-action">
-                     <Button className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onMultipleChoiceNext}>Create</Button>
+                     <RButton className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onMultipleChoiceNext}>Create</RButton>
                    </div>
                  </div>
 
@@ -272,7 +273,7 @@ class TeacherCreateLoopComponent extends Component {
                      <span className="card-title">Open Ended</span>
                    </div>
                    <div className="card-action">
-                     <Button className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onOpenEndedNext}>Create</Button>
+                     <RButton className='#0d47a1 blue darken-4' waves='light' onTouchTap={this.onOpenEndedNext}>Create</RButton>
                    </div>
                  </div>
 

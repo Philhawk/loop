@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from '@material-ui/core/Card';
-import FlatButton from '@material-ui/core/FlatButton';
+import Button from '@material-ui/core/Button';
 import { Link } from 'react-router';
 import moment from 'moment';
 
@@ -25,8 +25,8 @@ class StudentLandingPageComponent extends Component {
               {session.lecture.description}
             </CardText>
             <CardActions>
-              <FlatButton label="Join Loop" href={session.bitly}> </FlatButton>
-              <FlatButton label={ `Started ${moment(session.timeStarted).from(moment(new Date()))}` }> </FlatButton>
+              <Button variant="flat" label="Join Loop" href={session.bitly}> </Button>
+              <Button variant="flat" label={ `Started ${moment(session.timeStarted).from(moment(new Date()))}` }> </Button>
             </CardActions>
 
           </Card>
@@ -48,7 +48,7 @@ class StudentLandingPageComponent extends Component {
           </CardMedia>
           <CardTitle />
           <CardActions>
-            <FlatButton label="Return Home" href='/'> </FlatButton>
+            <Button variant="flat" label="Return Home" href='/'> </Button>
           </CardActions>
         </Card>
       </div>

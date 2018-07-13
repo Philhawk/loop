@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TeacherPresentTabbedLeft from './TeacherPresentTabbedLeft';
 import TeacherPresentTabbedRight from './TeacherPresentTabbedRight';
 import StudentMoodChart from './StudentMoodChart';
-import {Tabs, Tab} from '@material-ui/core/Tabs';
+import { Tabs, Tab } from '@material-ui/core/Tabs';
 
 export default class TeacherPresentTabbedSection extends Component {
   constructor(props) {

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { Button }  from 'react-materialize';
-import FlatButton from '@material-ui/core/FlatButton';
-import { Link, browserHistory } from 'react-router'
+import { Button } from '@material-ui/core/Button';
+
 import { connect } from 'react-redux'
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from '@material-ui/core/Card';
-import FloatingActionButton from '@material-ui/core/FloatingActionButton';
-import ContentAdd from '@material-ui/core/svg-icons/content/add';
+import { Card, CardActions, CardHeader, CardText } from '@material-ui/core/Card';
 import { fetchUsersByEntity } from '../../reducers/usersList';
 import { removeUserFromDatabase } from '../../reducers/usersList';
 
@@ -38,7 +35,7 @@ class UsersListComponent extends Component {
             <CardText>Click below to create a new user for this entity</CardText>
             <CardText>Place Holder</CardText>
             <CardActions>
-              <FlatButton>Create User</FlatButton>
+              <Button variant="flat">Create User</Button>
             </CardActions>
           </Card>
         </div>
@@ -57,7 +54,7 @@ class UsersListComponent extends Component {
                   Role: {user.role}
                 </CardText>
                 <CardActions>
-                  <FlatButton value={user.id} onClick={this.onDeleteUsersOnClick.bind(this, user.id)}>Delete User</FlatButton>
+                  <Button variant="flat" value={user.id} onClick={this.onDeleteUsersOnClick.bind(this, user.id)}>Delete User</Button>
                 </CardActions>
               </Card>
             </div>

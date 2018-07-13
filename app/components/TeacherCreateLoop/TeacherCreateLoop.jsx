@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Row, Input } from 'react-materialize';
+import { Button } from 'react-materialize';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import Dialog from '@material-ui/core/Dialog';

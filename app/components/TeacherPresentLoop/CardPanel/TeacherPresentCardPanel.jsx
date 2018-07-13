@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { callRemoveQuestion } from '../../../reducers/questionsList';
 import { Link } from 'react-router';
-import RaisedButton from '@material-ui/core/RaisedButton';
 import { Button } from 'react-materialize';
 
 class TeacherPresentCardPanelComponent extends Component {

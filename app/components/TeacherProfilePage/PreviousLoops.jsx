@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { Button }  from 'react-materialize';
-import FlatButton from '@material-ui/core/FlatButton';
+import Button from '@material-ui/core/Button';
 import { Link, browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import uuid from 'uuid';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from '@material-ui/core/Card';
+import { Card, CardActions, CardTitle, CardText } from '@material-ui/core/Card';
 import { createActiveSession } from '../../reducers/session';
 import { fetchAllQuestionsByLectureId, addQuestion } from '../../reducers/questionsList'
 import { fetchLecture, deleteLecture } from '../../reducers/lecture';
 import { fetchLecturesByTeacher, fetchAllLectures } from '../../reducers/lectureList';
-import FloatingActionButton from '@material-ui/core/FloatingActionButton';
 import ContentAdd from '@material-ui/core/svg-icons/content/add';
 
 
@@ -53,9 +51,9 @@ class PreviousLoopsComponent extends Component {
     return (
       <div id="previous-loops">
         <div className='create-new-loop-from-small-screen'>
-           <FloatingActionButton containerElement={<Link to="/create-intro" />} style={style}>
+           <Button variant="fab" containerElement={<Link to="/create-intro" />} style={style}>
              <ContentAdd />
-           </FloatingActionButton>
+           </Button>
        </div>
         {
           this.props.lectureList.map((lecture, i) => (
@@ -66,9 +64,9 @@ class PreviousLoopsComponent extends Component {
                   {lecture.description}
                 </CardText>
                 <CardActions>
-                  <FlatButton value={lecture.id} onClick={this.onStartLoopClick.bind(this, lecture.id)}>Start Loop</FlatButton>
-                  <FlatButton value={lecture.id} onClick={this.onDeleteLoopClick.bind(this, lecture.id)}>Delete Loop</FlatButton>
-                  <FlatButton value={lecture.id} onClick={this.onLoopStatsClick.bind(this, lecture.id)}>See Stats</FlatButton>
+                  <Button variant="flat" value={lecture.id} onClick={this.onStartLoopClick.bind(this, lecture.id)}>Start Loop</Button>
+                  <Button variant="flat" value={lecture.id} onClick={this.onDeleteLoopClick.bind(this, lecture.id)}>Delete Loop</Button>
+                  <Button variant="flat" value={lecture.id} onClick={this.onLoopStatsClick.bind(this, lecture.id)}>See Stats</Button>
                 </CardActions>
               </Card>
             </div>

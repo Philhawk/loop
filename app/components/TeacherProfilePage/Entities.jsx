@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Button }  from 'react-materialize';
-import FlatButton from '@material-ui/core/FlatButton';
+import Button from '@material-ui/core/Button';
 import { Link, browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from '@material-ui/core/Card';
-import FloatingActionButton from '@material-ui/core/FloatingActionButton';
 import ContentAdd from '@material-ui/core/svg-icons/content/add';
 import { fetchUsersByEntity } from '../../reducers/usersList';
 import { fetchEntity } from '../../reducers/selectedEntity';
@@ -44,7 +42,7 @@ class EntitiesComponent extends Component {
                   {entity.type}
                 </CardText>
                 <CardActions>
-                  <FlatButton value={entity.id} onClick={this.onViewUsersClick.bind(this, entity.id)}>View Users</FlatButton>
+                  <Button variant="flat" value={entity.id} onClick={this.onViewUsersClick.bind(this, entity.id)}>View Users</Button>
                 </CardActions>
               </Card>
             </div>
