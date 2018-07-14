@@ -1,6 +1,6 @@
 // outside libraries
 import React from 'react';
-import { Route, IndexRoute, browserHistory, Router } from 'react-router';
+import { Route, browserHistory, Router } from 'react-router';
 import io from 'socket.io-client';
 
 // components
@@ -80,11 +80,9 @@ const onTeacherProfileEnter = () => {
 
 const routes = () => (
   <Router history={browserHistory}>
-    <Route path="/">
-      <IndexRoute component={App} />
+    <Route exact path="/" component={App}>
       <Route path="welcome" component={LoginSignupChoice} />
       <Route path="create-intro" component={TeacherIntro} />
-      { /*TeacherCreateLoop is a backup*/ }
       <Route path="loop/*" component={Loop} onEnter={onLoopEnter} />
       <Route path="studentLoop/:loopUuId" component={StudentLoop} onEnter={onStudentLoopEnter} />
       <Route path="post-loop-analysis" component={LoopAnalysis} onEnter={onLoopFinish} />
