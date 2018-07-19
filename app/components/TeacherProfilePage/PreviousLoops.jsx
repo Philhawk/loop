@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
-import { Link, browserHistory } from 'react-router'
+import { Link, browserHistory } from 'react-router-dom';
 import { connect } from 'react-redux'
 import uuid from 'uuid';
 import { Card, CardActions, CardTitle, CardText } from '@material-ui/core/Card';

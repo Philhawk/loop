@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
-import { Link, browserHistory } from 'react-router'
+import { Link, browserHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from '@material-ui/core/Card';
 import { fetchUsersByEntity } from '../../reducers/usersList';

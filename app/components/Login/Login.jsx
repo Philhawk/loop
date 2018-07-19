@@ -1,7 +1,7 @@
 import { login } from 'APP/app/reducers/auth';
 import React, { Component } from 'react';
 import { Button } from 'react-materialize';
-import { Link, browserHistory } from 'react-router';
+import { Link, Route, browserHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class LoginComponent extends Component {
@@ -14,6 +14,7 @@ class LoginComponent extends Component {
     e.preventDefault();
     this.props.login(e.target.email.value, e.target.password.value)
       .then(() => browserHistory.push('/profile/previousLoops'))
+      // .then(() => <Route path="/profile/previousLoops"/>
       .catch(err => console.log('LOGIN FAILED', err));
   }
 

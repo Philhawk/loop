@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Button, Row, Input}  from 'react-materialize';
 import { login } from 'APP/app/reducers/auth'
-import { Link, browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import Login from './Login/Login';
 import SignUp from './Signup/Signup';

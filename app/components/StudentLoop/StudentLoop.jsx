@@ -4,7 +4,7 @@ import StudentAsk from '../StudentAsk/StudentAsk';
 import StudentMood from '../StudentMood/StudentMood';
 import { callSetCurrentQuestion } from '../../reducers/currentQuestion';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
+import { browserHistory } from 'react-router-dom';
 import { Tabs, Tab } from '@material-ui/core/Tabs';
 
 class StudentLoopComponent extends Component {
