@@ -73,7 +73,7 @@
     "react-modal": "^1.5.2",
     "react-motion": "^0.4.5",
     "react-redux": "^5.0.7",
-    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-share": "^1.11.0",
     "react-smoothie": "^0.2.1",
     "react-tabs": "^0.8.2",
