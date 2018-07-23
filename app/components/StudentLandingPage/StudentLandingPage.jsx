@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, CardActions, CardMedia, CardTitle, CardText } from '@material-ui/core/Card';
+import { Card, CardTitle, CardText } from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import moment from 'moment';
 
@@ -45,7 +50,7 @@ class StudentLandingPageComponent extends Component {
           </CardActions>
         </Card>
       </div>
-    )
+    );
   }
 
   render() {
