@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, CardTitle, CardText } from '@material-ui/core/Card';
+import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
@@ -39,14 +39,23 @@ class StudentLandingPageComponent extends Component {
     return (
       <div className="container">
         <Card className="card-wot">
-          <CardMedia overlay={
-            <CardTitle title="Class is out!" subtitle="There are no active Loops in progress. Come back later" />
-          }>
-            <img src="/class.jpg" />
-          </CardMedia>
-          <CardTitle />
+          <CardMedia
+            title="No Classes Glasses"
+            src="/class.jpg"
+
+          />
+        <CardContent>
+          <Typography gutterBottom variant="headline" component="h2">
+            Class is out!
+          </Typography>
+          <Typography component="p">
+            There are no active Loops in progress. Come back later.
+          </Typography>
+        </CardContent>
           <CardActions>
-            <Button variant="flat" label="Return Home" href='/'> </Button>
+            <Button variant="flat" href='/'>
+              Return Home
+            </Button>
           </CardActions>
         </Card>
       </div>
