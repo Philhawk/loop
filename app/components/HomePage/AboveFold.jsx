@@ -7,7 +7,7 @@ class AboveFold extends Component {
 
   render() {
     return (
-      <div className="container" style={{ paddingBottom: '2em' }}>
+      <div className="container">
         <div className="row">
           <div className="heading-text col s12 m12 l12">
             Loop
@@ -62,14 +62,6 @@ class AboveFold extends Component {
 
         <div className="row padding-rule potato">
           <CarouselVideo />
-          <div className="sub-heading-text col s12 m12 l12">
-            <div className="student-stories-header padding-rule">
-              Student stories
-            </div>
-            <div className="student-stories-explainer padding-rule-less">
-              A realtime teaching tool that allows students and teachers to responsively interact in the classroom
-            </div>
-          </div>
         </div>
       </div>
     );
